@@ -9,7 +9,7 @@ Este repositório é a **fonte da verdade** e o **único lugar** da produção d
 - Aos sábados: envie no chat os roteiros de narração da semana seguinte e salve em `instagram/narracoes/ROTEIROS-semana-NN.md`.
 
 ## Narração (voz Bianca)
-1. Se `ELEVEN_LABS_API_KEY` existir no ambiente: `python3 motion-pro/audio/gen_vo_bianca.py texto.txt saida.mp3` (conta precisa ser paga).
+1. Rode `python3 motion-pro/audio/gen_vo_bianca.py texto.txt saida.mp3`. A chave vem da "API credential" do ambiente de nuvem (cabeçalho `xi-api-key` para `api.elevenlabs.io`, anexado pelo proxy; a sessão não vê a chave) ou da variável `ELEVEN_LABS_API_KEY`. Erro 401 = nenhuma das duas configurada → vá para o passo 2.
    A conta do Davi é paga desde 01/10/2026. Antes de gerar, confira se o mp3 já existe em `instagram/narracoes/` (os da semana 1 já estão lá). Avise o Davi quando os créditos estiverem acabando.
 2. Senão: o Davi sobe `instagram/narracoes/AAAA-MM-DD-r1.mp3` no GitHub ou anexa no chat. Sem o áudio, produza o visual com `estimate_timeline.py` e finalize quando chegar.
 Sincronia: `motion-pro/audio/sync_voice.py` + `word_align.py`. Pronúncia da marca: "Lídimob".
