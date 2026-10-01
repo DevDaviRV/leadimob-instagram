@@ -1,0 +1,24 @@
+# Leadimob · Instagram — instruções para o Claude
+
+Este repositório é a **fonte da verdade** da produção de conteúdo orgânico do @leadimob.ai. Tudo roda na nuvem; não depende do computador do Davi.
+
+## Rotina
+- Por dia: **Reel 1 narrado** (30–40s) · **Reel 2 tipográfico** (15–25s, sem voz) · **Carrossel** (8–10 slides, 1080×1350). Plano em `instagram/PLANO-INSTAGRAM.md`.
+- Produza os posts do **dia seguinte** em `instagram/AAAA-MM-DD/` com `LEGENDAS.md` (legenda, hashtags, horário), MP4s (≤ 20 MB) e `carrossel/slide-NN.png` + `carrossel-editor.html` (Carousel Studio da skill carrossel-pro). Guarde as fontes em `src/`.
+- Entregue no chat (SendUserFile) e faça commit + push na `main`.
+- Aos sábados: envie no chat os roteiros de narração da semana seguinte e salve em `instagram/narracoes/ROTEIROS-semana-NN.md`.
+
+## Narração (voz Bianca)
+1. Se `ELEVEN_LABS_API_KEY` existir no ambiente: `python3 motion-pro/audio/gen_vo_bianca.py texto.txt saida.mp3` (conta precisa ser paga).
+2. Senão: o Davi sobe `instagram/narracoes/AAAA-MM-DD-r1.mp3` no GitHub ou anexa no chat. Sem o áudio, produza o visual com `estimate_timeline.py` e finalize quando chegar.
+Sincronia: `motion-pro/audio/sync_voice.py` + `word_align.py`. Pronúncia da marca: "Lídimob".
+
+## Regras (inegociáveis)
+Leia antes de produzir: `motion-pro/BRAND-MOTION.md`, `motion-pro/ACERTOS.md`, `motion-pro/EVOLUCAO.md` e a skill `leadimob-motion-pro`.
+- Produção 100% em código (three.js/DOM/canvas, Playwright + ffmpeg, trilha em numpy). Sem geradores de terceiros.
+- Sem números inventados, sem "teste grátis", sem preços. LID só como detalhe. Âmbar só para alerta. Texto ≥ 36px nos reels, ≥ 30px no carrossel, margem 72px.
+- CTA educativo: "Comente DIAGNÓSTICO" (isca em `instagram/ISCA-DIAGNOSTICO.md`); produto: "Solicite uma demonstração — link na bio".
+- Cada vídeo supera o anterior: registre técnicas, crítica e aprendizados no EVOLUCAO e correções do Davi no ACERTOS.
+
+## Setup de um ambiente novo
+`./setup.sh` e depois `python3 -m http.server 8126` na raiz; renders com `node motion-pro/engine/render2.js http://localhost:8126/... 30 3 ini fim out.mp4`.

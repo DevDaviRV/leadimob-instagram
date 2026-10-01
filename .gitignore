@@ -1,0 +1,7 @@
+node_modules/
+**/chk/
+**/out/
+**/vo_b/
+*.wav
+build.html
+__pycache__/

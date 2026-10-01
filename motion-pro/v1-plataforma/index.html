@@ -1,0 +1,550 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+:root{--bg:#0A0E14;--s1:#0F1520;--s2:#141B28;--ln:rgba(255,255,255,.10);--tx:#FFFFFF;--t2:#C9D2E0;--t3:#7C8799;--bl:#2563EB;--cy:#22D3EE;--cy2:#7DD3FC;--gr:#34D399;--am:#F59E0B}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg);color:var(--tx);font-family:IN;font-feature-settings:"tnum" 1}
+#c{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.abs{position:absolute}
+.cap{font:600 22px/1 IN;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.wd>span{display:inline-block;will-change:transform}
+#cap .w{display:inline-block;margin-right:.25em;will-change:transform,opacity}
+/* glass cards */
+.card{background:linear-gradient(180deg,rgba(20,27,40,.94),rgba(12,17,26,.94));border:1px solid rgba(125,211,252,.16);border-radius:30px;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.02) inset}
+.hdr{display:flex;align-items:center;gap:16px;font:600 22px/1 IN;letter-spacing:.14em;text-transform:uppercase;color:var(--cy2)}
+.tri{width:22px;height:26px;flex:none}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:16px 26px;border-radius:999px;font:700 30px/1 IN;white-space:nowrap}
+.row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--ln);padding:22px 0;font:500 34px/1.1 IN}
+.row .k{color:var(--t3);font-weight:500}
+.row .v{color:var(--tx);font-weight:700}
+.bub{border-radius:22px;padding:16px 22px 12px;font:500 30px/1.32 IN;max-width:84%;position:relative}
+.bin{background:#202C33;color:#E9EDEF;border-top-left-radius:6px}
+.bout{background:#005C4B;color:#E9EDEF;border-top-right-radius:6px;margin-left:auto}
+.bt{font:400 20px/1 IN;color:rgba(233,237,239,.6);text-align:right;margin-top:6px}
+.kcol{flex:1;background:rgba(255,255,255,.03);border:1px solid var(--ln);border-radius:18px;padding:14px 12px;height:400px;position:relative}
+.kh{font:700 26px/1 IN;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;white-space:nowrap}
+.kph{height:96px;border-radius:12px;background:rgba(255,255,255,.05);margin-bottom:12px}
+.slot{border-radius:10px;height:58px;background:rgba(255,255,255,.04);border:1.5px solid transparent;font:700 22px/58px IN;text-align:center;color:transparent}
+.busy{background:rgba(124,135,153,.20)}
+</style>
+<script src="node_modules/motion/dist/motion.js"></script>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js"}}</script>
+</head><body><div id="st">
+<canvas id="c" width="1080" height="1920"></canvas>
+<!-- atmosphere -->
+<div id="glowA" class="abs" style="left:380px;top:-360px;width:1100px;height:1100px;background:radial-gradient(circle,rgba(37,99,235,.20) 0%,rgba(37,99,235,0) 62%)"></div>
+<div id="glowB" class="abs" style="left:-520px;top:1100px;width:1200px;height:1200px;background:radial-gradient(circle,rgba(34,211,238,.10) 0%,rgba(34,211,238,0) 60%)"></div>
+<div id="dawn" class="abs" style="left:-300px;top:900px;width:1680px;height:1500px;opacity:0;background:radial-gradient(ellipse at 50% 70%,rgba(125,211,252,.30) 0%,rgba(11,92,115,.18) 38%,rgba(10,14,20,0) 70%)"></div>
+<div id="dim" class="abs" style="inset:0;background:#0A0E14;opacity:0"></div>
+<div class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 55%,rgba(0,0,0,.55) 100%)"></div>
+
+<!-- HOOK -->
+<div id="pills" class="abs" style="inset:0"></div>
+<div id="hookShade" class="abs" style="z-index:1050;left:-100px;top:380px;width:1280px;height:820px;background:radial-gradient(ellipse at 40% 50%,rgba(10,14,20,.92) 0%,rgba(10,14,20,.7) 45%,rgba(10,14,20,0) 72%)"></div>
+<div id="hook1" class="abs" style="z-index:1100;left:72px;top:560px;width:960px;font:800 138px/1.0 IN;letter-spacing:-.045em"></div>
+<svg class="abs" width="1080" height="1920" style="z-index:1101;left:0;top:0;pointer-events:none"><line id="strike" stroke="#F59E0B" stroke-width="12" stroke-linecap="round"/></svg>
+<div id="hook2" class="abs" style="z-index:1100;left:72px;top:600px;width:960px;font:800 118px/1.02 IN;letter-spacing:-.045em"></div>
+
+<!-- NIGHT / PHONE -->
+<div id="clockW" class="abs" style="left:0;top:236px;width:1080px;text-align:center">
+  <div id="clockL" class="cap" style="color:var(--t3);font-size:24px">Quarta · 23:48</div>
+  <div id="clock" style="font:800 150px/1 IN;letter-spacing:-.04em;margin-top:14px">23:48</div>
+</div>
+<div id="phWrap" class="abs" style="left:300px;top:440px;width:480px;height:950px;perspective:1800px">
+ <div id="ph" style="position:absolute;inset:0;border-radius:64px;background:#05070B;border:10px solid #1A2230;box-shadow:0 0 0 2px #2A3446,0 60px 120px rgba(0,0,0,.7),0 0 120px rgba(37,99,235,.18);transform-style:preserve-3d;overflow:hidden">
+  <div id="scr" style="position:absolute;inset:0;background:#0B141A;overflow:hidden">
+    <div style="height:56px;display:flex;justify-content:space-between;align-items:center;padding:0 34px;font:600 20px IN;color:#E9EDEF"><span id="scrTime">23:48</span><span style="width:110px;height:30px;border-radius:20px;background:#000"></span><span>5G ▮</span></div>
+    <div style="height:86px;background:#1F2C34;display:flex;align-items:center;gap:16px;padding:0 22px">
+      <div style="width:54px;height:54px;border-radius:50%;background:#2A3942;display:flex;align-items:center;justify-content:center;font:700 24px IN;color:#7DD3FC">M</div>
+      <div><div style="font:600 25px IN;color:#E9EDEF">Mariana</div><div id="scrSub" style="font:400 18px IN;color:#8696A0;margin-top:4px">via anúncio · Sobrado Moema</div></div>
+    </div>
+    <div id="chat" style="position:absolute;left:0;right:0;top:142px;bottom:0;padding:22px 18px;display:flex;flex-direction:column;gap:14px">
+      <div id="m1" class="bub bin" style="font-size:30px">Oi! O sobrado em Moema ainda está disponível?<div class="bt">23:48</div></div>
+      <div id="mAI" class="abs" style="left:0;right:0;top:170px;text-align:center"><span style="background:#182229;color:#7DD3FC;font:600 17px IN;padding:7px 14px;border-radius:10px;letter-spacing:.04em">Leadimob · atendimento automático</span></div>
+      <div id="typ" class="abs" style="right:18px;top:250px;background:#005C4B;border-radius:18px;padding:16px 20px;display:flex;gap:8px"><span class="dt" style="width:12px;height:12px;border-radius:50%;background:#E9EDEF"></span><span class="dt" style="width:12px;height:12px;border-radius:50%;background:#E9EDEF"></span><span class="dt" style="width:12px;height:12px;border-radius:50%;background:#E9EDEF"></span></div>
+      <div id="m2" class="bub bout" style="font-size:30px">Olá, Mariana! Está disponível sim 😊 Você busca para morar ou investir?<div class="bt">23:48 ✓✓</div></div>
+      <div id="m3" class="bub bin" style="font-size:30px">Obrigada, já estou vendo com outro corretor.<div class="bt">07:31</div></div>
+    </div>
+    <div id="spec" style="position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.07) 48%,transparent 56%)"></div>
+  </div>
+ </div>
+</div>
+<div id="warn" class="abs pill" style="z-index:30;left:0;top:0;background:rgba(245,158,11,.14);border:1.5px solid rgba(245,158,11,.7);color:#FBBF24;font-size:28px"><span style="width:14px;height:14px;border-radius:50%;background:#F59E0B"></span><span>Sem resposta</span><span id="warnT" style="font-weight:600;color:#FCD34D">0 min</span></div>
+<div id="fast" class="abs pill" style="z-index:30;left:0;top:0;background:rgba(52,211,153,.13);border:1.5px solid rgba(52,211,153,.75);color:#6EE7B7;font-size:30px"><svg width="30" height="30" viewBox="0 0 30 30"><path d="M6 15 L12.5 21.5 L24 9" fill="none" stroke="#34D399" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>Respondido na hora</div>
+<div id="orbit" class="abs" style="inset:0"></div>
+<div id="h24" class="abs" style="z-index:30;left:0;top:0;width:250px;height:250px">
+ <svg width="250" height="250" style="position:absolute;left:0;top:0"><circle cx="125" cy="125" r="108" fill="rgba(10,14,20,.85)" stroke="rgba(125,211,252,.18)" stroke-width="6"/><circle id="h24a" cx="125" cy="125" r="108" fill="none" stroke="#22D3EE" stroke-width="7" stroke-linecap="round" transform="rotate(-90 125 125)" stroke-dasharray="679" stroke-dashoffset="679"/></svg>
+ <div style="position:absolute;left:0;top:70px;width:250px;text-align:center;font:800 88px/1 IN;letter-spacing:-.04em">24h</div>
+ <div class="cap" style="position:absolute;left:0;top:168px;width:250px;text-align:center;font-size:17px;color:var(--cy2)">7 dias</div>
+</div>
+
+<!-- STATIONS -->
+<div id="stations" class="abs" style="inset:0">
+ <!-- S1 qualifica -->
+ <div id="S1" class="abs card" style="left:0;top:0;width:880px;padding:44px 48px">
+  <div class="hdr"><svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Perfil do lead</div>
+  <div style="display:flex;align-items:center;gap:24px;margin:30px 0 22px">
+   <div style="width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,#1E3A8A,#0B5C73);display:flex;align-items:center;justify-content:center;font:800 40px IN">M</div>
+   <div><div style="font:800 46px/1 IN;letter-spacing:-.02em">Mariana</div><div style="font:500 26px/1 IN;color:var(--t3);margin-top:10px">WhatsApp · via anúncio</div></div>
+  </div>
+  <div id="q1" class="row"><span class="k">Objetivo</span><span class="v">Comprar para morar</span></div>
+  <div id="q2" class="row"><span class="k">Região</span><span class="v">Moema · São Paulo</span></div>
+  <div id="q3" class="row"><span class="k">Orçamento</span><span class="v">até R$ 1,5 mi</span></div>
+  <div id="q4" class="row"><span class="k">Prazo</span><span class="v">próximos 30 dias</span></div>
+  <div style="border-top:1px solid var(--ln);padding-top:26px;margin-top:4px">
+   <div class="cap" style="font-size:19px;color:var(--t3);margin-bottom:16px">Temperatura</div>
+   <div style="display:flex;gap:12px;position:relative">
+    <div id="tp0" style="flex:1;height:64px;border-radius:14px;background:rgba(255,255,255,.05);font:700 26px/64px IN;text-align:center;color:var(--t3)">Frio</div>
+    <div id="tp1" style="flex:1;height:64px;border-radius:14px;background:rgba(255,255,255,.05);font:700 26px/64px IN;text-align:center;color:var(--t3)">Morno</div>
+    <div id="tp2" style="flex:1;height:64px;border-radius:14px;background:rgba(255,255,255,.05);font:700 26px/64px IN;text-align:center;color:var(--t3)">Quente</div>
+    <div id="tpSel" style="position:absolute;top:0;left:0;height:64px;border-radius:14px;border:3px solid #2563EB;box-shadow:0 0 30px rgba(37,99,235,.6)"></div>
+   </div>
+  </div>
+ </div>
+ <div id="S1p" class="abs pill" style="left:0;top:0;background:#0F2A22;border:2px solid #34D399;color:#A7F3D0;font-size:34px;box-shadow:0 20px 60px rgba(52,211,153,.25)"><svg width="34" height="34" viewBox="0 0 30 30"><circle cx="15" cy="15" r="14" fill="#34D399"/><path d="M8 15.5 L13 20 L22 10" fill="none" stroke="#0A0E14" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Lead qualificado</div>
+
+ <!-- S2 imóvel -->
+ <div id="S2" class="abs card" style="left:0;top:0;width:880px;height:820px;padding:44px 48px">
+  <div class="hdr"><svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Seu catálogo</div>
+  <div style="margin-top:26px;height:76px;border-radius:18px;background:rgba(255,255,255,.05);border:1.5px solid rgba(125,211,252,.35);display:flex;align-items:center;gap:16px;padding:0 24px;font:500 29px IN;color:var(--t2)">
+   <svg width="30" height="30" viewBox="0 0 30 30"><circle cx="13" cy="13" r="9" fill="none" stroke="#7DD3FC" stroke-width="3"/><path d="M20 20 L27 27" stroke="#7DD3FC" stroke-width="3" stroke-linecap="round"/></svg><span id="srch"></span><span id="caret" style="width:3px;height:34px;background:#7DD3FC"></span>
+  </div>
+  <div id="grid" style="position:relative;margin-top:26px;height:590px"></div>
+ </div>
+ <div id="S2b" class="abs" style="left:0;top:0;width:470px;background:#005C4B;border-radius:24px;border-top-right-radius:6px;padding:10px;box-shadow:0 30px 70px rgba(0,0,0,.55)">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+   <div id="ph1" style="grid-column:1/3;height:220px;border-radius:16px;background:url(property.jpg) center 42%/cover"></div>
+   <div id="ph2" style="height:130px;border-radius:14px;background:url(property.jpg) 18% 70%/260%"></div>
+   <div id="ph3" style="height:130px;border-radius:14px;background:url(property.jpg) 78% 78%/240%"></div>
+  </div>
+  <div style="font:500 25px/1.3 IN;color:#E9EDEF;padding:12px 8px 2px">Fotos do Sobrado em Moema 📷</div>
+  <div class="bt" style="padding:0 8px 4px">agora ✓✓</div>
+ </div>
+
+ <!-- S3 agenda -->
+ <div id="S3" class="abs card" style="left:0;top:0;width:880px;padding:44px 48px">
+  <div class="hdr"><svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Agenda de visitas</div>
+  <div id="cal" style="display:grid;grid-template-columns:90px repeat(5,1fr);gap:10px;margin-top:30px"></div>
+  <div id="calMsg" class="bub bout" style="font-size:27px;margin-top:28px;max-width:78%">Tenho quinta às 10h ou sexta às 17h. Qual fica melhor pra você?<div class="bt">agora ✓✓</div></div>
+ </div>
+ <div id="S3p" class="abs" style="left:0;top:0;width:760px;display:flex;align-items:center;gap:24px;padding:26px 30px;border-radius:28px;background:#F3F7FB;color:#0A0E14;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 60px rgba(52,211,153,.25)">
+  <div style="width:84px;height:84px;border-radius:22px;background:#DCFCE7;display:flex;align-items:center;justify-content:center"><svg width="46" height="46" viewBox="0 0 30 30"><rect x="4" y="6" width="22" height="20" rx="4" fill="none" stroke="#059669" stroke-width="2.6"/><path d="M4 12 H26 M10 3 V8 M20 3 V8" stroke="#059669" stroke-width="2.6" stroke-linecap="round"/><path d="M10 18 L14 22 L21 15" fill="none" stroke="#059669" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div><div style="font:800 34px/1 IN;color:#047857;letter-spacing:.02em">VISITA AGENDADA</div><div style="font:600 29px/1 IN;color:#334155;margin-top:12px">Quinta, 10:00 · Sobrado Moema</div></div>
+ </div>
+
+ <!-- S4 funil -->
+ <div id="S4" class="abs card" style="left:0;top:0;width:900px;padding:40px 36px">
+  <div class="hdr" style="padding-left:10px"><svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Funil comercial</div>
+  <div id="kb" style="display:flex;gap:12px;margin-top:28px;position:relative">
+   <div class="kcol"><div class="kh">Novo</div><div class="kph"></div><div class="kph"></div><div class="kph" style="opacity:.6"></div></div>
+   <div class="kcol"><div class="kh">Qualificado</div><div class="kph"></div><div class="kph" style="opacity:.6"></div></div>
+   <div class="kcol"><div class="kh">Visita</div><div class="kph"></div></div>
+   <div id="kc" class="abs" style="left:0;top:0;width:196px;padding:14px 14px;border-radius:14px;background:#F3F7FB;color:#0A0E14;box-shadow:0 20px 40px rgba(0,0,0,.5);border-left:6px solid #2563EB">
+    <div style="font:800 32px/1 IN">Mariana</div><div style="font:500 24px/1.2 IN;color:#475569;margin-top:8px">Sobrado · Moema</div>
+    <div id="kcTag" style="margin-top:12px;display:inline-block;font:800 20px/1 IN;padding:9px 12px;border-radius:9px;background:#DBEAFE;color:#1D4ED8">QUENTE</div>
+   </div>
+  </div>
+ </div>
+ <div id="S4r" class="abs card" style="left:0;top:0;width:820px;padding:30px 36px;border-color:rgba(52,211,153,.4)">
+  <div class="cap" style="font-size:20px;color:#6EE7B7">Resumo pronto para o corretor</div>
+  <div id="rs1" style="font:600 31px/1.35 IN;margin-top:18px;color:var(--t2)">• Sobrado 3 suítes em Moema, até R$ 1,5 mi</div>
+  <div id="rs2" style="font:600 31px/1.35 IN;margin-top:8px;color:var(--t2)">• Compra para morar, decide em 30 dias</div>
+  <div id="rs3" style="font:600 31px/1.35 IN;margin-top:8px;color:var(--t2)">• Visita quinta às 10h</div>
+ </div>
+
+ <!-- S5 follow-up -->
+ <div id="S5" class="abs card" style="left:0;top:0;width:880px;padding:44px 48px">
+  <div class="hdr"><svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Follow-up automático</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin:28px 0 26px">
+   <div style="display:flex;align-items:center;gap:22px"><div id="fuAv" style="width:84px;height:84px;border-radius:50%;background:#1E293B;display:flex;align-items:center;justify-content:center;font:800 36px IN;color:#94A3B8">R</div>
+   <div><div style="font:800 42px/1 IN">Rafael</div><div style="font:500 26px/1 IN;color:var(--t3);margin-top:10px">Parou de responder · Pinheiros</div></div></div>
+   <div id="fuSt" class="pill" style="font-size:24px;padding:12px 18px;background:rgba(245,158,11,.14);border:1.5px solid rgba(245,158,11,.7);color:#FBBF24">Sem resposta · 3 dias</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px;background:#0B141A;border-radius:22px;padding:22px">
+   <div id="fu1" class="bub bout" style="font-size:27px">Oi, Rafael! Separei duas opções novas em Pinheiros no seu perfil. Quer ver?<div class="bt">10:02 ✓✓</div></div>
+   <div id="fu2" class="bub bin" style="font-size:27px">Quero sim! Pode mandar 🙌<div class="bt">10:05</div></div>
+  </div>
+ </div>
+
+ <!-- S6 site catálogo -->
+ <div id="S6" class="abs card" style="left:0;top:0;width:880px;padding:0;overflow:hidden">
+  <div style="height:64px;background:#111827;display:flex;align-items:center;gap:12px;padding:0 24px;border-bottom:1px solid var(--ln)">
+   <span style="width:14px;height:14px;border-radius:50%;background:#334155"></span><span style="width:14px;height:14px;border-radius:50%;background:#334155"></span><span style="width:14px;height:14px;border-radius:50%;background:#334155"></span>
+   <div style="flex:1;margin-left:14px;height:38px;border-radius:10px;background:#0A0E14;font:500 20px/38px IN;color:var(--t3);padding:0 16px">seu site catálogo · domínio próprio</div>
+  </div>
+  <div style="padding:30px 36px 36px">
+   <div style="font:800 46px/1.05 IN;letter-spacing:-.02em">Encontre seu próximo imóvel</div>
+   <div style="display:flex;gap:10px;margin-top:18px"><span class="pill" style="font:600 20px IN;padding:10px 16px;background:rgba(37,99,235,.18);color:#93C5FD">Lançamentos</span><span class="pill" style="font:600 20px IN;padding:10px 16px;background:rgba(255,255,255,.06);color:var(--t2)">Moema</span><span class="pill" style="font:600 20px IN;padding:10px 16px;background:rgba(255,255,255,.06);color:var(--t2)">Até R$ 1,5 mi</span></div>
+   <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:24px">
+    <div id="s6a" style="border-radius:20px;background:#F3F7FB;color:#0A0E14;overflow:hidden">
+     <div style="height:230px;background:url(property.jpg) center 45%/cover"></div>
+     <div style="padding:16px 18px"><div style="font:800 26px IN">Sobrado em Moema</div><div style="font:500 20px IN;color:#64748B;margin-top:6px">3 suítes · 280 m² · cód. 1042</div>
+     <div id="s6btn" style="margin-top:14px;height:58px;border-radius:14px;background:#16A34A;color:#fff;font:700 22px/58px IN;text-align:center">Falar no WhatsApp</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+     <div id="s6b" style="flex:1;border-radius:20px;overflow:hidden;background:#141B28"><div id="s6bi" style="height:62%"></div><div style="padding:12px 14px"><div style="height:16px;width:80%;border-radius:6px;background:rgba(255,255,255,.18)"></div><div style="height:12px;width:55%;border-radius:6px;background:rgba(255,255,255,.1);margin-top:10px"></div></div></div>
+     <div id="s6c" style="flex:1;border-radius:20px;overflow:hidden;background:#141B28"><div id="s6ci" style="height:62%"></div><div style="padding:12px 14px"><div style="height:16px;width:70%;border-radius:6px;background:rgba(255,255,255,.18)"></div><div style="height:12px;width:50%;border-radius:6px;background:rgba(255,255,255,.1);margin-top:10px"></div></div></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <svg id="cursor" class="abs" width="60" height="70" viewBox="0 0 30 35" style="left:0;top:0"><path d="M3 2 L3 26 L9.5 20 L14 31 L18.5 29 L14 18.5 L23 18.5 Z" fill="#fff" stroke="#0A0E14" stroke-width="1.8" stroke-linejoin="round"/></svg>
+ <div id="ripple" class="abs" style="left:0;top:0;width:120px;height:120px;border-radius:50%;border:4px solid #fff"></div>
+ <div id="S6m" class="abs" style="left:0;top:0;width:640px">
+  <div class="bub bin" style="font-size:28px;max-width:100%;box-shadow:0 30px 70px rgba(0,0,0,.6)">Olá! Tenho interesse no Sobrado em Moema (cód. 1042).<div class="bt">agora</div></div>
+  <div class="pill" style="margin-top:16px;font-size:26px;padding:14px 22px;background:rgba(37,99,235,.18);border:1.5px solid #2563EB;color:#BFDBFE">Imóvel identificado · novo lead no funil</div>
+ </div>
+</div>
+
+<!-- HUMAN -->
+<div id="hum" class="abs" style="left:90px;top:520px;width:900px">
+ <div id="negB" class="bub bin" style="font-size:32px;max-width:640px;margin-bottom:34px;box-shadow:0 30px 70px rgba(0,0,0,.5)">Gostei muito! Dá pra negociar o valor à vista?<div class="bt">agora</div></div>
+ <div id="push" style="display:flex;gap:26px;padding:34px 36px;border-radius:34px;background:rgba(243,247,251,.97);color:#0A0E14;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 80px rgba(37,99,235,.35)">
+  <div style="width:96px;height:96px;flex:none;border-radius:26px;background:#DBEAFE;display:flex;align-items:center;justify-content:center"><svg width="54" height="54" viewBox="0 0 30 30"><circle cx="15" cy="10" r="5.5" fill="none" stroke="#1D4ED8" stroke-width="2.6"/><path d="M5 27 C6 20 10 17.5 15 17.5 C20 17.5 24 20 25 27" fill="none" stroke="#1D4ED8" stroke-width="2.6" stroke-linecap="round"/></svg></div>
+  <div style="flex:1"><div style="display:flex;justify-content:space-between"><div style="font:800 36px/1 IN;color:#1D4ED8;letter-spacing:.01em">HORA DE NEGOCIAR</div><div style="font:500 22px IN;color:#64748B">agora</div></div>
+  <div style="font:600 31px/1.3 IN;color:#1E293B;margin-top:14px">Mariana quer conversar sobre proposta e condições.</div>
+  <div id="take" style="margin-top:22px;height:74px;border-radius:18px;background:#2563EB;color:#fff;font:700 29px/74px IN;text-align:center;position:relative;overflow:hidden">Assumir conversa<div id="takeSh" style="position:absolute;top:0;left:-40%;width:30%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg)"></div></div></div>
+ </div>
+ <div id="sys" style="margin:34px auto 0;width:max-content;font:600 26px IN;color:#BFDBFE;background:rgba(37,99,235,.16);border:1.5px solid rgba(96,165,250,.6);padding:16px 26px;border-radius:14px;font-size:30px">Você entrou na conversa · IA em pausa</div>
+</div>
+
+<!-- EDITORIAL -->
+<div id="ed" class="abs" style="left:72px;top:250px;width:940px">
+ <div id="ed1" style="font:800 84px/1.04 IN;letter-spacing:-.04em;color:#C9D2E0"></div>
+ <div id="ed2" style="font:800 96px/1.02 IN;letter-spacing:-.045em;margin-top:34px"></div>
+</div>
+<div id="labels" class="abs" style="inset:0"></div>
+
+<!-- NAV + TITLES -->
+<div id="nav" class="abs" style="z-index:40;left:72px;top:206px;width:936px;height:70px"></div>
+<div id="secTitle" class="abs" style="z-index:40;left:72px;top:300px;width:936px;font:800 88px/1.02 IN;letter-spacing:-.045em"></div>
+
+<!-- CTA -->
+<div id="cta" class="abs" style="inset:0">
+ <div id="lgCard" class="abs" style="left:170px;top:700px;width:740px;height:220px;border-radius:40px;background:linear-gradient(180deg,#FFFFFF,#EEF3F9);box-shadow:0 50px 120px rgba(0,0,0,.6),0 0 120px rgba(37,99,235,.28);overflow:hidden">
+  <img id="lg" src="logo.png" style="position:absolute;left:70px;top:38px;width:600px;height:165px">
+ </div>
+ <img id="lid" src="lid.png" class="abs" style="left:800px;top:560px;width:150px">
+ <div id="ctaTag" class="abs" style="left:0;top:960px;width:1080px;text-align:center;font:600 36px/1.3 IN;color:var(--t2)">Corretor digital no WhatsApp<br>para corretores e imobiliárias</div>
+ <div id="btn" class="abs" style="left:140px;top:1140px;width:800px;height:126px;border-radius:30px;background:linear-gradient(180deg,#3B82F6,#2563EB);box-shadow:0 30px 80px rgba(37,99,235,.55);font:800 44px/126px IN;text-align:center;overflow:hidden">Solicitar demonstração<div id="btnSh" style="position:absolute;top:0;left:-40%;width:28%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg)"></div></div>
+ <div id="url" class="abs cap" style="left:0;top:1300px;width:1080px;text-align:center;font-size:28px;color:var(--cy2)">leadimob.com</div>
+</div>
+
+<!-- CAPTIONS -->
+<div id="capBg" class="abs" style="z-index:55;left:0;top:1300px;width:1080px;height:620px;background:linear-gradient(180deg,rgba(10,14,20,0) 0%,rgba(10,14,20,.78) 26%,rgba(10,14,20,.9) 100%)"></div>
+<div id="cap" class="abs" style="z-index:60;left:72px;top:1392px;width:936px;font:700 50px/1.22 IN;letter-spacing:-.01em;text-shadow:0 4px 24px rgba(0,0,0,.8)"></div>
+
+<!-- LOGO-SYMBOL WIPE -->
+<svg id="wipe" class="abs" width="1080" height="1920" viewBox="0 0 1080 1920" style="left:0;top:0;z-index:90">
+ <g id="wg"><rect x="0" y="0" width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#0B5C73"/><polygon points="40,50 40,95 80,95" fill="#22D3EE"/></g>
+</svg>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+await Promise.all(['400 20px IN','500 20px IN','600 20px IN','700 20px IN','800 20px IN'].map(f=>document.fonts.load(f)));
+const TL=__TIMELINE__;const C={};TL.forEach(c=>C[c.i]=c);
+const W=1080,H=1920;const END=C[15].end+2.6;window.DURATION=END;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const eOut=x=>1-Math.pow(1-cl(x),4), eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2}, eIn=x=>Math.pow(cl(x),3), lin=x=>cl(x);
+const P=(t,a,d,e=eOut)=>e((t-a)/d);
+const $=id=>document.getElementById(id);
+const {spring}=window.Motion;
+const mkSp=(k=190,d=17)=>{const s=spring({keyframes:[0,1],stiffness:k,damping:d,mass:1});return ms=>ms<=0?0:s.next(ms).value};
+const sp=mkSp(), spSoft=mkSp(110,16), spSnap=mkSp(320,15), spPop=mkSp(260,11);
+const lerp=(a,b,k)=>a+(b-a)*k;
+const rnd=(i)=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const wt=(ci,pre)=>{const w=C[ci].words.find(w=>w.w.toLowerCase().startsWith(pre));return w?w.t:C[ci].start};
+const S=(el,o,tr)=>{el.style.opacity=o;if(tr!==undefined)el.style.transform=tr;el.style.visibility=o>0.002?'visible':'hidden'};
+
+/* ---------------- three.js world ---------------- */
+const r=new THREE.WebGLRenderer({canvas:$('c'),antialias:true,preserveDrawingBuffer:true,alpha:true});
+r.setPixelRatio(1);r.setSize(W,H,false);r.setClearColor(0x0A0E14,0);
+const scene=new THREE.Scene();scene.fog=new THREE.Fog(0x0A0E14,14,70);
+const cam=new THREE.PerspectiveCamera(38,W/H,0.1,400);
+// dot floor
+{const pts=[];for(let x=-30;x<=100;x+=1.1)for(let z=-34;z<=12;z+=1.1)pts.push(x,0,z);
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pts,3));
+ scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0x2A3B55,size:2.2,sizeAttenuation:false,transparent:true,opacity:.75})));}
+// dust particles
+const NP=420;const dustG=new THREE.BufferGeometry();const dustBase=new Float32Array(NP*3);
+for(let i=0;i<NP;i++){dustBase[i*3]=-30+rnd(i)*130;dustBase[i*3+1]=0.4+rnd(i+900)*9;dustBase[i*3+2]=-22+rnd(i+1800)*30}
+dustG.setAttribute('position',new THREE.Float32BufferAttribute(dustBase.slice(),3));
+const dust=new THREE.Points(dustG,new THREE.PointsMaterial({color:0x7DD3FC,size:2.6,sizeAttenuation:false,transparent:true,opacity:.5}));scene.add(dust);
+// journey ribbon
+const SX=[12,24,36,48,60,72];const HX=84;
+const curve=new THREE.CatmullRomCurve3([[-2,0.03,1.5],[4,0.03,0.6],[12,0.03,0],[18,0.03,0.9],[24,0.03,0],[30,0.03,-0.9],[36,0.03,0],[42,0.03,0.9],[48,0.03,0],[54,0.03,-0.9],[60,0.03,0],[66,0.03,0.9],[72,0.03,0],[78,0.03,-0.7],[84,0.03,0]].map(p=>new THREE.Vector3(...p)));
+function ribbon(w,col,op){const N=600;const pos=[],idx=[];for(let i=0;i<=N;i++){const p=curve.getPointAt(i/N),tg=curve.getTangentAt(i/N);const n=new THREE.Vector3(-tg.z,0,tg.x).normalize().multiplyScalar(w/2);pos.push(p.x+n.x,p.y,p.z+n.z,p.x-n.x,p.y,p.z-n.z);if(i<N){const a=i*2;idx.push(a,a+1,a+2,a+1,a+3,a+2)}}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);g.setDrawRange(0,0);
+ const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:op,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));scene.add(m);m.userData.N=N;return m}
+const rbCore=ribbon(0.07,0x7DD3FC,1),rbGlow=ribbon(0.5,0x22D3EE,.22),rbGlow2=ribbon(1.6,0x2563EB,.10);
+const uAt=x=>{let lo=0,hi=1;for(let k=0;k<30;k++){const m=(lo+hi)/2;if(curve.getPointAt(m).x<x)lo=m;else hi=m}return lo};
+// station rings
+const rings=[...SX,HX].map((x,i)=>{const g=new THREE.Group();
+ const m1=new THREE.Mesh(new THREE.RingGeometry(0.55,0.62,64),new THREE.MeshBasicMaterial({color:0x22D3EE,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));
+ const m2=new THREE.Mesh(new THREE.CircleGeometry(0.2,40),new THREE.MeshBasicMaterial({color:0x7DD3FC,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false}));
+ const m3=new THREE.Mesh(new THREE.RingGeometry(0.62,1.6,64),new THREE.MeshBasicMaterial({color:0x2563EB,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));
+ [m1,m2,m3].forEach(m=>{m.rotation.x=-Math.PI/2;g.add(m)});m2.position.y=0.005;g.position.set(x,0.04,0);scene.add(g);
+ // vertical beam
+ const bm=new THREE.Mesh(new THREE.PlaneGeometry(0.05,6),new THREE.MeshBasicMaterial({color:0x7DD3FC,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false}));bm.position.set(x,3,0);scene.add(bm);
+ return {g,m1,m2,m3,bm,x}});
+// pulse sprite
+const pulseTex=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.2,'rgba(125,211,252,.9)');gr.addColorStop(.5,'rgba(34,211,238,.25)');gr.addColorStop(1,'rgba(34,211,238,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(cv)})();
+const pulses=[0,1,2].map(()=>{const s=new THREE.Sprite(new THREE.SpriteMaterial({map:pulseTex,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));s.scale.set(1.2,1.2,1);scene.add(s);return s});
+
+/* ---------------- camera ---------------- */
+const TR=0.6; // station travel time
+const st=[7,8,9,10,11,12];
+const camK=[];
+const push=(t,p,l)=>camK.push([t,p,l]);
+push(0,[-12,3.4,17],[-12,3.2,0]);
+push(C[2].end,[-12,2.8,12.5],[-12,2.9,0]);
+push(C[3].start-0.1,[0,2.9,13],[0,2.7,0]);
+push(C[4].end+0.2,[0.3,2.7,11.4],[0,2.6,0]);
+push(C[5].start-0.05,[0,3.0,12],[0,2.6,0]);
+push(C[6].end+0.1,[1.2,3.6,11.2],[0.3,2.6,0]);
+st.forEach((ci,k)=>{const x=SX[k];const a=C[ci].start-0.15;push(a,[[x-1.1,3.4,9.6],[x-1.6,2.4,10.2],[x-0.9,3.4,9.6],[x-1.8,3.0,9.8],[x-0.2,3.8,9.4],[x-1.4,3.5,9.8]][k],[x,2.4,0]);const nxt=(k<5?C[st[k+1]].start-0.15:C[13].start-0.15)-TR;push(nxt,[[x-0.45,3.2,8.7],[x-0.25,2.9,8.4],[x+2.4,3.0,9.2],[x-0.1,4.6,8.9],[x-2.2,2.6,9.0],[x-0.2,1.9,8.6]][k],[x,2.4,0])});
+push(C[13].start-0.28,[HX-1,3.2,10],[HX,2.4,0]);
+push(C[13].end,[HX-0.4,3.0,9.2],[HX,2.4,0]);
+push(C[14].start+0.45,[4,7.5,10],[44,0,-1]);
+push(C[15].start-0.2,[1,8.5,11],[44,0,-1]);
+push(END,[-1,9,12],[44,0,-1]);
+function camAt(t){let i=0;while(i<camK.length-2&&t>camK[i+1][0])i++;const a=camK[i],b=camK[i+1];const k=eIO((t-a[0])/(b[0]-a[0]));
+ const p=a[1].map((v,j)=>lerp(v,b[1][j],k)),l=a[2].map((v,j)=>lerp(v,b[2][j],k));p[0]+=Math.sin(t*0.9)*0.05;p[1]+=Math.sin(t*1.3+1)*0.05;return {p,l}}
+const proj=v=>{const q=v.clone().project(cam);return [(q.x+1)/2*W,(1-q.y)/2*H,q.z]};
+
+/* ---------------- DOM builders ---------------- */
+function kin(el,words,t,br=[],cls=''){if(!el._b){el.innerHTML=words.map((w,i)=>`<span class="wd" style="margin-right:.22em"><span id="${el.id}_${i}">${w.w}</span></span>`+(br.includes(i)?'<br>':'')).join('');el._b=1}
+ words.forEach((w,i)=>{const v=sp((t-w.t+0.02)*1000);const q=$(el.id+'_'+i).style;q.transform=`translateY(${(1-v)*145}%)`;q.opacity=v>0.01?1:0})}
+// hook pills
+const PL=['Ainda está disponível?','Qual o valor do condomínio?','Aceita financiamento?','Quero agendar uma visita','Tem vaga de garagem?','Pode me mandar mais fotos?','Qual a metragem?','Ainda tem unidade?'];
+const NPL=26;$('pills').innerHTML=Array.from({length:NPL},(_,i)=>`<div id="pl${i}" class="abs" style="left:0;top:0;width:560px;display:flex;gap:18px;align-items:center;padding:20px 24px;border-radius:26px;background:rgba(20,27,40,.92);border:1px solid rgba(125,211,252,.18);transform-origin:0 0">
+<div id="pli${i}" style="width:56px;height:56px;flex:none;border-radius:16px;background:#1f9d57;display:flex;align-items:center;justify-content:center"><svg width="32" height="32" viewBox="0 0 30 30"><path d="M15 3 C8.4 3 3 8.1 3 14.5 C3 17 3.8 19.2 5.2 21 L4 27 L10.1 25.4 C11.6 26.1 13.3 26.5 15 26.5 C21.6 26.5 27 21.4 27 15 C27 8.6 21.6 3 15 3 Z" fill="#fff"/></svg></div>
+<div style="min-width:0"><div style="display:flex;gap:10px;align-items:center"><span style="font:700 24px IN;color:#fff">Novo lead</span><span id="plt${i}" style="font:600 20px IN;color:#7C8799">· WhatsApp</span></div><div style="font:500 26px/1.2 IN;color:#C9D2E0;margin-top:6px;white-space:nowrap">${PL[i%PL.length]}</div></div></div>`).join('');
+const plData=Array.from({length:NPL},(_,i)=>({x:-20.5+rnd(i+3)*14.5,y:-0.5+rnd(i+50)*7.6,z0:rnd(i+90),v:2.2+rnd(i+7)*1.6}));
+// orbit property cards (illustrated)
+function illus(seed,w=300,h=190){const cv=document.createElement('canvas');cv.width=w;cv.height=h;const g=cv.getContext('2d');
+ const sky=g.createLinearGradient(0,0,0,h);sky.addColorStop(0,['#0B5C73','#1E3A8A','#084255','#1E293B'][seed%4]);sky.addColorStop(1,'#0A0E14');g.fillStyle=sky;g.fillRect(0,0,w,h);
+ const n=3+seed%3;for(let i=0;i<n;i++){const bw=w*(0.16+rnd(seed*7+i)*0.2),bh=h*(0.35+rnd(seed*13+i)*0.5),bx=rnd(seed*3+i*5)*(w-bw),by=h-bh;
+  g.fillStyle=`rgba(${200+i*10},${215+i*6},235,${0.10+i*0.05})`;g.fillRect(bx,by,bw,bh);
+  g.fillStyle='rgba(125,211,252,.35)';for(let yy=by+12;yy<h-10;yy+=18)for(let xx=bx+8;xx<bx+bw-10;xx+=16)if(rnd(xx*yy+seed)>.45)g.fillRect(xx,yy,7,9)}
+ g.fillStyle='rgba(10,14,20,.5)';g.fillRect(0,h-16,w,16);return cv.toDataURL()}
+const ILL=[0,1,2,3,4,5,6,7].map(i=>illus(i+1));
+$('s6bi').style.background=`url(${ILL[2]}) center/cover`;$('s6ci').style.background=`url(${ILL[5]}) center/cover`;
+const OC=[{t:'Sobrado · Moema',s:'3 suítes · 280 m²',img:'url(property.jpg) center 42%/cover'},{t:'Apto · Pinheiros',s:'2 quartos · 78 m²'},{t:'Casa · Alphaville',s:'4 suítes · 410 m²'},{t:'Studio · Vila Madalena',s:'1 quarto · 34 m²'},{t:'Cobertura · Itaim',s:'3 suítes · 220 m²'},{t:'Apto · Vila Mariana',s:'3 quartos · 96 m²'}];
+$('orbit').innerHTML=OC.map((o,i)=>`<div id="oc${i}" class="abs" style="left:0;top:0;width:300px;border-radius:22px;overflow:hidden;background:#F3F7FB;color:#0A0E14;box-shadow:0 24px 60px rgba(0,0,0,.55);transform-origin:50% 50%"><div style="height:170px;background:${o.img||`url(${ILL[i]}) center/cover`}"></div><div style="padding:14px 16px"><div style="font:800 23px IN">${o.t}</div><div style="font:500 18px IN;color:#64748B;margin-top:5px">${o.s}</div></div></div>`).join('');
+// S2 grid
+const GC=[{t:'Sobrado · Moema',s:'3 suítes · 280 m² · 4 vagas',p:'R$ 1.450.000',img:'url(property.jpg) center 42%/cover',hit:1},{t:'Apto · Moema',s:'2 quartos · 70 m²',p:'R$ 890.000'},{t:'Casa · Brooklin',s:'4 quartos · 300 m²',p:'R$ 2.100.000'},{t:'Sobrado · Campo Belo',s:'3 suítes · 250 m²',p:'R$ 1.380.000'},{t:'Apto · Moema',s:'3 quartos · 110 m²',p:'R$ 1.250.000'},{t:'Studio · Moema',s:'1 quarto · 32 m²',p:'R$ 520.000'}];
+$('grid').innerHTML=GC.map((o,i)=>`<div id="gc${i}" class="abs" style="left:${(i%3)*268}px;top:${Math.floor(i/3)*300}px;width:250px;height:282px;border-radius:18px;overflow:hidden;background:#F3F7FB;color:#0A0E14;transform-origin:0 0"><div id="gci${i}" style="height:150px;background:${o.img||`url(${ILL[(i+3)%8]}) center/cover`}"></div><div style="padding:12px 14px"><div class="gt" style="font:800 21px IN;white-space:nowrap">${o.t}</div><div class="gs" style="font:500 16px IN;color:#64748B;margin-top:5px;white-space:nowrap">${o.s}</div><div class="gp" style="font:800 19px IN;color:#1D4ED8;margin-top:8px">${o.p}</div></div></div>`).join('');
+// S3 calendar
+{const days=['Seg','Ter','Qua','Qui','Sex'],hrs=['09h','10h','14h','17h'];let h='<div></div>'+days.map(d=>`<div style="font:700 22px IN;color:var(--t3);text-align:center;letter-spacing:.06em">${d.toUpperCase()}</div>`).join('');
+ const busy=new Set(['0-0','1-1','2-0','0-2','3-2','4-0','1-3','2-3','4-2']);
+ hrs.forEach((hh,ri)=>{h+=`<div style="font:600 22px/58px IN;color:var(--t3)">${hh}</div>`;days.forEach((d,ci)=>{h+=`<div id="sl${ci}-${ri}" class="slot ${busy.has(ci+'-'+ri)?'busy':''}"></div>`})});$('cal').innerHTML=h}
+const OFFER=[['2-2','Qua 14h'],['3-1','Qui 10h'],['4-3','Sex 17h']];
+// nav
+const NAVL=['Qualifica','Imóvel','Visita','Funil','Follow-up','Site'];const NX=[0,187,374,561,748,936];
+$('nav').innerHTML=`<div style="position:absolute;left:0;top:14px;width:936px;height:2px;background:rgba(255,255,255,.12)"></div><div id="navF" style="position:absolute;left:0;top:14px;height:2px;width:0;background:#22D3EE;box-shadow:0 0 12px #22D3EE"></div>`+
+ NAVL.map((s,i)=>`<div id="nd${i}" style="position:absolute;left:${NX[i]-8}px;top:7px;width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:#0A0E14"></div><div id="nl${i}" class="cap" style="position:absolute;${i==5?'right:0;':i==0?'left:0;':'left:'+(NX[i]-90)+'px;width:180px;text-align:center;'}top:38px;font-size:20px;letter-spacing:.05em;color:#5B6678">${s}</div>`).join('');
+// crane labels
+const LBL=['Qualifica','Imóvel','Visita','Funil','Follow-up','Site','Você'];
+$('labels').innerHTML=LBL.map((s,i)=>`<div id="lb${i}" class="abs cap" style="left:0;top:0;font-size:28px;color:${i==6?'#fff':'#7DD3FC'};transform:translate(-50%,0);padding:8px 14px;border-radius:10px;background:rgba(10,14,20,.8);border:1px solid rgba(125,211,252,.3)">${s}</div>`).join('');
+// section titles
+const TITLES=[
+ {a:C[5].start-0.1,b:C[6].end+0.35,t:'Atendimento na hora'},
+ {a:C[7].start-0.6,b:C[8].start-0.72,t:'Qualifica cada lead'},
+ {a:C[8].start-0.6,b:C[9].start-0.72,t:'O imóvel certo'},
+ {a:C[9].start-0.6,b:C[10].start-0.72,t:'Visita agendada'},
+ {a:C[10].start-0.6,b:C[11].start-0.72,t:'Funil sempre em dia'},
+ {a:C[11].start-0.6,b:C[12].start-0.72,t:'Ninguém esquecido'},
+ {a:C[12].start-0.6,b:C[13].start-0.62,t:'Site que capta leads'},
+ {a:C[13].start-0.5,b:C[13].end+0.2,t:'Você no controle'},
+];
+// captions
+const KEY=new Set(['whatsapp,','hora.','catálogo.','qualifica.','imóvel','fotos.','agendada.','funil','resumo','follow-up','esfriou.','site','leads.','negociar,','você.','ninguém','outro']);
+let capBuilt=null;
+function captions(t){const e=$('cap');let cur=null;for(const c of TL){if(t>=c.start-0.12&&t<c.end+0.4)cur=c}
+ if(!cur||[1,2,14,15].includes(cur.i)){e.style.opacity=0;$('capBg').style.opacity=0;return}
+ if(capBuilt!==cur.i){e.innerHTML=cur.words.map((w,i)=>`<span class="w" id="cw${i}">${w.w}</span>`).join('');capBuilt=cur.i}
+ e.style.opacity=1-P(t,cur.end+0.15,0.22,eIn);$('capBg').style.opacity=e.style.opacity;
+ cur.words.forEach((w,i)=>{const v=spSnap((t-w.t+0.03)*1000);const s=$('cw'+i).style;const on=t>=w.t-0.03;s.opacity=on?cl(v*1.5):0;s.transform=`translateY(${(1-v)*16}px)`;
+  s.color=KEY.has(w.w.toLowerCase())?'#7DD3FC':(on&&t<w.t+0.3?'#FFFFFF':'#DCE3EE')})}
+
+/* ---------------- station placement ---------------- */
+function place(el,k,t,dy=0,w=880,h=null){const [x,y]=proj(new THREE.Vector3(SX[k],2.4,0));const dist=cam.position.distanceTo(new THREE.Vector3(SX[k],2.4,0));const s=9.9/dist;
+ const hh=h||el.offsetHeight;const rot=cl((x-540)/540,-1,1)*-16;return {x,y,s,tr:`translate(${x-w/2}px,${y-hh/2+dy}px) perspective(1600px) rotateY(${rot}deg) scale(${s})`}}
+function stVis(k,t){const ci=st[k];const a=C[ci].start-0.15-TR;const nx=(k<5?C[st[k+1]].start:C[13].start)-0.15-TR;const v=spSoft((t-a)*1000);const o=P(t,nx+0.35,0.35,eIn);return {v:cl(v),o,a,nx}}
+
+/* ---------------- master render ---------------- */
+const beforeWipeG=t=>t<C[5].start-0.28;
+window.render=function(t){
+ const {p,l}=camAt(t);cam.position.set(...p);cam.lookAt(...l);cam.updateMatrixWorld();
+ // dust drift
+ {const pa=dustG.attributes.position;for(let i=0;i<NP;i++){pa.array[i*3+1]=dustBase[i*3+1]+Math.sin(t*0.5+i)*0.25;pa.array[i*3]=dustBase[i*3]+Math.sin(t*0.3+i*1.7)*0.3}pa.needsUpdate=true}
+ // ribbon progress: starts drawing at C5 (atendimento) and follows the camera; full at C14
+ let rx=-3;if(t>C[5].start)rx=lerp(-2,6,P(t,C[5].start,1.5,eIO));if(t>C[7].start-1.1)rx=Math.max(rx,cam.position.x+1.1+2.5);if(t>C[13].start-1)rx=Math.max(rx,HX);
+ const fullK=P(t,C[14].start,1.2,eIO);const u=t<C[5].start?0:uAt(rx);
+ [rbCore,rbGlow,rbGlow2].forEach(m=>{m.geometry.setDrawRange(0,Math.floor(u*m.userData.N)*6);m.visible=u>0});
+ rbGlow.material.opacity=.22+.1*fullK;rbCore.material.opacity=1;
+ pulses.forEach((s,i)=>{const uu=((t*0.09+i/3)%1)*u;const pp=curve.getPointAt(Math.max(0.0001,uu));s.position.set(pp.x,0.25,pp.z);s.material.opacity=u>0.02?(0.9):0;s.scale.setScalar(0.8+0.2*Math.sin(t*6+i))});
+ rings.forEach((rg,i)=>{const tt=i<6?C[st[i]].start-0.2:C[13].start-0.2;const v=P(t,tt,0.6);const hot=i<6?cl(1-P(t,C[st[i]].end+0.4,1.0,eIO)):1;const gl=Math.max(hot,fullK*0.8);
+  rg.m1.material.opacity=v*(0.5+0.5*gl);rg.m2.material.opacity=v*(0.6+0.4*gl);rg.m3.material.opacity=v*0.35*gl*(0.7+0.3*Math.sin(t*4+i));
+  const ps=1+0.12*Math.sin(t*3+i);rg.g.scale.setScalar(ps);rg.bm.material.opacity=0});
+ scene.fog.far=lerp(70,150,P(t,C[13].end,1.0,eIO));r.render(scene,cam);
+
+ /* atmosphere */
+ const morning=P(t,C[4].start,1.3,eIO)*(1-P(t,C[5].start-0.3,0.4,eIO));$('dawn').style.opacity=morning;
+ $('glowA').style.transform=`translate(${Math.sin(t*0.3)*40}px,${Math.cos(t*0.25)*30}px)`;
+ $('dim').style.opacity=Math.min(1,0.72*P(t,C[15].start-0.6,0.8,eIO)+P(t,END-0.55,0.55,lin));
+
+ /* ---------- HOOK ---------- */
+ const hookEnd=C[2].end+0.25;const hk=1-P(t,hookEnd,0.3,eIn);
+ kin($('hook1'),C[1].words.map((w,i)=>({w:w.w.toUpperCase(),t:i<2?-0.5+i*0.08:w.t-0.14})),t,[1,3]);
+ const h1out=P(t,C[2].start-0.18,0.25,eIn);S($('hook1'),1-h1out,`translateY(${-70*h1out}px) scale(${1+0.05*P(t,0,2.2,lin)})`);$('hook1').style.transformOrigin='0 0';
+ // strike through MAIS LEADS
+ {const a=$('hook1_4'),b=$('hook1_5');const sp1=P(t,wt(1,'leads')+0.2,0.28,eIO);
+  if(a&&b){const ra=a.getBoundingClientRect(),rb=b.getBoundingClientRect();const y=ra.top+ra.height*0.52;const x1=ra.left-8,x2=x1+(rb.right-ra.left+16)*sp1;
+   const s=$('strike');s.setAttribute('x1',x1);s.setAttribute('y1',y);s.setAttribute('x2',x2);s.setAttribute('y2',y);s.style.opacity=sp1>0.01?(1-h1out):0;
+   a.style.color=b.style.color=sp1>0.3?'#8A93A3':'#7DD3FC'}}
+ kin($('hook2'),C[2].words.map(w=>({w:w.w.toUpperCase(),t:w.t-0.1})),t,[1,3]);
+ S($('hook2'),t>C[2].start-0.3?hk:0,`translateY(${-60*(1-hk)}px) scale(${1+0.03*P(t,C[2].start,2.5,lin)})`);
+ {const per=$('hook2_3');if(per)per.style.color=t>wt(2,'perder')?'#F59E0B':'#fff';['hook2_4','hook2_5','hook2_6','hook2_7'].forEach(id=>{const e=$(id);if(e)e.style.color='#7DD3FC'})}
+ $('hookShade').style.opacity=hk;
+ // pills storm
+ const lose=P(t,wt(2,'perder'),0.5,eIO);const pillsOut=P(t,C[3].start-0.4,0.4,eIn);
+ for(let i=0;i<NPL;i++){const d=plData[i];const z=-30+(((d.z0*34+(t+0.5)*d.v*1.0)%34)+34)%34;const y=d.y-lose*lose*(1.5+rnd(i)*3)*P(t,wt(2,'perder'),1.6,lin)*3;
+  const [x,yy,qz]=proj(new THREE.Vector3(d.x,y,z));const dist=cam.position.z-z;const s=cl(22/Math.max(0.5,dist),0,2.2);const e=$('pl'+i);
+  const vis=dist>5&&qz<1;const fade=cl((dist-5)/3)*cl((48-dist)/6)*(1-pillsOut)*(1-0.4*lose);
+  S(e,vis?fade:0,`translate(${x}px,${yy}px) scale(${s})`);e.style.zIndex=Math.round(1000-dist*10);
+  e.style.filter=lose>0.02?`grayscale(${lose})`:'none';$('plt'+i).textContent=lose>0.5?'· sem resposta':'· WhatsApp';$('plt'+i).style.color=lose>0.5?'#F59E0B':'#7C8799'}
+
+ /* ---------- NIGHT / PHONE ---------- */
+ const phIn=sp((t-(C[3].start-0.35))*1000);const phHide=P(t,C[7].start-0.7,0.4,eIn);
+ const wipeMid=C[5].start-0.28;
+ const orbitK=P(t,wt(6,'catálogo')-0.2,0.8,eIO);
+ const push=beforeWipeG(t)?(0.14*P(t,C[3].start,5.8,eIO)):(0.24*P(t,wipeMid,3.2,eIO));const phScale=lerp(0.86,1,cl(phIn))*(1+push)*(1-0.2*orbitK);const phY=lerp(160,0,cl(phIn))+orbitK*40-phHide*200;
+ const nightAct=t>C[3].start-0.5&&t<C[7].start;
+ const spin=P(t,wt(4,'manhã')-0.35,1.0,eIO);const rotY=(t<wipeMid?lerp(-22,-14,P(t,C[3].start,3,lin))+18*Math.sin(Math.PI*spin):lerp(18,-10,P(t,wipeMid,1.4,eOut)))+Math.sin(t*0.8)*2;
+ S($('phWrap'),nightAct?cl(phIn)*(1-phHide):0,`translateY(${phY}px) scale(${phScale})`);
+ $('ph').style.transform=`rotateY(${rotY}deg) rotateX(7deg)`;
+ $('spec').style.transform=`translateX(${-200+((t*120)%700)}px)`;
+ const beforeWipe=t<wipeMid;
+ // messages
+ S($('m1'),P(t,C[3].start+0.1,0.3),`translateY(${(1-sp((t-C[3].start-0.1)*1000))*30}px)`);
+ const m3t=wt(4,'lead');S($('m3'),beforeWipe?P(t,m3t,0.3):0,`translateY(${(1-sp((t-m3t)*1000))*30}px)`);
+ const m2t=wt(5,'atende')+0.05;{const ty=$('typ');const on=!beforeWipe&&t>C[5].start-0.1&&t<m2t;S(ty,on?1:0);ty.querySelectorAll('.dt').forEach((d,i)=>d.style.opacity=0.35+0.65*Math.max(0,Math.sin(t*9-i*0.9)))}S($('m2'),beforeWipe?0:P(t,m2t,0.25),`translateY(${(1-spSnap((t-m2t)*1000))*40}px)`);
+ S($('mAI'),beforeWipe?0:P(t,m2t-0.15,0.25));$('mAI').style.top='190px';$('m2').style.marginTop='40px';
+ $('ph').style.filter=beforeWipe?`grayscale(${0.8*P(t,wt(4,'outro'),0.6)}) brightness(${1-0.35*P(t,wt(4,'outro'),0.6)})`:'none';
+ $('scrTime').textContent=beforeWipe&&t>C[4].start?'07:31':'23:48';
+ $('scrSub').textContent=beforeWipe?'via anúncio · Sobrado Moema':'via anúncio · Sobrado Moema';
+ // clock
+ {const ck=$('clockW');const ci=sp((t-(C[3].start-0.3))*1000);const co=P(t,C[4].end+0.25,0.3,eIn)+(t>wipeMid?1:0);S(ck,cl(ci)*(1-cl(co)),`translateY(${(1-ci)*-30}px)`);
+  const k=P(t,wt(4,'manhã')-0.35,1.0,eIO);const k0=P(t,wt(3,'ninguém'),C[4].start-wt(3,'ninguém'),lin);const mins=Math.round(23*60+48+k0*9+k*454)%1440;const hh=String(Math.floor(mins/60)).padStart(2,'0'),mm=String(mins%60).padStart(2,'0');$('clock').textContent=`${hh}:${mm}`;
+  $('clockL').textContent=k<0.5?'Quarta · noite':'Quinta · manhã';$('clock').style.color=k>0.99?'#FCD34D':'#fff'}
+ // warn badge
+ {const [px,py]=[W/2,0];const a=wt(3,'ninguém');const v=spPop((t-a)*1000);const o=P(t,C[4].end+0.25,0.3,eIn)+(t>wipeMid?1:0);
+  const k=P(t,wt(4,'manhã')-0.35,1.0,eIO);const k0=P(t,wt(3,'ninguém'),C[4].start-wt(3,'ninguém'),lin);const m=Math.round(1+k0*9+k*453);$('warnT').textContent=m<60?`${m} min`:`${Math.floor(m/60)}h ${String(m%60).padStart(2,'0')}min`;
+  const ww=$('warn').offsetWidth;S($('warn'),cl(v)*(1-cl(o)),`translate(${W/2-ww/2}px,${1300+(1-v)*30}px) scale(${0.8+0.2*v})`)}
+ // fast pill
+ {const a=wt(5,'hora.');const v=spPop((t-a)*1000);const fw=$('fast').offsetWidth;S($('fast'),t>wipeMid?cl(v)*(1-P(t,wt(6,'catálogo')-0.3,0.3,eIn)):0,`translate(${W/2-fw/2}px,${1300+(1-v)*30}px) scale(${0.8+0.2*v})`)}
+ // orbit cards around phone
+ {const on=orbitK*(1-phHide);const cx=540,cy=phY+915;for(let i=0;i<6;i++){const ang=i/6*Math.PI*2+t*0.55+(1-orbitK)*1.5;const R=lerp(160,330,orbitK),Rz=Math.sin(ang);
+   const x=cx+Math.cos(ang)*R,y=cy+Math.sin(ang)*R*0.42;const s=0.72+0.26*(Rz+1)/2;const e=$('oc'+i);
+   const eo=cl(sp((t-(wt(6,'catálogo')-0.2+i*0.07))*1000));S(e,on*eo*(0.55+0.45*(Rz+1)/2),`translate(${x-150}px,${y-150}px) scale(${s*eo})`);e.style.zIndex=Rz>0?30:1}
+  $('phWrap').style.zIndex=10;
+  const v=sp((t-(wt(6,'vinte')-0.1))*1000);const o=P(t,C[7].start-0.6,0.3,eIn);S($('h24'),cl(v)*(1-o),`translate(${790}px,${400+(1-v)*40}px) scale(${0.7+0.3*v})`);
+  $('h24a').setAttribute('stroke-dashoffset',679*(1-P(t,wt(6,'vinte'),1.1,eIO)))}
+
+ /* ---------- STATIONS ---------- */
+ // S1
+ {const {v,o}=stVis(0,t);const e=$('S1');const pl=place(e,0,t,-20);S(e,v*(1-o),pl.tr+` translateY(${(1-v)*60}px)`);
+  const qt=[wt(7,'entende'),wt(7,'cliente'),wt(7,'procura'),wt(7,'procura')+0.35];['q1','q2','q3','q4'].forEach((id,i)=>{const vv=spSnap((t-qt[i])*1000);S($(id),cl(vv),`translateX(${(1-vv)*40}px)`)});
+  const q=wt(7,'qualifica');const sel=P(t,q-0.35,0.7,eIO);const tw=(880-96-24)/3;$('tpSel').style.width=tw+'px';$('tpSel').style.transform=`translateX(${sel*2*(tw+12)}px)`;$('tpSel').style.opacity=P(t,q-0.5,0.2);
+  ['tp0','tp1','tp2'].forEach((id,i)=>{const on=Math.round(sel*2)==i&&sel>0;$(id).style.color=on?'#fff':'#7C8799';$(id).style.background=on?(i==2?'rgba(37,99,235,.35)':'rgba(255,255,255,.08)'):'rgba(255,255,255,.05)'});
+  const pv=spPop((t-q-0.1)*1000);S($('S1p'),cl(pv)*(1-o)*v,`translate(${pl.x+40}px,${pl.y-e.offsetHeight*pl.s/2-70}px) scale(${(0.7+0.3*pv)*pl.s})`)}
+ // S2
+ {const {v,o}=stVis(1,t);const e=$('S2');const pl=place(e,1,t,-40);S(e,v*(1-o),pl.tr+` translateY(${(1-v)*60}px)`);
+  const q='sobrado · 3 suítes · Moema · até 1,5 mi';const ty=P(t,C[8].start,0.9,lin);$('srch').textContent=q.slice(0,Math.round(ty*q.length));$('caret').style.opacity=(Math.floor(t*3)%2||ty<1)?1:0;
+  const ft=wt(8,'imóvel');const f=P(t,ft,0.5,eIO),g=P(t,wt(8,'certo'),0.55,eIO);
+  GC.forEach((o2,i)=>{const el=$('gc'+i);const ap=cl(spSoft((t-C[8].start-0.1-i*0.06)*1000));
+   if(o2.hit){const W2=lerp(250,784,g),H2=lerp(282,590,g);el.style.width=W2+'px';el.style.height=H2+'px';$('gci'+i).style.height=lerp(150,400,g)+'px';
+    S(el,ap,`translate(${lerp(0,0,g)}px,${0}px)`);el.style.zIndex=5;el.style.boxShadow=g>0?`0 0 0 ${4*g}px #22D3EE, 0 0 ${60*g}px rgba(34,211,238,.4)`:'none';
+    el.querySelector('.gt').style.fontSize=lerp(21,34,g)+'px';el.querySelector('.gs').style.fontSize=lerp(16,24,g)+'px';el.querySelector('.gp').style.fontSize=lerp(19,30,g)+'px'}
+   else S(el,ap*(1-f*0.85),`translate(0,0) scale(${1-0.08*f})`)});
+  const bt=wt(8,'envia');const bv=spSnap((t-bt)*1000);S($('S2b'),cl(bv)*(1-o)*v,`translate(${Math.min(pl.x+440*pl.s-470*pl.s,1008-470*pl.s)}px,${pl.y-80+(1-bv)*80}px) scale(${pl.s*(0.8+0.2*bv)}) rotate(${(1-bv)*4}deg)`);
+  ['ph1','ph2','ph3'].forEach((id,i)=>{const vv=spPop((t-wt(8,'envia')-0.12-0.1*i)*1000);$(id).style.transform=`scale(${0.6+0.4*cl(vv)})`;$(id).style.opacity=cl(vv*1.4)})}
+ // S3
+ {const {v,o}=stVis(2,t);const e=$('S3');const pl=place(e,2,t,-40);S(e,v*(1-o),pl.tr+` translateY(${(1-v)*60}px)`);
+  const ot=wt(9,'horários');OFFER.forEach(([k,lab],i)=>{const sl=$('sl'+k);const vv=spPop((t-ot-i*0.12)*1000);const pick=k=='3-1'&&t>wt(9,'agendada');
+   sl.style.borderColor=vv>0.05?(pick?'#34D399':'#22D3EE'):'transparent';sl.style.background=pick?'#34D399':vv>0.05?'rgba(34,211,238,.14)':'rgba(255,255,255,.04)';sl.style.color=vv>0.05?(pick?'#0A0E14':'#A5F3FC'):'transparent';sl.textContent=pick?'✓ 10h':lab.split(' ')[1];
+   sl.style.transform=`scale(${1+0.12*Math.max(0,1-Math.abs(vv-1)*3)*(vv>0?1:0)+(pick?0.06*spPop((t-wt(9,'agendada'))*1000):0)})`;
+   if(!pick&&t>wt(9,'agendada')+0.1){sl.style.opacity=1-0.6*P(t,wt(9,'agendada'),0.4)}else sl.style.opacity=1});
+  const mv=spSnap((t-wt(9,'deixa'))*1000);S($('calMsg'),cl(mv),`translateY(${(1-mv)*30}px)`);
+  const pv=spPop((t-wt(9,'agendada')-0.05)*1000);S($('S3p'),cl(pv)*(1-o)*v,`translate(${pl.x-380}px,${pl.y+60+(1-pv)*60}px) scale(${pl.s*(0.8+0.2*pv)})`)}
+ // S4
+ {const {v,o}=stVis(3,t);const e=$('S4');const pl=place(e,3,t,-120,900);S(e,v*(1-o),pl.tr+` translateY(${(1-v)*60}px)`);
+  const colW=(900-72-24)/3;const s1=spSnap((t-wt(10,'funil'))*1000),s2=spSnap((t-wt(10,'sozinha'))*1000);const col=cl(s1)+cl(s2);
+  $('kc').style.transform=`translate(${12+col*(colW+12)}px,${62+(col>0.1&&col<1.9?-18*Math.sin(Math.PI*(col%1)):0)}px) rotate(${(col%1)*3}deg)`;$('kc').style.width=(colW-20)+'px';
+  $('kcTag').textContent=col>1.5?'VISITA QUI 10H':col>0.5?'QUENTE':'NOVO';$('kcTag').style.background=col>1.5?'#DCFCE7':'#DBEAFE';$('kcTag').style.color=col>1.5?'#047857':'#1D4ED8';
+  const rv=sp((t-wt(10,'resumo')+0.1)*1000);S($('S4r'),cl(rv)*(1-o)*v,`translate(${pl.x-410}px,${pl.y+140+(1-rv)*80}px) scale(${pl.s})`);
+  ['rs1','rs2','rs3'].forEach((id,i)=>{const vv=spSnap((t-wt(10,'resumo')-0.1-i*0.22)*1000);S($(id),cl(vv),`translateX(${(1-vv)*30}px)`)})}
+ // S5
+ {const {v,o}=stVis(4,t);const e=$('S5');const pl=place(e,4,t,-30);S(e,v*(1-o),pl.tr+` translateY(${(1-v)*60}px)`);
+  const a=wt(11,'follow');const b=wt(11,'esfriou')+0.25;const v1=spSnap((t-a)*1000),v2=spSnap((t-b)*1000);S($('fu1'),cl(v1),`translateY(${(1-v1)*30}px)`);S($('fu2'),cl(v2),`translateY(${(1-v2)*30}px)`);
+  const warm=P(t,b+0.1,0.4,eIO);const st5=$('fuSt');st5.textContent=warm>0.5?'Conversa retomada':'Sem resposta · 3 dias';st5.style.background=warm>0.5?'rgba(37,99,235,.2)':'rgba(245,158,11,.14)';st5.style.borderColor=warm>0.5?'#3B82F6':'rgba(245,158,11,.7)';st5.style.color=warm>0.5?'#BFDBFE':'#FBBF24';
+  st5.style.transform=`scale(${1+0.1*Math.max(0,1-Math.abs(t-b-0.3)*4)})`;$('fuAv').style.background=warm>0.5?'#1E3A8A':'#1E293B';$('fuAv').style.color=warm>0.5?'#BFDBFE':'#94A3B8'}
+ // S6
+ {const {v,o}=stVis(5,t);const e=$('S6');const pl=place(e,5,t,-60);S(e,v*(1-o),pl.tr+` translateY(${(1-v)*60}px)`);
+  const btn=$('s6btn').getBoundingClientRect();const ca=wt(12,'nasce')-0.9,cb=wt(12,'nasce')-0.15;const cm=P(t,ca,0.75,eIO);
+  const cx=lerp(900,btn.left+btn.width*0.6,cm),cy=lerp(1300,btn.top+btn.height*0.5,cm);const cv=P(t,ca-0.3,0.3)*(1-P(t,cb+0.8,0.3))*v*(1-o);
+  const press=Math.max(0,1-Math.abs(t-cb)*6);S($('cursor'),cv,`translate(${cx}px,${cy}px) scale(${1-0.12*press})`);
+  $('s6btn').style.background=press>0.1?'#15803D':'#16A34A';
+  const rp=P(t,cb,0.6,lin);S($('ripple'),t>cb&&rp<1?(1-rp)*v*(1-o):0,`translate(${cx-60}px,${cy-60}px) scale(${0.2+rp*1.3})`);
+  const rk=P(t,cb+0.05,0.45,eIO);e.style.transform=pl.tr+` translateY(${(1-v)*60-170*rk}px) scale(${1-0.2*rk})`;e.style.filter=`brightness(${1-0.4*rk})`;const mv=spPop((t-cb-0.12)*1000);S($('S6m'),cl(mv)*(1-o)*v,`translate(${W/2-320}px,${pl.y+175+(1-mv)*60}px) scale(${pl.s*(0.85+0.15*mv)})`)}
+
+ /* ---------- HUMAN ---------- */
+ {const a=C[13].start-0.6;const v=spSoft((t-a)*1000);const o=P(t,C[13].end+0.2,0.35,eIn);S($('hum'),cl(v)*(1-o),`translateY(${(1-v)*120-o*80}px) scale(${0.94+0.06*v})`);
+  const tk=wt(13,'você');const press=Math.max(0,1-Math.abs(t-tk)*5);$('take').style.transform=`scale(${1-0.05*press})`;$('take').style.background=t>tk?'#1D4ED8':'#2563EB';
+  $('takeSh').style.left=(-40+170*P(t,tk-0.6,0.7,eIO))+'%';
+  const sv=spPop((t-tk-0.15)*1000);S($('sys'),cl(sv),`translateY(${(1-sv)*20}px)`);
+  const nb=spSnap((t-(C[13].start-0.45))*1000);S($('negB'),cl(nb),`translateY(${(1-nb)*40}px)`);const pu=spPop((t-wt(13,'negociar')-0.1)*1000);$('push').style.transform=`translateY(${(1-cl(pu))*60}px) scale(${0.9+0.1*pu}) rotate(${Math.sin(t*60)*Math.max(0,1-(t-wt(13,'negociar')-0.1)*3)*(t>wt(13,'negociar')+0.1?1.2:0)}deg)`;$('push').style.opacity=cl(pu*1.5)}
+
+ /* ---------- EDITORIAL + crane labels ---------- */
+ {const a=C[14].start;const o=P(t,C[15].start-0.5,0.3,eIn);const on=t>a-0.3;
+  kin($('ed1'),C[14].words.slice(0,5).map(w=>({w:w.w,t:w.t-0.1})),t,[2]);kin($('ed2'),C[14].words.slice(5).map(w=>({w:w.w,t:w.t-0.1})),t,[2]);
+  S($('ed'),on?1-o:0,`translateY(${-50*o}px)`);const rel=$('ed2_3');if(rel){rel.style.background='linear-gradient(90deg,#7DD3FC,#22D3EE)';rel.style.webkitBackgroundClip='text';rel.style.color='transparent'}
+  const lv=P(t,a+0.3,0.8);for(let i=0;i<7;i++){const x=i<6?SX[i]:HX;const [px,py]=proj(new THREE.Vector3(x,0.1,0));const e=$('lb'+i);S(e,lv*(1-o)*cl(sp((t-a-0.3-i*0.09)*1000)),`translate(-50%,0) translate(${cl(px,72+e.offsetWidth/2,1008-e.offsetWidth/2)}px,${py+26}px)`)}}
+
+ /* ---------- NAV + TITLES ---------- */
+ {const navOn=P(t,C[7].start-0.5,0.4)*(1-P(t,C[12].end,0.3,eIn));$('nav').style.opacity=navOn;
+  let k=-1;st.forEach((ci,i)=>{if(t>=C[ci].start-0.3)k=i});const kk=Math.max(0,k);
+  const prev=kk>0?NX[kk-1]:0;const ff=lerp(prev,NX[kk],P(t,C[st[kk]].start-0.3,0.5,eIO));$('navF').style.width=(k<0?0:ff)+'px';
+  NAVL.forEach((s,i)=>{$('nd'+i).style.background=i<k?'#22D3EE':i==k?'#fff':'#0A0E14';$('nd'+i).style.borderColor=i<=k?'#22D3EE':'rgba(255,255,255,.35)';$('nd'+i).style.boxShadow=i==k?'0 0 18px #22D3EE':'none';$('nl'+i).style.color=i==k?'#fff':i<k?'#7DD3FC':'#5B6678'})}
+ {let sec=null;for(const s of TITLES)if(t>=s.a&&t<s.b)sec=s;const ti=$('secTitle');
+  if(sec){if(ti._s!==sec.t){ti.innerHTML=`<span class="wd"><span id="stt">${sec.t}</span></span>`;ti._s=sec.t}
+   const v=sp((t-sec.a)*1000),o=P(t,sec.b-0.3,0.25,eIn);ti.style.opacity=1-o;$('stt').style.transform=`translateY(${(1-v)*145-o*30}%)`;$('stt').style.opacity=v>0.01?1:0;ti.style.top=(sec.t=='Atendimento na hora'||sec.t=='Você no controle'?250:300)+'px';ti.style.visibility='visible'}
+  else ti.style.visibility='hidden'}
+
+ /* ---------- CTA ---------- */
+ {const a=C[15].start-0.42;const cv=spSoft((t-a)*1000);const on=t>a-0.05;S($('cta'),on?1:0);
+  const lg=P(t,a+0.05,0.9,eIO);$('lgCard').style.clipPath=`inset(0 ${(1-lg)*100}% 0 0 round 40px)`;$('lgCard').style.transform=`translateY(${(1-cv)*40}px)`;$('lg').style.transform=`translateX(${(1-eOut(lg))*-60}px)`;
+  const lv=spPop((t-a-0.7)*1000);S($('lid'),cl(lv)*0.95,`translateY(${(1-lv)*60+Math.sin(t*2)*6}px) rotate(${(1-lv)*10}deg)`);
+  const tg=sp((t-a-0.4)*1000);S($('ctaTag'),cl(tg),`translateY(${(1-tg)*24}px)`);
+  const bd=wt(15,'demonstr')-0.15;const bv=spPop((t-bd)*1000);S($('btn'),cl(bv*1.2),`translateY(${(1-bv)*50}px) scale(${(0.85+0.15*bv)*(1+0.018*Math.sin(t*5))})`);$('btnSh').style.left=(-40+180*((Math.max(0,t-bd-0.3)*0.7)%1.4))+'%';
+  const uv=sp((t-bd-0.4)*1000);S($('url'),cl(uv),`translateY(${(1-uv)*20}px)`)}
+
+ /* ---------- WIPE (logo symbol) ---------- */
+ {const a=wipeMid-0.62;const k=P(t,a,0.62,x=>Math.pow(cl(x),2.4));const out=P(t,wipeMid+0.02,0.35,eOut);const on=t>a-0.05&&out<1;
+  const g=$('wg');const sc=lerp(2.6,80,k);const rot=-8*(1-k);g.setAttribute('transform',`translate(540 960) rotate(${rot}) scale(${sc}) translate(-24 -70)`);S($('wipe'),on?(1-out):0)}
+
+ captions(t);
+ {const f=P(t,END-0.55,0.55,lin);$('cta').style.opacity=t>C[15].start-0.47?1-f:0}
+};
+window.ready=document.fonts.ready.then(()=>{render(0);return END});
+</script></body></html>
