@@ -39,4 +39,4 @@ Ver `motion-pro/BRAND-MOTION.md` e `motion-pro/ACERTOS.md`. LID só detalhe. Âm
 Alcance de não seguidores, salvamentos, compartilhamentos, comentários "DIAGNÓSTICO", DMs, demos agendadas. Ajustar ganchos e horários a cada domingo.
 
 ## Narração
-Ver `CLAUDE.md`: chave paga em `ELEVEN_LABS_API_KEY` (automático) ou o Davi sobe `instagram/narracoes/AAAA-MM-DD-r1.mp3` / anexa no chat. A conta free do `.env.local` do repo do produto não serve (não usa vozes da biblioteca pela API).
+Ver `CLAUDE.md`: chave paga em `ELEVEN_LABS_API_KEY` (automático) ou o Davi sobe `instagram/narracoes/AAAA-MM-DD-r1.mp3` neste repositório / anexa no chat.

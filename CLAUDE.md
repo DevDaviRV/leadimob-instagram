@@ -1,6 +1,6 @@
 # Leadimob · Instagram — instruções para o Claude
 
-Este repositório é a **fonte da verdade** da produção de conteúdo orgânico do @leadimob.ai. Tudo roda na nuvem; não depende do computador do Davi.
+Este repositório é a **fonte da verdade** e o **único lugar** da produção de conteúdo orgânico do @leadimob.ai: roteiros, narrações, fontes e entregas ficam aqui. Nada é salvo no repositório de código do produto (`leadimob/hero-export`). Tudo roda na nuvem; não depende do computador do Davi.
 
 ## Rotina
 - Por dia: **Reel 1 narrado** (30–40s) · **Reel 2 tipográfico** (15–25s, sem voz) · **Carrossel** (8–10 slides, 1080×1350). Plano em `instagram/PLANO-INSTAGRAM.md`.

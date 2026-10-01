@@ -28,7 +28,7 @@ LID = só mascote, detalhe visual discreto (fecho). Nunca protagonista, nunca "a
 
 ## Tipografia
 Inter (@fontsource/inter) 400/500/600/700/800. Títulos 800 com tracking negativo. Labels em caixa alta 600 com tracking .14em.
-Logo: sempre o PNG oficial (hero-export/motion/img/leadimob-logo.png), sobre cartão claro (o "eadi" é escuro). Nunca redigitar.
+Logo: sempre o PNG oficial (`motion-pro/assets/logo.png`, neste repositório), sobre cartão claro (o "eadi" é escuro). Nunca redigitar.
 
 ## Elementos proprietários
 1. Jornada do lead: linha de luz ciano ligando WhatsApp → qualificação → imóvel → visita → funil.
