@@ -1,7 +1,7 @@
 # Posts de 02/10 (quinta)
 
 ## 12:00 · Reel 1 — "O cliente não quer receber mais imóveis"
-Arquivo: `r1-cliente-nao-quer-mais-imoveis.mp4` (finaliza quando a narração chegar)
+Arquivo: `r1-cliente-nao-quer-mais-imoveis.mp4` · capa sugerida: quadro em ~2,6s (frase completa)
 
 **Legenda:**
 O cliente não quer receber mais imóveis. Ele quer que alguém entenda o que ele procura.

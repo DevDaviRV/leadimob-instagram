@@ -23,6 +23,15 @@ O motor já entregou, em outra marca: plano contínuo 3D com câmera viajando po
 - QA do render final pegou bolha de fotos vazia por ~0,5s (fotos entravam só na palavra "fotos"); corrigido re-renderizando só o trecho (quadros 685–745) e emendando — técnica de re-render parcial vale para ajustes pontuais.
 - Ainda abaixo do ideal: legibilidade do texto dentro dos mockups (Kanban ~30px, rótulos do nav 20px); produto aparece só aos ~11,7s (preso ao roteiro); ritmo das 6 estações ainda regular (~3,3s cada).
 
+### Reel 02/10 R1 — "O cliente não quer receber mais imóveis" (01/10/2026)
+- Funcionou: gancho com parede de 20 cards caindo e título palavra a palavra na voz; celular com contador "N imóveis enviados" subindo junto com pops acelerando na trilha; queda da trilha em "adia" com a pill âmbar "Conversa parada"; 4 cards de pergunta que chegam um a um, revelam o texto em "quatro" e acendem na palavra falada (cada pergunta = uma nota subindo); perfil pronto para o corretor como fecho do produto.
+- Crítica independente no primeiro corte: gancho 7,5 · ritmo 6,5 · clareza 8 · acabamento 6 · legibilidade 7 · marca 9. Re-renderizado com as correções abaixo.
+- Correções que viraram regra: (1) transição entre cenas DOM = a cena antiga termina de sair antes de a nova começar a entrar (nada de crossfade com dois textos legíveis); (2) painéis escuros (chat) entram em fade junto com o título, nunca opacos de uma vez; (3) nenhum bloco fica parado esperando a fala: os elementos chegam escalonados durante a frase e o conteúdo só é revelado na palavra; (4) fim do vídeo = fim da fala + 1,5s, com push-in lento e reveals presos às palavras; (5) legenda de 2 linhas termina em y ≤ 1520 (topo em 1398 com fonte 50px); (6) título do gancho sobre fundo limpo: cards atrás do texto a 28% e sombra radial forte; (7) todo texto que carrega a mensagem (chips, subtítulos de card, rótulos) ≥ 36px, só horário/status de interface pode ser menor; (8) pill de desfecho precisa de ≥ 0,8s legível antes do corte.
+- Áudio: `alimiter` precisa de `level=0` (o padrão renormaliza e leva o pico a 0 dB); cadeia final `loudnorm=I=-14:TP=-2:LRA=9,alimiter=limit=0.8:level=0`.
+- Render: cenas DOM com gradientes radiais grandes e 20 cards em 3D custaram ~5s por quadro com sub=3 em 2 processos (~50 min para 41s). Planejar o tempo, ou trocar os glows por imagem pré-renderizada.
+- Narração: gerada pela API da ElevenLabs (conta paga), 7 mp3 da semana em `instagram/narracoes/`.
+- Ainda abaixo do ideal: motion blur com sub=3 aparece como cópias empilhadas em movimentos muito rápidos (feed do celular); contador ainda está em 3 quando a voz diz "vinte"; quadro 0 mostra só "O CLIENTE" (escolher a capa em ~2,6s).
+
 ## Backlog para o v2
 - Abrir com o produto já no quadro 0 (gancho em cima do celular), roteiro com problema em ≤ 6s.
 - Zoom de câmera no elemento principal de cada estação (1 elemento herói ≥ 85% da largura, texto ≥ 36px).
@@ -34,3 +43,4 @@ O motor já entregou, em outra marca: plano contínuo 3D com câmera viajando po
 | Versão | Vídeo | Novidades | Nota da crítica | A superar no próximo |
 |---|---|---|---|---|
 | v1 | Plataforma: "Você não precisa de mais leads" (9:16, 51s) | mundo 3D contínuo + linha da jornada, cards DOM ancorados em 3D, wipe do símbolo, relógio time-lapse, crane final, trilha 118 BPM F#m com SFX por ação | 7/7/8/7/6/8 | legibilidade de mockups, produto antes de 6s, ritmo das estações |
+| R1 02/10 | "O cliente não quer receber mais imóveis" (9:16, 41s) | parede de cards 3D no gancho, contador + pops acelerando, cards de pergunta acesos pela voz, trilha 104 BPM Ré menor com queda no "adia" | 7,5/6,5/8/6/7/9 no primeiro corte (corrigido e re-renderizado) | motion blur em movimento rápido, capa no quadro 0, custo de render |

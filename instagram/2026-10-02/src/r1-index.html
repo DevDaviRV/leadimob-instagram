@@ -16,14 +16,14 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
 .pc{position:absolute;width:200px;height:250px;border-radius:18px;overflow:hidden;background:#F3F7FB;color:#0A0E14;box-shadow:0 20px 50px rgba(0,0,0,.5)}
 .pc .im{height:140px;background-size:cover;background-position:center}
 .pc .t{font:800 19px IN;padding:10px 12px 0}.pc .s{font:500 15px IN;color:#64748B;padding:4px 12px}.pc .p{font:800 17px IN;color:#1D4ED8;padding:2px 12px}
-.bub{border-radius:24px;padding:18px 24px 12px;font:500 34px/1.32 IN;max-width:84%}
+.bub{border-radius:24px;padding:18px 24px 12px;font:500 36px/1.3 IN;max-width:84%}
 .bin{background:#202C33;color:#E9EDEF;border-top-left-radius:6px}
 .bout{background:#005C4B;color:#E9EDEF;border-top-right-radius:6px;margin-left:auto}
 .bt{font:500 20px/1 IN;color:rgba(233,237,239,.6);text-align:right;margin-top:6px}
 .qc{position:absolute;width:440px;height:250px;border-radius:30px;background:linear-gradient(180deg,#161E2C,#0F1520);border:2px solid rgba(125,211,252,.18);padding:34px;display:flex;flex-direction:column;justify-content:space-between}
 .qc .n{font:800 26px IN;color:#0A0E14;background:#22D3EE;width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center}
 .qc .q{font:800 46px/1.05 IN;letter-spacing:-.03em}
-.chip{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;font:700 24px/1 IN;white-space:nowrap;background:rgba(52,211,153,.14);border:2px solid rgba(52,211,153,.7);color:#A7F3D0}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border-radius:999px;font:700 36px/1 IN;white-space:nowrap;background:rgba(52,211,153,.14);border:2px solid rgba(52,211,153,.7);color:#A7F3D0}
 </style></head><body><div id="st">
 <div id="grid" class="abs" style="inset:-100px;background-image:radial-gradient(rgba(125,211,252,.12) 2px,transparent 2.5px);background-size:46px 46px"></div>
 <div id="glowA" class="abs" style="left:200px;top:-500px;width:1400px;height:1400px;background:radial-gradient(circle,rgba(37,99,235,.26),transparent 62%)"></div>
@@ -32,7 +32,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
 
 <!-- WALL of cards (hook + collapse) -->
 <div id="wallW" class="abs" style="inset:0;perspective:1600px"><div id="wall" class="abs" style="left:0;top:0;width:1080px;height:1920px;transform-style:preserve-3d"></div></div>
-<div id="hkShade" class="abs" style="left:-200px;top:420px;width:1480px;height:900px;background:radial-gradient(ellipse at 45% 50%,rgba(10,14,20,.95) 0%,rgba(10,14,20,.8) 42%,rgba(10,14,20,0) 70%)"></div>
+<div id="hkShade" class="abs" style="left:-200px;top:420px;width:1480px;height:900px;background:radial-gradient(ellipse at 45% 50%,rgba(10,14,20,.98) 0%,rgba(10,14,20,.93) 50%,rgba(10,14,20,0) 76%)"></div>
 <div id="hk" class="abs" style="left:72px;top:600px;width:960px;font:900 112px/1.0 IN;letter-spacing:-.05em"></div>
 <div id="hk2" class="abs" style="left:72px;top:620px;width:960px">
  <div style="font:800 64px/1.08 IN;letter-spacing:-.035em"><span id="hk2a">Ele quer que alguém entenda</span><br><span id="hk2b" style="color:#7DD3FC">o que ele procura.</span></div>
@@ -54,7 +54,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
 
 <!-- 4 QUESTIONS -->
 <div id="qs" class="abs" style="left:0;top:0;width:1080px;height:1920px">
- <div id="qT" class="abs" style="left:72px;top:330px;width:936px;font:800 70px/1.05 IN;letter-spacing:-.04em">Antes do primeiro imóvel,<br><span style="color:#7DD3FC">quatro perguntas.</span></div>
+ <div id="qT" class="abs" style="left:72px;top:330px;width:936px;font:800 70px/1.05 IN;letter-spacing:-.04em">Antes do primeiro imóvel,<br><span id="qT2" style="color:#7DD3FC">quatro perguntas.</span></div>
  <div id="q0" class="qc" style="left:72px;top:640px"><div class="n">1</div><div class="q">Compra ou<br>locação?</div></div>
  <div id="q1" class="qc" style="left:568px;top:640px"><div class="n">2</div><div class="q">Qual<br>região?</div></div>
  <div id="q2" class="qc" style="left:72px;top:920px"><div class="n">3</div><div class="q">Quanto quer<br>investir?</div></div>
@@ -63,21 +63,21 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
 <!-- 3 picks -->
 <div id="picks" class="abs" style="left:0;top:0;width:1080px;height:1920px">
  <div id="pT" class="abs" style="left:72px;top:330px;width:936px;font:800 70px/1.05 IN;letter-spacing:-.04em">Depois, <span style="color:#7DD3FC">três opções.</span><br>Com o porquê.</div>
- <div id="pk0" class="abs" style="left:72px;top:640px;width:936px;height:200px;border-radius:26px;background:#F3F7FB;color:#0A0E14;display:flex;overflow:hidden"><div style="width:270px;background:url(property.jpg) center 42%/cover"></div><div style="padding:24px 28px"><div style="font:800 36px IN">Sobrado · Moema</div><div style="font:500 26px IN;color:#64748B;margin-top:6px">3 suítes · 280 m²</div><div class="chip" style="margin-top:16px;background:#DCFCE7;color:#047857;border-color:#34D399">✓ perto da escola</div></div></div>
- <div id="pk1" class="abs" style="left:72px;top:870px;width:936px;height:200px;border-radius:26px;background:#F3F7FB;color:#0A0E14;display:flex;overflow:hidden"><div id="pk1i" style="width:270px"></div><div style="padding:24px 28px"><div style="font:800 36px IN">Casa · Campo Belo</div><div style="font:500 26px IN;color:#64748B;margin-top:6px">3 quartos · 210 m²</div><div class="chip" style="margin-top:16px;background:#DCFCE7;color:#047857;border-color:#34D399">✓ cabe no orçamento</div></div></div>
- <div id="pk2" class="abs" style="left:72px;top:1100px;width:936px;height:200px;border-radius:26px;background:#F3F7FB;color:#0A0E14;display:flex;overflow:hidden"><div id="pk2i" style="width:270px"></div><div style="padding:24px 28px"><div style="font:800 36px IN">Apto · Vila Mariana</div><div style="font:500 26px IN;color:#64748B;margin-top:6px">3 quartos · 120 m²</div><div class="chip" style="margin-top:16px;background:#DCFCE7;color:#047857;border-color:#34D399">✓ pronto para morar</div></div></div>
+ <div id="pk0" class="abs" style="left:72px;top:625px;width:936px;height:232px;border-radius:26px;background:#F3F7FB;color:#0A0E14;display:flex;overflow:hidden"><div style="width:270px;background:url(property.jpg) center 42%/cover"></div><div style="padding:22px 28px"><div style="font:800 42px IN">Sobrado · Moema</div><div style="font:500 36px IN;color:#64748B;margin-top:4px">3 suítes · 280 m²</div><div class="chip" style="margin-top:12px;background:#DCFCE7;color:#047857;border-color:#34D399">✓ perto da escola</div></div></div>
+ <div id="pk1" class="abs" style="left:72px;top:872px;width:936px;height:232px;border-radius:26px;background:#F3F7FB;color:#0A0E14;display:flex;overflow:hidden"><div id="pk1i" style="width:270px"></div><div style="padding:22px 28px"><div style="font:800 42px IN">Casa · Campo Belo</div><div style="font:500 36px IN;color:#64748B;margin-top:4px">3 quartos · 210 m²</div><div class="chip" style="margin-top:12px;background:#DCFCE7;color:#047857;border-color:#34D399">✓ cabe no orçamento</div></div></div>
+ <div id="pk2" class="abs" style="left:72px;top:1119px;width:936px;height:232px;border-radius:26px;background:#F3F7FB;color:#0A0E14;display:flex;overflow:hidden"><div id="pk2i" style="width:270px"></div><div style="padding:22px 28px"><div style="font:800 42px IN">Apto · Vila Mariana</div><div style="font:500 36px IN;color:#64748B;margin-top:4px">3 quartos · 120 m²</div><div class="chip" style="margin-top:12px;background:#DCFCE7;color:#047857;border-color:#34D399">✓ pronto para morar</div></div></div>
 </div>
 <!-- PRODUCT: AI asks, profile card -->
 <div id="prod" class="abs" style="left:0;top:0;width:1080px;height:1920px">
- <div id="prT" class="abs" style="left:72px;top:300px;width:936px;font:800 64px/1.05 IN;letter-spacing:-.04em">A <span style="color:#7DD3FC">Leadimob</span> faz isso<br>no seu WhatsApp.</div>
- <div id="chat2" class="abs" style="left:72px;top:520px;width:936px;padding:30px;border-radius:34px;background:#0B141A;border:1px solid rgba(125,211,252,.16);display:flex;flex-direction:column;gap:16px">
+ <div id="prT" class="abs" style="left:72px;top:240px;width:936px;font:800 64px/1.05 IN;letter-spacing:-.04em">A <span style="color:#7DD3FC">Leadimob</span> faz isso<br>no seu WhatsApp.</div>
+ <div id="chat2" class="abs" style="left:72px;top:420px;width:936px;padding:26px;border-radius:34px;background:#0B141A;border:1px solid rgba(125,211,252,.16);display:flex;flex-direction:column;gap:16px">
   <div id="x1" class="bub bin">Oi! Vi o anúncio. Tem casa com 3 quartos?<div class="bt">23:12</div></div>
   <div id="x2" class="bub bout">Tenho sim! Pra eu te mandar as opções certas: é compra ou locação, e qual região?<div class="bt">23:12 ✓✓</div></div>
   <div id="x3" class="bub bin">Compra. Perto da escola dos meus filhos, em Moema.<div class="bt">23:13</div></div>
  </div>
- <div id="prof" class="abs" style="left:72px;top:1040px;width:936px;padding:30px 34px;border-radius:30px;background:#F3F7FB;color:#0A0E14;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 4px rgba(34,211,238,.5)">
-  <div style="display:flex;justify-content:space-between;align-items:center"><div style="font:800 30px IN;letter-spacing:.06em;color:#047857">PERFIL PRONTO PARA O CORRETOR</div><div style="font:700 22px IN;color:#64748B">agora</div></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 30px;margin-top:20px;font:600 30px/1.3 IN">
+ <div id="prof" class="abs" style="left:72px;top:1030px;width:936px;padding:26px 34px;border-radius:30px;background:#F3F7FB;color:#0A0E14;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 4px rgba(34,211,238,.5)">
+  <div style="display:flex;justify-content:space-between;align-items:center"><div style="font:800 36px IN;letter-spacing:.04em;color:#047857">PERFIL PRONTO PARA O CORRETOR</div><div style="font:700 22px IN;color:#64748B">agora</div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;margin-top:14px;font:600 36px/1.2 IN">
    <div id="pf0"><span style="color:#64748B">Objetivo</span><br>Compra</div><div id="pf1"><span style="color:#64748B">Região</span><br>Moema</div>
    <div id="pf2"><span style="color:#64748B">Busca</span><br>3 quartos, perto da escola</div><div id="pf3"><span style="color:#64748B">Temperatura</span><br><b style="color:#1D4ED8">Quente</b></div>
   </div>
@@ -93,12 +93,12 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
  <div id="ctaS" style="margin-top:34px;font:600 40px/1.3 IN;color:#C9D2E0">e receba o checklist completo no direct.</div>
  <div id="ctaL" style="margin-top:110px;width:440px;height:130px;border-radius:28px;background:#F3F7FB;display:flex;align-items:center;justify-content:center"><img src="logo.png" style="width:360px"></div>
 </div>
-<div id="capBg" class="abs" style="left:0;top:1340px;width:1080px;height:580px;background:linear-gradient(180deg,rgba(10,14,20,0),rgba(10,14,20,.85) 28%,rgba(10,14,20,.92))"></div>
-<div id="capt" class="abs" style="left:72px;top:1420px;width:936px;font:700 50px/1.22 IN;letter-spacing:-.01em;text-shadow:0 4px 24px rgba(0,0,0,.8)"></div>
+<div id="capBg" class="abs" style="left:0;top:1350px;width:1080px;height:570px;background:linear-gradient(180deg,rgba(10,14,20,0),rgba(10,14,20,.85) 28%,rgba(10,14,20,.92))"></div>
+<div id="capt" class="abs" style="left:72px;top:1398px;width:936px;font:700 50px/1.22 IN;letter-spacing:-.01em;text-shadow:0 4px 24px rgba(0,0,0,.8)"></div>
 </div>
 <script>
 const TL=__TIMELINE__;const C={};TL.forEach(c=>C[c.i]=c);
-const END=C[11].end+2.4;window.DURATION=END;
+const END=C[11].end+1.5;window.DURATION=END;
 const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),eOut=x=>1-Math.pow(1-cl(x),4),eIn=x=>Math.pow(cl(x),3),eIO=x=>{x=cl(x);return x<.5?8*x**4:1-Math.pow(-2*x+2,4)/2},lin=x=>cl(x);
 const P=(t,a,d,e=eOut)=>e((t-a)/d);const $=id=>document.getElementById(id);const lerp=(a,b,k)=>a+(b-a)*k;
 const sp=(ms,k=200,c=17)=>{if(ms<=0)return 0;const w=Math.sqrt(k),z=c/(2*w),s=ms/1000;if(z<1){const wd=w*Math.sqrt(1-z*z);return 1-Math.exp(-z*w*s)*(Math.cos(wd*s)+z*w/wd*Math.sin(wd*s))}return 1-Math.exp(-w*s)*(1+w*s)};
@@ -116,7 +116,7 @@ const NAMES=['Apto · Moema','Casa · Brooklin','Studio · Pinheiros','Cobertura
 $('wall').innerHTML=Array.from({length:20},(_,i)=>`<div id="wc${i}" class="pc"><div class="im" style="background-image:url(${i==0?'property.jpg':IL[i%12]})"></div><div class="t">${NAMES[i%10]}</div><div class="s">${2+(i%3)} quartos · ${60+i*9} m²</div><div class="p">R$ ${(450+i*73).toLocaleString('pt-BR')}.000</div></div>`).join('');
 // feed: 20 image messages
 $('feed').innerHTML=Array.from({length:20},(_,i)=>`<div style="display:flex;justify-content:flex-end;margin-bottom:12px"><div style="width:330px;padding:8px;border-radius:18px;background:#005C4B"><div style="height:180px;border-radius:12px;background:url(${i==0?'property.jpg':IL[(i+5)%12]}) center/cover"></div><div style="font:500 20px IN;color:#E9EDEF;padding:8px 6px 2px">${NAMES[(i+3)%10]}</div></div></div>`).join('')+
- `<div id="lb" style="display:flex;margin:12px 0"><div class="bub bin" style="font-size:30px">Vou ver com calma e te falo 🙂<div class="bt">21:58</div></div></div>`;
+ `<div id="lb" style="display:flex;margin:12px 0"><div class="bub bin" style="font-size:32px">Vou ver com calma e te falo 🙂<div class="bt">21:58</div></div></div>`;
 // hook text
 const HK=['O','CLIENTE','NÃO','QUER','RECEBER','MAIS','IMÓVEIS.'];const BR=[1,3,5];
 $('hk').innerHTML=HK.map((w,i)=>`<span class="wd" style="margin-right:.2em"><span id="hw${i}" style="${i>=4?'color:#7DD3FC':''}">${w}</span></span>`+(BR.includes(i)?'<br>':'')).join('');
@@ -131,45 +131,44 @@ function captions(t){const e=$('capt');let cur=null;for(const c of TL)if(t>=c.st
 window.render=function(t){
  $('grid').style.transform=`translate(${(t*10)%46}px,${(t*7)%46}px)`;$('glowA').style.transform=`translate(${Math.sin(t*.3)*60}px,${Math.cos(t*.25)*50}px)`;
  /* WALL */
- const wallOut=P(t,C[2].start-0.1,0.7,eIO);const collapse=P(t,C[8].start-0.3,0.9,eIO);const wallBack=P(t,C[8].start-0.6,0.4)*(1-P(t,C[8].start+1.2,0.4,eIn));
+ const wallOut=P(t,C[2].start-0.5,0.4,eIO);const collapse=P(t,C[8].start-0.3,0.9,eIO);const wallBack=P(t,C[8].start-0.6,0.4)*(1-P(t,C[8].start+1.2,0.4,eIn));
  for(let i=0;i<20;i++){const e=$('wc'+i);const col=i%4,row=Math.floor(i/4);const x0=60+col*250+(row%2)*40,y0=180+row*330;const a=-0.4+i*0.05;const v=sp((t-a)*1000,150,15);
-  let x=x0,y=y0+(1-v)*900,rz=(rnd(i)-0.5)*14,sc=1,op=cl(v*1.4)*(1-wallOut);
-  if(t>C[8].start-0.8){ // reappear then collapse to 3
-   const keep=i<3;x=lerp(x0,keep?72+i*0:540,collapse);y=lerp(y0,keep?640+i*230:960,collapse);sc=lerp(0.9,keep?0.2:0.1,collapse);op=wallBack*(keep?1:1-collapse)*0.9;rz=lerp(rz,0,collapse)}
+  let x=x0,y=y0+(1-v)*900,rz=(rnd(i)-0.5)*14,sc=1,op=cl(v*1.4)*(1-wallOut)*((row==1||row==2)?0.28:1);
+  if(t>C[2].start+0.8)op=0;
   S(e,op,`translate3d(${x}px,${y}px,${-200+Math.sin(t+i)*30}px) rotateX(18deg) rotateZ(${rz}deg) scale(${sc})`)}
  /* HOOK text */
  HK.forEach((w,i)=>{const tt=i<2?-0.5+i*0.08:wt(1,w.toLowerCase().replace('.',''))-0.12;const v=sp((t-tt)*1000,260,17);$('hw'+i).style.transform=`translateY(${(1-v)*145}%)`});
- const hOut=P(t,C[2].start-0.2,0.25,eIn);S($('hk'),1-hOut,`translateY(${-50*hOut}px) scale(${1+0.04*P(t,0,3,lin)})`);$('hk').style.transformOrigin='0 0';S($('hkShade'),(1-hOut)*0.95+0.0);
+ const hOut=P(t,C[2].start-0.34,0.22,eIn);S($('hk'),1-hOut,`translateY(${-50*hOut}px) scale(${1+0.04*P(t,0,3,lin)})`);$('hk').style.transformOrigin='0 0';S($('hkShade'),(1-hOut)*0.95+0.0);
  /* WANT */
- {const on=t>C[2].start-0.25&&t<C[3].start-0.15;const v=sp((t-C[2].start+0.2)*1000);const o=P(t,C[3].start-0.45,0.3,eIn);S($('hk2'),on?cl(v)*(1-o):0,`translateY(${(1-v)*40}px)`);
-  const n=Math.round(cl((t-wt(2,'entenda'))/1.4)*WANT.length);$('wantT').textContent=WANT.slice(0,n);$('wantC').style.opacity=(Math.floor(t*3)%2||n<WANT.length)?1:0;$('hk2b').style.opacity=t>wt(2,'procura')-0.1?1:0.25}
+ {const on=t>C[2].start-0.1&&t<C[3].start-0.15;const v=sp((t-C[2].start+0.08)*1000);const o=P(t,C[3].start-0.45,0.3,eIn);S($('hk2'),on?cl(v)*(1-o):0,`translateY(${(1-v)*40}px)`);
+  const n=Math.round(cl((t-wt(2,'entenda'))/1.4)*WANT.length);$('wantT').textContent=WANT.slice(0,n);$('wantC').style.opacity=(Math.floor(t*3)%2||n<WANT.length)?1:0;$('hk2b').style.opacity=lerp(0.5,1,P(t,wt(2,'procura')-0.5,0.3))}
  /* PHONE */
- {const a=C[3].start-0.35,b=C[6].start-0.4;const v=sp((t-a)*1000,170,17);const o=P(t,b,0.35,eIn);const on=t>a-0.05&&t<b+0.4;
+ {const a=C[3].start-0.15,b=C[6].start-0.52;const v=sp((t-a)*1000,170,17);const o=P(t,b,0.35,eIn);const on=t>a-0.05&&t<b+0.4;
   S($('phW'),on?cl(v)*(1-o):0,`translateY(${(1-v)*200-o*120}px) scale(${0.92+0.08*v})`);$('ph').style.transform=`rotateY(${-14+Math.sin(t*.8)*2}deg) rotateX(6deg)`;
-  const k=P(t,wt(3,'vinte')-0.1,C[4].end-wt(3,'vinte'),x=>{x=cl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2});const sent=Math.round(k*20);
+  const k=P(t,wt(3,'manda'),wt(4,'trabalho')-wt(3,'manda'),x=>{x=cl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2});const sent=Math.round(k*20);
   $('feed').style.transform=`translateY(${-k*4200+ (t>C[5].start-0.3? -260*P(t,C[5].start-0.3,0.4):0)}px)`;
-  const cv=sp((t-wt(3,'vinte'))*1000,300,14);S($('cnt'),on?cl(cv)*(1-o):0,`translate(${540-$('cnt').offsetWidth/2}px,${250+(1-cv)*30}px) scale(${1+0.06*Math.max(0,Math.sin(t*20))*(k>0&&k<1?1:0)})`);$('cnt').textContent=`${sent} ${sent==1?'imóvel enviado':'imóveis enviados'}`;
-  const av=sp((t-wt(5,'adia'))*1000,320,12);S($('adiou'),on?cl(av)*(1-o):0,`translate(${540-$('adiou').offsetWidth/2}px,${1250+(1-av)*30}px) scale(${0.7+0.3*av})`);
-  $('seen').textContent=t>wt(5,'muitas')?'visto por último às 21:59':'online';$('ph').style.filter=t>wt(5,'adia')?`saturate(${1-0.6*P(t,wt(5,'adia'),0.6)})`:'none'}
+  const cv=sp((t-wt(3,'manda')+0.1)*1000,300,14);S($('cnt'),on?cl(cv)*(1-o):0,`translate(${540-$('cnt').offsetWidth/2}px,${250+(1-cv)*30}px) scale(${1+0.06*Math.max(0,Math.sin(t*20))*(k>0&&k<1?1:0)})`);$('cnt').textContent=`${sent} ${sent==1?'imóvel enviado':'imóveis enviados'}`;
+  const av=sp((t-wt(5,'ele'))*1000,320,12);S($('adiou'),on?cl(av)*(1-o):0,`translate(${540-$('adiou').offsetWidth/2}px,${1250+(1-av)*30}px) scale(${0.7+0.3*av})`);
+  $('seen').textContent=t>wt(5,'muitas')?'visto por último às 21:59':'online';$('ph').style.filter=t>wt(5,'ele')?`saturate(${1-0.6*P(t,wt(5,'ele'),0.6)})`:'none'}
  /* QUESTIONS */
- {const a=C[6].start-0.4,b=C[8].start-0.6;const on=t>a&&t<b+0.35;const o=P(t,b,0.3,eIn);S($('qs'),on?1-o:0);const tv=sp((t-a)*1000);S($('qT'),cl(tv),`translateY(${(1-tv)*40}px)`);
-  const keys=[wt(7,'compra'),wt(7,'região'),wt(7,'quanto'),wt(7,'para')];
-  for(let i=0;i<4;i++){const e=$('q'+i);const v=sp((t-(wt(6,'quatro')+i*0.12))*1000,240,15);const lit=t>keys[i]-0.05;const pulse=Math.max(0,1-Math.abs(t-keys[i]-0.15)*4);
+ {const a=C[6].start-0.12,b=C[8].start-0.6;const on=t>a&&t<b+0.35;const o=P(t,b,0.3,eIn);S($('qs'),on?1-o:0);const tv=sp((t-a)*1000);S($('qT'),cl(tv),`translateY(${(1-tv)*40}px)`);
+  const keys=[wt(7,'compra'),wt(7,'região'),wt(7,'quanto'),wt(7,'para')];$('qT2').style.opacity=lerp(0.3,1,P(t,wt(6,'quatro')-0.15,0.3));const q0t=wt(6,'qualquer')-0.1,qst=(wt(6,'quatro')-0.25-q0t)/3;
+  for(let i=0;i<4;i++){const e=$('q'+i);const v=sp((t-(q0t+i*qst))*1000,240,15);const qv=sp((t-(wt(6,'quatro')+i*0.09))*1000,260,17);const qq=e.querySelector('.q');qq.style.opacity=cl(qv);qq.style.transform=`translateY(${(1-qv)*26}px)`;const lit=t>keys[i]-0.05;const pulse=Math.max(0,1-Math.abs(t-keys[i]-0.15)*4);
    S(e,cl(v),`perspective(1200px) rotateX(${(1-v)*-70}deg) scale(${1+0.06*pulse})`);e.style.borderColor=lit?'#22D3EE':'rgba(125,211,252,.18)';e.style.boxShadow=lit?'0 0 50px rgba(34,211,238,.35)':'none'}}
  /* PICKS */
  {const a=C[8].start-0.2,b=C[9].start-0.45;const on=t>a&&t<b+0.35;const o=P(t,b,0.3,eIn);S($('picks'),on?1-o:0);const tv=sp((t-a)*1000);S($('pT'),cl(tv),`translateY(${(1-tv)*40}px)`);
   for(let i=0;i<3;i++){const v=sp((t-(C[8].start+0.5+i*0.18))*1000,220,15);S($('pk'+i),cl(v),`translateX(${(1-v)*-120}px)`);
    const ch=$('pk'+i).querySelector('.chip');const cv=sp((t-wt(8,'porquê')-i*0.15)*1000,320,12);ch.style.transform=`scale(${cl(cv)})`;ch.style.opacity=cl(cv)}}
  /* PRODUCT */
- {const a=C[9].start-0.3,b=C[11].start-0.45;const on=t>a&&t<b+0.35;const o=P(t,b,0.3,eIn);S($('prod'),on?1-o:0);const tv=sp((t-a)*1000);S($('prT'),cl(tv),`translateY(${(1-tv)*40}px)`);
-  const ts=[C[9].start+0.1,wt(9,'whatsapp'),wt(9,'qualquer')+0.2];['x1','x2','x3'].forEach((id,i)=>{const v=sp((t-ts[i])*1000,260,15);S($(id),cl(v),`translateY(${(1-v)*30}px)`)});
+ {const a=C[9].start-0.12,b=C[11].start-0.62;const on=t>a&&t<b+0.3;const o=P(t,b,0.26,eIn);S($('prod'),on?1-o:0);const tv=sp((t-a)*1000);S($('prT'),cl(tv),`translateY(${(1-tv)*40}px)`);
+  S($('chat2'),cl(tv*1.3),`translateY(${(1-tv)*30}px)`);const ts=[C[9].start+0.15,wt(9,'whatsapp'),wt(9,'qualquer')+0.2];['x1','x2','x3'].forEach((id,i)=>{const v=sp((t-ts[i])*1000,260,15);S($(id),cl(v),`translateY(${(1-v)*30}px)`)});
   const pv=sp((t-wt(10,'perfil')+0.1)*1000,200,15);S($('prof'),cl(pv),`translateY(${(1-pv)*160}px) scale(${0.92+0.08*pv})`);
   ['pf0','pf1','pf2','pf3'].forEach((id,i)=>{const v=sp((t-wt(10,'perfil')-0.1-i*0.12)*1000);S($(id),cl(v),`translateY(${(1-v)*16}px)`)})}
  /* CTA */
- {const a=C[11].start-0.35;const on=t>a;const v=sp((t-a)*1000);S($('cta'),on?cl(v)*(1-P(t,END-0.5,0.5,lin)):0,`translateY(${(1-v)*50}px)`);
+ {const a=C[11].start-0.3;const on=t>a;const v=sp((t-a)*1000);S($('cta'),on?cl(v)*(1-P(t,END-0.45,0.45,lin)):0,`translateY(${(1-v)*50}px) scale(${1+0.035*P(t,a,END-a,lin)})`);$('cta').style.transformOrigin='0 40%';
   const word='DIAGNÓSTICO';const k=wt(11,'diagn');const n=Math.round(cl((t-k+0.25)/0.7)*word.length);$('typ').textContent=word.slice(0,n);$('car').style.opacity=(Math.floor(t*3)%2||n<word.length)?1:0;
   const sv=sp((t-k-0.6)*1000,380,12);$('send').style.transform=`scale(${1+0.25*Math.max(0,1-Math.abs(sv-1)*4)*(sv>0?1:0)})`;$('send').style.background=t>k+0.6?'#22C55E':'#2563EB';
-  const v2=sp((t-k-0.6)*1000);S($('ctaS'),cl(v2),`translateY(${(1-v2)*20}px)`);const v3=sp((t-k-1.0)*1000);S($('ctaL'),cl(v3),`translateY(${(1-v3)*30}px)`)}
+  const v2=sp((t-wt(11,'receba')+0.1)*1000);S($('ctaS'),cl(v2),`translateY(${(1-v2)*20}px)`);const v3=sp((t-wt(11,'checklist')-0.25)*1000,200,15);S($('ctaL'),cl(v3),`translateY(${(1-v3)*30}px)`)}
  captions(t);
 };
 window.ready=document.fonts.ready.then(()=>Promise.all(['500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)))).then(()=>{render(0);return END});

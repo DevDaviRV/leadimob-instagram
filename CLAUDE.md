@@ -10,6 +10,7 @@ Este repositório é a **fonte da verdade** e o **único lugar** da produção d
 
 ## Narração (voz Bianca)
 1. Se `ELEVEN_LABS_API_KEY` existir no ambiente: `python3 motion-pro/audio/gen_vo_bianca.py texto.txt saida.mp3` (conta precisa ser paga).
+   A conta do Davi é paga desde 01/10/2026. Antes de gerar, confira se o mp3 já existe em `instagram/narracoes/` (os da semana 1 já estão lá). Avise o Davi quando os créditos estiverem acabando.
 2. Senão: o Davi sobe `instagram/narracoes/AAAA-MM-DD-r1.mp3` no GitHub ou anexa no chat. Sem o áudio, produza o visual com `estimate_timeline.py` e finalize quando chegar.
 Sincronia: `motion-pro/audio/sync_voice.py` + `word_align.py`. Pronúncia da marca: "Lídimob".
 
