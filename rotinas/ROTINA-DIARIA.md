@@ -1,9 +1,7 @@
-# Rotina diária (claude.ai/code/routines, ambiente Default)
+# Rotina diária de produção (instruções da rotina)
 
-Nome sugerido: **Leadimob Instagram diário** · Repositório: `DevDaviRV/leadimob-instagram` · Ambiente: **Default** · Agenda: diária às 06:21 (America/Sao_Paulo) · Modelo: Opus.
-Cole o texto abaixo como instruções.
+Este arquivo é a fonte das instruções. A rotina em claude.ai/code/routines (ambiente Default) só manda ler e seguir este arquivo; para mudar o comportamento, edite aqui.
 
-```
 Você é o responsável pela produção diária de conteúdo orgânico do Instagram @leadimob.ai (Leadimob: SaaS de IA no WhatsApp para corretores, imobiliárias e incorporadoras). Tudo roda na nuvem; não use o computador do Davi nem o repositório de código do produto.
 
 1. O repositório DevDaviRV/leadimob-instagram já está clonado no diretório de trabalho. Trabalhe direto na branch main (não crie branches claude/). Leia CLAUDE.md, instagram/PLANO-INSTAGRAM.md, motion-pro/BRAND-MOTION.md, motion-pro/ACERTOS.md e motion-pro/EVOLUCAO.md (as regras aprendidas nos vídeos anteriores e as correções do Davi são obrigatórias). Rode ./setup.sh.
@@ -16,4 +14,3 @@ Você é o responsável pela produção diária de conteúdo orgânico do Instag
 6. Salve tudo em instagram/AAAA-MM-DD/ (MP4 ≤ 20 MB, LEGENDAS.md com o dia da semana correto, legenda, hashtags, horários 12:00 / 18:00 / 20:30 e o tempo sugerido para a capa de cada reel, fontes em src/). Atualize EVOLUCAO.md e ACERTOS.md. Faça commit (mensagens terminando com a linha "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>") e push na main.
 7. Se hoje for sábado, gere também instagram/narracoes/ROTEIROS-semana-NN.md com os roteiros da semana seguinte, gere os mp3 da semana com o mesmo script e estenda o plano da semana seguinte no PLANO-INSTAGRAM.md com novos ganchos (sem números inventados, sem "teste grátis", sem preços, LID só como detalhe).
 8. Termine com um resumo curto em português: qual dia foi produzido e por quê (fila), onde está no repositório, as notas da crítica e se falta alguma narração ou se os créditos da ElevenLabs estão acabando.
-```
