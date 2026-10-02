@@ -1,0 +1,80 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "MÉTODO · SALVE ESTE POST",
+   "titulo": "Mande 3 imóveis. Não 20.",
+   "sub": "Cinco passos para enviar opções pelo WhatsApp sem travar o cliente."
+  },
+  {
+   "tipo": "passo",
+   "titulo": "O problema",
+   "corpo": "Com 20 opções, o trabalho de escolher fica com o cliente. E ele adia. Decisão difícil fica para depois.",
+   "ghost": "20"
+  },
+  {
+   "tipo": "lista",
+   "titulo": "Passo 1 · Pergunte antes de enviar",
+   "itens": [
+    "Compra ou locação?",
+    "Qual região?",
+    "Quanto quer investir?",
+    "Para quando?"
+   ]
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Passo 2 · Filtre o catálogo pelo que ele respondeu",
+   "corpo": "De 20 para 3. Só entra o que bate com as respostas.",
+   "ghost": "02"
+  },
+  {
+   "tipo": "lista",
+   "titulo": "Passo 3 · Envie as 3, cada uma com o porquê",
+   "itens": [
+    "Perto da escola",
+    "Cabe no orçamento",
+    "Pronto para morar"
+   ]
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Passo 4 · Feche com uma pergunta de escolha",
+   "corpo": "Em vez de \"O que achou?\", pergunte: \"Qual dessas você quer visitar primeiro?\" Escolher entre três é fácil.",
+   "ghost": "04"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Passo 5 · Sem resposta? Retome com um ângulo novo",
+   "corpo": "Uma opção nova ou uma informação nova. Nunca \"E aí, viu?\".",
+   "ghost": "05"
+  },
+  {
+   "tipo": "insight",
+   "texto": "Separei 3 opções pelo que você me contou: perto da escola, até o valor que você falou e prontas para morar. Qual você quer visitar primeiro?",
+   "fonte": "Copie e cole"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "A IA pergunta. Você atende.",
+   "corpo": "A Leadimob faz as perguntas no seu WhatsApp, a qualquer hora, consulta o seu catálogo e entrega o perfil pronto para o corretor."
+  },
+  {
+   "tipo": "cta",
+   "titulo": "Quer achar onde o seu atendimento trava?",
+   "acao": "Comente DIAGNÓSTICO",
+   "sub": "E receba o checklist Onde seus leads estão morrendo."
+  }
+ ]
+}
