@@ -34,6 +34,26 @@ O motor já entregou, em outra marca: plano contínuo 3D com câmera viajando po
 - Narração: gerada pela API da ElevenLabs (conta paga), 7 mp3 da semana em `instagram/narracoes/`.
 - Ainda abaixo do ideal: motion blur com sub=3 aparece como cópias empilhadas em movimentos muito rápidos (feed do celular); contador ainda está em 3 quando a voz diz "vinte"; quadro 0 mostra só "O CLIENTE" (escolher a capa em ~2,6s).
 
+### Posts de 03/10 — primeiro lote depois do pedido "nível de estúdio" (01–02/10/2026)
+Davi (01/10): o Reel 1 de 02/10 (DOM plano) ficou "um pouco inferior"; o vídeo de apresentação (v1) é a qualidade mínima. Durante a produção ele viu a prévia e achou exagerados os funis âmbar dos vazamentos: "devem sempre seguir a marca". Viraram regra no ACERTOS.
+
+**Reel 1 "Você não precisa de mais tráfego" (35s, 3D)**
+- Técnicas novas: metáfora única em mundo 3D (pista de luz com ~1.100 orbes em shader de pontos, portal com a foto do anúncio, três vazamentos onde os leads caem); cada orbe tem "destino" determinístico; orçamento que dobra o fluxo e os vazamentos junto; orbe-herói "Você · cliente" com câmera de perseguição presa a ele e bloco de anotações preenchido a cada vazamento; CTA com sete marcadores projetados na pista; títulos no topo como legenda (sem legenda no rodapé); câmera por spline cúbica monotônica (não para em cada keyframe); cards DOM ancorados com trava nas margens.
+- Crítica do rascunho: 6 / 6,5 / 6,5 / 5 / 7 / 7,5 (gancho, ritmo, clareza, acabamento, legibilidade, marca). Crítica do primeiro corte final: 7 / 8,5 / 8 / 6,5 / 7,5 / 8. Corrigido depois disso e re-renderizado; o corte entregue não passou por nova rodada de notas.
+- Correções que viraram regra: vazamento/dor = buraco escuro + anel fino + só os leads em âmbar (nada de cones, feixes ou halos chapados); fios de luz de 1px parecem defeito de render; título nunca sobre o card (no gancho, título em cima e portal embaixo); contador precisa assentar e segurar o valor final ≥ 0,4s; etiquetas no plano aberto ancoradas no próprio anel, à esquerda, ≥ 36px; cards não chegam vazios; a câmera de perseguição é função direta do objeto seguido; marcadores do CTA todos acima de y=1520; pílulas de estado neutras quando já há âmbar demais na cena.
+- Motion blur: 3 subquadros em obturador de 360° deixavam orbes e etiquetas como 3–4 cópias. `render2.js` agora usa obturador de 180° (SHUTTER=0.5) e o padrão passou a 4 subquadros.
+
+**Reel 2 "Esse lead 'curioso' pode ser uma venda" (23s, tipográfico em 3D)**
+- Técnicas novas: tipografia DOM projetada pela câmera do three (matrix3d) com profundidade real; zoom-through pelo furo da etiqueta; wipe com o símbolo do logo; match cut dos chips para a etiqueta; flip da etiqueta CURIOSO → QUENTE (verde); tipografia fantasma e chão em perspectiva preenchendo a metade de baixo; trilha 100 BPM em Lá bemol com silêncio no "E só.".
+- Crítica do corte: 8 / 6 / 6 / 6,5 / 8 / 8. Corrigido (tempo de leitura ≥ 1,5s das frases-tese, pill limpo, lista completa ≥ 1,2s, fecho ≥ 1,5s sem fade, etiqueta verde, 180° de obturador) e re-renderizado; não re-pontuado.
+- Regras: toda frase fica completa e parada pelo menos ~0,3s por palavra (mínimo 1,5s para a tese); composição centrada (bloco entre ~y 380 e 1380), nunca só na metade de cima; "quente"/resultado é verde, não azul; vídeo termina em quadro cheio (bom para loop).
+
+**Carrossel "Mande 3 imóveis. Não 20."**
+- Elemento contínuo novo: fluxo de cards de imóvel que afunila ao longo do swipe (pilha caótica → enxurrada âmbar → quatro portões das perguntas → funil → 3 escolhidas num trilho). Miniaturas procedurais em SVG, perspectiva individual por card, mensagem pronta para copiar no slide 8.
+- Só autoavaliado por quem produziu (sem crítica independente). Ponto fraco: slides 5–10 repetem a mesma faixa inferior.
+
+- Ainda abaixo do ideal no lote: restam fantasmas leves no mergulho do Reel 2; microtextos de interface entre 28 e 34px; nenhum dos três teve nota final depois das últimas correções; a trilha é medida (-14 LUFS) mas nunca ouvida por quem produz.
+
 ## Backlog para o v2
 - Abrir com o produto já no quadro 0 (gancho em cima do celular), roteiro com problema em ≤ 6s.
 - Zoom de câmera no elemento principal de cada estação (1 elemento herói ≥ 85% da largura, texto ≥ 36px).
@@ -46,3 +66,4 @@ O motor já entregou, em outra marca: plano contínuo 3D com câmera viajando po
 |---|---|---|---|---|
 | v1 | Plataforma: "Você não precisa de mais leads" (9:16, 51s) | mundo 3D contínuo + linha da jornada, cards DOM ancorados em 3D, wipe do símbolo, relógio time-lapse, crane final, trilha 118 BPM F#m com SFX por ação | 7/7/8/7/6/8 | legibilidade de mockups, produto antes de 6s, ritmo das estações |
 | R1 02/10 | "O cliente não quer receber mais imóveis" (9:16, 41s) | parede de cards 3D no gancho, contador + pops acelerando, cards de pergunta acesos pela voz, trilha 104 BPM Ré menor com queda no "adia" | 7,5/6,5/8/6/7/9 no primeiro corte (corrigido e re-renderizado) | motion blur em movimento rápido, capa no quadro 0, custo de render |
+\n| R1 03/10 | "Você não precisa de mais tráfego" (9:16, 35s, 3D) | pista de orbes com vazamentos, orbe-herói com câmera de perseguição, spline de câmera, obturador 180° | 7/8,5/8/6,5/7,5/8 no 1º corte (corrigido, não re-pontuado) | blur perfeito em objetos rápidos, microtextos ≥ 36px |\n| R2 03/10 | "Esse lead curioso pode ser uma venda" (9:16, 23s, tipográfico 3D) | tipografia projetada por matrix3d, zoom-through, wipe do símbolo, match cut | 8/6/6/6,5/8/8 no 1º corte (corrigido, não re-pontuado) | fantasmas no mergulho, quadros de viagem vazios |\n

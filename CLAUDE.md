@@ -22,4 +22,4 @@ Leia antes de produzir: `motion-pro/BRAND-MOTION.md`, `motion-pro/ACERTOS.md`, `
 - Cada vídeo supera o anterior: registre técnicas, crítica e aprendizados no EVOLUCAO e correções do Davi no ACERTOS.
 
 ## Setup de um ambiente novo
-`./setup.sh` e depois `python3 -m http.server 8126` na raiz; renders longos sempre em blocos retomáveis: `nohup motion-pro/engine/render_blocos.sh http://localhost:8126/.../build.html <quadros> <pasta_out> &` (o ambiente pode reiniciar; se reiniciar, suba o servidor de novo e rode o mesmo comando, que continua de onde parou). Trecho avulso: `node motion-pro/engine/render2.js <url> 30 3 ini fim out.mp4`.
+`./setup.sh` e depois `python3 -m http.server 8126` na raiz; renders longos sempre em blocos retomáveis: `nohup motion-pro/engine/render_blocos.sh http://localhost:8126/.../build.html <quadros> <pasta_out> &` (padrão: 4 subquadros com obturador de 180°) (o ambiente pode reiniciar; se reiniciar, suba o servidor de novo e rode o mesmo comando, que continua de onde parou). Trecho avulso: `node motion-pro/engine/render2.js <url> 30 3 ini fim out.mp4`.

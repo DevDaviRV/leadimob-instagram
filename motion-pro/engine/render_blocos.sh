@@ -1,8 +1,8 @@
 #!/bin/bash
 # Render retomável em blocos (o ambiente de nuvem pode reiniciar no meio de um render longo).
-# Uso: render_blocos.sh <url> <total_quadros> <pasta_saida> [fps=30] [sub=3] [bloco=80]
+# Uso: render_blocos.sh <url> <total_quadros> <pasta_saida> [fps=30] [sub=4] [bloco=80]  (obturador: SHUTTER=0.5 por padrão)
 # Roda 2 processos em paralelo; blocos já prontos são pulados. Ao final: <pasta_saida>/raw.mp4
-URL=$1; N=$2; OUT=$3; FPS=${4:-30}; SUB=${5:-3}; CH=${6:-80}
+URL=$1; N=$2; OUT=$3; FPS=${4:-30}; SUB=${5:-4}; CH=${6:-80}
 ENG="$(cd "$(dirname "$0")" && pwd)"; mkdir -p "$OUT/c"
 worker(){ local i=0
   for ((s=0; s<N; s+=CH)); do e=$((s+CH)); [ $e -gt $N ] && e=$N

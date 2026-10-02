@@ -26,6 +26,10 @@ Referência: `motion-pro/v1-plataforma/` (vídeo de apresentação). O Reel 1 de
 - Acabamento de estúdio: partículas, glow, sombras de contato, motion blur, grão, vinheta, trilha com arco e SFX por ação.
 - O Reel 2 tipográfico também precisa de profundidade e câmera (tipografia cinética em 3D ou camadas com parallax), não só texto trocando.
 
+## Âmbar e elementos de dor (Davi, 01/10: "achei exagerado esses funis amarelos, devem sempre seguir a marca")
+- Âmbar é detalhe: anel fino, palavra-chave, uma pílula, os próprios leads caindo. Nunca volumes grandes (cones, feixes, halos chapados, vários elementos âmbar na mesma cena).
+- A cena precisa continuar lendo como Leadimob: base escura, azul/ciano dominando, verde para resultado.
+
 ## Nunca repetir
 - Frame 0 com uma palavra só: abrir com pelo menos 2 palavras e movimento.
 - Quadros vazios entre estações (card só entrando depois da câmera chegar).

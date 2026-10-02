@@ -1,7 +1,7 @@
 # Posts de 03/10 (sexta)
 
 ## 12:00 · Reel 1 — "Você não precisa de mais tráfego"
-Arquivo: `r1-nao-precisa-de-mais-trafego.mp4` (35s, narração Bianca) · capa sugerida: ~5,9s ("Precisa descobrir onde seus leads estão morrendo")
+Arquivo: `r1-nao-precisa-de-mais-trafego.mp4` (35s, narração Bianca) · capa sugerida: ~3,0s (gancho completo sobre o anúncio)
 
 **Legenda:**
 Você provavelmente não precisa de mais tráfego. Precisa descobrir onde seus leads estão morrendo.
@@ -33,7 +33,7 @@ Comente DIAGNÓSTICO e receba no direct o checklist "Onde seus leads estão morr
 ---
 
 ## 20:30 · Reel 2 — "Esse lead 'curioso' pode ser uma venda"
-Arquivo: `r2-lead-curioso.mp4` (21s, sem voz) · capa sugerida: ~2,2s
+Arquivo: `r2-lead-curioso.mp4` (23s, sem voz) · capa sugerida: ~2,2s
 
 **Legenda:**
 Esse lead "curioso" pode ser uma venda.
