@@ -6,7 +6,7 @@ Objetivo: crescer @leadimob.ai e captar leads qualificados (donos de imobiliári
 ## Cadência
 - Por dia: **Reel 1 narrado** (30–40s, voz Bianca, motion 3D premium) · **Reel 2 tipográfico** (15–25s, texto + trilha, sem voz) · **Carrossel** (8–10 slides, 1080×1350).
 - 1–2×/semana o Reel 1 vira **Reel com o Davi** (ele grava, Claude edita).
-- Horários iniciais (ajustar com insights): Reel 1 12:00 · Carrossel 18:00 · Reel 2 20:30.
+- Horários de publicação (definidos pelo Davi em 02/10): **09:00 Reel 2 tipográfico · 12:00 Reel 1 narrado · 18:00 Carrossel**.
 
 ## Pilares (rodízio)
 | Pilar | % | Função |

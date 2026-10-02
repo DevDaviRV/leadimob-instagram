@@ -1,5 +1,21 @@
 # Posts de 03/10 (sábado)
 
+## 09:00 · Reel 2 — "Esse lead 'curioso' pode ser uma venda"
+Arquivo: `r2-lead-curioso.mp4` (23s, sem voz) · capa sugerida: ~2,2s
+
+**Legenda:**
+Esse lead "curioso" pode ser uma venda.
+
+Ele perguntou o preço, você respondeu o preço. E só. Curioso não é quem pergunta: é quem ninguém qualificou.
+
+Antes de descartar, pergunte: compra ou investe? Qual região? Até quanto? Para quando?
+
+Comente DIAGNÓSTICO e descubra onde seus leads estão morrendo.
+
+#corretordeimoveis #imobiliaria #mercadoimobiliario #leadsimobiliarios #marketingimobiliario
+
+---
+
 ## 12:00 · Reel 1 — "Você não precisa de mais tráfego"
 Arquivo: `r1-nao-precisa-de-mais-trafego.mp4` (35s, narração Bianca) · capa sugerida: ~3,0s (gancho completo sobre o anúncio)
 
@@ -29,22 +45,6 @@ Salve este post para usar no próximo atendimento. A mensagem pronta está no sl
 Comente DIAGNÓSTICO e receba no direct o checklist "Onde seus leads estão morrendo".
 
 #corretordeimoveis #imobiliaria #mercadoimobiliario #vendasimobiliarias #corretor
-
----
-
-## 20:30 · Reel 2 — "Esse lead 'curioso' pode ser uma venda"
-Arquivo: `r2-lead-curioso.mp4` (23s, sem voz) · capa sugerida: ~2,2s
-
-**Legenda:**
-Esse lead "curioso" pode ser uma venda.
-
-Ele perguntou o preço, você respondeu o preço. E só. Curioso não é quem pergunta: é quem ninguém qualificou.
-
-Antes de descartar, pergunte: compra ou investe? Qual região? Até quanto? Para quando?
-
-Comente DIAGNÓSTICO e descubra onde seus leads estão morrendo.
-
-#corretordeimoveis #imobiliaria #mercadoimobiliario #leadsimobiliarios #marketingimobiliario
 
 ---
 **Observação:** os valores de imóveis nas peças (R$ 590 mil, R$ 890 mil etc.) são exemplos fictícios de anúncio, não dados da Leadimob.
