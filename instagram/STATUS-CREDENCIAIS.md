@@ -1,18 +1,11 @@
-# Status das credenciais do ambiente de nuvem
+# Status das credenciais
 
-Teste somente leitura, sem cabeçalho de autorização (a credencial deveria ser anexada pelo proxy do ambiente). Nenhum token ou chave foi impresso ou gravado.
+Teste em 2026-10-02 15:12 (America/Sao_Paulo) · ambiente: Default
 
-**Data e hora:** 02/10/2026 14:29 (America/Sao_Paulo)
+| Credencial | HTTP | Resultado |
+|---|---|---|
+| Instagram (graph.instagram.com) | 200 | user_id 17841479175760369 · username leadimob.ai · account_type BUSINESS · media_count 11 |
+| ElevenLabs (api.elevenlabs.io) | 401 | invalid_authorization_header ("Provided authorization header was invalid.") |
 
-| Teste | Endpoint | Código HTTP | Resultado |
-|---|---|---|---|
-| Instagram Graph API | `GET graph.instagram.com/v24.0/me` | — (403 no CONNECT do proxy) | bloqueado pela rede |
-| ElevenLabs | `GET api.elevenlabs.io/v1/user/subscription` | 401 | `Neither authorization header nor xi-api-key received` |
-
-## Campos anotados
-- Instagram: nenhum (`user_id`, `username`, `account_type`, `media_count` não obtidos — a conexão não chegou ao servidor).
-- ElevenLabs: nenhum (`tier`, `character_count`, `character_limit` não obtidos — resposta 401).
-
-## Conclusão
-- **Instagram: NÃO funciona neste ambiente.** O domínio `graph.instagram.com` não está liberado na rede do ambiente (403 no CONNECT), então nem dá para saber se a credencial está configurada.
-- **ElevenLabs: NÃO funciona neste ambiente.** O domínio está liberado, mas o proxy não anexou a chave `xi-api-key` (401) e não há chave na requisição.
+- Instagram: funciona.
+- ElevenLabs: NÃO funciona (a credencial anexada pelo proxy foi rejeitada; reconfigurar a chave no ambiente).
