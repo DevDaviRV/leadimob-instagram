@@ -35,3 +35,7 @@ Palavras dele: o `r2-lead-curioso` (03/10) "tem o design muito bom, padrão da m
 - Quadros vazios entre estações (card só entrando depois da câmera chegar).
 - Texto de interface < 28px em mockup (ilegível no celular).
 - Elementos a menos de 72px da borda direita (botões do Reels).
+
+## Ganchos: chamada direta ao ICP (Davi, 02/10)
+- Sempre um dos reels do dia fala diretamente com o público da Leadimob, pelo nome, na primeira palavra: "Corretor, você ainda não faz isso?", "Imobiliária que não faz isso, perde.", "Incorporador, o que falta?".
+- Rodízio entre corretor, imobiliária e incorporador; o gancho precisa ser pago logo em seguida com uma prática concreta. Regras e moldes em `instagram/PLANO-INSTAGRAM.md` ("Linha de ganchos").

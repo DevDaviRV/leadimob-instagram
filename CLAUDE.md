@@ -20,6 +20,7 @@ Leia antes de produzir: `motion-pro/BRAND-MOTION.md`, `motion-pro/ACERTOS.md`, `
 - Produção 100% em código (three.js/DOM/canvas, Playwright + ffmpeg, trilha em numpy). Sem geradores de terceiros.
 - Sem números inventados, sem "teste grátis", sem preços. LID só como detalhe. Âmbar só para alerta. Texto ≥ 36px nos reels, ≥ 30px no carrossel, margem 72px.
 - CTA educativo: "Comente DIAGNÓSTICO" (isca em `instagram/ISCA-DIAGNOSTICO.md`); produto: "Solicite uma demonstração — link na bio".
+- Um dos dois reels do dia abre com chamada direta a um público da Leadimob pelo nome ("Corretor, …", "Imobiliária que …", "Incorporador, …"), em rodízio (ver "Linha de ganchos" no plano).
 - Direção de arte dos reels: premium, sóbria e corporativa, no padrão do `instagram/2026-10-03/r2-lead-curioso.mp4` (ver ACERTOS). Efeitos bonitos e profissionais, sem exagero visual; um destaque de cor por cena; profundidade e câmera com contenção.
 - Cada vídeo supera o anterior: registre técnicas, crítica e aprendizados no EVOLUCAO e correções do Davi no ACERTOS.
 

@@ -21,6 +21,16 @@ Objetivo: crescer @leadimob.ai e captar leads qualificados (donos de imobiliári
 - Produto: "Solicite uma demonstração — link na bio".
 - Nunca: teste grátis, números sem fonte, preços (salvo aprovação).
 
+## Linha de ganchos: chamada direta ao ICP (pedido do Davi em 02/10)
+Todo dia, **um dos dois reels** abre falando diretamente com um público da Leadimob, pelo nome. O outro reel pode manter gancho amplo.
+- Públicos (rodízio): **Corretor** · **Imobiliária** (dono/gestor) · **Incorporador**. Corretor e imobiliária com mais peso; incorporador 1–2× por semana. Não repetir o mesmo público dois dias seguidos.
+- Forma: o nome do público é a **primeira palavra** dita ou escrita (primeiro segundo) e aparece também na capa e na primeira linha da legenda.
+- Moldes (variar, não copiar): "Corretor, você ainda não faz isso?" · "Imobiliária que não faz isso, perde." · "Incorporador, o que falta no seu lançamento?" · "Corretor: pare de…" · "Dono de imobiliária, você sabe…?" · "Gestor, se você precisa perguntar…".
+- O "isso" tem que ser pago nos 3 segundos seguintes com uma prática concreta (responder na hora, qualificar antes de enviar imóvel, follow-up sem depender da memória, registro no funil). Gancho sem entrega vira isca vazia.
+- Valem as regras de sempre: sem números inventados, sem medo gratuito, sem promessa de resultado.
+- Por quê: o perfil é pequeno; chamar o público pelo nome faz quem é do nicho parar e quem não é passar direto, então a retenção e os compartilhamentos vêm de quem interessa, e o Instagram aprende para quem distribuir.
+- Semana 1: as narrações já estão gravadas, então a chamada direta vai no **Reel 2 tipográfico** (adapte o gancho do plano com o vocativo, mantendo a ideia). O R1 de 06/10 (Incorporador) já cumpre a regra nesse dia. A partir da semana 2, planeje a coluna "Público do dia" e escreva os roteiros já com a chamada.
+
 ## Regras de marca
 Ver `motion-pro/BRAND-MOTION.md` e `motion-pro/ACERTOS.md`. LID só detalhe. Âmbar só alerta. Texto ≥ 36px em reels, ≥ 30px em carrossel. Margem 72px.
 
