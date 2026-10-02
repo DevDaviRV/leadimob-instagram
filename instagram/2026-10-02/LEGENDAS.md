@@ -1,4 +1,4 @@
-# Posts de 02/10 (quinta)
+# Posts de 02/10 (sexta)
 
 ## 12:00 · Reel 1 — "O cliente não quer receber mais imóveis"
 Arquivo: `r1-cliente-nao-quer-mais-imoveis.mp4` · capa sugerida: quadro em ~2,6s (frase completa)

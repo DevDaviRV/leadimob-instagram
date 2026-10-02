@@ -17,14 +17,14 @@ Referência: `instagram/2026-10-02/carrossel/` (fontes em `src/c1-index.html`). 
 - Conteúdo centralizado verticalmente acima da linha; rodapé com @leadimob.ai e n/10; capa com "salve este post" e CTA final com campo de comentário DIAGNÓSTICO + logo em cartão claro.
 - Âmbar só nos pontos de dor; verde para a solução.
 
-## Padrão mínimo de reel (Davi, 01/10: "o primeiro reel ficou ótimo e ele é a qualidade mínima")
-Referência: `motion-pro/v1-plataforma/` (vídeo de apresentação). O Reel 1 de 02/10, feito só com cenas DOM planas trocadas por fade, foi sentido como inferior ("satisfatório, mas buscamos a maior qualidade"). Todo reel narrado parte do nível do v1 e sobe:
-- Mundo 3D contínuo em three.js com câmera viajando (dolly, crane, órbita), profundidade real, fog, luz e reflexo; nunca uma sequência de telas planas com fade.
-- Elemento proprietário atravessando o vídeo (linha de luz da jornada do lead, estações, símbolo do logo como wipe ou máscara).
-- UI de produto em DOM nítido ancorado por projeção 3D (parallax real), com 1 elemento herói por plano.
-- Transições desenhadas (match cut, wipe do símbolo, zoom-through), nunca só opacidade.
-- Acabamento de estúdio: partículas, glow, sombras de contato, motion blur, grão, vinheta, trilha com arco e SFX por ação.
-- O Reel 2 tipográfico também precisa de profundidade e câmera (tipografia cinética em 3D ou camadas com parallax), não só texto trocando.
+## Direção de arte dos reels: premium, sóbrio, corporativo (Davi, 02/10)
+Palavras dele: o `r2-lead-curioso` (03/10) "tem o design muito bom, padrão da marca, sem exageros de cores ou efeitos"; o `r1-nao-precisa-de-mais-trafego` (03/10) "ficou exagerado nos efeitos. Gosto de efeitos bonitos e profissionais, mas sem exagero visual". Pediu visual "mais adequado, corporativo e bonito" e mandou seguir esse padrão nos próximos.
+- **Referência a seguir:** `instagram/2026-10-03/r2-lead-curioso.mp4` (fontes em `src/r2-*`) e o vídeo de apresentação `motion-pro/v1-plataforma/`. **Contraexemplo:** `instagram/2026-10-03/r1-nao-precisa-de-mais-trafego.mp4` (nuvem de orbes brilhantes, portal, halos, muita coisa acesa ao mesmo tempo).
+- Fundo escuro limpo com muito respiro; tipografia grande e bem composta como protagonista; UI de produto nítida (bolhas, cards, etiquetas) como apoio; UMA cor de destaque por cena (ciano ou verde), âmbar no máximo em um detalhe.
+- Profundidade e câmera continuam (o DOM plano com fade de 02/10 foi sentido como inferior), mas com contenção: movimentos suaves e poucos, uma transição desenhada por virada (zoom-through, wipe do símbolo, match cut), sem chicotes em sequência.
+- Um elemento herói por plano. Nada de enxames de partículas, campos de orbes, vários glows simultâneos, anéis pulsando, feixes ou cenário competindo com o texto. Linha da jornada fina e discreta, chão de pontos sutil, poeira quase imperceptível.
+- Teste antes de renderizar: se tirar um efeito e a mensagem continuar igual, o efeito sai. A cena tem de parecer peça institucional de SaaS B2B, não demo de 3D.
+- Acabamento de estúdio vem de composição, ritmo, tipografia, sombras de contato, motion blur limpo e som preciso, não de quantidade de efeitos.
 
 ## Âmbar e elementos de dor (Davi, 01/10: "achei exagerado esses funis amarelos, devem sempre seguir a marca")
 - Âmbar é detalhe: anel fino, palavra-chave, uma pílula, os próprios leads caindo. Nunca volumes grandes (cones, feixes, halos chapados, vários elementos âmbar na mesma cena).

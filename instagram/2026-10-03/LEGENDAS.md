@@ -1,4 +1,4 @@
-# Posts de 03/10 (sexta)
+# Posts de 03/10 (sábado)
 
 ## 12:00 · Reel 1 — "Você não precisa de mais tráfego"
 Arquivo: `r1-nao-precisa-de-mais-trafego.mp4` (35s, narração Bianca) · capa sugerida: ~3,0s (gancho completo sobre o anúncio)
