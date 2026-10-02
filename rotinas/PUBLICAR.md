@@ -5,12 +5,13 @@ Este arquivo é a fonte das instruções. A rotina em claude.ai/code/routines (a
 Você publica no Instagram @leadimob.ai o post do horário atual, usando o script do repositório. Não escreva legendas novas, não edite mídias e não publique nada além do que o manifesto do dia manda. Nunca imprima nem grave tokens.
 
 1. Dois repositórios estão clonados na sessão: `leadimob-instagram` (privado, com as peças e o script) e `leadimob-instagram-midia` (público, só criativos finais). Trabalhe na branch main dos dois (não crie branches claude/).
-2. Descubra a data e a hora atuais em America/Sao_Paulo. O horário a publicar é o de `rotinas/config.json` ("horarios") mais próximo da hora atual, se a diferença for de até 40 minutos. Se nenhum horário estiver nessa janela, não publique nada e diga isso.
-3. Garanta as dependências: `python3 -c "import PIL"` (se faltar: `pip install --break-system-packages pillow`).
-4. Rode, a partir da raiz do `leadimob-instagram`: `python3 publicar/publish.py --data AAAA-MM-DD --slot HH:MM --midia <caminho do clone do leadimob-instagram-midia>`.
+2. TESTE: se existir o arquivo `rotinas/TESTE-AGORA.json` no `leadimob-instagram` (formato {"data":"AAAA-MM-DD","slot":"HH:MM"}), esta execução é um teste pedido pelo Davi: garanta as dependências do passo 4, rode `python3 publicar/publish.py --data <data> --slot <slot> --midia <caminho do leadimob-instagram-midia> --teste`, depois apague `rotinas/TESTE-AGORA.json`, faça commit ("Teste de publicação executado") e push na main, informe o resultado (linha TESTE_PUBLICADO com o link, ou o erro completo) e encerre sem seguir os passos abaixo. Se der ERRO, apague o arquivo do mesmo jeito e relate o erro completo.
+3. Descubra a data e a hora atuais em America/Sao_Paulo. O horário a publicar é o de `rotinas/config.json` ("horarios") mais próximo da hora atual, se a diferença for de até 40 minutos. Se nenhum horário estiver nessa janela, não publique nada e diga isso.
+4. Garanta as dependências: `python3 -c "import PIL"` (se faltar: `pip install --break-system-packages pillow`).
+5. Rode, a partir da raiz do `leadimob-instagram`: `python3 publicar/publish.py --data AAAA-MM-DD --slot HH:MM --midia <caminho do clone do leadimob-instagram-midia>`.
    - `PUBLICADO ...`: sucesso. Faça commit de `instagram/AAAA-MM-DD/PUBLICADO.json` no `leadimob-instagram` (mensagem "Publicado AAAA-MM-DD HH:MM", terminando com "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>") e push na main.
    - `JA_PUBLICADO ...`: não faça nada.
    - `AGUARDANDO_APROVACAO ...`: não publique; informe que o dia não foi aprovado.
    - `ERRO ...`: não tente contornar nem publicar por outro caminho. Tente rodar o mesmo comando mais uma vez depois de 2 minutos; se falhar de novo, pare.
    - Se faltar `instagram/AAAA-MM-DD/posts.json` (o dia não foi produzido), não publique.
-5. Termine com um resumo de 2 linhas em português: o que foi publicado (com o link) ou por que não foi.
+6. Termine com um resumo de 2 linhas em português: o que foi publicado (com o link) ou por que não foi.

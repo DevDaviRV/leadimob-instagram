@@ -17,7 +17,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = json.load(open(os.path.join(ROOT, "rotinas", "config.json")))
 TOKEN = os.environ.get("IG_TOKEN", "").strip()
 
-def api(method, path, params=None):
+def api(method, path, params=None, soft=False):
     params = dict(params or {})
     url = f"{API}/{path}"
     data = None
@@ -31,19 +31,27 @@ def api(method, path, params=None):
         with urllib.request.urlopen(req, timeout=120) as r: return json.load(r)
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", "ignore")[:600]
+        if soft: return {"_erro": f"HTTP {e.code} {body}"}
         sys.exit(f"ERRO API {method} {path}: HTTP {e.code} {body}")
 
 def sh(cmd, cwd):
     return subprocess.run(cmd, cwd=cwd, check=True, capture_output=True, text=True).stdout.strip()
 
 def reachable(url, tries=40):
+    """True quando o link aberto responde 200. 404 = ainda propagando (tenta de novo).
+    Se a rede do ambiente bloquear o host, segue em frente: quem baixa a mídia é o Instagram."""
+    bloqueios = 0
     for _ in range(tries):
         try:
             req = urllib.request.Request(url, method="HEAD")
             with urllib.request.urlopen(req, timeout=30) as r:
                 if r.status == 200: return True
+        except urllib.error.HTTPError as e:
+            if e.code not in (404, 429, 500, 502, 503): bloqueios += 1
         except Exception:
-            pass
+            bloqueios += 1
+        if bloqueios >= 3:
+            print(f"AVISO: não consegui conferir {url} daqui (rede do ambiente); seguindo."); time.sleep(20); return True
         time.sleep(6)
     return False
 
@@ -61,6 +69,7 @@ def main():
     ap.add_argument("--data", required=True); ap.add_argument("--slot", required=True)
     ap.add_argument("--midia", required=True, help="pasta do clone do repositório público de criativos")
     ap.add_argument("--dry", action="store_true", help="prepara e sobe a mídia, cria os contêineres, mas NÃO publica")
+    ap.add_argument("--teste", action="store_true", help="publica agora ignorando aprovação e registro (post de teste; não grava PUBLICADO.json)")
     a = ap.parse_args()
     day = os.path.join(ROOT, "instagram", a.data)
     man = json.load(open(os.path.join(day, "posts.json")))
@@ -68,9 +77,9 @@ def main():
     if not post: sys.exit(f"Sem post para {a.slot} em {a.data}")
     pub_path = os.path.join(day, "PUBLICADO.json")
     pub = json.load(open(pub_path)) if os.path.exists(pub_path) else {}
-    if a.slot in pub and not a.dry:
+    if a.slot in pub and not a.dry and not a.teste:
         print(f"JA_PUBLICADO {a.data} {a.slot}: {pub[a.slot].get('permalink')}"); return
-    if CFG.get("aprovacao") == "manual" and not os.path.exists(os.path.join(day, "APROVADO")) and not a.dry:
+    if CFG.get("aprovacao") == "manual" and not os.path.exists(os.path.join(day, "APROVADO")) and not a.dry and not a.teste:
         print(f"AGUARDANDO_APROVACAO {a.data}: crie instagram/{a.data}/APROVADO para liberar"); return
 
     # 1) mídia no repositório público
@@ -95,7 +104,11 @@ def main():
     if post["tipo"] == "reel":
         params = {"media_type": "REELS", "video_url": urls[0], "caption": cap, "share_to_feed": "true"}
         if post.get("capa_s") is not None: params["thumb_offset"] = int(float(post["capa_s"]) * 1000)
-        cid = api("POST", "me/media", params)["id"]; wait_container(cid, "reel")
+        res = api("POST", "me/media", params, soft=True)
+        if "_erro" in res and "thumb_offset" in params:
+            print("AVISO: capa por tempo recusada, publicando com a capa padrão:", res["_erro"][:160]); params.pop("thumb_offset"); res = api("POST", "me/media", params)
+        elif "_erro" in res: sys.exit("ERRO API POST me/media: " + res["_erro"])
+        cid = res["id"]; wait_container(cid, "reel")
     else:
         kids = []
         for u in urls:
@@ -107,6 +120,8 @@ def main():
     # 3) publicar
     mid = api("POST", "me/media_publish", {"creation_id": cid})["id"]
     info = api("GET", mid, {"fields": "permalink,media_type,timestamp"})
+    if a.teste:
+        print(f"TESTE_PUBLICADO {a.data} {a.slot}: {info.get('permalink')} (media_id {mid}; não registrado)"); return
     pub[a.slot] = {"media_id": mid, "permalink": info.get("permalink"), "publicado_em": info.get("timestamp"), "tipo": post["tipo"]}
     json.dump(pub, open(pub_path, "w"), ensure_ascii=False, indent=1)
     print(f"PUBLICADO {a.data} {a.slot}: {info.get('permalink')}")
