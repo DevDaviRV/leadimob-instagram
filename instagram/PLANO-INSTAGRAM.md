@@ -37,16 +37,16 @@ Ver `motion-pro/BRAND-MOTION.md` e `motion-pro/ACERTOS.md`. LID só detalhe. Âm
 ## Semana 1 (02/10 – 08/10)
 | Dia | Reel 1 narrado | Reel 2 tipográfico | Carrossel |
 |---|---|---|---|
-| Sex 02/10 | (passou para 04/10) | (passou para 04/10) | "7 lugares onde seus leads morrem" (lança DIAGNÓSTICO) |
+| Sex 02/10 | (passou para 04/10) | (passou para 04/10) | (passou para 04/10) |
 | Sáb 03/10 | #30 "Você não precisa de mais tráfego. Precisa descobrir onde seus leads estão morrendo." | #7 "Esse lead 'curioso' pode ser uma venda." | "Mande 3 imóveis, não 20" (#9, método) |
-| Dom 04/10 | **PRONTO**: #25 "O cliente não quer receber mais imóveis. Quer que alguém entenda o que ele procura." (já em `instagram/2026-10-04/`, não refazer) | **PRONTO**: #20 "O lead não sumiu. Seu processo que perdeu ele." (já em `instagram/2026-10-04/`, não refazer) | "Follow-up em 5 toques: copie e cole" |
+| Dom 04/10 | **PRONTO**: #25 "O cliente não quer receber mais imóveis. Quer que alguém entenda o que ele procura." (já em `instagram/2026-10-04/`, não refazer) | **PRONTO**: #20 "O lead não sumiu. Seu processo que perdeu ele." (já em `instagram/2026-10-04/`, não refazer) | **PRONTO**: "7 lugares onde seus leads morrem" (lança DIAGNÓSTICO; já em `instagram/2026-10-04/`, não refazer) |
 | Seg 05/10 | **PRONTO**: "Você não precisa de mais leads. Precisa parar de perder os que já chegam." (v1, produto, 51s; já em `instagram/2026-10-05/`, não refazer) | #29 "Mais caro que comprar lead: comprar e não acompanhar." | "Teste do cliente oculto: faça hoje na sua imobiliária" |
 | Ter 06/10 | Incorporador: "Agora a Leadimob também é para você" (lançamento) | #1 "Quanto mais leads, maior pode ser o prejuízo." | "Lançamento imobiliário: 6 pontos onde o lead esfria" |
 | Qua 07/10 | Rosto Davi (#21 "O cliente que sumiu") — se gravado; senão motion | #11 "Imobiliárias não perdem venda quando recebem o lead. Perdem depois." | "4 perguntas que separam curioso de comprador" |
 | Qui 08/10 | #10 "Seu corretor não precisa de mais leads. Precisa de menos conversas." | #16 "Pare de abandonar quem já quer comprar." | "Antes e depois: a jornada de um lead com e sem processo" |
 
 Observações da semana 1:
-- 02/10 e 04/10: nada foi publicado à mão em 02/10. O carrossel de 02/10 sai no próprio dia às 18:00; os dois reels de 02/10 (já aprovados) viraram os reels de 04/10. A rotina diária produz só o Carrossel de 04/10.
+- 02/10 e 04/10: nada foi publicado em 02/10. As três peças de 02/10 (já aprovadas) são os posts de 04/10, que está completo: a rotina diária não produz nada para esse dia. O carrossel "Follow-up em 5 toques: copie e cole" passa para a semana 2.
 - Os ganchos #26 (Formulário da Meta, produto) e #12 (follow-up que depende da memória) passam para a semana 2. A narração do #26 já está gravada em `instagram/narracoes/2026-10-04-r1.mp3`: copie para a nova data em vez de gerar de novo.
 - 05/10: o Reel 1 é o primeiro vídeo da Leadimob (v1), incluído no fluxo a pedido do Davi. A rotina diária produz só o Reel 2 e o Carrossel desse dia.
 - O gancho #24 (gestor: "Se você precisa perguntar ao corretor o que aconteceu com o lead…") passa para a semana 2. A narração já está gravada em `instagram/narracoes/2026-10-05-r1.mp3`: copie para a nova data em vez de gerar de novo.

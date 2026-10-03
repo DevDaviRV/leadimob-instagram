@@ -1,6 +1,6 @@
 # Posts de 04/10 (domingo)
 
-> **Em produção.** Os dois reels deste dia já estão prontos e aprovados pelo Davi (foram produzidos para 02/10 e não chegaram a ser publicados; fontes em `instagram/2026-10-02/src/`). A rotina diária produz só o Carrossel (18:00), mantém as seções abaixo como estão e acrescenta a entrada das 18:00 ao `posts.json` que já existe.
+> Dia completo e aprovado. As três peças foram produzidas para 02/10, aprovadas pelo Davi e não chegaram a ser publicadas naquele dia (fontes em `instagram/2026-10-02/src/`). Nada a produzir aqui.
 
 ## 09:00 · Reel 2 — "O lead não sumiu"
 Arquivo: `r2-o-lead-nao-sumiu.mp4` (19,5s, sem voz) · capa sugerida: ~1,5s
@@ -35,3 +35,20 @@ Depois, 3 opções. Com o porquê de cada uma.
 Comente DIAGNÓSTICO e receba o checklist completo no direct.
 
 #corretordeimoveis #mercadoimobiliario #imobiliaria #corretor #vendasimobiliarias
+
+---
+
+## 18:00 · Carrossel — "7 lugares onde seus leads morrem"
+Arquivos: `carrossel/slide-01.png` … `slide-10.png` (1080×1350) · editável: `carrossel/carrossel-editor.html`
+
+**Legenda:**
+Seu anúncio pode estar ótimo. O problema costuma estar no que acontece depois que o lead chama.
+
+Salve este post e revise os 7 pontos com a sua equipe esta semana.
+
+Quer o checklist completo para aplicar no seu WhatsApp? Comente DIAGNÓSTICO que eu te mando no direct.
+
+#imobiliaria #corretordeimoveis #gestaoimobiliaria #leads #mercadoimobiliario
+
+---
+**Dica de publicação:** fixe o carrossel no perfil até o fim da semana (é a isca do DIAGNÓSTICO). Responda os primeiros comentários na primeira hora.
