@@ -39,3 +39,7 @@ Palavras dele: o `r2-lead-curioso` (03/10) "tem o design muito bom, padrão da m
 ## Ganchos: chamada direta ao ICP (Davi, 02/10)
 - Sempre um dos reels do dia fala diretamente com o público da Leadimob, pelo nome, na primeira palavra: "Corretor, você ainda não faz isso?", "Imobiliária que não faz isso, perde.", "Incorporador, o que falta?".
 - Rodízio entre corretor, imobiliária e incorporador; o gancho precisa ser pago logo em seguida com uma prática concreta. Regras e moldes em `instagram/PLANO-INSTAGRAM.md` ("Linha de ganchos").
+
+## Padrão de qualidade (Davi, 03/10)
+- "Use todo o poder do Opus 5.5 para entregar qualidade e material premium, qualidade de estúdio profissional, harmonia entre os efeitos dinâmicos; os efeitos devem fazer sentido com o design da Leadimob, a UI e as funcionalidades."
+- Efeito só entra se vier do produto ou do sistema visual da marca, e todos os efeitos de uma peça falam a mesma linguagem de movimento. Vale junto com a direção sóbria: não é licença para mais efeitos.
