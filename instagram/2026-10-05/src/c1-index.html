@@ -1,0 +1,301 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<title>Leadimob · Carrossel 05/10 · Teste do cliente oculto</title>
+<style>
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:IN;color:#fff;-webkit-font-smoothing:antialiased}
+#strip{position:relative;width:10800px;height:1350px;background:#0A0E14;overflow:hidden}
+.abs{position:absolute}
+.bg{position:absolute;inset:0;background-image:radial-gradient(rgba(125,211,252,.11) 1.8px,transparent 2.4px);background-size:46px 46px}
+.glow{position:absolute;border-radius:50%;pointer-events:none}
+.vig{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.0) 70%,rgba(6,9,14,.75) 100%)}
+
+/* ---------- slide frame ---------- */
+.sl{position:absolute;top:0;width:1080px;height:1350px;padding:96px 84px 410px;display:flex;flex-direction:column;justify-content:center;z-index:5}
+.sl.lo{padding-bottom:372px}
+.sl>*{flex:none}
+.kick{font:700 30px/1 IN;letter-spacing:.16em;text-transform:uppercase;color:#7DD3FC}
+.h1{font:900 170px/0.93 IN;letter-spacing:-.058em}
+.h2{font:800 76px/1.03 IN;letter-spacing:-.04em}
+.p{font:500 38px/1.38 IN;color:#C9D2E0}
+.hl{color:#7DD3FC}
+.am{color:#FBBF24}
+.ghost{position:absolute;font:900 520px/1 IN;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(125,211,252,.13);right:30px;top:30px;z-index:-1}
+.foot{position:absolute;left:84px;right:84px;bottom:54px;display:flex;justify-content:space-between;align-items:center;font:600 30px/1 IN;color:#5B6678;letter-spacing:.06em}
+.ttl{display:flex;align-items:center;gap:22px;margin-bottom:30px;flex:none}
+.num{font:800 30px/1 IN;color:#06202A;background:linear-gradient(160deg,#67E8F9,#22D3EE);width:66px;height:66px;border-radius:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(34,211,238,.10),0 10px 34px rgba(34,211,238,.35);flex:none}
+.num.amb{background:linear-gradient(160deg,#FCD34D,#F59E0B);color:#2A1802;box-shadow:0 0 0 6px rgba(245,158,11,.10),0 10px 34px rgba(245,158,11,.30)}
+.card{position:relative;background:linear-gradient(180deg,rgba(24,33,48,.97),rgba(13,19,29,.97));border:1px solid rgba(125,211,252,.18);border-radius:32px;box-shadow:0 50px 100px rgba(0,0,0,.55),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07)}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:15px 24px;border-radius:999px;font:700 30px/1 IN;white-space:nowrap}
+.amb{background:rgba(245,158,11,.12);border:2px solid rgba(245,158,11,.7);color:#FBBF24}
+.cy{background:rgba(34,211,238,.10);border:2px solid rgba(34,211,238,.55);color:#A5F3FC}
+.gr{background:rgba(52,211,153,.12);border:2px solid rgba(52,211,153,.7);color:#6EE7B7}
+.nt{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14);color:#C9D2E0}
+
+/* ---------- WhatsApp ---------- */
+.wa{background:#0B141A;border:1px solid rgba(255,255,255,.08);border-radius:34px;box-shadow:0 50px 100px rgba(0,0,0,.6),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);position:relative;overflow:hidden}
+.wa::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1.5px,transparent 2px);background-size:28px 28px}
+.wa>*{position:relative}
+.bub{position:relative;border-radius:24px;padding:20px 26px 14px;font:500 38px/1.3 IN;color:#E9EDEF;width:fit-content;max-width:100%;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.bin{background:#202C33;border-top-left-radius:6px}
+.bout{background:#005C4B;border-top-right-radius:6px;margin-left:auto}
+.bt{display:flex;justify-content:flex-end;align-items:center;gap:8px;font:500 28px/1 IN;color:rgba(233,237,239,.62);margin-top:8px}
+.tk{width:34px;height:22px}
+.strike{text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:#F59E0B}
+.lab{font:700 30px/1 IN;letter-spacing:.14em;text-transform:uppercase;color:#7C8799;display:flex;align-items:center;gap:12px}
+
+/* ---------- stream of property cards ---------- */
+#band{position:absolute;inset:0;z-index:2}
+.mc{position:absolute;border-radius:16px;background:linear-gradient(180deg,#1A2433,#0F1622);border:1.5px solid rgba(255,255,255,.12);box-shadow:0 22px 44px rgba(0,0,0,.6),0 4px 10px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.10);overflow:hidden}
+.mc .th{height:61%;background-size:cover;background-position:center}
+.mc i{display:block;height:7%;margin:8% 9% 0;border-radius:99px;background:rgba(255,255,255,.26)}
+.mc i.s{width:42%;margin-top:6%;background:rgba(255,255,255,.13)}
+.mc.dim .th{filter:saturate(.45) brightness(.62)}
+.mc.amb2{border-color:rgba(245,158,11,.38)}
+.mc.cv .th{filter:saturate(.7) brightness(.8)}
+.mc.cv{border-color:rgba(125,211,252,.22)}
+.mc.cand{border:2.5px solid rgba(34,211,238,.9);box-shadow:0 0 0 6px rgba(34,211,238,.10),0 0 46px rgba(34,211,238,.35),0 22px 44px rgba(0,0,0,.6)}
+.mc.lit{border:2.5px solid #34D399;box-shadow:0 0 0 7px rgba(52,211,153,.12),0 0 60px rgba(52,211,153,.42),0 26px 50px rgba(0,0,0,.65)}
+.mc.lit i{background:rgba(255,255,255,.5)}
+.mc.new{border:2.5px solid #22D3EE;box-shadow:0 0 0 7px rgba(34,211,238,.12),0 0 60px rgba(34,211,238,.45),0 26px 50px rgba(0,0,0,.65)}
+.bdg{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.5)}
+
+/* slide-specific */
+.qt{position:relative;border-radius:26px;padding:24px 26px 24px;background:linear-gradient(180deg,rgba(24,33,48,.97),rgba(13,19,29,.97));border:1px solid rgba(125,211,252,.18);box-shadow:0 30px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.07)}
+.qt .q{display:flex;align-items:center;gap:14px;font:700 32px/1.15 IN;letter-spacing:-.01em;white-space:nowrap}
+.qt .n{width:44px;height:44px;border-radius:13px;background:rgba(34,211,238,.14);border:1.5px solid rgba(34,211,238,.5);color:#A5F3FC;font:800 30px/1 IN;display:flex;align-items:center;justify-content:center;flex:none}
+.qt .a{margin-top:20px;display:flex;align-items:center;gap:12px;font:600 32px/1 IN;color:#E2E8F0;padding:14px 18px;border-radius:16px;background:#0B1119;border:1px solid rgba(255,255,255,.08)}
+.g20{display:grid;grid-template-columns:repeat(5,106px);gap:9px}
+.g20 .c{position:relative;height:78px;border-radius:12px;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.08)}
+.g20 .c.off{filter:saturate(.15) brightness(.42);opacity:.75}
+.g20 .c.on{border:3px solid #34D399;box-shadow:0 0 0 5px rgba(52,211,153,.14),0 0 34px rgba(52,211,153,.5);z-index:2;transform:scale(1.07)}
+.row3{position:relative;display:flex;align-items:stretch;height:150px;border-radius:26px;background:linear-gradient(180deg,rgba(26,36,52,.98),rgba(14,20,31,.98));border:1px solid rgba(52,211,153,.32);box-shadow:0 34px 70px rgba(0,0,0,.6),0 8px 18px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);overflow:hidden}
+.row3 .th{width:196px;flex:none;background-size:cover;background-position:center}
+.row3 .tx{flex:1;padding:0 26px;display:flex;flex-direction:column;justify-content:center;gap:14px;min-width:0}
+.row3 .t1{display:flex;justify-content:space-between;align-items:baseline;font:700 34px/1 IN;letter-spacing:-.015em}
+.row3 .t1 span{font:600 30px/1 IN;color:#8A96A8;letter-spacing:0}
+.rb{flex:1;height:70px;border-radius:16px;background:#111B21;border:1px solid rgba(255,255,255,.08);color:#53BDEB;font:600 30px/1 IN;display:flex;align-items:center;justify-content:center}
+.feat{display:flex;gap:22px;align-items:flex-start}
+.feat .ic{width:60px;height:60px;border-radius:18px;background:rgba(34,211,238,.10);border:1.5px solid rgba(34,211,238,.45);display:flex;align-items:center;justify-content:center;flex:none;position:relative;z-index:1}
+.feat .tx{font:500 38px/1.3 IN;color:#E2E8F0;padding-top:4px}
+.feat .tx b{font-weight:700;color:#fff}
+
+.row4{display:flex;align-items:center;gap:20px;padding:20px 26px;border-radius:26px;background:linear-gradient(180deg,rgba(24,33,48,.97),rgba(13,19,29,.97));border:1px solid rgba(125,211,252,.18);box-shadow:0 30px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.07)}
+.row4 .t{flex:1;font:700 34px/1.15 IN;letter-spacing:-.015em}
+.row4 .ci{width:46px;height:46px;border-radius:14px;background:rgba(34,211,238,.14);border:1.5px solid rgba(34,211,238,.5);display:flex;align-items:center;justify-content:center;flex:none}
+.sn{padding:10px 20px;font-size:30px}
+.col{flex:1;border-radius:20px;background:#0E1520;border:1px solid rgba(255,255,255,.09);padding:14px 10px 16px;min-height:300px}
+.col .h{font:700 30px/1 IN;color:#C9D2E0;text-align:center;letter-spacing:-.01em}
+.ph{margin-top:16px;height:92px;border-radius:14px;border:2px dashed rgba(255,255,255,.14)}
+</style></head><body><div id="strip">
+<div class="bg"></div>
+<div class="glow" style="left:-380px;top:-460px;width:1500px;height:1500px;background:radial-gradient(circle,rgba(37,99,235,.30),transparent 62%)"></div>
+<div class="glow" style="left:900px;top:560px;width:1500px;height:1200px;background:radial-gradient(circle,rgba(245,158,11,.085),transparent 62%)"></div>
+<div class="glow" style="left:2500px;top:-600px;width:1500px;height:1500px;background:radial-gradient(circle,rgba(34,211,238,.09),transparent 62%)"></div>
+<div class="glow" style="left:3700px;top:420px;width:1700px;height:1500px;background:radial-gradient(circle,rgba(52,211,153,.09),transparent 60%)"></div>
+<div class="glow" style="left:5600px;top:-700px;width:1700px;height:1600px;background:radial-gradient(circle,rgba(37,99,235,.16),transparent 62%)"></div>
+<div class="glow" style="left:7300px;top:300px;width:1600px;height:1600px;background:radial-gradient(circle,rgba(34,211,238,.07),transparent 60%)"></div>
+<div class="glow" style="left:8500px;top:-560px;width:1900px;height:1800px;background:radial-gradient(circle,rgba(37,99,235,.28),transparent 62%)"></div>
+<div class="glow" style="left:9900px;top:500px;width:1300px;height:1300px;background:radial-gradient(circle,rgba(52,211,153,.08),transparent 60%)"></div>
+<div class="vig"></div>
+
+<svg id="lane" class="abs" width="10800" height="1350" style="left:0;top:0;z-index:1"></svg>
+<!-- 1 CAPA -->
+<div class="sl" style="left:0;justify-content:flex-start;padding-top:118px">
+ <div style="display:flex;justify-content:space-between;align-items:center">
+  <div class="ttl" style="margin:0"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="kick">Método</div></div>
+  <span class="chip cy"><svg width="24" height="28" viewBox="0 0 20 24"><path d="M3 2h14v20l-7-5.5L3 22z" fill="#A5F3FC"/></svg>Salve este post</span>
+ </div>
+ <div class="h1" style="margin-top:54px">Teste do<br>cliente<br><span style="color:transparent;-webkit-text-stroke:3px #B4BFD0">oculto.</span></div>
+ <div class="p" style="margin-top:34px;font-size:40px;color:#E2E8F0">Faça hoje na sua imobiliária e veja<br>o que o seu lead realmente vive.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span style="color:#7DD3FC">ARRASTE →</span></div>
+</div>
+
+<!-- 2 PONTO CEGO -->
+<div class="sl" style="left:1080px"><div class="ghost" style="-webkit-text-stroke-color:rgba(245,158,11,.14)">?</div>
+ <div class="ttl"><div class="num amb">!</div><div class="kick" style="color:#FBBF24">O ponto cego</div></div>
+ <div class="h2" style="font-size:73px">Você acha que atende bem. Só o seu cliente <span class="hl">sabe de verdade</span>.</div>
+ <div class="wa" style="margin-top:34px;padding:24px 26px 26px">
+  <div class="bub bout" style="max-width:760px">Oi! Vi o apartamento no anúncio. Ainda está disponível?<div class="bt">22:40 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  <div style="display:flex;align-items:center;gap:18px;margin-top:22px">
+   <div class="lab">Você, como cliente</div>
+   <span class="chip amb" style="margin-left:auto"><svg width="14" height="14"><circle cx="7" cy="7" r="7" fill="#F59E0B"/></svg>sem resposta</span>
+  </div>
+ </div>
+ <div class="p" style="margin-top:28px">Quem nunca chamou a própria imobiliária não sabe o que o lead vê.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>2/10</span></div>
+</div>
+
+<!-- 3 PASSO 1 -->
+<div class="sl" style="left:2160px"><div class="ghost">01</div>
+ <div class="ttl"><div class="num">01</div><div class="kick">Passo 1 · chame como cliente</div></div>
+ <div class="h2" style="font-size:96px;line-height:1">Chame a sua<br>imobiliária <span class="hl">como cliente</span>.</div>
+ <div style="margin-top:44px;display:flex;flex-direction:column;gap:18px">
+  <div class="row4"><div class="ci" style="font:800 30px/1 IN;color:#A5F3FC">1</div><div class="t">Escolha um anúncio seu</div></div>
+  <div class="row4"><div class="ci" style="font:800 30px/1 IN;color:#A5F3FC">2</div><div class="t">Mande a mensagem à noite ou no fim de semana</div></div>
+  <div class="row4"><div class="ci" style="font:800 30px/1 IN;color:#A5F3FC">3</div><div class="t">Use um número que ninguém conhece</div></div>
+ </div>
+ <div class="p" style="margin-top:34px">Sem avisar a equipe.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>3/10</span></div>
+</div>
+
+<!-- 4 PASSO 2 -->
+<div class="sl" style="left:3240px"><div class="ghost">02</div>
+ <div class="ttl"><div class="num">02</div><div class="kick">Passo 2 · cronometre</div></div>
+ <div class="h2">Anote quanto tempo <span class="hl">leva a primeira resposta</span>.</div>
+ <div class="card" style="margin-top:38px;padding:30px 30px 30px">
+  <div style="display:flex;align-items:center;gap:28px">
+   <svg width="120" height="120" viewBox="0 0 120 120" style="flex:none"><circle cx="60" cy="68" r="42" fill="none" stroke="rgba(125,211,252,.35)" stroke-width="5"/><path d="M60 68 L60 40" stroke="#7DD3FC" stroke-width="6" stroke-linecap="round"/><path d="M60 68 L80 80" stroke="#22D3EE" stroke-width="6" stroke-linecap="round"/><rect x="48" y="8" width="24" height="10" rx="4" fill="#7DD3FC"/><path d="M60 18v8" stroke="#7DD3FC" stroke-width="5"/></svg>
+   <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;font:600 34px/1 IN;color:#C9D2E0">Mensagem enviada<span style="font:900 54px/1 IN;color:#5B6678">--:--</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;font:600 34px/1 IN;color:#C9D2E0">Primeira resposta<span style="font:900 54px/1 IN;color:#5B6678">--:--</span></div>
+   </div>
+  </div>
+  <div style="margin-top:22px;height:2px;background:rgba(255,255,255,.08)"></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:22px"><div class="lab">Tempo sem resposta</div><span class="chip amb"><svg width="14" height="14"><circle cx="7" cy="7" r="7" fill="#F59E0B"/></svg>anote aqui</span></div>
+ </div>
+ <div class="p" style="margin-top:32px">É o tempo que o seu lead esperou.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>4/10</span></div>
+</div>
+
+<!-- 5 PASSO 3 -->
+<div class="sl lo" style="left:4320px"><div class="ghost">03</div>
+ <div class="ttl"><div class="num">03</div><div class="kick">Passo 3 · observe</div></div>
+ <div class="h2">Observe o que o atendimento <span class="hl">faz de verdade</span>.</div>
+ <div style="margin-top:38px;display:flex;flex-direction:column;gap:16px">
+  <div class="row4" style="padding:16px 22px"><div class="t" style="font-size:34px">Perguntou o que você procura?</div><span class="chip nt sn">Sim</span><span class="chip nt sn">Não</span></div>
+  <div class="row4" style="padding:16px 22px"><div class="t" style="font-size:34px">Mostrou imóveis do catálogo?</div><span class="chip nt sn">Sim</span><span class="chip nt sn">Não</span></div>
+  <div class="row4" style="padding:16px 22px"><div class="t" style="font-size:34px">Propôs uma visita?</div><span class="chip nt sn">Sim</span><span class="chip nt sn">Não</span></div>
+  <div class="row4" style="padding:16px 22px"><div class="t" style="font-size:34px">Guardou o seu contato?</div><span class="chip nt sn">Sim</span><span class="chip nt sn">Não</span></div>
+ </div>
+ <div class="p" style="margin-top:30px">Marque cada resposta no celular.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>5/10</span></div>
+</div>
+
+<!-- 6 PASSO 4 -->
+<div class="sl lo" style="left:5400px"><div class="ghost">04</div>
+ <div class="ttl"><div class="num">04</div><div class="kick">Passo 4 · silêncio</div></div>
+ <div class="h2">Pare de responder. <span class="hl">Alguém retoma</span> a conversa?</div>
+ <div class="card" style="margin-top:40px;padding:30px 24px 30px">
+  <div style="display:flex;gap:18px"><div style="flex:1;text-align:center"><div class="lab" style="justify-content:center">Dia 1</div><div style="margin:18px auto 0;width:100%;height:96px;border-radius:20px;border:2px dashed rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font:900 54px/1 IN;color:#5B6678">?</div><div style="margin-top:16px"><span class="chip amb sn" style="padding:10px 16px">retomou?</span></div></div><div style="flex:1;text-align:center"><div class="lab" style="justify-content:center">Dia 2</div><div style="margin:18px auto 0;width:100%;height:96px;border-radius:20px;border:2px dashed rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font:900 54px/1 IN;color:#5B6678">?</div><div style="margin-top:16px"><span class="chip amb sn" style="padding:10px 16px">retomou?</span></div></div><div style="flex:1;text-align:center"><div class="lab" style="justify-content:center">Dia 3</div><div style="margin:18px auto 0;width:100%;height:96px;border-radius:20px;border:2px dashed rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font:900 54px/1 IN;color:#5B6678">?</div><div style="margin-top:16px"><span class="chip amb sn" style="padding:10px 16px">retomou?</span></div></div></div>
+ </div>
+ <div class="p" style="margin-top:32px">Lead que esfria sem follow-up não volta sozinho.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>6/10</span></div>
+</div>
+
+<!-- 7 PASSO 5 -->
+<div class="sl lo" style="left:6480px"><div class="ghost">05</div>
+ <div class="ttl"><div class="num">05</div><div class="kick">Passo 5 · registre</div></div>
+ <div class="h2">Registre <span class="hl">onde o lead parou</span> no funil.</div>
+ <div class="card" style="margin-top:40px;padding:22px 20px 24px">
+  <div style="display:flex;gap:12px">
+   <div class="col"><div class="h">Novo</div><div class="chip amb" style="margin-top:16px;padding:12px 10px;font-size:30px;width:100%;justify-content:center;white-space:normal;text-align:center;line-height:1.1;border-radius:18px">Cliente oculto</div><div class="ph"></div></div>
+   <div class="col"><div class="h">Qualificado</div><div class="ph"></div><div class="ph"></div></div>
+   <div class="col"><div class="h">Visita</div><div class="ph"></div><div class="ph"></div></div>
+   <div class="col"><div class="h">Follow-up</div><div class="ph"></div><div class="ph"></div></div>
+  </div>
+ </div>
+ <div class="p" style="margin-top:32px">A coluna onde ele parou é o seu vazamento.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>7/10</span></div>
+</div>
+
+<!-- 8 COPIE E COLE -->
+<div class="sl lo" style="left:7560px">
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.4" stroke-linejoin="round"><rect x="8" y="8" width="12" height="13" rx="2.5"/><path d="M16 5V4.5A1.5 1.5 0 0014.5 3h-9A1.5 1.5 0 004 4.5v11A1.5 1.5 0 005.5 17H6" stroke-linecap="round"/></svg></div><div class="kick">Copie e cole</div></div>
+ <div class="h2" style="font-size:92px">A mensagem <span class="hl">do teste</span>.</div>
+ <div class="wa" style="margin-top:38px">
+  <div style="display:flex;align-items:center;gap:20px;padding:20px 26px;background:#1F2C34;border-bottom:1px solid rgba(255,255,255,.06)">
+   <svg width="26" height="30" viewBox="0 0 20 24"><path d="M14 3L5 12l9 9" stroke="#AEBAC1" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(160deg,#3B5672,#22364B);display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4.2" fill="#C9D6E2"/><path d="M3.5 21c1-4.6 4.6-6.5 8.5-6.5s7.5 1.9 8.5 6.5z" fill="#C9D6E2"/></svg></div>
+   <div><div style="font:600 34px/1 IN;color:#E9EDEF">Sua imobiliária</div><div style="font:500 30px/1 IN;color:#8696A0;margin-top:8px">comercial</div></div>
+   <span class="chip cy" style="margin-left:auto;padding:12px 20px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A5F3FC" stroke-width="2.4" stroke-linejoin="round"><rect x="8" y="8" width="12" height="13" rx="2.5"/><path d="M16 5V4.5A1.5 1.5 0 0014.5 3h-9A1.5 1.5 0 004 4.5v11A1.5 1.5 0 005.5 17H6" stroke-linecap="round"/></svg>Copiar</span>
+  </div>
+  <div style="padding:26px 26px 30px">
+   <div class="bub bout" style="font-size:41px;line-height:1.32;padding:24px 30px 16px;max-width:820px;box-shadow:0 0 0 2px rgba(52,211,153,.5),0 0 60px rgba(52,211,153,.2)">Oi! Vi um <b style="font-weight:700;color:#fff">apartamento no anúncio</b>. Ainda está disponível? Queria <b style="font-weight:700;color:#fff">visitar neste fim de semana</b>.
+    <div class="bt">21:47 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   </div>
+  </div>
+ </div>
+ <div class="p" style="margin-top:32px">Troque pelo anúncio que você quer testar.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>8/10</span></div>
+</div>
+
+<!-- 9 LEADIMOB -->
+<div class="sl lo" style="left:8640px">
+ <div class="ttl"><div class="num"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.6 9 8.2S17 19.5 12 19.5c-1 0-2-.15-2.9-.42L4.5 21l1.2-3.9C4 15.6 3 13.5 3 11.2 3 6.6 7 3 12 3z" fill="#06202A"/></svg></div><div class="kick">Onde a Leadimob entra</div></div>
+ <div class="h2" style="font-size:90px;line-height:1">O cliente oculto<br><span class="hl">não fica esperando.</span></div>
+ <div style="margin-top:42px;position:relative;display:flex;flex-direction:column;gap:26px">
+  <div style="position:absolute;left:29px;top:30px;bottom:30px;width:2px;background:linear-gradient(180deg,#22D3EE,#34D399)"></div>
+  <div class="feat"><div class="ic" style="background:#0E1D27"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.6 9 8.2S17 19.5 12 19.5c-1 0-2-.15-2.9-.42L4.5 21l1.2-3.9C4 15.6 3 13.5 3 11.2 3 6.6 7 3 12 3z" fill="none" stroke="#7DD3FC" stroke-width="2.2" stroke-linejoin="round"/></svg></div><div class="tx">Responde no <b>seu WhatsApp</b>, a qualquer hora.</div></div>
+  <div class="feat"><div class="ic" style="background:#0E1D27"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="3"/><path d="M3.5 10.5 H20.5 M8 3.5 V7 M16 3.5 V7"/></svg></div><div class="tx">Qualifica, mostra o catálogo e <b>agenda a visita</b>.</div></div>
+  <div class="feat"><div class="ic" style="background:#0E221D;border-color:rgba(52,211,153,.6)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 A8 8 0 0 1 18.5 6.5 L20 8.5 M20 4 V8.5 H15.5"/><path d="M20 13 A8 8 0 0 1 5.5 17.5 L4 15.5 M4 20 V15.5 H8.5"/></svg></div><div class="tx">Atualiza o funil e faz o <b>follow-up</b>.</div></div>
+ </div>
+ <div style="margin-top:36px"><span class="chip cy" style="font-size:30px;white-space:normal">Solicite uma demonstração · link na bio</span></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>9/10</span></div>
+</div>
+
+<!-- 10 CTA -->
+<div class="sl lo" style="left:9720px">
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" stroke="#06202A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="kick">Faça o diagnóstico</div></div>
+ <div class="h2" style="font-size:84px">Fez o teste? Veja <span class="hl">onde o atendimento trava</span>.</div>
+ <div style="margin-top:40px;height:132px;border-radius:66px;background:#141B28;border:2px solid rgba(125,211,252,.45);box-shadow:0 0 0 8px rgba(34,211,238,.06),0 30px 70px rgba(0,0,0,.55),0 0 60px rgba(34,211,238,.14);display:flex;align-items:center;padding:0 22px 0 40px;gap:16px;font:600 44px IN">
+  <span style="color:#7C8799">Comente</span><span style="font-weight:900;letter-spacing:.02em">DIAGNÓSTICO</span><span style="width:4px;height:52px;background:#22D3EE;border-radius:2px"></span>
+  <span style="margin-left:auto;width:92px;height:92px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,99,235,.55)"><svg width="42" height="42" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+ </div>
+ <div style="margin-top:38px;display:flex;gap:30px;align-items:center">
+  <div style="width:206px;height:262px;flex:none;border-radius:20px;background:linear-gradient(170deg,#F7FAFD,#DCE6F0);box-shadow:0 40px 70px rgba(0,0,0,.6),-14px 14px 0 -4px rgba(125,211,252,.16);transform:perspective(900px) rotateY(16deg) rotateZ(-4deg);padding:26px 22px;display:flex;flex-direction:column;gap:15px">
+   <div style="height:16px;width:74%;border-radius:8px;background:#0B5C73;flex:none"></div>
+   <div style="height:10px;width:48%;border-radius:8px;background:#9FB3C4;margin-bottom:6px;flex:none"></div>
+   <div class="ckl"></div><div class="ckl"></div><div class="ckl"></div><div class="ckl"></div><div class="ckl"></div>
+  </div>
+  <div>
+   <div class="p" style="font-size:38px">e receba o checklist</div>
+   <div style="font:800 54px/1.08 IN;letter-spacing:-.03em;margin-top:10px">Onde seus leads estão morrendo</div>
+   <div style="margin-top:28px;display:flex;align-items:center;gap:22px">
+    <div style="width:300px;height:96px;border-radius:22px;background:#F3F7FB;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 44px rgba(0,0,0,.5)"><img src="logo.png" style="width:240px"></div>
+    <div style="font:700 34px/1 IN;color:#7DD3FC">@leadimob.ai</div>
+   </div>
+  </div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>10/10</span></div>
+</div>
+</div>
+<style>
+.ckl{display:flex;align-items:center;gap:12px;height:22px;flex:none}
+.ckl::before{content:"";width:22px;height:22px;border-radius:6px;background:#34D399;flex:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M5 12.500l4.500 4.500L19 7' stroke='white' stroke-width='3.600' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>")}
+.ckl::after{content:"";height:10px;flex:1;border-radius:8px;background:#B7C6D4}
+</style>
+<script>
+/* linha da jornada: um fio contínuo atravessa os 10 slides (âmbar no ponto cego, ciano nos passos, verde na solução) */
+const RAIL=1170;
+(function(){
+  let ties='',pulses='',nodes='',labs='';
+  for(let x=60;x<10800;x+=36)ties+=`<rect x="${x}" y="${RAIL+14}" width="14" height="3" rx="1.5" fill="#7DD3FC" opacity=".16"/>`;
+  for(let k=1;k<=9;k++){const x=k*1080;pulses+=`<rect x="${x-150}" y="${RAIL-5}" width="300" height="10" rx="5" fill="url(#pu)" filter="url(#gl2)"/><rect x="${x-110}" y="${RAIL-2.5}" width="220" height="5" rx="2.5" fill="url(#pu)"/>`}
+  const CKP='<path d="M5 12.5l4.5 4.5L19 7" stroke="#06241A" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
+  const N=[
+   [1,'#22D3EE','<path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z M12 9.2a2.8 2.8 0 100 5.6 2.8 2.8 0 000-5.6z" fill="none" stroke="#06202A" stroke-width="2.4" stroke-linejoin="round"/>',''],
+   [2,'#F59E0B','!',''],
+   [3,'#22D3EE','1','Mensagem'],[4,'#22D3EE','2','Tempo'],[5,'#22D3EE','3','Observar'],[6,'#22D3EE','4','Retomada'],[7,'#22D3EE','5','Funil'],
+   [8,'#34D399',CKP,''],[9,'#34D399',CKP,''],[10,'#34D399',CKP,'']];
+  N.forEach(([k,c,g,lab])=>{const x=(k-.5)*1080;
+    nodes+=`<circle cx="${x}" cy="${RAIL}" r="38" fill="${c}" opacity=".16"/><circle cx="${x}" cy="${RAIL}" r="25" fill="${c}"/>`+(g.length<3?`<text x="${x}" y="${RAIL+10}" text-anchor="middle" font-family="IN" font-weight="900" font-size="28" fill="#06202A">${g}</text>`:`<g transform="translate(${x-12} ${RAIL-12})">${g}</g>`);
+    if(lab)labs+=`<text x="${x}" y="${RAIL+76}" text-anchor="middle" font-family="IN" font-weight="700" font-size="30" letter-spacing="3" fill="#7C8799">${lab.toUpperCase()}</text>`});
+  document.getElementById('lane').innerHTML=`
+  <defs>
+   <linearGradient id="le" gradientUnits="userSpaceOnUse" x1="0" x2="10800"><stop offset="0" stop-color="#2563EB" stop-opacity="0"/><stop offset=".05" stop-color="#3B82F6"/><stop offset=".12" stop-color="#3B82F6"/><stop offset=".15" stop-color="#F59E0B"/><stop offset=".19" stop-color="#F59E0B"/><stop offset=".23" stop-color="#22D3EE"/><stop offset=".68" stop-color="#22D3EE"/><stop offset=".76" stop-color="#34D399"/><stop offset="1" stop-color="#34D399"/></linearGradient>
+   <linearGradient id="pu" x1="0" x2="1"><stop offset="0" stop-color="#34D399" stop-opacity="0"/><stop offset=".7" stop-color="#A7F3D0"/><stop offset="1" stop-color="#fff"/></linearGradient>
+   <filter id="gl" x="-5%" y="-400%" width="110%" height="900%"><feGaussianBlur stdDeviation="9"/></filter>
+   <filter id="gl2" x="-20%" y="-400%" width="140%" height="900%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <path d="M-40 ${RAIL}H10840" fill="none" stroke="url(#le)" stroke-width="12" filter="url(#gl)" opacity=".5"/>
+  <path d="M-40 ${RAIL}H10840" fill="none" stroke="url(#le)" stroke-width="4"/>
+  ${ties}${pulses}${nodes}${labs}`;
+})();
+window.ready=document.fonts.ready.then(()=>Promise.all(['400 20px IN','500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)))).then(()=>Promise.all([...document.images].map(i=>i.decode().catch(()=>0)))).then(()=>new Promise(r=>setTimeout(r,300)));
+</script></body></html>

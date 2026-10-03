@@ -69,3 +69,13 @@ Davi (01/10): o Reel 1 de 02/10 (DOM plano) ficou "um pouco inferior"; o vídeo 
 
 | R1 03/10 | "Você não precisa de mais tráfego" (9:16, 35s, 3D) | pista de orbes com vazamentos, orbe-herói com câmera de perseguição, spline de câmera, obturador 180° | 7/8,5/8/6,5/7,5/8 no 1º corte (corrigido, não re-pontuado) | blur perfeito em objetos rápidos, microtextos ≥ 36px |
 | R2 03/10 | "Esse lead curioso pode ser uma venda" (9:16, 23s, tipográfico 3D) | tipografia projetada por matrix3d, zoom-through, wipe do símbolo, match cut | 8/6/6/6,5/8/8 no 1º corte (corrigido, não re-pontuado) | fantasmas no mergulho, quadros de viagem vazios |
+
+### Posts de 05/10 (produzidos em 03/10, rotina diária)
+**Reel 2 "Imobiliária, lead pago: responda na hora" (23s, a partir do modelo `reel-tipografico`)**
+- Mesmo motor e sistema visual do R2 de 03/10; mudou: texto, cenas de produto (pedido de fotos no WhatsApp às 21:12, relógio fantasma até 07:30, chips de prática com ícones novos: responder, qualificar, agendar, follow-up), etiqueta PARADO → VISITA, trilha em Si bemol (tom +2), outro arpejo e outra semente.
+- Gancho com chamada ao ICP: "IMOBILIÁRIA," como primeira palavra, etiqueta "LEAD PAGO" e a prática ("RESPONDA NA HORA.") nos 2s seguintes.
+- Crítica independente (subagente) no primeiro corte: gancho 7 · ritmo 7 · clareza 7 · acabamento 7 · legibilidade 7 · marca 8 · sobriedade 7 · fidelidade ao modelo 7. Corrigido o que era barato (respiro do "E só.", contraste do "parado"); o restante (composição concentrada na metade de cima nas cenas de conversa, linhas de luz atrás do texto) herda do modelo e fica como backlog. Não houve nova rodada de notas.
+- Aprendizado: reaproveitar o modelo mudando só texto/ícones reduz muito o custo (QA em 12 quadros, ~15 min de render com 4 subquadros), mas a estrutura se repete; para o próximo R2, variar a ordem das cenas e a transição, não só o texto.
+**Carrossel "Teste do cliente oculto" (a partir do modelo `carrossel-b`)**
+- Elemento contínuo novo: a linha da jornada (fio único de ponta a ponta, âmbar no ponto cego, ciano nos 5 passos numerados com rótulos, verde na solução) no lugar do fluxo de cards de imóvel. Artefatos por slide: conversa sem resposta, cronômetro com campos a preencher, checklist Sim/Não, linha de 3 dias, funil Kanban, mensagem para copiar.
+- Crítica: gancho 8 · clareza 8 · continuidade 9 · acabamento 8 · sobriedade 8. Corrigido: âmbar só no chip do slide 2, contorno de "oculto" reforçado. Backlog: espaço vazio entre conteúdo e linha nos slides 3–9.

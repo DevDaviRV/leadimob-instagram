@@ -1,6 +1,23 @@
 # Posts de 05/10 (segunda-feira)
 
-> **Em produção.** O Reel 1 deste dia já está pronto (é o primeiro vídeo da Leadimob, v1, incluído no fluxo a pedido do Davi em 02/10). A rotina diária completa este arquivo com o Reel 2 (09:00) e o Carrossel (18:00), mantendo a seção abaixo como está, e grava o `posts.json`.
+**ICP do dia:** Imobiliária, no Reel 2 tipográfico (a narração do Reel 1 já é o vídeo v1, sem vocativo).
+
+## 09:00 · Reel 2 — "Imobiliária, lead pago: responda na hora"
+Arquivo: `r2-imobiliaria-lead-pago.mp4` (23s, sem voz) · capa sugerida: ~1,6s ("IMOBILIÁRIA, LEAD PAGO · RESPONDA NA HORA.")
+Fontes: `src/r2-*` · pilar: método prático · CTA educativo
+
+**Legenda:**
+Imobiliária, lead pago pede resposta na hora.
+
+Ele pediu as fotos, você mandou. E só. A conversa parou, e o dinheiro do anúncio foi junto.
+
+Para acompanhar: responda na hora, qualifique o lead, agende a visita e faça o follow-up.
+
+Comente DIAGNÓSTICO e descubra onde seus leads estão morrendo.
+
+#imobiliaria #corretordeimoveis #mercadoimobiliario #leadsimobiliarios #marketingimobiliario
+
+---
 
 ## 12:00 · Reel 1 — "Você não precisa de mais leads"
 Arquivo: `r1-voce-nao-precisa-de-mais-leads.mp4` (51s, narração Bianca) · capa sugerida: ~3,5s (gancho completo: "Precisa parar de perder os que já chegam.")
@@ -23,3 +40,23 @@ Na hora de negociar, ela chama você. A IA cuida do operacional. Você cuida do 
 Solicite uma demonstração — link na bio.
 
 #imobiliaria #corretordeimoveis #mercadoimobiliario #leadsimobiliarios #inteligenciaartificial
+
+---
+
+## 18:00 · Carrossel — "Teste do cliente oculto"
+Arquivos: `carrossel/slide-01.png` … `slide-10.png` (1080×1350) + `carrossel/carrossel-editor.html` · fontes: `src/c1-*` · pilar: método prático · CTA educativo
+
+**Legenda:**
+Teste do cliente oculto: faça hoje na sua imobiliária.
+
+Você acha que atende bem. Só o seu cliente sabe de verdade.
+
+1. Chame a sua imobiliária como cliente, à noite ou no fim de semana, de um número desconhecido
+2. Anote quanto tempo leva a primeira resposta
+3. Observe se perguntaram o que você procura, mostraram o catálogo e propuseram visita
+4. Pare de responder e veja se alguém retoma a conversa
+5. Registre no funil onde o lead parou
+
+Salve este post para fazer o teste. Comente DIAGNÓSTICO e receba o checklist Onde seus leads estão morrendo.
+
+#imobiliaria #corretordeimoveis #mercadoimobiliario #gestaoimobiliaria #atendimento

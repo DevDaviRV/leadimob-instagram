@@ -1,0 +1,80 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "MÉTODO · SALVE ESTE POST",
+   "titulo": "Teste do cliente oculto.",
+   "sub": "Faça hoje na sua imobiliária e veja o que o seu lead realmente vive."
+  },
+  {
+   "tipo": "passo",
+   "titulo": "O ponto cego",
+   "corpo": "Você acha que atende bem. Só o seu cliente sabe de verdade. Quem nunca chamou a própria imobiliária não sabe o que o lead vê.",
+   "ghost": "?"
+  },
+  {
+   "tipo": "lista",
+   "titulo": "Passo 1 · Chame a sua imobiliária como cliente",
+   "itens": [
+    "Escolha um anúncio seu",
+    "Mande a mensagem à noite ou no fim de semana",
+    "Use um número que ninguém conhece"
+   ]
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Passo 2 · Anote quanto tempo leva a primeira resposta",
+   "corpo": "Mensagem enviada às __:__. Primeira resposta às __:__. É o tempo que o seu lead esperou.",
+   "ghost": "02"
+  },
+  {
+   "tipo": "lista",
+   "titulo": "Passo 3 · Observe o que o atendimento faz",
+   "itens": [
+    "Perguntou o que você procura?",
+    "Mostrou imóveis do catálogo?",
+    "Propôs uma visita?",
+    "Guardou o seu contato?"
+   ]
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Passo 4 · Pare de responder. Alguém retoma a conversa?",
+   "corpo": "Dia 1, dia 2, dia 3. Lead que esfria sem follow-up não volta sozinho.",
+   "ghost": "04"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Passo 5 · Registre onde o lead parou no funil",
+   "corpo": "Novo, qualificado, visita ou follow-up. A coluna onde ele parou é o seu vazamento.",
+   "ghost": "05"
+  },
+  {
+   "tipo": "insight",
+   "texto": "Oi! Vi um apartamento no anúncio. Ainda está disponível? Queria visitar neste fim de semana.",
+   "fonte": "Copie e cole"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "O cliente oculto não fica esperando.",
+   "corpo": "A Leadimob responde no seu WhatsApp a qualquer hora, qualifica, mostra o catálogo, agenda a visita, atualiza o funil e faz o follow-up. Solicite uma demonstração: link na bio."
+  },
+  {
+   "tipo": "cta",
+   "titulo": "Fez o teste? Veja onde o atendimento trava.",
+   "acao": "Comente DIAGNÓSTICO",
+   "sub": "E receba o checklist Onde seus leads estão morrendo."
+  }
+ ]
+}
