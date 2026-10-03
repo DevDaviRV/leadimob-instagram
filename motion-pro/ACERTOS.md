@@ -47,3 +47,9 @@ Palavras dele: o `r2-lead-curioso` (03/10) "tem o design muito bom, padrão da m
 ## Rotina de 03/10 (aprendizados de processo)
 - Não use `pkill -f` com trecho do comando que também aparece no shell da ferramenta: derruba a própria sessão. Mate por PID.
 - Narrações da semana seguinte saem aos sábados; dias com áudio reaproveitado (sem vocativo) levam a chamada ao ICP no Reel 2.
+
+
+## Rotina diária: lições de 03/10 (primeira produção feita pela rotina)
+- Partir do modelo não é copiar o modelo: o Reel 2 de 05/10 saiu como o de 03/10 com o texto trocado. Sistema visual e motor ficam; cenas, composição e transições mudam.
+- A nota que vale é a do corte final. Entregar com nota abaixo de 8 só com o aviso "ABAIXO DA META" no LEGENDAS.md e no resumo.
+- A publicação não instala pacotes e roda um comando só; os JPEG do carrossel saem da produção (`publicar/prepara_jpg.py`).

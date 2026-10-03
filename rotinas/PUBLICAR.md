@@ -13,7 +13,7 @@ O que o script faz (é a publicação automática que o Davi pediu; ver "Publica
    - Mais de um: publique primeiro o atrasado mais antigo. Se entre os candidatos também estiver o post do horário da vez (hora dentro de 40 minutos da hora atual, para mais ou para menos), publique-o em seguida, na mesma execução. No máximo dois posts por execução; os demais ficam para a próxima.
 4. Não instale nada nesta rotina (nem `pip`, nem `npm`, nem `apt`). O script só usa a biblioteca padrão do Python, e os JPEG do carrossel já vêm prontos em `carrossel/jpg/`. Se o script responder `ERRO: falta o JPEG pré-gerado`, não tente gerar nem instalar: informe o erro e encerre.
 5. Rode, a partir da raiz do `leadimob-instagram`, este comando sozinho, numa chamada só dele (sem encadear com `&&`, `;` ou outros comandos): `python3 publicar/publish.py --data AAAA-MM-DD --slot HH:MM --midia <caminho do clone do leadimob-instagram-midia>`.
-   - `PUBLICADO ...`: sucesso. Faça commit de `instagram/AAAA-MM-DD/PUBLICADO.json` no `leadimob-instagram` (mensagem "Publicado AAAA-MM-DD HH:MM", terminando com "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>") e push na main.
+   - `PUBLICADO ...`: sucesso. Faça commit de `instagram/AAAA-MM-DD/PUBLICADO.json` no `leadimob-instagram` (mensagem "Publicado AAAA-MM-DD HH:MM", terminando com a linha de atribuição do modelo que está executando esta sessão) e push na main.
    - `JA_PUBLICADO ...`: não faça nada.
    - `AGUARDANDO_APROVACAO ...`: não publique; informe que o dia não foi aprovado.
    - `ERRO ...`: não tente contornar nem publicar por outro caminho. Tente rodar o mesmo comando mais uma vez depois de 2 minutos; se falhar de novo, pare.

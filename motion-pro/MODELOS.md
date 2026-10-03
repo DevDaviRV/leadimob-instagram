@@ -22,5 +22,8 @@ Contraexemplo (não usar como base): `instagram/2026-10-03/r1-nao-precisa-de-mai
 - **Editor do carrossel:** `python3 motion-pro/carrossel/make_editor.py slides.json <pasta>/carrossel/carrossel-editor.html` (não depende da skill carrossel-pro estar instalada; formato do `slides.json` em `instagram/2026-10-03/src/c1-slides.json`).
 - **Ao terminar:** copie as fontes da pasta de trabalho para `instagram/AAAA-MM-DD/src/` com os prefixos `r1-`, `r2-`, `c1-`. `work/` não vai para o git.
 
+## Estrutura própria (correção de 03/10)
+O modelo é o ponto de partida do código, não o roteiro visual. O Reel 2 de 05/10 repetiu o de 03/10 cena por cena, só com o texto trocado, e isso não serve: mude a sequência de cenas, o elemento central de cada cena, a composição e ao menos duas transições. O que se mantém é o sistema visual, o motor e o nível de acabamento.
+
 ## Teste de fidelidade (antes do render final)
-Monte uma folha de contato da peça nova ao lado de quadros da peça aprovada do mesmo tipo e peça ao subagente crítico a nota de "fidelidade ao modelo aprovado" (mesma família visual, mesmo nível de acabamento, sem efeitos a mais). Meta ≥ 8, junto com os demais critérios.
+Monte uma folha de contato da peça nova ao lado de quadros da peça aprovada do mesmo tipo e peça ao subagente crítico a nota de "fidelidade ao modelo aprovado" (mesma família visual, mesmo nível de acabamento, sem efeitos a mais). Meta ≥ 8, junto com os demais critérios e com "estrutura própria" (ao lado do modelo, a peça nova não pode parecer a mesma com outro texto).
