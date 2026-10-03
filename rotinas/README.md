@@ -11,4 +11,6 @@ As rotinas rodam no ambiente **Default** da nuvem, que tem as credenciais da Ele
 
 Repositórios: `DevDaviRV/leadimob-instagram` em todas; a rotina de publicação também precisa de `DevDaviRV/leadimob-instagram-midia` (público, só criativos finais). Conectores: nenhum.
 
+Publicação: a rotina não instala pacotes e roda um comando só (`python3 publicar/publish.py ...`). Os JPEG do carrossel vêm prontos da produção (`publicar/prepara_jpg.py`). Em 03/10 o post das 12:00 não saiu porque a instalação do Pillow foi encadeada com o script e o classificador de permissões negou o comando inteiro; por isso a instalação saiu do caminho da publicação.
+
 Aprovação: `rotinas/config.json` → `"aprovacao": "manual"` exige o arquivo `instagram/AAAA-MM-DD/APROVADO` para publicar o dia; `"auto"` publica direto.

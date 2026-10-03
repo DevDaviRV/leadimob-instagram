@@ -5,6 +5,8 @@ Uso: python3 publicar/publish.py --data AAAA-MM-DD --slot 09:00 --midia /caminho
 
 - Lê instagram/AAAA-MM-DD/posts.json (manifesto do dia) e publica o post do horário pedido.
 - Copia a mídia para o repositório público de criativos (JPEG para carrossel, MP4 para reel), faz push e usa o link aberto.
+  Só usa a biblioteca padrão do Python: os JPEG do carrossel vêm prontos de carrossel/jpg/ (publicar/prepara_jpg.py, na produção).
+  Rode este comando sozinho, sem encadear instalação de pacotes.
 - Autenticação: sem cabeçalho (a credencial do ambiente de nuvem é anexada pelo proxy em graph.instagram.com) ou variável IG_TOKEN.
   Nunca imprime o token.
 - Idempotente: grava instagram/AAAA-MM-DD/PUBLICADO.json e não publica duas vezes o mesmo horário.
@@ -64,6 +66,30 @@ def wait_container(cid, what):
         time.sleep(8)
     sys.exit(f"ERRO: contêiner de {what} não ficou pronto a tempo")
 
+def copia_midia(day, post, dest, base, data):
+    """Copia a mídia do post para a pasta do repositório público e devolve os links.
+    Reel: o MP4. Carrossel: os JPEG já gerados na produção em carrossel/jpg/ (publicar/prepara_jpg.py).
+    Esta rotina não instala nada: sem o JPEG pronto, só converte se o Pillow já estiver instalado."""
+    if post["tipo"] == "reel":
+        name = os.path.basename(post["arquivo"]); shutil.copyfile(os.path.join(day, post["arquivo"]), os.path.join(dest, name))
+        return [f"{base}/{name}"]
+    prontos = [os.path.join(day, os.path.dirname(f), "jpg", os.path.splitext(os.path.basename(f))[0] + ".jpg") for f in post["arquivos"]]
+    faltam = [p for p in prontos if not os.path.exists(p)]
+    Image = None
+    if faltam:
+        try:
+            from PIL import Image
+        except ImportError:
+            sys.exit(f"ERRO: falta o JPEG pré-gerado ({os.path.relpath(faltam[0], ROOT)} e mais {len(faltam) - 1}) e o Pillow não está instalado. "
+                     f"Gere na produção com: python3 publicar/prepara_jpg.py {data}")
+    urls = []
+    for i, (f, pronto) in enumerate(zip(post["arquivos"], prontos), 1):
+        name = f"slide-{i:02d}.jpg"
+        if os.path.exists(pronto): shutil.copyfile(pronto, os.path.join(dest, name))
+        else: Image.open(os.path.join(day, f)).convert("RGB").save(os.path.join(dest, name), "JPEG", quality=92, optimize=True)
+        urls.append(f"{base}/{name}")
+    return urls
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True); ap.add_argument("--slot", required=True)
@@ -85,14 +111,7 @@ def main():
     # 1) mídia no repositório público
     dest = os.path.join(a.midia, a.data); os.makedirs(dest, exist_ok=True)
     base = CFG["midia_base_url"].rstrip("/") + "/" + a.data
-    urls = []
-    if post["tipo"] == "reel":
-        name = os.path.basename(post["arquivo"]); shutil.copyfile(os.path.join(day, post["arquivo"]), os.path.join(dest, name)); urls = [f"{base}/{name}"]
-    else:
-        from PIL import Image
-        for i, f in enumerate(post["arquivos"], 1):
-            name = f"slide-{i:02d}.jpg"; Image.open(os.path.join(day, f)).convert("RGB").save(os.path.join(dest, name), "JPEG", quality=92, optimize=True)
-            urls.append(f"{base}/{name}")
+    urls = copia_midia(day, post, dest, base, a.data)
     sh(["git", "add", "-A"], a.midia)
     if sh(["git", "status", "--porcelain"], a.midia):
         sh(["git", "commit", "-q", "-m", f"Midia {a.data} {a.slot}"], a.midia); sh(["git", "push", "-q", "origin", "HEAD:main"], a.midia)
