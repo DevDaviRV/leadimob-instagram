@@ -2,6 +2,8 @@
 
 Motor usado para produzir Reels/vídeos institucionais premium com Claude: animação 100% em código (HTML/SVG/Canvas/three.js), render quadro a quadro determinístico, motion blur, sincronia com locução real palavra a palavra, trilha e SFX sintetizados e mixagem final. Tudo roda dentro do ambiente do Claude (Linux em nuvem, sem GPU).
 
+> **Neste repositório:** os modelos a seguir são os da própria Leadimob, em `motion-pro/MODELOS.md` (a pasta `exemplos/` de outra marca não foi trazida). A narração é gerada pela API da ElevenLabs com `audio/gen_vo_bianca.py` (ver `CLAUDE.md`); a nota abaixo sobre a API bloqueada está superada.
+
 > Os arquivos em `exemplos/` são de outra marca (Domyni). Use **só como referência de técnica e de código** — nunca copie cores, textos, logo ou estrutura de cenas para a nova empresa.
 
 ## Estrutura

@@ -10,7 +10,7 @@
 - Voz Bianca lê ~15 caracteres/s; com gaps de 0,7s o roteiro de 15 frases deu ~51s. Para 40–45s, cortar 2–3 frases.
 
 ## Padrão mínimo de carrossel (aprovado pelo Davi em 01/10: "ficou animal, daí para cima")
-Referência: `instagram/2026-10-02/carrossel/` (fontes em `src/c1-index.html`). Todo carrossel novo parte deste nível e sobe:
+Referência: `instagram/2026-10-04/carrossel/` (produzido para 02/10; fontes em `instagram/2026-10-02/src/c1-index.html`; modelo `carrossel` em `motion-pro/MODELOS.md`). Todo carrossel novo parte deste nível e sobe:
 - Faixa contínua de 10 × 1080 px renderizada de uma vez: elementos atravessam os slides (linha da jornada com glow e pontos por slide), o swipe tem continuidade.
 - Um artefato visual de produto por slide (bolha de WhatsApp, chips de pergunta, 20 → 3 cards, agenda, ficha de CRM, régua de follow-up, KPIs), nunca só texto.
 - Número fantasma em contorno ao fundo, selo numerado ciano + kicker em caixa alta, título 76–128px com destaque ciano, apoio ≥ 38px.
