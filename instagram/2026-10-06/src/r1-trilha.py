@@ -107,11 +107,11 @@ def buzz(at,dur=0.5,g=0.06):
     n=int(dur*SR);tt=np.arange(n)/SR;x=np.sin(2*np.pi*170*tt)*(0.5+0.5*np.sign(np.sin(2*np.pi*9*tt)))*np.sin(np.pi*tt/dur)*g;add(FL,x,at);add(FR,x,at)
 # hook: unidades acendem
 for j in range(14): tick(0.8+j*0.2+rng.random()*0.05,0.02,1800+j*90,0.2+0.6*rng.random())
-chime(WF(2,'leadimob')-0.05,[62,69,74],0.03,1.6); sweep(3.45,0.7,500,5500,0.08,'rise'); impact(3.98,0.2)
+chime(WF(2,'leadimob')-0.05,[62,69,74],0.03,1.6); sweep(3.35,0.7,500,5500,0.08,'rise'); impact(3.95,0.2)
 # wave: mensagens
-BT=[4.5,5.08,5.58,6.02,6.42,6.78,7.1,7.38,7.64,7.88,8.1,8.3,8.5,8.7,8.9,9.08,9.28]
+BT=[4.05,4.55,5.0,5.4,5.75,6.05,6.32,6.57,6.8,7.0,7.2,7.4,8.6]
 for i,bt in enumerate(BT): ding(bt,0.022+0.008*(i/16),int([86,88,90,83,93][i%5]),0.2+0.6*((i*3)%7)/6)
-buzz(WF(4,'consegue'),0.45,0.06); pop(9.28,0.06,700)
+buzz(WF(4,'consegue'),0.45,0.06); pop(8.6,0.06,700); impact(9.75,0.2)
 sweep(9.5,0.8,300,3500,0.06,'rise')
 # C
 for k in range(3): tick(11.95+k*0.12,0.035,1300+k*100,0.6)
@@ -131,13 +131,13 @@ pop(WF(8,'lead')-0.1,0.06,760,0.4); sweep(WF(8,'consultor')-0.2,0.5,1000,3500,0.
 for k in range(3): tick(WF(8,'agenda')+0.1+k*0.14,0.045,1900+k*180,0.3+0.2*k)
 tick(WF(8,'visita')-0.2,0.05,1500); chime(WF(8,'visita')+0.05,[64,69,73,76],0.035,1.5)
 # zoom through
-sweep(29.8,0.7,250,5500,0.09,'rise'); impact(30.3,0.2)
+sweep(29.5,0.7,250,5500,0.09,'rise'); impact(30.2,0.2)
 # G
 for i in range(4): tick(31.1+i*0.12,0.04,2100+i*140)
 sweep(WF(9,'campanha')-0.3,0.4,900,3000,0.05); click(WF(9,'campanha')-0.1,0.07,0.6)
 for i in range(4): tick(WF(9,'campanha')+i*0.08,0.035,2300)
 # CTA
-sweep(33.2,0.9,250,8500,0.09,'rise'); impact(33.9,0.3); chime(34.0,[57,66,69,73],0.03,1.2)
+sweep(33.3,0.9,250,8500,0.09,'rise'); impact(34.2,0.3); chime(34.3,[57,66,69,73],0.03,1.2)
 chime(WF(10,'demonstr')-0.2,[69,76,81,85],0.035,1.1)
 pop(WF(11,'link')-0.05,0.07,900,0.5); chime(WF(11,'bio'),[74,78,85],0.03,1.4)
 # ---- voz
