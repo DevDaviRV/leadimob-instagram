@@ -53,3 +53,8 @@ Palavras dele: o `r2-lead-curioso` (03/10) "tem o design muito bom, padrão da m
 - Partir do modelo não é copiar o modelo: o Reel 2 de 05/10 saiu como o de 03/10 com o texto trocado. Sistema visual e motor ficam; cenas, composição e transições mudam.
 - A nota que vale é a do corte final. Entregar com nota abaixo de 8 só com o aviso "ABAIXO DA META" no LEGENDAS.md e no resumo.
 - A publicação não instala pacotes e roda um comando só; os JPEG do carrossel saem da produção (`publicar/prepara_jpg.py`).
+
+## Rotina de 04/10 (produção de 06/10)
+- Wipes/cortinas/íris não podem deixar quadro vazio ou escuro: o título novo já entra inteiro quando o painel abre; nunca duas camadas de texto em dupla exposição (eco de logo/“Comente” no CTA).
+- Texto de mockup que carrega mensagem ≥36px também nos reels com DOM 2D; cabeçalhos de rótulo em 32px ainda foram apontados.
+- Briefing de carrossel deve exigir layouts diferentes do último carrossel (não só texto novo), senão a crítica de estrutura própria reprova.
