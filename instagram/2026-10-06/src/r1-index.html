@@ -1,0 +1,419 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+:root{--bg:#0A0E14;--s1:#0F1520;--s2:#141B28;--ln:rgba(255,255,255,.10);--tx:#FFFFFF;--t2:#C9D2E0;--t3:#7C8799;--bl:#2563EB;--cy:#22D3EE;--cy2:#7DD3FC;--gr:#34D399;--am:#F59E0B}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg);color:var(--tx);font-family:IN;font-feature-settings:"tnum" 1}
+.abs{position:absolute}
+.sc{position:absolute;left:0;top:0;width:1080px;height:1920px;display:none}
+.cap{font:600 26px/1 IN;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.wd>span{display:inline-block;will-change:transform}
+.ttl{position:absolute;left:72px;top:236px;width:936px;font:800 72px/1.04 IN;letter-spacing:-.04em;white-space:nowrap}
+.ttl .wd{margin-right:.2em}
+.card{background:linear-gradient(180deg,rgba(20,27,40,.95),rgba(12,17,26,.95));border:1px solid rgba(125,211,252,.16);border-radius:30px;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.02) inset}
+.hdr{display:flex;align-items:center;gap:16px;font:600 26px/1 IN;letter-spacing:.14em;text-transform:uppercase;color:var(--cy2)}
+.tri{width:24px;height:28px;flex:none}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:16px 26px;border-radius:999px;font:700 32px/1 IN;white-space:nowrap}
+.bub{border-radius:26px;padding:20px 26px 14px;font:500 36px/1.28 IN;position:relative}
+.bin{background:#202C33;color:#E9EDEF;border-top-left-radius:6px}
+.bout{background:#005C4B;color:#E9EDEF;border-top-right-radius:6px}
+.bt{font:400 22px/1 IN;color:rgba(233,237,239,.6);text-align:right;margin-top:8px}
+.lead{height:132px;border-radius:26px;display:flex;align-items:center;gap:22px;padding:0 28px}
+.av{width:76px;height:76px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 34px IN;color:#fff}
+.nm{font:800 38px/1 IN;letter-spacing:-.01em}
+.ms{font:500 36px/1.1 IN;color:var(--t2);margin-top:10px;white-space:nowrap}
+.cell{position:absolute;border-radius:12px}
+.ok{display:inline-block;width:40px;height:40px}
+.row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--ln);padding:0 4px;height:92px;font:500 36px/1 IN}
+.row .k{color:var(--t3)}.row .v{font-weight:700}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:14px 24px;border-radius:999px;font:700 30px/1 IN;white-space:nowrap}
+</style>
+<script src="node_modules/motion/dist/motion.js"></script>
+</head><body><div id="st">
+<canvas id="bg" width="1080" height="1920" class="abs" style="left:0;top:0"></canvas>
+<div class="abs" style="left:300px;top:-420px;width:1100px;height:1100px;background:radial-gradient(circle,rgba(37,99,235,.17) 0%,rgba(37,99,235,0) 62%)"></div>
+<div class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 55%,rgba(0,0,0,.55) 100%)"></div>
+
+<!-- ============ A · GANCHO ============ -->
+<div id="sA" class="sc">
+ <div id="aK" class="hdr abs" style="left:72px;top:360px"><svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Novo · modo incorporador</div>
+ <div id="aH" class="abs" style="left:72px;top:436px;width:960px;font:800 104px/1 IN;letter-spacing:-.045em;white-space:nowrap"><span class="wd"><span id="aHs">INCORPORADOR?</span></span></div>
+ <div id="aL" class="abs" style="left:72px;top:590px;width:936px;font:700 66px/1.08 IN;letter-spacing:-.03em"></div>
+ <div id="aT" class="abs" style="left:0;top:0;width:1080px;height:1920px"></div>
+</div>
+
+<!-- ============ B · ONDA DE LEADS ============ -->
+<div id="sB" class="sc">
+ <div id="bTt" class="ttl"></div>
+ <div id="bHd" class="abs" style="left:72px;top:408px;width:936px;height:64px;display:flex;align-items:center;justify-content:space-between">
+  <div class="hdr"><svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Plantão · WhatsApp</div>
+  <div id="bWarn" class="chip" style="background:rgba(245,158,11,.14);border:1.5px solid rgba(245,158,11,.7);color:#FBBF24;font-size:30px"><span style="width:14px;height:14px;border-radius:50%;background:#F59E0B"></span>Sem resposta</div>
+ </div>
+ <div id="bFeed" class="abs" style="left:0;top:0;width:1080px;height:1920px"></div>
+</div>
+
+<!-- ============ C · ATENDE COM CONTEXTO ============ -->
+<div id="sC" class="sc">
+ <div id="cTt" class="ttl"></div>
+ <div id="cPanel" class="abs card" style="left:72px;top:650px;width:936px;height:300px;padding:34px 34px 0;overflow:hidden">
+  <div id="cTyp" class="abs" style="left:34px;top:40px;background:#005C4B;border-radius:26px;padding:22px 28px;display:flex;gap:10px"><span class="dt" style="width:14px;height:14px;border-radius:50%;background:#E9EDEF"></span><span class="dt" style="width:14px;height:14px;border-radius:50%;background:#E9EDEF"></span><span class="dt" style="width:14px;height:14px;border-radius:50%;background:#E9EDEF"></span></div>
+  <div id="cRep" class="bub bout" style="width:830px;margin-top:0">Olá, Carlos! Que bom ver seu interesse no <b id="cRepN" style="font-weight:800">Residencial Aurora</b>. Posso te mostrar as unidades?<div class="bt">agora ✓✓</div></div>
+ </div>
+ <div id="cOrig" class="abs card" style="left:72px;top:990px;width:936px;height:270px;padding:34px 40px;border-color:rgba(34,211,238,.35)">
+  <div class="cap" style="font-size:26px;color:var(--cy2)">Origem identificada</div>
+  <div style="display:flex;align-items:center;gap:24px;margin-top:26px">
+   <div style="width:96px;height:96px;flex:none;border-radius:24px;background:rgba(37,99,235,.18);border:1.5px solid rgba(125,211,252,.4);display:flex;align-items:center;justify-content:center"><svg width="56" height="56" viewBox="0 0 56 56"><path d="M14 50 V12 L34 6 V50 M34 20 L44 24 V50 M6 50 H50" fill="none" stroke="#7DD3FC" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/><path d="M20 20 H28 M20 29 H28 M20 38 H28" stroke="#7DD3FC" stroke-width="3.2" stroke-linecap="round"/></svg></div>
+   <div><div id="cOn" style="font:800 46px/1 IN;letter-spacing:-.02em">Residencial Aurora</div><div style="font:500 34px/1 IN;color:var(--t2);margin-top:14px">Campanha Instagram · lançamento</div></div>
+  </div>
+ </div>
+</div>
+
+<!-- ============ D · UNIDADES E TABELA ============ -->
+<div id="sD" class="sc">
+ <div id="dTt" class="ttl"></div>
+ <div id="dCard" class="abs card" style="left:72px;top:420px;width:936px;height:880px;padding:40px 48px">
+  <div class="hdr"><svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Espelho · Residencial Aurora</div>
+  <div style="display:flex;gap:26px;margin-top:26px;font:600 30px/1 IN;color:var(--t2)">
+   <span style="display:flex;align-items:center;gap:12px"><i style="width:26px;height:26px;border-radius:7px;background:rgba(34,211,238,.28);border:2px solid #22D3EE"></i>Disponível</span>
+   <span style="display:flex;align-items:center;gap:12px"><i style="width:26px;height:26px;border-radius:7px;background:rgba(124,135,153,.35);border:2px solid #7C8799"></i>Reservada</span>
+   <span style="display:flex;align-items:center;gap:12px"><i style="width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12)"></i>Vendida</span>
+  </div>
+  <div id="dGrid" class="abs" style="left:48px;top:176px;width:840px;height:430px"></div>
+  <div id="dTab" class="abs" style="left:48px;top:650px;width:840px;border-top:1px solid var(--ln);padding-top:26px">
+   <div style="display:flex;align-items:center;justify-content:space-between">
+    <div style="display:flex;align-items:center;gap:20px"><svg width="46" height="46" viewBox="0 0 30 30"><rect x="6" y="3" width="18" height="24" rx="3" fill="none" stroke="#7DD3FC" stroke-width="2.4"/><path d="M10 10 H20 M10 15 H20 M10 20 H16" stroke="#7DD3FC" stroke-width="2.4" stroke-linecap="round"/></svg><span style="font:800 40px/1 IN;letter-spacing:-.01em">Tabela de unidades</span></div>
+    <div id="dChip" class="chip" style="background:rgba(255,255,255,.07);color:var(--t2);border:1.5px solid rgba(255,255,255,.14)"><span id="dChipT">Consultando</span></div>
+   </div>
+   <div id="dBars" style="margin-top:30px;display:flex;flex-direction:column;gap:18px"><div style="height:20px;border-radius:10px;background:rgba(255,255,255,.12);width:86%"></div><div style="height:20px;border-radius:10px;background:rgba(255,255,255,.08);width:62%"></div></div>
+  </div>
+ </div>
+</div>
+
+<!-- ============ E · QUALIFICA E DIRECIONA ============ -->
+<div id="sE" class="sc">
+ <div id="eTt" class="ttl"></div>
+ <div id="eLead" class="abs card lead" style="left:72px;top:400px;width:936px"><div class="av" style="background:linear-gradient(135deg,#1E3A8A,#0B5C73)">C</div><div><div class="nm">Carlos</div><div class="ms">Residencial Aurora</div></div></div>
+ <svg id="eLines" class="abs" width="1080" height="1920" style="left:0;top:0;pointer-events:none"></svg>
+ <div id="eProf" class="abs card" style="left:72px;top:590px;width:936px;padding:30px 44px 12px">
+  <div class="hdr" style="margin-bottom:12px">Perfil do lead</div>
+  <div id="eq1" class="row"><span class="k">Objetivo</span><span class="v">Morar</span></div>
+  <div id="eq2" class="row"><span class="k">Interesse</span><span class="v">Apartamento</span></div>
+  <div id="eq3" class="row"><span class="k">Momento</span><span class="v" id="eq3v">Quer visitar</span></div>
+ </div>
+ <div id="eDest" class="abs" style="left:0;top:0;width:1080px;height:1920px"></div>
+</div>
+
+<!-- ============ F · CONSULTOR E PLANTÃO ============ -->
+<div id="sF" class="sc">
+ <div id="fTt" class="ttl"></div>
+ <div id="fLeadChip" class="abs card lead" style="left:72px;top:590px;width:560px;height:110px;gap:18px;padding:0 24px"><div class="av" style="width:60px;height:60px;font-size:28px;background:linear-gradient(135deg,#1E3A8A,#0B5C73)">C</div><div class="nm" style="font-size:36px">Carlos · Quente</div></div>
+ <div id="fCal" class="abs card" style="left:72px;top:640px;width:936px;padding:34px 44px 38px">
+  <div class="hdr"><svg width="30" height="30" viewBox="0 0 30 30"><rect x="4" y="6" width="22" height="20" rx="4" fill="none" stroke="#7DD3FC" stroke-width="2.6"/><path d="M4 12 H26 M10 3 V8 M20 3 V8" stroke="#7DD3FC" stroke-width="2.6" stroke-linecap="round"/></svg>Visitas no plantão</div>
+  <div id="fDays" style="display:flex;gap:14px;margin-top:26px"></div>
+  <div id="fSlots" style="display:flex;gap:14px;margin-top:20px"></div>
+ </div>
+ <div id="fOk" class="abs" style="left:72px;top:1010px;width:936px;display:flex;align-items:center;gap:26px;padding:28px 34px;border-radius:30px;background:#F3F7FB;color:#0A0E14;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 60px rgba(52,211,153,.25)">
+  <div style="width:92px;height:92px;flex:none;border-radius:24px;background:#DCFCE7;display:flex;align-items:center;justify-content:center"><svg width="52" height="52" viewBox="0 0 30 30"><rect x="4" y="6" width="22" height="20" rx="4" fill="none" stroke="#059669" stroke-width="2.6"/><path d="M4 12 H26 M10 3 V8 M20 3 V8" stroke="#059669" stroke-width="2.6" stroke-linecap="round"/><path d="M10 18 L14 22 L21 15" fill="none" stroke="#059669" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div><div style="font:800 38px/1 IN;color:#047857;letter-spacing:.02em">VISITA AGENDADA</div><div style="font:600 34px/1.1 IN;color:#334155;margin-top:12px">Sábado, 10:00 · Plantão Aurora</div></div>
+ </div>
+ <div id="fCons" class="abs" style="left:0;top:0"></div>
+</div>
+
+<!-- ============ G · ACOMPANHAMENTO ============ -->
+<div id="sG" class="sc">
+ <div id="gTt" class="ttl"></div>
+ <div id="gCard" class="abs card" style="left:72px;top:400px;width:936px;height:940px;padding:40px 44px">
+  <div class="hdr"><svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Acompanhamento</div>
+  <div style="position:relative;display:flex;margin-top:28px;height:88px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid var(--ln);padding:8px">
+   <div id="gSel" class="abs" style="left:8px;top:8px;width:416px;height:70px;border-radius:15px;background:#2563EB;box-shadow:0 0 30px rgba(37,99,235,.5)"></div>
+   <div id="gT1" style="position:relative;flex:1;text-align:center;font:700 34px/70px IN">Empreendimento</div>
+   <div id="gT2" style="position:relative;flex:1;text-align:center;font:700 34px/70px IN;color:var(--t3)">Campanha</div>
+  </div>
+  <div id="gRows" class="abs" style="left:44px;top:250px;width:848px"></div>
+  <div class="abs" style="left:44px;top:830px;width:848px;display:flex;gap:28px;font:600 30px/1 IN;color:var(--t2)">
+   <span style="display:flex;align-items:center;gap:12px"><i style="width:22px;height:22px;border-radius:6px;background:#7DD3FC"></i>Novos</span>
+   <span style="display:flex;align-items:center;gap:12px"><i style="width:22px;height:22px;border-radius:6px;background:#2563EB"></i>Qualificados</span>
+   <span style="display:flex;align-items:center;gap:12px"><i style="width:22px;height:22px;border-radius:6px;background:#34D399"></i>Visitas</span>
+  </div>
+ </div>
+</div>
+
+<!-- ============ H · CTA ============ -->
+<div id="sH" class="sc">
+ <div id="hLg" class="abs" style="left:170px;top:480px;width:740px;height:220px;border-radius:40px;background:linear-gradient(180deg,#FFFFFF,#EEF3F9);box-shadow:0 50px 120px rgba(0,0,0,.6),0 0 120px rgba(37,99,235,.28);overflow:hidden"><img src="logo.png" style="position:absolute;left:70px;top:38px;width:600px;height:165px"></div>
+ <img id="hLid" src="lid.png" class="abs" style="left:790px;top:350px;width:140px">
+ <div id="hT" class="abs" style="left:72px;top:790px;width:936px;text-align:center;font:800 118px/1.0 IN;letter-spacing:-.045em"></div>
+ <div id="hBtn" class="abs" style="left:100px;top:1110px;width:880px;height:130px;border-radius:32px;background:linear-gradient(180deg,#3B82F6,#2563EB);box-shadow:0 30px 80px rgba(37,99,235,.55);font:800 46px/130px IN;text-align:center;overflow:hidden">Solicite uma demonstração<div id="hSh" style="position:absolute;top:0;left:-40%;width:28%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg)"></div></div>
+ <div id="hSub" class="abs" style="left:72px;top:1280px;width:936px;text-align:center;font:700 44px/1.2 IN;color:var(--t2)">do modo incorporador</div>
+ <div id="hBio" class="abs chip" style="left:340px;width:400px;justify-content:center;top:1390px;background:rgba(34,211,238,.12);border:1.5px solid rgba(34,211,238,.6);color:#A5F3FC;font-size:38px;padding:20px 34px"><svg width="34" height="34" viewBox="0 0 30 30"><path d="M5 15 H22 M15 7 L23 15 L15 23" fill="none" stroke="#7DD3FC" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Link na bio</div>
+</div>
+
+<!-- scan line (A -> B) -->
+<div id="scan" class="abs" style="left:0;top:0;width:1080px;height:3px;background:#7DD3FC;box-shadow:0 0 28px 6px rgba(34,211,238,.45);z-index:80;visibility:hidden"></div>
+
+<!-- journey line -->
+<div id="jr" class="abs" style="left:72px;top:1612px;width:936px;height:40px;z-index:70">
+ <div class="abs" style="left:0;top:19px;width:936px;height:2px;background:rgba(255,255,255,.12)"></div>
+ <div id="jrF" class="abs" style="left:0;top:19px;width:0;height:2px;background:linear-gradient(90deg,#2563EB,#22D3EE);box-shadow:0 0 12px rgba(34,211,238,.6)"></div>
+ <div id="jrD"></div>
+</div>
+
+<!-- captions -->
+<div id="capBg" class="abs" style="z-index:55;left:0;top:1300px;width:1080px;height:340px;background:linear-gradient(180deg,rgba(10,14,20,0) 0%,rgba(10,14,20,.82) 30%,rgba(10,14,20,.9) 100%);opacity:0"></div>
+<div id="cap" class="abs" style="z-index:60;left:72px;top:1398px;width:936px;font:700 49px/1.22 IN;letter-spacing:-.01em;text-shadow:0 4px 24px rgba(0,0,0,.8)"></div>
+<div id="fade" class="abs" style="inset:0;background:#0A0E14;opacity:0;z-index:90;visibility:hidden"></div>
+</div>
+
+<script>
+(async()=>{
+await Promise.all(['400 20px IN','500 20px IN','600 20px IN','700 20px IN','800 20px IN'].map(f=>document.fonts.load(f)));
+const TL=__TIMELINE__;const C={};TL.forEach(c=>C[c.i]=c);
+const END=C[11].end+1.5;window.DURATION=END;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const eOut=x=>1-Math.pow(1-cl(x),4), eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2}, eIn=x=>Math.pow(cl(x),3), lin=x=>cl(x);
+const P=(t,a,d,e=eOut)=>e((t-a)/d);
+const $=id=>document.getElementById(id);
+const {spring}=window.Motion;
+const mkSp=(k=190,d=17)=>{const s=spring({keyframes:[0,1],stiffness:k,damping:d,mass:1});return ms=>ms<=0?0:s.next(ms).value};
+const sp=mkSp(), spSoft=mkSp(110,16), spSnap=mkSp(320,15), spPop=mkSp(260,11);
+const lerp=(a,b,k)=>a+(b-a)*k;
+const rnd=(i)=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const wt=(ci,pre)=>{const w=C[ci].words.find(w=>w.w.toLowerCase().startsWith(pre.toLowerCase()));return w?w.t:C[ci].start};
+const S=(el,o,tr)=>{el.style.opacity=o;if(tr!==undefined)el.style.transform=tr;el.style.visibility=o>0.002?'visible':'hidden'};
+let CUR=0;
+const TRI='<svg class="tri" viewBox="0 0 80 95"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>';
+
+/* ---- background: dot grid ---- */
+const bg=$('bg').getContext('2d');
+function drawBg(t){bg.clearRect(0,0,1080,1920);bg.fillStyle='rgba(125,165,230,.13)';const o=(t*5)%54;
+ for(let y=-54+o;y<1920;y+=54)for(let x=27;x<1080;x+=54){bg.fillRect(x,y,2.4,2.4)}}
+
+/* ---- kinetic titles ---- */
+function mkTitle(id,words,hi){const e=$(id);e.innerHTML=words.map((w,i)=>`<span class="wd"><span id="${id}_${i}" style="${i==hi?'color:#7DD3FC':''}">${w}</span></span>`).join('');e._n=words.length}
+function runTitle(id,a,b,t){const e=$(id);const o=P(t,b-0.28,0.26,eIn);for(let i=0;i<e._n;i++){const v=sp((t-a-i*0.07)*1000);const q=$(id+'_'+i).style;q.transform=`translateY(${(1-v)*145-o*40}%)`;q.opacity=(v>0.01?1:0)*(1-o)}}
+mkTitle('bTt',['A','onda','do','lançamento'],3);mkTitle('cTt',['Atende','com','contexto'],2);mkTitle('dTt',['Unidades','e','tabela'],2);
+mkTitle('eTt',['Qualifica','e','direciona'],2);mkTitle('fTt',['Consultor','e','plantão'],2);mkTitle('gTt',['Visão','por','lançamento'],2);
+
+/* ---- journey line dots ---- */
+const JN=[0.04,0.2,0.36,0.52,0.68,0.84,1.0];$('jrD').innerHTML=JN.map((p,i)=>`<div id="jd${i}" class="abs" style="left:${p*936-10}px;top:10px;width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:#0A0E14"></div>`).join('');
+const JT=[0.3,4.3,10.3,17.0,21.7,25.9,30.6];
+
+/* ---- A: tower ---- */
+const TC=6,TR_=7,CW=134,CH=70,GX=14,GY=14;const TX=(1080-(TC*CW+(TC-1)*GX))/2,TY=870;
+const aT=$('aT');let tw='';
+for(let r=0;r<TR_;r++)for(let c=0;c<TC;c++){const i=r*TC+c;tw+=`<div id="ac${i}" class="cell" style="left:${TX+c*(CW+GX)}px;top:${TY+r*(CH+GY)}px;width:${CW}px;height:${CH}px;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)"></div>`}
+tw+=`<div id="aRoof" class="abs" style="left:${TX-14}px;top:${TY-26}px;width:${TC*CW+(TC-1)*GX+28}px;height:3px;background:rgba(125,211,252,.55)"></div><div id="aBase" class="abs" style="left:${TX-40}px;top:${TY+TR_*(CH+GY)+4}px;width:${TC*CW+(TC-1)*GX+80}px;height:3px;background:rgba(125,211,252,.55)"></div>
+<div id="aName" class="cap abs" style="left:0;top:${TY+TR_*(CH+GY)+34}px;width:1080px;text-align:center;color:var(--t3);font-size:28px">Residencial Aurora</div>`;
+aT.innerHTML=tw;
+const aState=[];for(let r=0;r<TR_;r++)for(let c=0;c<TC;c++){const i=r*TC+c;const q=rnd(i+5);aState.push({tl:0.7+(TR_-1-r)*0.13+c*0.05+rnd(i)*0.18,k:q<.62?'av':q<.8?'rs':'sd'})}
+// hook line 2 words
+const L2=[['Agora',C[2].words[0].t],['a',C[2].words[1].t],['Leadimob',C[2].words[2].t],['também',C[2].words[3].t],['é',C[2].words[4].t],['para',C[2].words[5].t],['você.',C[2].words[6].t]];
+$('aL').innerHTML=L2.map((w,i)=>`<span class="wd" style="margin-right:.22em"><span id="al${i}" style="${i==2?'color:#7DD3FC':''}">${w[0]}</span></span>`).join('');
+// fit hook size
+{const e=$('aHs');const f=()=>{const w=e.getBoundingClientRect().width;if(w>0){const sz=104*936/w;$('aH').style.fontSize=Math.min(sz,128)+'px'}};f()}
+
+/* ---- B: feed ---- */
+const NAMES=['Mariana','Rafael','Beatriz','Lucas','Fernanda','Gustavo','Camila','Thiago','Juliana','Eduardo','Patrícia','Rodrigo','Aline','Bruno','Renata','Felipe','Carlos'];
+const MSGS=['Ainda tem unidade?','Qual a metragem?','Tem planta disponível?','Quero conhecer o decorado','Como funciona o pagamento?','Posso visitar o plantão?','Qual o prazo de entrega?','Tem vaga de garagem?','Aceita financiamento?','Tem unidade de frente?','Quando abre a visita?','Pode me mandar a planta?','Qual a previsão de entrega?','Tem varanda gourmet?','Já estou no plantão!','Como reservo uma unidade?','Vi o lançamento. Ainda tem unidade?'];
+const HUES=['#1E3A8A','#0B5C73','#14532D','#4C1D95','#7C2D12','#0F766E','#1D4ED8'];
+const BT=[4.5,5.08,5.58,6.02,6.42,6.78,7.1,7.38,7.64,7.88,8.1,8.3,8.5,8.7,8.9,9.08,9.28];
+const NC=BT.length,PITCH=150,FY=490;
+$('bFeed').innerHTML=BT.map((t,i)=>`<div id="fc${i}" class="abs card lead" style="left:72px;top:${FY}px;width:936px;visibility:hidden"><div class="av" style="background:${i==NC-1?'linear-gradient(135deg,#1E3A8A,#0B5C73)':HUES[i%HUES.length]}">${NAMES[i][0]}</div><div style="flex:1;min-width:0"><div class="nm">${NAMES[i]}</div><div class="ms">${MSGS[i]}</div></div><div style="font:500 26px IN;color:var(--t3)">agora</div></div>`).join('');
+
+{const cl2=$('fc'+(NC-1)).cloneNode(true);cl2.id='cLead';cl2.style.visibility='visible';cl2.style.opacity=1;cl2.style.transform='none';cl2.style.borderColor='rgba(34,211,238,.66)';$('sC').appendChild(cl2)}
+/* ---- D: espelho de unidades ---- */
+const DC=6,DR=5,DW=128,DH=74,DGX=14,DGY=14;let dg='';
+for(let r=0;r<DR;r++)for(let c=0;c<DC;c++){const i=r*DC+c;dg+=`<div id="dc${i}" class="cell" style="left:${c*(DW+DGX)}px;top:${r*(DH+DGY)}px;width:${DW}px;height:${DH}px;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);opacity:0"></div>`}
+$('dGrid').innerHTML=dg;
+const dState=[];for(let i=0;i<DC*DR;i++){const q=rnd(i+40);dState.push(q<.52?'av':q<.78?'rs':'sd')}
+const SEL=14;dState[SEL]='av';
+
+/* ---- E: destinos ---- */
+const DEST=[['Plantão','M4 22 V10 L15 4 L26 10 V22 M4 22 H26 M12 22 V15 H18 V22'],['Consultor','M15 14 A5 5 0 1 0 15 4 A5 5 0 0 0 15 14 M5 27 C6 20 10 17 15 17 C20 17 24 20 25 27'],['Nutrição','M4 22 L11 14 L16 18 L26 6 M20 6 H26 V12']];
+const DX0=72,DWD=292,DG=30,DY=1060,DHT=210;
+$('eDest').innerHTML=DEST.map((d,i)=>i==1?'':`<div id="ed${i}" class="abs card" style="left:${DX0+i*(DWD+DG)}px;top:${DY}px;width:${DWD}px;height:${DHT}px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;border-radius:28px"><svg width="56" height="56" viewBox="0 0 30 30"><path d="${d[1]}" fill="none" stroke="#7C8799" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div style="font:800 36px/1 IN;color:var(--t3)">${d[0]}</div></div>`).join('');
+// consultor element (E -> F match cut)
+$('fCons').innerHTML=`<div id="cons" class="abs card" style="left:0;top:0;border-radius:28px;overflow:hidden;border-color:rgba(34,211,238,.45)">
+ <div id="consE" class="abs" style="left:0;top:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px"><svg width="56" height="56" viewBox="0 0 30 30"><path d="${DEST[1][1]}" fill="none" stroke="#7DD3FC" stroke-width="2.2" stroke-linecap="round"/></svg><div style="font:800 36px/1 IN">Consultor</div></div>
+ <div id="consF" class="abs" style="left:0;top:0;width:100%;height:100%;display:flex;align-items:center;gap:26px;padding:0 40px"><div class="av" style="width:100px;height:100px;font-size:44px;background:linear-gradient(135deg,#2563EB,#0B5C73)">R</div><div><div style="font:800 46px/1 IN;letter-spacing:-.02em">Ricardo</div><div style="font:500 34px/1 IN;color:var(--t2);margin-top:14px">Consultor · Residencial Aurora</div></div></div>
+</div>`;
+// F: agenda
+const DAYS=['Sex','Sáb','Dom','Seg','Ter'];
+$('fDays').innerHTML=DAYS.map((d,i)=>`<div id="fd${i}" style="flex:1;height:84px;border-radius:18px;background:rgba(255,255,255,.05);border:1.5px solid transparent;font:700 34px/84px IN;text-align:center;color:var(--t2)">${d}</div>`).join('');
+const SLOTS=['09:00','10:00','11:00','14:00'];
+$('fSlots').innerHTML=SLOTS.map((d,i)=>`<div id="fs${i}" style="flex:1;height:78px;border-radius:16px;background:rgba(255,255,255,.04);border:1.5px solid transparent;font:700 34px/78px IN;text-align:center;color:var(--t3)">${d}</div>`).join('');
+
+/* ---- G: linhas ---- */
+const GR1=[['Residencial Aurora',[.34,.26,.14]],['Edifício Vértice',[.30,.22,.20]],['Condomínio Horizonte',[.40,.18,.08]],['Torre Vista',[.22,.28,.18]]];
+const GR2=[['Instagram',[.38,.24,.12]],['Portais',[.28,.30,.10]],['Site do lançamento',[.20,.22,.22]],['Indicação',[.12,.18,.26]]];
+const grow=(R,pre)=>R.map((r,i)=>`<div id="${pre}${i}" class="abs" style="left:0;top:${i*140}px;width:848px"><div style="font:800 38px/1 IN;letter-spacing:-.01em">${r[0]}</div><div style="display:flex;gap:6px;margin-top:20px;height:44px;width:848px;position:relative;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.04)">${r[1].map((w,j)=>`<div id="${pre}${i}b${j}" style="height:44px;width:${w*848/0.8}px;transform-origin:0 50%;background:${['#7DD3FC','#2563EB','#34D399'][j]};border-radius:8px"></div>`).join('')}</div></div>`).join('');
+$('gRows').innerHTML=grow(GR1,'ga')+grow(GR2,'gb');
+
+/* ---- captions ---- */
+const CAPCUES=[3,4,5,6,7,8,9];let capKey=null;
+function captions(t){const e=$('cap');let cur=null;for(const c of TL){if(t>=c.start-0.12&&t<c.end+0.35)cur=c}
+ if(!cur||!CAPCUES.includes(cur.i)){e.style.opacity=0;$('capBg').style.opacity=0;return}
+ let ws=cur.words.map((w,i)=>({...w,i}));
+ if(cur.i==5){const split=wt(5,'já')-0.05;ws=t>=split?ws.filter(w=>w.i>=9):ws.filter(w=>w.i<9)}
+ const key=cur.i+':'+ws[0].i;if(capKey!==key){e.innerHTML=ws.map(w=>`<span class="w" id="cw${w.i}" style="display:inline-block;margin-right:.25em">${w.w}</span>`).join('');capKey=key}
+ const o=1-P(t,cur.end+0.1,0.22,eIn);e.style.opacity=o;$('capBg').style.opacity=o;
+ ws.forEach(w=>{const v=spSnap((t-w.t+0.03)*1000);const s=$('cw'+w.i).style;const on=t>=w.t-0.03;s.opacity=on?cl(v*1.5):0;s.transform=`translateY(${(1-v)*16}px)`;s.color=(on&&t<w.t+0.3)?'#FFFFFF':'#DCE3EE'})}
+
+/* =============== MASTER RENDER =============== */
+window.render=function(t){
+ CUR=t;drawBg(t);
+ const sc={A:$('sA'),B:$('sB'),C:$('sC'),D:$('sD'),E:$('sE'),F:$('sF'),G:$('sG'),H:$('sH')};
+ const scanK=P(t,3.95,0.62,eIO), pushK=P(t,16.4,0.6,eIO), zoomOut=P(t,30.0,0.4,eIn), zoomIn=P(t,30.28,0.62,eOut), riseK=P(t,33.84,0.58,eIO);
+ // visibility windows / transforms
+ const vis=(el,on)=>{el.style.display=on?'block':'none'};
+ for(const k in sc){sc[k].style.clipPath='none';sc[k].style.transform='none';sc[k].style.opacity=1}
+ vis(sc.A,t<4.7);vis(sc.B,t>=3.9&&t<10.6);vis(sc.C,t>=9.6&&t<17.1);vis(sc.D,t>=16.3&&t<21.9);vis(sc.E,t>=21.3&&t<26.2);vis(sc.F,t>=21.3&&t<30.5);vis(sc.G,t>=30.2&&t<34.5);vis(sc.H,t>=33.7);
+ // A->B scan
+ if(t<4.7){sc.A.style.clipPath=`inset(${scanK*100}% 0 0 0)`;sc.B.style.clipPath=`inset(0 0 ${(1-scanK)*100}% 0)`;
+  const sl=$('scan');sl.style.visibility=(scanK>0.001&&scanK<0.999)?'visible':'hidden';sl.style.top=(scanK*1920-1)+'px'}
+ else $('scan').style.visibility='hidden';
+ // C->D push
+ sc.C.style.transform=`translateX(${-pushK*1180}px)`;sc.D.style.transform=`translateX(${(1-pushK)*1180}px)`;
+ // F->G zoom-through
+ sc.F.style.transform=`scale(${1+zoomOut*0.7})`;sc.F.style.transformOrigin='50% 52%';sc.F.style.opacity=1-zoomOut;
+ sc.G.style.transform=`scale(${0.84+0.16*zoomIn})`;sc.G.style.transformOrigin='50% 50%';sc.G.style.opacity=cl(zoomIn*1.6);
+ // G->H rise
+ sc.H.style.clipPath=`inset(${(1-riseK)*100}% 0 0 0)`;sc.G.style.clipPath=`inset(0 0 ${riseK*100}% 0)`;
+ // ---------- A ----------
+ if(t<4.7){
+  const kv=sp((t-0.1)*1000);S($('aK'),cl(kv*1.3),`translateY(${(1-kv)*24}px)`);
+  {const v=sp((t-0.32+0.02)*1000);$('aHs').style.transform=`translateY(${(1-v)*145}%)`;$('aHs').style.opacity=v>0.01?1:0}
+  L2.forEach((w,i)=>{const v=sp((t-w[1]+0.02)*1000);const q=$('al'+i).style;q.transform=`translateY(${(1-v)*145}%)`;q.opacity=v>0.01?1:0});
+  const tv=cl(spSoft((t-0.5)*1000));S($('aRoof'),tv);S($('aBase'),tv);S($('aName'),tv);
+  aState.forEach((s,i)=>{const el=$('ac'+i);const ap=cl(spSoft((t-0.55-s.tl*0.15)*1000));const lit=P(t,s.tl+0.6,0.45,eOut);
+   let bc='rgba(255,255,255,.12)',bgc='rgba(255,255,255,.04)';
+   if(s.k=='av'){bc=`rgba(34,211,238,${.12+.78*lit})`;bgc=`rgba(34,211,238,${.04+.2*lit})`}else if(s.k=='rs'){bc=`rgba(124,135,153,${.12+.6*lit})`;bgc=`rgba(124,135,153,${.04+.26*lit})`}
+   el.style.opacity=ap;el.style.borderColor=bc;el.style.background=bgc});
+  // gentle push-in on tower
+  const z=1+0.03*P(t,0.5,3.6,lin);$('aT').style.transform=`scale(${z})`;$('aT').style.transformOrigin='540px 1100px';
+ }
+ // ---------- B ----------
+ if(t>=3.9&&t<10.6){
+  runTitle('bTt',4.3,9.6,t);
+  const hv=sp((t-4.35)*1000);S($('bHd'),cl(hv*1.3),`translateY(${(1-hv)*20}px)`);
+  const wv=spPop((t-wt(4,'não')+0.05)*1000);S($('bWarn'),cl(wv*1.3),`scale(${0.85+0.15*cl(wv)})`);
+  const m=P(t,9.62,0.5,eIO);
+  BT.forEach((bt,i)=>{const e=$('fc'+i);const ev=sp((t-bt)*1000);let pos=0;for(let j=i+1;j<NC;j++)pos+=sp((t-BT[j])*1000);
+   const last=i==NC-1;let o=cl(ev*1.4)*cl(1-(pos-3.6)/1.1);let y=FY+pos*PITCH;
+   if(last){o=cl(ev*1.4);y=FY}else{o*=1-m;y+=m*40}
+   if(t<bt-0.02)o=0;
+   S(e,o,`translateY(${y-FY+(1-ev)*-50}px) scale(${lerp(0.96,1,cl(ev))})`);
+   if(last){e.style.borderColor=`rgba(34,211,238,${.16+.5*cl(P(t,bt+0.3,0.4)) })`}
+  });
+  S($('bHd'),cl(hv*1.3)*(1-m)*(1),`translateY(${(1-hv)*20}px)`);
+ }
+ // ---------- C ----------
+ if(t>=9.6&&t<17.1){
+  runTitle('cTt',10.45,16.4,t);
+  // lead card persists from B
+  // move the card into scene C stacking context
+  const pv=cl(spSoft((t-10.5)*1000));S($('cPanel'),cl(pv*1.2),`translateY(${(1-pv)*40}px)`);
+  const ty=sp((t-12.0)*1000)*(1-P(t,12.4,0.2,lin));S($('cTyp'),(t>11.95&&t<12.45)?cl(ty*1.3):0);
+  $('cTyp').querySelectorAll('.dt').forEach((d,i)=>{d.style.opacity=.4+.6*(0.5+0.5*Math.sin(t*9-i*0.9))});
+  const rv=spPop((t-12.42)*1000);S($('cRep'),cl(rv*1.3),`translateY(${(1-rv)*26}px) scale(${0.96+0.04*cl(rv)})`);
+  const ov=sp((t-14.15)*1000);S($('cOrig'),cl(ov*1.3),`translateY(${(1-ov)*50}px)`);
+  const hl=P(t,wt(5,'empreendimento')-0.1,0.4);$('cOn').style.color=`rgb(${lerp(255,125,hl)},${lerp(255,211,hl)},${lerp(255,252,hl)})`;
+  $('cRepN').style.color=`rgb(${lerp(233,125,hl)},${lerp(237,211,hl)},${lerp(239,252,hl)})`;
+  $('cOrig').style.borderColor=`rgba(34,211,238,${.2+.5*hl})`;
+ }
+ // card live in B/C with correct z: keep it inside sB while visible; draw copy in sC handled by sharing parent (sB hidden after 10.6) -> use dedicated clone
+ // ---------- D ----------
+ if(t>=16.3&&t<21.9){
+  runTitle('dTt',17.0,21.3,t);
+  const cv=cl(spSoft((t-16.7)*1000));S($('dCard'),cv,`translateY(${(1-cv)*30}px)`);
+  const avT=wt(6,'disponíveis'),sel=wt(6,'tabela');
+  dState.forEach((s,i)=>{const el=$('dc'+i);const r=Math.floor(i/DC),c=i%DC;const ap=cl(spSoft((t-17.0-r*0.06-c*0.04)*1000));
+   const lit=P(t,avT-0.1+r*0.05+c*0.03,0.4);let bc='rgba(255,255,255,.12)',bgc='rgba(255,255,255,.04)';
+   if(s=='av'){bc=`rgba(34,211,238,${.12+.78*lit})`;bgc=`rgba(34,211,238,${.04+.22*lit})`}else if(s=='rs'){bc=`rgba(124,135,153,${.12+.55*lit})`;bgc=`rgba(124,135,153,${.04+.22*lit})`}
+   let sc2=1;if(i==SEL){const sv=P(t,sel-0.35,0.4);bc=`rgba(255,255,255,${.5+.5*sv})`;bgc=`rgba(34,211,238,${.2+.35*sv})`;el.style.boxShadow=`0 0 ${40*sv}px rgba(34,211,238,${.55*sv})`;sc2=1+0.06*sv}else el.style.boxShadow='none';
+   el.style.opacity=ap;el.style.borderColor=bc;el.style.background=bgc;el.style.transform=`scale(${sc2})`});
+  const tv=sp((t-(sel-0.25))*1000);S($('dTab'),cl(tv*1.3),`translateY(${(1-tv)*40}px)`);
+  const vg=P(t,wt(6,'vigente')-0.05,0.3);const ch=$('dChip');ch.style.background=`rgba(52,211,153,${.07+.1*vg})`;ch.style.color=vg>0.5?'#6EE7B7':'#C9D2E0';ch.style.borderColor=vg>0.5?'rgba(52,211,153,.75)':'rgba(255,255,255,.14)';
+  $('dChipT').textContent=vg>0.5?'✓ Vigente':'Consultando';
+ }
+ // ---------- E ----------
+ if(t>=21.3&&t<26.2){
+  sc.E.style.opacity=1-P(t,25.25,0.35,lin);
+  runTitle('eTt',21.8,25.9,t);
+  const lv=sp((t-21.75)*1000);S($('eLead'),cl(lv*1.3),`translateY(${(1-lv)*30}px)`);
+  const pv=sp((t-22.05)*1000);S($('eProf'),cl(pv*1.3),`translateY(${(1-pv)*40}px)`);
+  [['eq1',22.45],['eq2',22.9],['eq3',23.2]].forEach(([id,a])=>{const v=sp((t-a)*1000);S($(id),cl(v*1.3),`translateX(${(1-v)*30}px)`)});
+  const hot=P(t,wt(7,'direciona'),0.3);$('eq3v').style.color=`rgb(${lerp(255,110,hot)},${lerp(255,231,hot)},${lerp(255,183,hot)})`;$('eq3v').textContent=hot>0.4?'Quente':'Quer visitar';
+  // lines from profile card to destinations
+  const sx=540,sy=590+$('eProf').offsetHeight,ty=DY;let d='';const cxs=[DX0+DWD/2,DX0+DWD+DG+DWD/2,DX0+2*(DWD+DG)+DWD/2];
+  const lk=P(t,wt(7,'direciona')-0.1,0.6,eIO),pick=P(t,wt(7,'certo')-0.55,0.55,eIO);
+  let svg='';cxs.forEach((cx,i)=>{const mid=(sy+ty)/2;const on=i==1;const path=`M${sx} ${sy} C${sx} ${mid} ${cx} ${mid} ${cx} ${ty}`;
+   svg+=`<path d="${path}" fill="none" stroke="${on?'#22D3EE':'rgba(124,135,153,.55)'}" stroke-width="${on?5:3}" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="${1-(on?lk:lk*0.9)}" opacity="${on?1:(1-0.7*pick)}"/>`});
+  $('eLines').innerHTML=svg;
+  [0,2].forEach(i=>{const e=$('ed'+i);const dv=sp((t-(wt(7,'direciona')+0.05+i*0.05))*1000);S(e,cl(dv*1.3)*(1-0.6*pick),`translateY(${(1-dv)*40}px)`)});
+ }
+ // consultor card: E slot -> F slot (match cut)
+ if(t>=21.3&&t<30.5){
+  const cv=sp((t-(wt(7,'direciona')+0.1))*1000);
+  const mk=P(t,25.45,0.7,eIO);const E={x:DX0+DWD+DG,y:DY,w:DWD,h:DHT},F={x:72,y:400,w:936,h:150};
+  // dest slot is in sE (z) ; keep cons in sF container, visible across 21.3-30.5
+  const x=lerp(E.x,F.x,mk),y=lerp(E.y,F.y,mk),w=lerp(E.w,F.w,mk),h=lerp(E.h,F.h,mk);
+  const cs=$('cons');cs.style.left=x+'px';cs.style.top=y+'px';cs.style.width=w+'px';cs.style.height=h+'px';
+  const pk=P(t,wt(7,'certo')-0.25,0.4);cs.style.borderColor=`rgba(34,211,238,${.2+.6*pk})`;cs.style.boxShadow=`0 0 ${50*pk}px rgba(34,211,238,${.35*pk}),0 40px 90px rgba(0,0,0,.55)`;
+  const base=t<25.2?cl(cv*1.3)*(1-0*pk):1;
+  cs.style.opacity=t<25.2?base:1;
+  $('consE').style.opacity=1-P(t,25.5,0.3,lin);$('consF').style.opacity=P(t,25.75,0.35,lin);
+ }
+ // ---------- F ----------
+ if(t>=21.3&&t<30.5){
+  runTitle('fTt',26.0,30.1,t);
+  const sh=P(t,25.2,0.5,lin);
+  // sF shown over sE? sF visible from 25.2 with consultor only
+  const lv=sp((t-(wt(8,'lead')-0.15))*1000);const hd=P(t,wt(8,'consultor')-0.25,0.5,eIO);S($('fLeadChip'),cl(lv*1.3)*(1-hd),`translate(${lerp(-80,0,cl(lv))}px,${-hd*110}px) scale(${1-0.1*hd})`);
+  const hand=P(t,wt(8,'consultor')-0.1,0.35,eIO);
+  $('fLeadChip').style.borderColor=`rgba(52,211,153,${.16+.5*hand})`;
+  const cv=sp((t-(wt(8,'agenda')-0.35))*1000);S($('fCal'),cl(cv*1.3),`translateY(${(1-cv)*40}px)`);
+  DAYS.forEach((d,i)=>{const el=$('fd'+i);const s=i==1?P(t,wt(8,'agenda')+0.2,0.3):0;el.style.background=`rgba(37,99,235,${.0+.7*s})`;el.style.background=s>0?`rgba(37,99,235,${.15+.65*s})`:'rgba(255,255,255,.05)';el.style.color=s>0.5?'#fff':'#C9D2E0'});
+  SLOTS.forEach((d,i)=>{const el=$('fs'+i);const s=i==1?P(t,wt(8,'visita')-0.25,0.3):0;el.style.background=s>0?`rgba(52,211,153,${.12+.28*s})`:'rgba(255,255,255,.04)';el.style.borderColor=s>0?`rgba(52,211,153,${s})`:'transparent';el.style.color=s>0.5?'#A7F3D0':'#7C8799'});
+  const ov=spPop((t-(wt(8,'visita')+0.05))*1000);S($('fOk'),cl(ov*1.3),`translateY(${(1-ov)*40}px) scale(${0.95+0.05*cl(ov)})`);
+ } else if(t<25.2){ }
+ // ---------- G ----------
+ if(t>=30.2&&t<34.5){
+  runTitle('gTt',30.75,34.0,t);
+  const cv=cl(spSoft((t-30.6)*1000));S($('gCard'),cv,`translateY(${(1-cv)*20}px)`);
+  const sw=P(t,wt(9,'campanha')-0.28,0.35,eIO);$('gSel').style.transform=`translateX(${sw*416}px)`;$('gT1').style.color=sw>0.5?'#7C8799':'#fff';$('gT2').style.color=sw>0.5?'#fff':'#7C8799';
+  GR1.forEach((r,i)=>{const e=$('ga'+i);const v=sp((t-(30.95+i*0.1))*1000);S(e,cl(v*1.3)*(1-sw),`translateY(${(1-v)*30}px)`);
+   r[1].forEach((w,j)=>{$('ga'+i+'b'+j).style.transform=`scaleX(${cl(P(t,31.1+i*0.12+j*0.1,0.7,eOut))})`})});
+  GR2.forEach((r,i)=>{const e=$('gb'+i);const v=sp((t-(wt(9,'campanha')-0.15+i*0.07))*1000);S(e,cl(v*1.3)*sw,`translateY(${(1-v)*30}px)`);
+   r[1].forEach((w,j)=>{$('gb'+i+'b'+j).style.transform=`scaleX(${cl(P(t,wt(9,'campanha')-0.05+i*0.08+j*0.08,0.55,eOut))})`})});
+ }
+ // ---------- H ----------
+ if(t>=33.7){
+  const a=34.0;
+  const lg=P(t,a,0.9,eIO);$('hLg').style.clipPath=`inset(0 ${(1-lg)*100}% 0 0 round 40px)`;S($('hLg'),1);
+  const lv=spPop((t-(a+0.6))*1000);S($('hLid'),cl(lv)*0.95,`translateY(${(1-lv)*50+Math.sin(t*2)*5}px) rotate(${(1-lv)*10}deg)`);
+  if(!$('hT')._b){$('hT').innerHTML='<span class="wd"><span id="ht0">MODO</span></span><br><span class="wd"><span id="ht1" style="color:#7DD3FC">INCORPORADOR</span></span>';$('hT')._b=1;
+   const f=()=>{const w=$('ht1').getBoundingClientRect().width;if(w>0)$('hT').style.fontSize=Math.min(118*936/w,126)+'px'};f()}
+  [0,1].forEach(i=>{const v=sp((t-(a+0.35+i*0.12))*1000);$('ht'+i).style.transform=`translateY(${(1-v)*145}%)`;$('ht'+i).style.opacity=v>0.01?1:0});
+  const bd=wt(10,'demonstr')-0.35;const bv=spPop((t-bd)*1000);S($('hBtn'),cl(bv*1.2),`translateY(${(1-bv)*50}px) scale(${(0.88+0.12*cl(bv))*(1+0.012*Math.sin(t*5))})`);$('hSh').style.left=(-40+180*((Math.max(0,t-bd-0.3)*0.7)%1.4))+'%';
+  const sv=sp((t-(wt(10,'modo')-0.15))*1000);S($('hSub'),cl(sv*1.3),`translateY(${(1-sv)*24}px)`);
+  const nv=spPop((t-(wt(11,'link')-0.1))*1000);S($('hBio'),cl(nv*1.3),`translateY(${(1-nv)*30}px) scale(${0.92+0.08*cl(nv)})`);
+ }
+ // ---------- journey ----------
+ {let k=-1;JT.forEach((a,i)=>{if(t>=a)k=i});const pos=k<0?0:JN[k]*936;const prev=k<=0?0:JN[k-1]*936;
+  $('jrF').style.width=(k<0?0:lerp(prev,pos,P(t,JT[k],0.6,eIO)))+'px';
+  JN.forEach((p,i)=>{const e=$('jd'+i);e.style.background=i<k?'#22D3EE':i==k?'#fff':'#0A0E14';e.style.borderColor=i<=k?'#22D3EE':'rgba(255,255,255,.3)';e.style.boxShadow=i==k?'0 0 16px #22D3EE':'none'});
+  $('jr').style.opacity=t>33.9?1-P(t,33.9,0.3,lin):1;}
+ captions(t);
+ {const f=P(t,END-0.4,0.4,lin);const fd=$('fade');fd.style.visibility='hidden';fd.style.opacity=0}
+};
+window.ready=document.fonts.ready.then(()=>{render(0);return END});
+})();
+</script></body></html>
