@@ -1,0 +1,80 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "LANÇAMENTO · SALVE ESTE POST",
+   "titulo": "6 pontos onde o lead esfria.",
+   "sub": "No lançamento, a demanda chega junta. A atenção, não."
+  },
+  {
+   "tipo": "passo",
+   "titulo": "1 · O plantão fechou no fim do dia. O interesse, não.",
+   "corpo": "Quem se interessa à noite não espera a manhã.",
+   "ghost": "01"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "2 · Perguntou por uma unidade e ouviu \"vou verificar\".",
+   "corpo": "A resposta que não sai na hora vira outra conversa.",
+   "ghost": "02"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "3 · A planilha diz disponível. A unidade já foi reservada.",
+   "corpo": "Oferecer o que não existe mais custa a confiança do lead.",
+   "ghost": "03"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "4 · Ninguém sabe de qual empreendimento ele veio.",
+   "corpo": "Sem origem, a conversa começa do zero.",
+   "ghost": "04"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "5 · \"Passo aí no plantão\" não é uma visita marcada.",
+   "corpo": "Proponha dia e horário.",
+   "ghost": "05"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "6 · Visitou e ninguém voltou a falar.",
+   "corpo": "Follow-up que depende de memória não acontece.",
+   "ghost": "06"
+  },
+  {
+   "tipo": "lista",
+   "titulo": "Auditoria de 10 minutos",
+   "itens": [
+    "Responde fora do horário do plantão",
+    "Responde unidade com a tabela vigente",
+    "Mantém a tabela atualizada",
+    "Registra o empreendimento de origem",
+    "Agenda dia e hora no plantão",
+    "Faz follow-up depois da visita"
+   ]
+  },
+  {
+   "tipo": "passo",
+   "titulo": "O lead não esfriou. O processo atrasou.",
+   "corpo": "A Leadimob atende cada lead no WhatsApp sabendo de qual empreendimento veio, consulta unidades e tabela vigente, agenda a visita no plantão e faz o follow-up. Modo incorporador."
+  },
+  {
+   "tipo": "cta",
+   "titulo": "Quer ver em qual dos 6 pontos o seu lead esfria?",
+   "acao": "Comente DIAGNÓSTICO",
+   "sub": "E receba o checklist Onde seus leads estão morrendo."
+  }
+ ]
+}

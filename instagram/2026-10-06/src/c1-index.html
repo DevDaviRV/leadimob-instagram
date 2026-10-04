@@ -1,0 +1,172 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:IN;color:#fff}
+#strip{position:relative;width:10800px;height:1350px;background:#0A0E14;overflow:hidden}
+.bg{position:absolute;inset:0;background-image:radial-gradient(rgba(125,211,252,.13) 2px,transparent 2.6px);background-size:46px 46px}
+.glow{position:absolute;border-radius:50%}
+.sl{position:absolute;top:0;width:1080px;height:1350px;padding:110px 84px 290px;display:flex;flex-direction:column;justify-content:center}
+.sl>.ttl,.sl>.kick{flex:none}
+.abs{position:absolute}
+.kick{font:700 30px/1 IN;letter-spacing:.2em;text-transform:uppercase;color:#7DD3FC}
+.h1{font:900 128px/0.96 IN;letter-spacing:-.055em}
+.h2{font:800 76px/1.02 IN;letter-spacing:-.04em}
+.p{font:500 38px/1.4 IN;color:#C9D2E0}
+.ghost{position:absolute;font:900 520px/1 IN;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(125,211,252,.16);right:40px;top:40px}
+.foot{position:absolute;left:84px;right:84px;bottom:64px;display:flex;justify-content:space-between;align-items:center;font:600 30px/1 IN;color:#8A93A3;letter-spacing:.06em}
+.card{background:linear-gradient(180deg,rgba(22,30,44,.96),rgba(14,20,30,.96));border:1px solid rgba(125,211,252,.18);border-radius:32px;box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.bub{border-radius:26px;padding:22px 28px 14px;font:500 36px/1.32 IN;max-width:800px}
+.bin{background:#202C33;color:#E9EDEF;border-top-left-radius:8px}
+.bout{background:#005C4B;color:#E9EDEF;border-top-right-radius:8px;margin-left:auto}
+.bt{font:500 30px/1 IN;color:rgba(233,237,239,.6);text-align:right;margin-top:8px}
+.chip{display:inline-flex;align-items:center;gap:14px;padding:20px 28px;border-radius:999px;font:700 34px/1 IN;white-space:nowrap}
+.amb{background:rgba(245,158,11,.12);border:2px solid rgba(245,158,11,.7);color:#FBBF24}
+.cy{background:rgba(34,211,238,.10);border:2px solid rgba(34,211,238,.55);color:#A5F3FC}
+.gr{background:rgba(52,211,153,.12);border:2px solid rgba(52,211,153,.7);color:#6EE7B7}
+.num{font:800 30px/1 IN;color:#0A0E14;background:#22D3EE;width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center}
+.ttl{display:flex;align-items:center;gap:24px;margin-bottom:34px}
+.mini{width:150px;height:110px;border-radius:14px;background:#1A2232;border:1px solid rgba(255,255,255,.08)}
+.kpi{flex:1;padding:30px 28px;border-radius:24px;background:#121a27;border:1px solid rgba(125,211,252,.16)}
+.kpi b{display:block;font:900 84px/1 IN;letter-spacing:-.04em}
+.kpi span{font:600 30px/1.2 IN;color:#8A93A3;letter-spacing:.04em}
+.hl{color:#7DD3FC}
+.prog{display:flex;gap:10px;margin-bottom:34px}
+.prog i{display:block;height:10px;flex:1;border-radius:6px;background:rgba(125,211,252,.16)}
+.prog i.on{background:#22D3EE}.prog i.cur{background:#22D3EE;box-shadow:0 0 0 3px rgba(34,211,238,.25)}
+.row{display:flex;justify-content:space-between;align-items:center;font:600 34px/1 IN;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.row:last-child{border-bottom:0}.row span:first-child{color:#C9D2E0}
+.chk{display:flex;align-items:center;gap:22px;font:700 36px/1.2 IN;padding:17px 0;color:#E2E8F0}
+.chk b{flex:none;width:44px;height:44px;border-radius:12px;border:3px solid #22D3EE;display:flex;align-items:center;justify-content:center;color:#22D3EE;font:900 30px/1 IN}
+</style></head><body><div id="strip">
+<div class="bg"></div>
+<div class="glow" style="left:-300px;top:-400px;width:1400px;height:1400px;background:radial-gradient(circle,rgba(37,99,235,.30),transparent 62%)"></div>
+<div class="glow" style="left:4200px;top:500px;width:1600px;height:1600px;background:radial-gradient(circle,rgba(34,211,238,.10),transparent 60%)"></div>
+<div class="glow" style="left:8600px;top:-500px;width:1700px;height:1700px;background:radial-gradient(circle,rgba(37,99,235,.28),transparent 62%)"></div>
+<!-- continuous journey line across the whole strip -->
+<svg class="abs" width="10800" height="1350" style="left:0;top:0">
+ <defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#2563EB"/><stop offset=".5" stop-color="#22D3EE"/><stop offset="1" stop-color="#7DD3FC"/></linearGradient>
+ <filter id="gl"><feGaussianBlur stdDeviation="10"/></filter></defs>
+ <path id="jp" d="M -20 1180 C 500 1180, 700 1120, 1080 1150 S 1700 1210, 2160 1170 S 2800 1110, 3240 1160 S 3900 1215, 4320 1165 S 5000 1105, 5400 1160 S 6050 1215, 6480 1165 S 7150 1110, 7560 1160 S 8250 1215, 8640 1170 S 9300 1120, 9720 1150 S 10400 1180, 10820 1170" fill="none" stroke="url(#lg)" stroke-width="16" filter="url(#gl)" opacity=".55"/>
+ <path d="M -20 1180 C 500 1180, 700 1120, 1080 1150 S 1700 1210, 2160 1170 S 2800 1110, 3240 1160 S 3900 1215, 4320 1165 S 5000 1105, 5400 1160 S 6050 1215, 6480 1165 S 7150 1110, 7560 1160 S 8250 1215, 8640 1170 S 9300 1120, 9720 1150 S 10400 1180, 10820 1170" fill="none" stroke="url(#lg)" stroke-width="4"/>
+ <g id="dots"></g>
+</svg>
+
+<!-- 1 -->
+<div class="sl" style="left:0">
+ <div class="kick">Lançamento · salve este post</div>
+ <div class="h1" style="margin-top:56px">6 pontos<br>onde o lead<br><span class="hl">esfria</span>.</div>
+ <div class="p" style="margin-top:44px;font-size:42px;color:#E2E8F0">No lançamento, a demanda chega junta. A atenção, não.</div>
+ <div style="margin-top:70px;display:flex;gap:14px"><span class="chip cy" style="font-size:30px;padding:14px 22px">Quente</span><span style="width:40px;height:4px;background:#22D3EE;align-self:center"></span><span class="chip amb" style="font-size:30px;padding:14px 22px">Frio</span></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span style="color:#7DD3FC">ARRASTE →</span></div>
+</div>
+<div class="sl" style="left:1080px"><div class="ghost">01</div>
+ <div class="prog"><i class="cur"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="ttl"><div class="num">01</div><div class="kick">O plantão fecha</div></div>
+ <div class="h2">O plantão fechou no fim do dia. <span class="hl">O interesse, não.</span></div>
+ <div class="card" style="margin-top:56px;padding:34px;background:#0B141A">
+  <div class="bub bin">Vi o lançamento agora à noite. Ainda tem unidade?<div class="bt">22:41</div></div>
+  <div class="bub bout" style="margin-top:20px;background:#2A2F33;color:#8A93A3">Sem resposta até o plantão abrir.<div class="bt">—</div></div>
+ </div>
+ <div class="p" style="margin-top:44px">Quem se interessa à noite não espera a manhã.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>2/10</span></div>
+</div>
+<div class="sl" style="left:2160px"><div class="ghost">02</div>
+ <div class="prog"><i class="on"></i><i class="cur"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="ttl"><div class="num">02</div><div class="kick">A pergunta de unidade</div></div>
+ <div class="h2">Perguntou por uma unidade e ouviu <span class="hl">"vou verificar"</span>.</div>
+ <div class="card" style="margin-top:56px;padding:34px;background:#0B141A">
+  <div class="bub bin">A de dois dormitórios no andar alto ainda está disponível?<div class="bt">14:07</div></div>
+  <div class="bub bout" style="margin-top:20px">Vou confirmar com a equipe e te retorno.<div class="bt">14:30 ✓✓</div></div>
+ </div>
+ <div class="p" style="margin-top:44px">A resposta que não sai na hora vira outra conversa.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>3/10</span></div>
+</div>
+<div class="sl" style="left:3240px"><div class="ghost">03</div>
+ <div class="prog"><i class="on"></i><i class="on"></i><i class="cur"></i><i class=""></i><i class=""></i><i class=""></i></div><div class="ttl"><div class="num">03</div><div class="kick">A tabela desatualizada</div></div>
+ <div class="h2">A planilha diz disponível. <span class="hl">A unidade já foi reservada.</span></div>
+ <div class="card" style="margin-top:56px;padding:20px 34px">
+  <div class="row"><span>Tipo A · andar alto</span><span class="chip gr" style="font-size:30px;padding:12px 20px">Disponível</span></div>
+  <div class="row"><span>Tipo B · frente</span><span class="chip amb" style="font-size:30px;padding:12px 20px">Reservada</span></div>
+  <div class="row"><span>Cobertura</span><span class="chip cy" style="font-size:30px;padding:12px 20px">Disponível</span></div>
+ </div>
+ <div class="p" style="margin-top:44px">Oferecer o que não existe mais custa a confiança do lead.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>4/10</span></div>
+</div>
+<div class="sl" style="left:4320px"><div class="ghost">04</div>
+ <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="cur"></i><i class=""></i><i class=""></i></div><div class="ttl"><div class="num">04</div><div class="kick">A origem perdida</div></div>
+ <div class="h2">Ninguém sabe <span class="hl">de qual empreendimento</span> ele veio.</div>
+ <div class="card" style="margin-top:56px;padding:20px 34px">
+  <div class="row"><span style="color:#8A93A3">Empreendimento</span><span>— não registrado</span></div>
+  <div class="row"><span style="color:#8A93A3">Campanha</span><span>— não registrado</span></div>
+  <div class="row"><span style="color:#8A93A3">Próximo passo</span><span style="color:#FBBF24">— ninguém sabe</span></div>
+ </div>
+ <div class="p" style="margin-top:44px">Sem origem, a conversa começa do zero e o anúncio não se paga.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>5/10</span></div>
+</div>
+<div class="sl" style="left:5400px"><div class="ghost">05</div>
+ <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="cur"></i><i class=""></i></div><div class="ttl"><div class="num">05</div><div class="kick">O plantão sem agenda</div></div>
+ <div class="h2">"Passo aí no plantão" <span class="hl">não é uma visita marcada</span>.</div>
+ <div class="card" style="margin-top:56px;padding:34px">
+  <div class="kick" style="color:#8A93A3;font-size:30px">Troque por</div>
+  <div class="bub bout" style="margin-top:22px;max-width:100%">Tenho sábado às 10h ou domingo às 15h no plantão. Qual fica melhor?<div class="bt">✓✓</div></div>
+ </div>
+ <div class="p" style="margin-top:44px">Dia e horário no plantão, sempre combinados.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>6/10</span></div>
+</div>
+<div class="sl" style="left:6480px"><div class="ghost">06</div>
+ <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="cur"></i></div><div class="ttl"><div class="num">06</div><div class="kick">O silêncio depois do plantão</div></div>
+ <div class="h2">Visitou, saiu animado e <span class="hl">ninguém voltou a falar</span>.</div>
+ <div style="margin-top:60px;display:flex;align-items:center;gap:16px">
+  <span class="chip cy" style="font-size:30px;padding:18px 20px">Dia 0 · visita</span><span style="width:24px;height:4px;background:#22D3EE;flex:none"></span><span class="chip cy" style="font-size:30px;padding:18px 20px">Dia 1 · retorno</span><span style="width:24px;height:4px;background:#22D3EE;flex:none"></span><span class="chip gr" style="font-size:30px;padding:18px 20px">Novidade</span>
+ </div>
+ <div class="p" style="margin-top:44px">Follow-up que depende de memória não acontece.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>7/10</span></div>
+</div>
+<!-- 8 -->
+<div class="sl" style="left:7560px">
+ <div class="kick">Auditoria de 10 minutos</div>
+ <div class="h2" style="margin-top:34px">Marque o que o <span class="hl">seu</span> lançamento já faz.</div>
+ <div class="card" style="margin-top:50px;padding:20px 34px">
+  <div class="chk"><b>✓</b>Responde fora do horário do plantão</div>
+  <div class="chk"><b>✓</b>Responde unidade com a tabela vigente</div>
+  <div class="chk"><b>✓</b>Mantém a tabela atualizada</div>
+  <div class="chk"><b>✓</b>Registra o empreendimento de origem</div>
+  <div class="chk"><b>✓</b>Agenda dia e hora no plantão</div>
+  <div class="chk"><b>✓</b>Faz follow-up depois da visita</div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>8/10</span></div>
+</div>
+<!-- 9 -->
+<div class="sl" style="left:8640px">
+ <div class="kick">Onde a Leadimob entra</div>
+ <div class="h1" style="margin-top:40px;font-size:112px">O lead<br>não esfriou.</div>
+ <div class="h1" style="font-size:112px;margin-top:10px"><span class="hl">O processo</span><br>atrasou.</div>
+ <div class="p" style="margin-top:48px">A Leadimob atende cada lead no WhatsApp sabendo de qual empreendimento veio, consulta as unidades e a tabela vigente, agenda a visita no plantão e faz o follow-up.</div>
+ <div style="margin-top:36px"><span class="chip cy" style="font-size:30px;padding:14px 22px">Modo incorporador</span></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>9/10</span></div>
+</div>
+<!-- 10 CTA -->
+<div class="sl" style="left:9720px">
+ <div class="kick">Faça o diagnóstico</div>
+ <div class="h2" style="margin-top:50px;font-size:84px">Quer ver em qual dos 6 pontos o <span class="hl">seu</span> lead esfria?</div>
+ <div style="margin-top:70px;height:136px;border-radius:68px;background:#141B28;border:2px solid rgba(125,211,252,.4);display:flex;align-items:center;padding:0 40px;gap:18px;font:600 46px IN">
+  <span style="color:#7C8799">Comente</span><span style="font-weight:900;letter-spacing:.02em">DIAGNÓSTICO</span>
+  <span style="margin-left:auto;width:88px;height:88px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center"><svg width="42" height="42" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+ </div>
+ <div class="p" style="margin-top:36px">E receba o checklist Onde seus leads estão morrendo.</div>
+ <div style="margin-top:90px;width:440px;height:130px;border-radius:28px;background:#F3F7FB;display:flex;align-items:center;justify-content:center"><img src="logo.png" style="width:360px"></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>10/10</span></div>
+</div>
+</div>
+<script>
+// station dots on the line at each slide center
+const p=document.getElementById('jp');const L=p.getTotalLength();let g='';
+for(let i=0;i<10;i++){const x=540+i*1080;let lo=0,hi=L;for(let k=0;k<40;k++){const m=(lo+hi)/2;if(p.getPointAtLength(m).x<x)lo=m;else hi=m}const pt=p.getPointAtLength(lo);
+ g+=`<circle cx="${pt.x}" cy="${pt.y}" r="26" fill="rgba(34,211,238,.18)"/><circle cx="${pt.x}" cy="${pt.y}" r="11" fill="${i>=1&&i<=7?'#F59E0B':'#7DD3FC'}"/>`}
+document.getElementById('dots').innerHTML=g;
+window.ready=document.fonts.ready.then(()=>Promise.all(['400 20px IN','500 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f))));
+</script></body></html>
