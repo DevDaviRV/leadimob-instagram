@@ -2,11 +2,12 @@
 import numpy as np
 from scipy.signal import butter, sosfilt, fftconvolve
 from scipy.io import wavfile
-SR=48000; END=22.8; N=int((END+0.4)*SR); TT=np.arange(N)/SR
+SR=48000; END=24.74; N=int((END+0.4)*SR); TT=np.arange(N)/SR
 rng=np.random.default_rng(31)
 B=0.6
 bt=lambda n:round(n*60/116,3)
-T=dict(cs=0.25,gray=bt(6),pill=bt(7),curt=4.455,curtOut=4.98,roll=bt(13),bOut=8.2,s=[bt(17),bt(20),bt(23),bt(26)],irisC=15.2,irisO=15.2,push=bt(36),typ=19.4,send=bt(40),sub=bt(41),logo=bt(42))
+s0=bt(21)
+T=dict(cs=0.25,gray=bt(6),pill=bt(7),curt=4.5,curtOut=5.03,roll=bt(15),bOut=10.2,s=[s0,s0+1.81,s0+3.62,s0+5.43],irisC=s0+7.18,irisO=s0+7.18,push=s0+9.78,typ=s0+10.58,send=s0+11.48,sub=s0+11.98,logo=s0+12.48)
 def lp(x,f): return sosfilt(butter(2,f,'low',fs=SR,output='sos'),x)
 def hp(x,f): return sosfilt(butter(2,f,'high',fs=SR,output='sos'),x)
 def bp(x,a,b): return sosfilt(butter(2,[a,b],'band',fs=SR,output='sos'),x)
@@ -27,12 +28,12 @@ def chord_at(t):
     return CH['G']
 def sec(t):
     if t<4.45: return 'hook'
-    if t<4.98: return 'void'
-    if t<8.8: return 'build'
-    if t<15.15: return 'full'
-    if t<15.25: return 'void'
-    if t<18.62: return 'pay'
-    if t<21.2: return 'cta'
+    if t<5.03: return 'void'
+    if t<10.8: return 'build'
+    if t<18.0: return 'full'
+    if t<18.1: return 'void'
+    if t<20.63: return 'pay'
+    if t<23.3: return 'cta'
     return 'out'
 L=np.zeros(N);R=np.zeros(N);KK=[]
 # pad (abre o filtro ao longo do arco)
@@ -40,7 +41,7 @@ for a,b,c in PROG:
     root,notes=CH[c]; d=min(b,END+0.3)-a; n=int((d+0.7)*SR); tt=np.arange(n)/SR
     env=np.minimum(1,tt/0.25)*np.clip((d+0.7-tt)/0.7,0,1)
     op={'hook':0.3,'void':0.1,'build':0.5,'full':1.0,'pay':1.0,'cta':0.7,'out':0.8}[sec(a+0.01)]
-    if a>=21.2: env=env*1.8
+    if a>=23.2: env=env*1.8
     for k,m in enumerate(notes):
         sL=lp((saw(midi(m),n,0.004,k*.13)+saw(midi(m),n,-0.005,k*.31))*env*0.006,500+3200*op)
         sR=lp((saw(midi(m),n,-0.004,k*.57)+saw(midi(m),n,0.006,k*.77))*env*0.006,500+3200*op)
@@ -73,12 +74,12 @@ for k in range(int(END/S16)):
     elif s_=='void':
         pass
     elif s_=='build':
-        r=(t-4.98)/3.8
+        r=(t-5.03)/5.8
         if bt_ : kick(t,.26+.08*r)
         if pos in (4,12): clap(t,.04+.03*r)
         if pos%2==0 and not pos%4==0: bass(t,root,.08)
         hat(t,.01+.012*r)
-        if t>=6.2 and pos%2==0: pluck(t,notes[ARP[k%8]]+12,.02+.01*r,0.3)
+        if t>=7.5 and pos%2==0: pluck(t,notes[ARP[k%8]]+12,.02+.01*r,0.3)
     elif s_=='full':
         if bt_: kick(t,.36)
         if pos in (4,12): clap(t,.08)
@@ -97,9 +98,9 @@ for k in range(int(END/S16)):
         if pos%2==0: bass(t,root,.1); hat(t,.016)
         if pos%2==0: pluck(t,notes[ARP[(k//2)%8]]+12,.03,0.3)
     else:
-        if t<22.4 and pos in (0,8): kick(t,.26)
-        if pos%2==0 and t<22.3: bass(t,root,.09)
-        if t<22.5 and pos%2==0: pluck(t,notes[ARP[(k//2)%8]]+12,.034,0.3)
+        if t<23.4 and pos in (0,8): kick(t,.26)
+        if pos%2==0 and t<23.3: bass(t,root,.09)
+        if t<23.5 and pos%2==0: pluck(t,notes[ARP[(k//2)%8]]+12,.034,0.3)
 sc=np.ones(N)
 for kt in KK:
     i=int(kt*SR);n=int(0.3*SR);tt=np.arange(n)/SR;j=min(N,i+n);sc[i:j]=np.minimum(sc[i:j],1-0.5*np.exp(-tt/0.09)[:j-i])
@@ -109,7 +110,7 @@ L*=sc;R*=sc
 dyn=np.ones(N)
 def duck(a,b,g,ra=0.05,rb=0.15):
     m=np.clip((TT-a)/ra,0,1)*np.clip((b-TT)/rb,0,1); dyn[:]=dyn*(1-(1-g)*m)
-duck(4.8,5.0,0.35,0.05,0.05); duck(15.1,15.25,0.3,0.03,0.04)
+duck(4.8,5.03,0.35,0.05,0.05); duck(17.95,18.1,0.3,0.03,0.04)
 L*=dyn;R*=dyn
 ir=rng.standard_normal(int(2.0*SR))*np.exp(-np.arange(int(2.0*SR))/SR*2.8);ir/=np.sqrt((ir**2).sum())
 L=L+0.2*fftconvolve(hp(L,350),ir)[:N];R=R+0.2*fftconvolve(hp(R,350),np.roll(ir,97))[:N]
@@ -148,32 +149,31 @@ for i in range(6): tick(T['curt']+i*0.045+0.2,.03,900+120*i,(-.5+i*.2))
 riser(T['curt']-0.1,0.5,.06);whoosh(T['curt'],0.5,.12,300,6500,.5);impact(T['curtOut']-0.02,.34,36)
 whoosh(T['curtOut'],0.5,.08,6000,500,.4)
 # B
-for tt_ in (5.1,5.35,5.65): thud(tt_+0.06,.1,90);tick(tt_+0.14,.03,2400)
+for tt_ in (5.6,5.85,6.15): thud(tt_+0.06,.1,90);tick(tt_+0.14,.03,2400)
 whoosh(T['roll']-0.1,.3,.08,600,5000,.6);impact(T['roll']+0.04,.32,40);bell(T['roll']+0.05,[52,59,64],.05,3.2);tick(T['roll']+0.4,.03,1500)
 # travelling lateral
 whoosh(T['bOut']-0.05,.75,.13,300,6500,.5,.3);riser(T['bOut']-0.1,0.7,.05)
 for i,s_ in enumerate(T['s']):
     if i>0: whoosh(s_-0.55,.55,.1,300,6000,.5,.3)
     thud(s_,.14,70+6*i);bell(s_+0.05,[64+3*i],.05,5,(-.2,.2)[i%2]);tick(s_+0.1,.03,2200)
-pop(T['s'][0]+0.3,.08,620,-.3);pop(T['s'][0]+0.75,.09,880,.3)
-for k in range(3): pop(T['s'][1]+0.3+k*0.22,.08,700+90*k,0)
+pop(T['s'][0]-0.05,.08,620,-.3);pop(T['s'][0]+0.2,.09,880,.3)
+for k in range(3): pop(T['s'][1]+0.15+k*0.14,.08,700+90*k,0)
 for k in range(3): key(T['s'][2]-0.2+k*0.16,.05)
 for i in range(6): key(T['s'][2]+0.55+i*0.06,.04)
-for k in range(3): pop(T['s'][3]+0.25+k*0.25,.08,700+120*k,0)
-bell(T['s'][3]+0.5,[67,71,74],.05,3,.2)
+for k in range(3): pop(T['s'][3]+0.15+k*0.2,.08,700+120*k,0)
+bell(T['s'][3]+0.6,[67,71,74],.05,3,.2)
 # iris
 whoosh(T['irisC']-0.35,.38,.12,5200,300,.5);impact(T['irisO']+0.0,.4,34);whoosh(T['irisO'],.5,.1,400,6000,.5);bell(T['irisO']+0.05,[55,62,67,71],.055,2.6)
 # D
-for i in range(4):
-    a_=T['irisO']+i*0.12; thud(a_,.1,90+8*i); bell(a_+0.32,[67+2*i],.045,6,(-.2,.2)[i%2])
-for i,d_ in enumerate([0.05,0.3,0.55,0.8]): thud(T['irisO']+d_+0.1,.1,100+8*i)
-impact(T['irisO']+1.0,.34,40);bell(T['irisO']+1.0,[67,71,74,79],.06,2.6);shimmer(T['irisO']+1.05,.9,.04)
+impact(T['irisO']+0.05,.3,38);bell(T['irisO']+0.1,[67,71,74,79],.05,2.6)
+for i in range(4): thud(T['irisO']+0.1+i*0.15,.08,95+8*i);bell(T['irisO']+0.25+i*0.15,[67+2*i],.04,6,(-.2,.2)[i%2])
+thud(T['irisO']+0.5,.12,60);shimmer(T['irisO']+0.5,.8,.035)
 # crane
-riser(T['push']-0.3,0.3,.05);whoosh(T['push'],0.7,.13,300,6500,.5);impact(T['push']+0.55,.3,38)
+riser(T['push']-0.3,0.3,.05);whoosh(T['push'],0.7,.13,300,6500,.5);impact(T['push']+0.9,.3,38)
 for i in range(11): key(T['typ']+0.04+i*(0.8/11),.05)
 pop(T['send'],.1,900,.3);bell(T['send']+0.03,[74,79],.05,5,.3);bell(T['send']+0.15,[83],.04,5,.3)
 for i,dt in enumerate([-0.3,-0.14,0.06,0.24]): thud(T['sub']+dt+0.1,.06,110+8*i)
-whoosh(T['logo']-0.3,.34,.035,600,3000,.8);bell(T['logo']+0.06,[55,62,67,71],.06,2.2);impact(T['logo']+0.06,.16,44);bell(21.9,[67,71,74,79],.045,2.6);shimmer(21.8,.5,.02)
+whoosh(T['logo']-0.3,.34,.035,600,3000,.8);bell(T['logo']+0.06,[55,62,67,71],.06,2.2);impact(T['logo']+0.06,.16,44);bell(23.0,[67,71,74,79],.045,2.6);shimmer(22.9,.5,.02)
 FL=FL+0.16*fftconvolve(hp(FL,400),ir)[:N];FR=FR+0.16*fftconvolve(hp(FR,400),np.roll(ir,211))[:N]
 # ---------- mix ----------
 mus=np.sqrt(np.mean(((L+R)/2)**2));fxr=np.sqrt(np.mean(((FL+FR)/2)**2))
