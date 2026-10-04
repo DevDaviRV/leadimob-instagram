@@ -17,7 +17,7 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 .kick{font:700 30px/1 IN;letter-spacing:.2em;text-transform:uppercase;color:#7DD3FC}
 .h1{font:900 128px/0.96 IN;letter-spacing:-.055em}
 .h2{font:800 76px/1.02 IN;letter-spacing:-.04em}
-.p{font:500 38px/1.4 IN;color:#C9D2E0}
+.p{font:500 40px/1.38 IN;color:#C9D2E0}
 .ghost{position:absolute;font:900 520px/1 IN;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(125,211,252,.16);right:40px;top:40px}
 .foot{position:absolute;left:84px;right:84px;bottom:64px;display:flex;justify-content:space-between;align-items:center;font:600 30px/1 IN;color:#8A93A3;letter-spacing:.06em}
 .card{background:linear-gradient(180deg,rgba(22,30,44,.96),rgba(14,20,30,.96));border:1px solid rgba(125,211,252,.18);border-radius:32px;box-shadow:0 40px 90px rgba(0,0,0,.5)}
@@ -43,6 +43,18 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 .row:last-child{border-bottom:0}.row span:first-child{color:#C9D2E0}
 .chk{display:flex;align-items:center;gap:22px;font:700 36px/1.2 IN;padding:17px 0;color:#E2E8F0}
 .chk b{flex:none;width:44px;height:44px;border-radius:12px;border:3px solid #22D3EE;display:flex;align-items:center;justify-content:center;color:#22D3EE;font:900 30px/1 IN}
+.col{flex:1;border-radius:28px;padding:26px 24px;background:#121a27;border:1px solid rgba(125,211,252,.16)}
+.col.ok{border-color:rgba(52,211,153,.55)}.col.bad{border-color:rgba(245,158,11,.55)}
+.lab{font:800 30px/1 IN;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
+.sm{border-radius:22px;padding:18px 22px 10px;font:500 32px/1.3 IN}
+.ex{font:700 30px/1 IN;letter-spacing:.14em;text-transform:uppercase;color:#8A93A3;margin-bottom:18px}
+.tag{display:inline-block;font:700 30px/1 IN;padding:10px 18px;border-radius:12px}
+.fld{display:flex;justify-content:space-between;align-items:center;font:600 34px/1 IN;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.fld:last-child{border-bottom:0}
+.dash{border:2px dashed rgba(245,158,11,.7);color:#FBBF24;border-radius:12px;padding:10px 18px;font:700 30px/1 IN}
+.st{display:flex;align-items:center;gap:26px;padding:12px 0}.st+.st{border-top:1px solid rgba(255,255,255,.08)}
+.st .ic{flex:none;width:60px;height:60px;border-radius:20px;background:rgba(52,211,153,.14);border:2px solid rgba(52,211,153,.7);color:#6EE7B7;display:flex;align-items:center;justify-content:center;font:900 36px/1 IN}
+.st div:last-child{font:700 38px/1.2 IN}
 </style></head><body><div id="strip">
 <div class="bg"></div>
 <div class="glow" style="left:-300px;top:-400px;width:1400px;height:1400px;background:radial-gradient(circle,rgba(37,99,235,.30),transparent 62%)"></div>
@@ -61,74 +73,81 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 <div class="sl" style="left:0">
  <div class="kick">Lançamento · salve este post</div>
  <div class="h1" style="margin-top:56px">6 pontos<br>onde o lead<br><span class="hl">esfria</span>.</div>
- <div class="p" style="margin-top:44px;font-size:42px;color:#E2E8F0">No lançamento, a demanda chega junta. A atenção, não.</div>
- <div style="margin-top:70px;display:flex;gap:14px"><span class="chip cy" style="font-size:30px;padding:14px 22px">Quente</span><span style="width:40px;height:4px;background:#22D3EE;align-self:center"></span><span class="chip amb" style="font-size:30px;padding:14px 22px">Frio</span></div>
+ <div class="p" style="margin-top:44px;font-size:44px;color:#E2E8F0">No lançamento, a demanda chega junta. A atenção, não.</div>
+ <div style="margin-top:70px;display:flex;gap:14px;align-items:center"><span class="chip cy" style="font-size:30px;padding:14px 22px">Quente</span><span style="width:60px;height:4px;background:linear-gradient(90deg,#22D3EE,#F59E0B)"></span><span class="chip amb" style="font-size:30px;padding:14px 22px">Frio</span></div>
  <div class="foot"><span>@LEADIMOB.AI</span><span style="color:#7DD3FC">ARRASTE →</span></div>
 </div>
 <div class="sl" style="left:1080px"><div class="ghost">01</div>
  <div class="prog"><i class="cur"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="ttl"><div class="num">01</div><div class="kick">O plantão fecha</div></div>
- <div class="h2">O plantão fechou no fim do dia. <span class="hl">O interesse, não.</span></div>
- <div class="card" style="margin-top:56px;padding:34px;background:#0B141A">
-  <div class="bub bin">Vi o lançamento agora à noite. Ainda tem unidade?<div class="bt">22:41</div></div>
-  <div class="bub bout" style="margin-top:20px;background:#2A2F33;color:#8A93A3">Sem resposta até o plantão abrir.<div class="bt">—</div></div>
- </div>
- <div class="p" style="margin-top:44px">Quem se interessa à noite não espera a manhã.</div>
+ <div class="h2" style="">Quando o plantão fecha, <span class="hl">o interesse continua</span>.</div>
+ <div style="margin-top:50px;display:flex;gap:20px">
+ <div class="col ok"><div class="lab" style="color:#6EE7B7">Plantão aberto</div>
+  <div class="sm bin">Ainda tem unidade?</div>
+  <div class="sm bout" style="margin-top:16px;margin-left:0">Tem sim! Posso te contar as opções.</div></div>
+ <div class="col bad"><div class="lab" style="color:#FBBF24">Plantão fechado</div>
+  <div class="sm bin">Ainda tem unidade?</div>
+  <div style="margin-top:22px;font:700 34px/1.3 IN;color:#FBBF24">Sem resposta até a manhã seguinte.</div></div>
+</div>
+ <div class="p" style="margin-top:44px">O lead que chama à noite não espera o plantão abrir.</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>2/10</span></div>
 </div>
 <div class="sl" style="left:2160px"><div class="ghost">02</div>
  <div class="prog"><i class="on"></i><i class="cur"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="ttl"><div class="num">02</div><div class="kick">A pergunta de unidade</div></div>
- <div class="h2">Perguntou por uma unidade e ouviu <span class="hl">"vou verificar"</span>.</div>
- <div class="card" style="margin-top:56px;padding:34px;background:#0B141A">
-  <div class="bub bin">A de dois dormitórios no andar alto ainda está disponível?<div class="bt">14:07</div></div>
-  <div class="bub bout" style="margin-top:20px">Vou confirmar com a equipe e te retorno.<div class="bt">14:30 ✓✓</div></div>
- </div>
- <div class="p" style="margin-top:44px">A resposta que não sai na hora vira outra conversa.</div>
+ <div class="h2" style="">A pergunta é simples. <span class="hl">A resposta demora.</span></div>
+ <div style="margin-top:46px"><div class="ex">Exemplo de mensagem</div>
+ <div class="bub bin" style="max-width:100%">A de dois dormitórios no andar alto ainda está disponível?</div>
+ <div style="display:flex;gap:18px;margin-top:22px">
+  <div class="col bad" style="padding:20px"><div class="lab" style="color:#FBBF24;font-size:30px;margin-bottom:14px">Esfria</div><div style="font:500 32px/1.3 IN">"Vou verificar com a equipe e retorno."</div></div>
+  <div class="col ok" style="padding:20px"><div class="lab" style="color:#6EE7B7;font-size:30px;margin-bottom:14px">Avança</div><div style="font:500 32px/1.3 IN">"Está disponível. Quer visitar o decorado?"</div></div>
+ </div></div>
+ <div class="p" style="margin-top:44px">Quem responde na hora com a informação certa fica com a conversa.</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>3/10</span></div>
 </div>
 <div class="sl" style="left:3240px"><div class="ghost">03</div>
  <div class="prog"><i class="on"></i><i class="on"></i><i class="cur"></i><i class=""></i><i class=""></i><i class=""></i></div><div class="ttl"><div class="num">03</div><div class="kick">A tabela desatualizada</div></div>
- <div class="h2">A planilha diz disponível. <span class="hl">A unidade já foi reservada.</span></div>
- <div class="card" style="margin-top:56px;padding:20px 34px">
-  <div class="row"><span>Tipo A · andar alto</span><span class="chip gr" style="font-size:30px;padding:12px 20px">Disponível</span></div>
-  <div class="row"><span>Tipo B · frente</span><span class="chip amb" style="font-size:30px;padding:12px 20px">Reservada</span></div>
-  <div class="row"><span>Cobertura</span><span class="chip cy" style="font-size:30px;padding:12px 20px">Disponível</span></div>
- </div>
- <div class="p" style="margin-top:44px">Oferecer o que não existe mais custa a confiança do lead.</div>
+ <div class="h2" style="">A tabela do cliente e a <span class="hl">tabela real</span> não batem.</div>
+ <div style="margin-top:50px;display:flex;gap:18px"><div class="col" style="border-color:#7DD3FC"><div class="lab" style="color:#7DD3FC;font-size:30px;margin-bottom:8px">Planilha de ontem</div><div class="row" style="font-size:32px;padding:18px 0"><span>Tipo A</span><span class="tag" style="background:rgba(52,211,153,.14);color:#6EE7B7">Livre</span></div><div class="row" style="font-size:32px;padding:18px 0"><span>Tipo B</span><span class="tag" style="background:rgba(52,211,153,.14);color:#6EE7B7">Livre</span></div><div class="row" style="font-size:32px;padding:18px 0"><span>Cobertura</span><span class="tag" style="background:rgba(52,211,153,.14);color:#6EE7B7">Livre</span></div></div><div class="col" style="border-color:#F59E0B"><div class="lab" style="color:#F59E0B;font-size:30px;margin-bottom:8px">Situação hoje</div><div class="row" style="font-size:32px;padding:18px 0"><span>Tipo A</span><span class="tag" style="background:rgba(52,211,153,.14);color:#6EE7B7">Livre</span></div><div class="row" style="font-size:32px;padding:18px 0"><span>Tipo B</span><span class="tag" style="background:rgba(245,158,11,.14);color:#FBBF24">Reservada</span></div><div class="row" style="font-size:32px;padding:18px 0"><span>Cobertura</span><span class="tag" style="background:rgba(245,158,11,.14);color:#FBBF24">Vendida</span></div></div></div>
+ <div class="p" style="margin-top:44px">Oferecer o que já saiu custa a confiança do lead.</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>4/10</span></div>
 </div>
 <div class="sl" style="left:4320px"><div class="ghost">04</div>
  <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="cur"></i><i class=""></i><i class=""></i></div><div class="ttl"><div class="num">04</div><div class="kick">A origem perdida</div></div>
- <div class="h2">Ninguém sabe <span class="hl">de qual empreendimento</span> ele veio.</div>
- <div class="card" style="margin-top:56px;padding:20px 34px">
-  <div class="row"><span style="color:#8A93A3">Empreendimento</span><span>— não registrado</span></div>
-  <div class="row"><span style="color:#8A93A3">Campanha</span><span>— não registrado</span></div>
-  <div class="row"><span style="color:#8A93A3">Próximo passo</span><span style="color:#FBBF24">— ninguém sabe</span></div>
+ <div class="h2" style="">Ninguém sabe <span class="hl">de qual empreendimento</span> ele veio.</div>
+ <div class="card" style="margin-top:50px;padding:10px 34px 14px">
+  <div style="display:flex;align-items:center;gap:20px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1)"><div style="width:68px;height:68px;border-radius:50%;background:#1E3A8A;display:flex;align-items:center;justify-content:center;font:800 32px IN">L</div><div style="font:700 36px/1.1 IN">Lead · WhatsApp</div></div>
+  <div class="fld"><span style="color:#8A93A3">Empreendimento</span><span class="dash">sem registro</span></div>
+  <div class="fld"><span style="color:#8A93A3">Campanha</span><span class="dash">sem registro</span></div>
+  <div class="fld"><span style="color:#8A93A3">Próximo passo</span><span class="dash">sem registro</span></div>
  </div>
- <div class="p" style="margin-top:44px">Sem origem, a conversa começa do zero e o anúncio não se paga.</div>
+ <div class="p" style="margin-top:44px">Sem origem, o atendimento recomeça do zero e a campanha não se mede.</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>5/10</span></div>
 </div>
 <div class="sl" style="left:5400px"><div class="ghost">05</div>
  <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="cur"></i><i class=""></i></div><div class="ttl"><div class="num">05</div><div class="kick">O plantão sem agenda</div></div>
- <div class="h2">"Passo aí no plantão" <span class="hl">não é uma visita marcada</span>.</div>
- <div class="card" style="margin-top:56px;padding:34px">
-  <div class="kick" style="color:#8A93A3;font-size:30px">Troque por</div>
-  <div class="bub bout" style="margin-top:22px;max-width:100%">Tenho sábado às 10h ou domingo às 15h no plantão. Qual fica melhor?<div class="bt">✓✓</div></div>
- </div>
- <div class="p" style="margin-top:44px">Dia e horário no plantão, sempre combinados.</div>
+ <div class="h2" style="">"Passo aí" <span class="hl">não é uma visita marcada</span>.</div>
+ <div style="margin-top:50px"><div class="ex">Exemplo de agenda do plantão</div><div style="display:flex;gap:18px">
+ <div class="col" style="padding:22px"><div class="lab" style="font-size:30px;margin-bottom:16px;color:#C9D2E0">Sábado</div><div style="display:flex;flex-direction:column;gap:14px"><div style="padding:18px 0;border-radius:16px;text-align:center;font:700 32px/1 IN;border:2px dashed rgba(125,211,252,.3);color:#7C8799">livre</div><div style="padding:18px 0;border-radius:16px;text-align:center;font:700 32px/1 IN;background:rgba(52,211,153,.16);border:2px solid rgba(52,211,153,.8);color:#6EE7B7">Visita marcada</div><div style="padding:18px 0;border-radius:16px;text-align:center;font:700 32px/1 IN;border:2px dashed rgba(125,211,252,.3);color:#7C8799">livre</div></div></div>
+ <div class="col" style="padding:22px"><div class="lab" style="font-size:30px;margin-bottom:16px;color:#C9D2E0">Domingo</div><div style="display:flex;flex-direction:column;gap:14px"><div style="padding:18px 0;border-radius:16px;text-align:center;font:700 32px/1 IN;border:2px dashed rgba(125,211,252,.3);color:#7C8799">livre</div><div style="padding:18px 0;border-radius:16px;text-align:center;font:700 32px/1 IN;border:2px dashed rgba(125,211,252,.3);color:#7C8799">livre</div><div style="padding:18px 0;border-radius:16px;text-align:center;font:700 32px/1 IN;border:2px dashed rgba(125,211,252,.3);color:#7C8799">livre</div></div></div>
+</div></div>
+ <div class="p" style="margin-top:44px">Proponha dia e horário no plantão e deixe registrado.</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>6/10</span></div>
 </div>
 <div class="sl" style="left:6480px"><div class="ghost">06</div>
- <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="cur"></i></div><div class="ttl"><div class="num">06</div><div class="kick">O silêncio depois do plantão</div></div>
- <div class="h2">Visitou, saiu animado e <span class="hl">ninguém voltou a falar</span>.</div>
- <div style="margin-top:60px;display:flex;align-items:center;gap:16px">
-  <span class="chip cy" style="font-size:30px;padding:18px 20px">Dia 0 · visita</span><span style="width:24px;height:4px;background:#22D3EE;flex:none"></span><span class="chip cy" style="font-size:30px;padding:18px 20px">Dia 1 · retorno</span><span style="width:24px;height:4px;background:#22D3EE;flex:none"></span><span class="chip gr" style="font-size:30px;padding:18px 20px">Novidade</span>
- </div>
+ <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="cur"></i></div><div class="ttl"><div class="num">06</div><div class="kick">O silêncio depois da visita</div></div>
+ <div class="h2" style="">Visitou, saiu animado e <span class="hl">ninguém voltou a falar</span>.</div>
+ <div style="margin-top:56px;position:relative;height:300px">
+ <div style="position:absolute;left:30px;right:30px;top:60px;height:6px;background:linear-gradient(90deg,#22D3EE 0 62%,rgba(245,158,11,.0) 62%);border-bottom:0"></div>
+ <div style="position:absolute;left:62%;right:30px;top:61px;border-top:4px dashed rgba(245,158,11,.7)"></div>
+ <div style="position:absolute;left:0;top:34px;display:flex;flex-direction:column;align-items:flex-start;width:230px"><span style="width:58px;height:58px;border-radius:50%;background:#22D3EE;display:block"></span><span style="font:700 34px/1.2 IN;margin-top:20px">Visita</span><span style="font:500 30px/1.2 IN;color:#8A93A3;margin-top:6px">no plantão</span></div>
+ <div style="position:absolute;left:310px;top:34px;width:260px"><span style="width:58px;height:58px;border-radius:50%;background:#34D399;display:block"></span><span style="font:700 34px/1.2 IN;margin-top:20px;display:block">Retorno</span><span style="font:500 30px/1.2 IN;color:#8A93A3;margin-top:6px;display:block">no dia seguinte</span></div>
+ <div style="position:absolute;right:0;top:34px;width:260px;text-align:right;display:flex;flex-direction:column;align-items:flex-end"><span style="width:58px;height:58px;border-radius:50%;border:4px dashed #F59E0B;display:block"></span><span style="font:700 34px/1.2 IN;margin-top:20px;color:#FBBF24">Novidade</span><span style="font:500 30px/1.2 IN;color:#8A93A3;margin-top:6px">ninguém enviou</span></div>
+</div>
  <div class="p" style="margin-top:44px">Follow-up que depende de memória não acontece.</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>7/10</span></div>
 </div>
 <!-- 8 -->
 <div class="sl" style="left:7560px">
- <div class="kick">Auditoria de 10 minutos</div>
+ <div class="kick">Auditoria do seu lançamento</div>
  <div class="h2" style="margin-top:34px">Marque o que o <span class="hl">seu</span> lançamento já faz.</div>
  <div class="card" style="margin-top:50px;padding:20px 34px">
   <div class="chk"><b>✓</b>Responde fora do horário do plantão</div>
@@ -143,10 +162,11 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 <!-- 9 -->
 <div class="sl" style="left:8640px">
  <div class="kick">Onde a Leadimob entra</div>
- <div class="h1" style="margin-top:40px;font-size:112px">O lead<br>não esfriou.</div>
- <div class="h1" style="font-size:112px;margin-top:10px"><span class="hl">O processo</span><br>atrasou.</div>
- <div class="p" style="margin-top:48px">A Leadimob atende cada lead no WhatsApp sabendo de qual empreendimento veio, consulta as unidades e a tabela vigente, agenda a visita no plantão e faz o follow-up.</div>
- <div style="margin-top:36px"><span class="chip cy" style="font-size:30px;padding:14px 22px">Modo incorporador</span></div>
+ <div class="h2" style="margin-top:34px">Cada ponto, <span style="color:#6EE7B7">coberto</span> no WhatsApp.</div>
+ <div class="card" style="margin-top:44px;padding:10px 34px">
+  <div class="st"><div class="ic">1</div><div>Atende na hora, também à noite</div></div><div class="st"><div class="ic">2</div><div>Sabe de qual empreendimento o lead veio</div></div><div class="st"><div class="ic">3</div><div>Consulta unidades e tabela vigente</div></div><div class="st"><div class="ic">4</div><div>Agenda a visita no plantão</div></div><div class="st"><div class="ic">5</div><div>Faz o follow-up depois da visita</div></div>
+ </div>
+ <div class="p" style="margin-top:36px;font-size:34px">É o modo incorporador da Leadimob, feito para lançamentos.</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>9/10</span></div>
 </div>
 <!-- 10 CTA -->
@@ -166,7 +186,8 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 // station dots on the line at each slide center
 const p=document.getElementById('jp');const L=p.getTotalLength();let g='';
 for(let i=0;i<10;i++){const x=540+i*1080;let lo=0,hi=L;for(let k=0;k<40;k++){const m=(lo+hi)/2;if(p.getPointAtLength(m).x<x)lo=m;else hi=m}const pt=p.getPointAtLength(lo);
- g+=`<circle cx="${pt.x}" cy="${pt.y}" r="26" fill="rgba(34,211,238,.18)"/><circle cx="${pt.x}" cy="${pt.y}" r="11" fill="${i>=1&&i<=7?'#F59E0B':'#7DD3FC'}"/>`}
+ const labs=['','Noite','Pergunta','Tabela','Origem','Agenda','Retorno','Auditoria','Solução',''];const col=i=>i>=1&&i<=6?'#F59E0B':i>=8&&i<=8?'#34D399':'#7DD3FC';
+ g+=`<circle cx="${pt.x}" cy="${pt.y}" r="26" fill="rgba(34,211,238,.18)"/><circle cx="${pt.x}" cy="${pt.y}" r="11" fill="${col(i)}"/>`+(labs[i]?`<text x="${pt.x}" y="${pt.y+62}" text-anchor="middle" font-family="IN" font-weight="700" font-size="30" fill="${col(i)}">${labs[i]}</text>`:'')}
 document.getElementById('dots').innerHTML=g;
 window.ready=document.fonts.ready.then(()=>Promise.all(['400 20px IN','500 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f))));
 </script></body></html>

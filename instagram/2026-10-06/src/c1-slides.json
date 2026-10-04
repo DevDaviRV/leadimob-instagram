@@ -19,32 +19,32 @@
   },
   {
    "tipo": "passo",
-   "titulo": "1 · O plantão fechou no fim do dia. O interesse, não.",
-   "corpo": "Quem se interessa à noite não espera a manhã.",
+   "titulo": "1 · Quando o plantão fecha, o interesse continua.",
+   "corpo": "O lead que chama à noite não espera o plantão abrir.",
    "ghost": "01"
   },
   {
    "tipo": "passo",
-   "titulo": "2 · Perguntou por uma unidade e ouviu \"vou verificar\".",
-   "corpo": "A resposta que não sai na hora vira outra conversa.",
+   "titulo": "2 · A pergunta é simples. A resposta demora.",
+   "corpo": "Responder na hora com a informação certa mantém a conversa.",
    "ghost": "02"
   },
   {
    "tipo": "passo",
-   "titulo": "3 · A planilha diz disponível. A unidade já foi reservada.",
-   "corpo": "Oferecer o que não existe mais custa a confiança do lead.",
+   "titulo": "3 · A tabela do cliente e a tabela real não batem.",
+   "corpo": "Oferecer o que já saiu custa a confiança do lead.",
    "ghost": "03"
   },
   {
    "tipo": "passo",
    "titulo": "4 · Ninguém sabe de qual empreendimento ele veio.",
-   "corpo": "Sem origem, a conversa começa do zero.",
+   "corpo": "Sem origem, o atendimento recomeça do zero e a campanha não se mede.",
    "ghost": "04"
   },
   {
    "tipo": "passo",
-   "titulo": "5 · \"Passo aí no plantão\" não é uma visita marcada.",
-   "corpo": "Proponha dia e horário.",
+   "titulo": "5 · \"Passo aí\" não é uma visita marcada.",
+   "corpo": "Proponha dia e horário no plantão e deixe registrado.",
    "ghost": "05"
   },
   {
@@ -55,7 +55,7 @@
   },
   {
    "tipo": "lista",
-   "titulo": "Auditoria de 10 minutos",
+   "titulo": "Auditoria do seu lançamento",
    "itens": [
     "Responde fora do horário do plantão",
     "Responde unidade com a tabela vigente",
@@ -67,8 +67,8 @@
   },
   {
    "tipo": "passo",
-   "titulo": "O lead não esfriou. O processo atrasou.",
-   "corpo": "A Leadimob atende cada lead no WhatsApp sabendo de qual empreendimento veio, consulta unidades e tabela vigente, agenda a visita no plantão e faz o follow-up. Modo incorporador."
+   "titulo": "Cada ponto, coberto no WhatsApp.",
+   "corpo": "Atende na hora, sabe de qual empreendimento o lead veio, consulta unidades e tabela vigente, agenda a visita no plantão e faz o follow-up. É o modo incorporador da Leadimob, feito para lançamentos."
   },
   {
    "tipo": "cta",
