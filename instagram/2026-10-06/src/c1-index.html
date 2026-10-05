@@ -47,7 +47,8 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 .bt{display:flex;justify-content:flex-end;align-items:center;gap:8px;font:500 28px/1 IN;color:rgba(233,237,239,.62);margin-top:8px}
 .tk{width:34px;height:22px}
 .strike{text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:#F59E0B}
-.lab{font:700 30px/1 IN;letter-spacing:.14em;text-transform:uppercase;color:#7C8799;display:flex;align-items:center;gap:12px}
+.gh{margin-left:auto;font:900 118px/66px IN;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2px rgba(125,211,252,.30);height:66px}
+.lab{font:700 30px/1 IN;letter-spacing:.14em;text-transform:uppercase;color:#A9B4C6;display:flex;align-items:center;gap:12px}
 
 /* ---------- stream of property cards ---------- */
 #band{position:absolute;inset:0;z-index:2}
@@ -94,21 +95,21 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 .row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 0;border-top:1px solid rgba(255,255,255,.08);font:600 34px/1 IN;color:#C9D2E0}
 .row:first-child{border-top:0}
 .row .k{color:#8A96A8;font-weight:600;font-size:32px}
-.un{width:60px;height:38px;border-radius:10px;border:1.5px solid rgba(255,255,255,.08);background:#121A27}
+.un{height:62px;width:auto;border-radius:10px;border:1.5px solid rgba(255,255,255,.08);background:#121A27}
 .un.h{background:rgba(34,211,238,.16);border-color:rgba(34,211,238,.55)}
 .un.s{background:rgba(52,211,153,.2);border-color:rgba(52,211,153,.7)}
-.un.q{background:rgba(245,158,11,.18);border:3px solid #F59E0B;box-shadow:0 0 0 6px rgba(245,158,11,.12),0 0 34px rgba(245,158,11,.35);display:flex;align-items:center;justify-content:center;font:800 32px/1 IN;color:#FBBF24}
+.un.q{width:auto;background:rgba(245,158,11,.18);border:3px solid #F59E0B;box-shadow:0 0 0 6px rgba(245,158,11,.12),0 0 34px rgba(245,158,11,.35);display:flex;align-items:center;justify-content:center;font:800 32px/1 IN;color:#FBBF24}
 .file{display:flex;align-items:center;gap:20px;padding:18px 24px;border-radius:22px;background:linear-gradient(180deg,rgba(24,33,48,.97),rgba(13,19,29,.97));border:1px solid rgba(125,211,252,.16);box-shadow:0 24px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);font:700 34px/1 IN}
 .file .pdf{width:50px;height:62px;border-radius:9px;background:#E9EEF4;position:relative;flex:none;box-shadow:inset 0 -18px 0 #C3D0DF}
 .file .pdf::after{content:"";position:absolute;right:0;top:0;width:16px;height:16px;background:#9FB3C4;border-bottom-left-radius:8px}
 .av{width:86px;height:86px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;background:rgba(34,211,238,.10);border:2.5px solid rgba(34,211,238,.6)}
 .av.am{background:rgba(245,158,11,.12);border-color:#F59E0B}
 .av.em{background:transparent;border:3px dashed #F59E0B;color:#FBBF24;font:800 40px/1 IN}
-.kc{display:flex;align-items:center;gap:20px;padding:8px 22px;border-radius:22px;background:#0F1621;border:1px solid rgba(255,255,255,.09);box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.kc{display:flex;align-items:center;gap:20px;padding:16px 24px;border-radius:22px;background:#0F1621;border:1px solid rgba(255,255,255,.09);box-shadow:0 14px 30px rgba(0,0,0,.4)}
 .kc .l{flex:1;display:flex;flex-direction:column;gap:12px}
 .kc .l b{height:14px;border-radius:7px;background:rgba(255,255,255,.28);display:block;width:70%}
 .kc .l s{height:12px;border-radius:6px;background:rgba(255,255,255,.12);display:block;width:44%}
-.fr{display:flex;align-items:center;gap:24px;padding:22px 0;border-top:1px solid rgba(255,255,255,.08);font:600 38px/1.2 IN;color:#E2E8F0}
+.fr{display:flex;align-items:center;gap:24px;padding:32px 0;border-top:1px solid rgba(255,255,255,.08);font:600 38px/1.2 IN;color:#E2E8F0}
 .fr:first-child{border-top:0}
 .fr .ic{width:68px;height:68px;border-radius:20px;background:rgba(52,211,153,.10);border:1.5px solid rgba(52,211,153,.5);display:flex;align-items:center;justify-content:center;flex:none}
 .legend{display:flex;gap:14px;flex-wrap:wrap}
@@ -137,23 +138,22 @@ const CKG='<svg width="36" height="36" viewBox="0 0 24 24"><path d="M5 12.500l4.
 
 /* ---- faixa contínua: fachada do empreendimento, cada janela é um lead ---- */
 (function(){
- const P=42,TW=34,TH=44,RP=52,Y0=1036,ROWS=4,r=rng(606);let s='';
+ const P=42,TW=34,TH=44,RP=52,Y0=1098,ROWS=2,r=rng(606);let s='';
  s+='<defs><filter id="gl" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="9"/></filter></defs>';
- s+='<line x1="0" x2="10800" y1="1016" y2="1016" stroke="rgba(125,211,252,.16)" stroke-width="1.5"/>';
+ s+='<line x1="0" x2="10800" y1="1078" y2="1078" stroke="rgba(125,211,252,.16)" stroke-width="1.5"/>';
  const cols=Math.floor(10800/P);
- const pain=[];for(let k=3;k<=8;k++){pain.push({c:Math.round(((k-1)*1080+540)/P),row:(k%2)?1:2})}
+ const pain=[];for(let k=3;k<=8;k++){pain.push({c:Math.round(((k-1)*1080+540)/P),row:(k%2)?0:1})}
  for(let c=0;c<cols;c++){for(let ro=0;ro<ROWS;ro++){
   const x=c*P+4,y=Y0+ro*RP,sl=(c*P+17)/1080,q=r(),q2=r();
   let f,st,op=1,gl='';
-  const cool=sm(1.4,8.1,sl)*0.8, green=sm(8.5,9.8,sl)*0.92;
+  const cool=sm(1.0,6.5,sl)*0.85, green=sm(8.5,9.8,sl)*0.92;
   if(sl>=8.5 && q<green){f='rgba(52,211,153,.20)';st='rgba(52,211,153,.75)'; if(q2<.3)f='rgba(52,211,153,.38)'}
   else if(q<cool && sl<8.5){f='#121A27';st='rgba(255,255,255,.08)'}
-  else {f='rgba(34,211,238,.09)';st='rgba(34,211,238,.38)'; if(q2<.2)f='rgba(34,211,238,.24)'}
+  else {f='rgba(34,211,238,.06)';st='rgba(34,211,238,.26)'; if(q2<.12)f='rgba(34,211,238,.20)'}
   let amb=0;
   for(const p of pain){const dc=Math.abs(c-p.c);
    if(dc===0&&ro===p.row){amb=2}
-   else if(dc<=2&&amb<2&&r()<.22&&ro!==p.row){amb=1}
-   else if(dc===1&&ro===p.row&&amb<2){amb=1}}
+   }
   if(amb===2){gl=`<rect x="${x-4}" y="${y-4}" width="${TW+8}" height="${TH+8}" rx="9" fill="#F59E0B" opacity=".5" filter="url(#gl)"/>`;f='rgba(245,158,11,.30)';st='#F59E0B'}
   else if(amb===1){f='rgba(245,158,11,.14)';st='rgba(245,158,11,.6)'}
   s+=gl+`<rect x="${x}" y="${y}" width="${TW}" height="${TH}" rx="7" fill="${f}" stroke="${st}" stroke-width="${amb===2?3:1.600}"/>`;
@@ -163,9 +163,9 @@ const CKG='<svg width="36" height="36" viewBox="0 0 24 24"><path d="M5 12.500l4.
 
 /* ---- helpers de slide ---- */
 const foot=n=>`<div class="foot"><span>@LEADIMOB.AI</span><span>${n}/10</span></div>`;
-const ttl=(n,k,amb,icon)=>`<div class="ttl"><div class="num${amb?' amb':''}">${icon||n}</div><div class="kick" style="${amb?'color:#FBBF24':''}">${k}</div></div>`;
+const ttl=(n,k,amb,icon,gh)=>`<div class="ttl"><div class="num">${icon||n}</div><div class="kick">${k}</div>${gh?`<div class="gh">${gh}</div>`:''}</div>`;
 const fix=t=>`<div class="fix"><div class="ck">${CKW}</div><div class="t"><b>Corrija</b>${t}</div></div>`;
-const pain=(i,n,k,title,art,fx,ghost)=>`<div class="sl" style="left:${(i-1)*1080}px;justify-content:flex-start;padding-top:104px"><div class="ghost" style="-webkit-text-stroke-color:rgba(245,158,11,.14)">${ghost||'0'+n}</div>${ttl(n,k,1)}<div class="h2" style="font-size:72px">${title}</div><div style="margin-top:32px">${art}</div>${fix(fx)}${foot(i)}</div>`;
+const pain=(i,n,k,title,art,fx,ghost)=>`<div class="sl" style="left:${(i-1)*1080}px;padding-bottom:290px">${ttl(n,k,1,null,ghost||'0'+n)}<div class="h2" style="font-size:72px">${title}</div><div style="margin-top:32px">${art}</div>${fix(fx)}${foot(i)}</div>`;
 let H='';
 
 /* 1 CAPA */
@@ -174,9 +174,9 @@ H+=`<div class="sl" style="left:0;justify-content:flex-start;padding-top:118px">
   <div class="ttl" style="margin:0"><div class="num"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6"/></svg></div><div class="kick">Lançamento</div></div>
   <span class="chip cy"><svg width="24" height="28" viewBox="0 0 20 24"><path d="M3 2h14v20l-7-5.500L3 22z" fill="#A5F3FC"/></svg>Salve este post</span>
  </div>
- <div class="h1" style="margin-top:50px;font-size:150px"><span class="hl">6</span> pontos<br>onde o lead<br><span style="color:transparent;-webkit-text-stroke:3px #8794A8">esfria.</span></div>
- <div class="p" style="margin-top:34px;font-size:40px;color:#E2E8F0">Lançamento imobiliário: veja onde<br>o interesse se perde e como corrigir.</div>
- <div class="legend" style="margin-top:34px">
+ <div class="h1" style="margin-top:56px;font-size:160px"><span class="hl">6</span> pontos<br>onde o lead<br><span style="color:transparent;-webkit-text-stroke:3px #8794A8">esfria.</span></div>
+ <div style="margin-top:40px;font:700 46px/1.25 IN;letter-spacing:-.01em;color:#fff">Lançamento imobiliário: onde o interesse se perde e <span class="hl">como corrigir</span>.</div>
+ <div class="legend" style="margin-top:44px">
   <span class="chip cy" style="padding:12px 20px"><i class="dot" style="background:rgba(34,211,238,.45);border:2px solid #22D3EE"></i>Interessado</span>
   <span class="chip amb" style="padding:12px 20px"><i class="dot" style="background:rgba(245,158,11,.4);border:2px solid #F59E0B"></i>Esfriou</span>
   <span class="chip gr" style="padding:12px 20px"><i class="dot" style="background:rgba(52,211,153,.4);border:2px solid #34D399"></i>Resolvido</span>
@@ -185,11 +185,10 @@ H+=`<div class="sl" style="left:0;justify-content:flex-start;padding-top:118px">
 </div>`;
 
 /* 2 POR QUE */
-H+=`<div class="sl" style="left:1080px;justify-content:flex-start;padding-top:104px"><div class="ghost" style="-webkit-text-stroke-color:rgba(245,158,11,.14)">!</div>
- ${ttl('!','Por que esfria',1)}
+H+=`<div class="sl" style="left:1080px;padding-bottom:290px">${ttl('!','Por que esfria',1,null,'!')}
  <div class="h2" style="font-size:72px">No lançamento, o interesse chega no pico. <span class="am">E esfria rápido.</span></div>
  <div class="card" style="margin-top:34px;padding:28px 30px 24px">
-  <svg width="852" height="250" viewBox="0 0 852 250" fill="none">
+  <svg width="852" height="330" viewBox="0 0 852 250" preserveAspectRatio="none" fill="none">
    <defs><linearGradient id="hg" x1="0" x2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset=".55" stop-color="#7DD3FC"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs>
    <path d="M20 232H832M20 232V10" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
    <path d="M30 40C150 44 230 110 330 170C430 222 600 226 820 226" stroke="url(#hg)" stroke-width="8" stroke-linecap="round"/>
@@ -205,45 +204,44 @@ H+=`<div class="sl" style="left:1080px;justify-content:flex-start;padding-top:10
 H+=pain(3,1,'Ponto 1 · Origem','De qual empreendimento veio esse lead?',
 `<div class="card ficha"><div style="display:flex;align-items:center;gap:22px;padding-bottom:20px"><div class="av" style="width:76px;height:76px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg></div><div style="font:800 38px/1 IN">Lead novo</div><span class="chip nt" style="margin-left:auto;padding:12px 20px">Agora</span></div>
 <div class="row"><span class="k">Origem</span><span class="chip amb">não identificada</span></div>
-<div class="row"><span class="k">Empreendimento</span><span class="chip amb">?</span></div></div>`,
+<div class="row"><span class="k">Empreendimento</span><span class="chip nt">?</span></div></div>`,
 'Cada anúncio e link leva o <i>nome do empreendimento</i>. Lead chega identificado.');
 
 /* 4 DISPONIBILIDADE */
-(function(){const st=['h','','h','s','','h','','h','q','','h','','h','','s','','h',''];let g='';st.forEach(x=>g+=x==='q'?'<div class="un q">?</div>':`<div class="un ${x}"></div>`);
+(function(){const st=['h','','h','s','','h','h','','q','','h','s'];let g='';st.forEach(x=>g+=x==='q'?'<div class="un q">?</div>':`<div class="un ${x}"></div>`);
+const lg=(c,b,t)=>`<span style="display:inline-flex;align-items:center;gap:10px;font:600 30px/1 IN;color:#C9D2E0"><i class="dot" style="background:${c};border:2px solid ${b}"></i>${t}</span>`;
 H+=pain(4,2,'Ponto 2 · Disponibilidade','A pergunta sobre a unidade fica sem resposta.',
-`<div class="card" style="padding:26px 30px"><div class="lab" style="margin-bottom:18px">Espelho de vendas</div><div style="display:grid;grid-template-columns:repeat(6,60px);gap:10px;justify-content:space-between">${g}</div>
-<div class="bub bin" style="margin-top:24px;padding:16px 22px 12px;font-size:36px">Ainda tem essa unidade?<div class="bt" style="color:#FBBF24;justify-content:flex-start;font-size:30px">visualizada · sem resposta</div></div></div>`,
+`<div class="card" style="padding:28px 30px"><div class="lab" style="margin-bottom:20px">Espelho de vendas</div><div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px">${g}</div>
+<div style="display:flex;gap:26px;margin-top:20px">${lg('rgba(34,211,238,.3)','#22D3EE','Disponível')}${lg('rgba(52,211,153,.3)','#34D399','Reservada')}${lg('#121A27','rgba(255,255,255,.3)','Vendida')}</div>
+<div class="bub bin" style="margin-top:26px;padding:18px 24px 14px;font-size:38px">Ainda tem essa unidade?<div class="bt" style="color:#C9D2E0;justify-content:flex-start;font-size:30px">visualizada · sem resposta</div></div></div>`,
 'Responda a disponibilidade <i>na hora</i>, direto do espelho atualizado.');})();
 
 /* 5 TABELA */
 H+=pain(5,3,'Ponto 3 · Tabela','Tabela desatualizada circulando no grupo.',
-`<div style="position:relative;display:flex;flex-direction:column;gap:16px"><div class="file"><span class="pdf"></span>tabela-final.pdf<span class="chip amb" style="margin-left:auto;padding:12px 20px">antiga</span></div>
-<div class="file" style="margin-left:34px"><span class="pdf"></span>tabela-final-2.pdf<span class="chip amb" style="margin-left:auto;padding:12px 20px">antiga?</span></div>
-<div class="file" style="margin-left:68px"><span class="pdf"></span>tabela-NOVA.pdf<span class="chip nt" style="margin-left:auto;padding:12px 20px">qual vale?</span></div></div>`,
+`<div style="position:relative;display:flex;flex-direction:column;gap:16px"><div class="file"><span class="pdf"></span>tabela-final.pdf<span class="chip nt" style="margin-left:auto;padding:12px 20px">antiga</span></div>
+<div class="file" style="margin-left:34px"><span class="pdf"></span>tabela-final-2.pdf<span class="chip nt" style="margin-left:auto;padding:12px 20px">antiga?</span></div>
+<div class="file" style="margin-left:68px"><span class="pdf"></span>tabela-NOVA.pdf<span class="chip amb" style="margin-left:auto;padding:12px 20px">qual vale?</span></div></div>`,
 'Uma só versão vigente. <i>Todo mundo consulta a mesma.</i>');
 
 /* 6 PLANTAO */
 H+=pain(6,4,'Ponto 4 · Plantão','Plantão lotado e fila sem dono.',
-`<div class="card" style="padding:34px 30px"><div class="lab" style="margin-bottom:22px">Fila do plantão</div>
-<div style="display:flex;align-items:center;gap:16px">
-${[0,1,2].map(()=>`<div class="av"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg></div>`).join('')}
-${[0,1].map(()=>`<div class="av am"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg></div>`).join('')}
+`<div class="card" style="padding:38px 30px 34px"><div class="lab" style="margin-bottom:30px">Fila do plantão</div>
+<div style="display:flex;align-items:center;justify-content:space-between">
+${[0,1,2,3,4].map(()=>`<div class="av" style="width:112px;height:112px"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg></div>`).join('')}
 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7C8799" stroke-width="2.600" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-<div class="av em">?</div></div>
-<div style="margin-top:22px;display:flex;gap:12px"><span class="chip amb" style="padding:12px 20px">esperando</span><span class="chip nt" style="padding:12px 20px">sem responsável</span></div></div>`,
+<div class="av em" style="width:112px;height:112px;font-size:52px">?</div></div>
+<div style="margin-top:30px;display:flex;gap:14px"><span class="chip nt" style="padding:12px 20px">esperando</span><span class="chip nt" style="padding:12px 20px">sem responsável</span></div></div>`,
 'Todo lead da fila recebe <i>um responsável</i>. Quem espera recebe retorno.');
 
 /* 7 CONSULTOR */
 H+=pain(7,5,'Ponto 5 · Consultor','Lead sem consultor definido.',
-`<div class="card" style="padding:26px 28px"><div class="lab" style="margin-bottom:14px">Novos leads</div><div style="display:flex;flex-direction:column;gap:10px">
-<div class="kc"><div class="l"><b></b><s></s></div><div class="av" style="width:72px;height:72px;font:800 30px IN;color:#A5F3FC">M</div></div>
-<div class="kc"><div class="l"><b></b><s></s></div><div class="av" style="width:72px;height:72px;font:800 30px IN;color:#A5F3FC">R</div></div>
-<div class="kc" style="border:2px solid rgba(245,158,11,.6)"><div class="l"><b></b><s></s></div><div class="av em" style="width:72px;height:72px;font-size:34px">?</div></div></div></div>`,
+`<div class="card" style="padding:30px 28px"><div class="lab" style="margin-bottom:20px">Novos leads</div><div style="display:flex;flex-direction:column;gap:14px">
+<div class="kc"><div class="l"><div style="font:700 32px/1 IN">Lead novo · agora</div><div style="font:600 30px/1 IN;color:#A9B4C6">Empreendimento</div></div><div class="av" style="width:80px;height:80px;font:800 32px IN;color:#A5F3FC">M</div></div><div class="kc"><div class="l"><div style="font:700 32px/1 IN">Lead novo · agora</div><div style="font:600 30px/1 IN;color:#A9B4C6">Empreendimento</div></div><div class="av" style="width:80px;height:80px;font:800 32px IN;color:#A5F3FC">R</div></div><div class="kc"><div class="l"><div style="font:700 32px/1 IN">Lead novo · agora</div><div style="font:600 30px/1 IN;color:#A9B4C6">Empreendimento</div></div><div class="av em" style="width:80px;height:80px;font-size:36px">?</div></div></div></div>`,
 'Defina o consultor <i>no instante</i> da chegada.');
 
 /* 8 POS VISITA */
 H+=pain(8,6,'Ponto 6 · Pós-visita','Depois da visita, ninguém retoma.',
-`<div class="card" style="padding:70px 30px 64px"><div style="position:relative;display:flex;justify-content:space-between;align-items:flex-start">
+`<div class="card" style="padding:96px 30px 90px"><div style="position:relative;display:flex;justify-content:space-between;align-items:flex-start">
 <div style="position:absolute;left:60px;right:60px;top:42px;height:4px;background:linear-gradient(90deg,#34D399 0 32%,rgba(245,158,11,.7) 38% 62%,rgba(255,255,255,.14) 68%)"></div>
 <div style="width:200px;text-align:center;position:relative"><div class="av" style="margin:0 auto;border-color:#34D399;background:#0F2A24">${CKG}</div><div style="font:700 32px/1.1 IN;margin-top:16px">Visita feita</div></div>
 <div style="width:200px;text-align:center;position:relative"><div class="av em" style="margin:0 auto;background:#0E1520">?</div><div style="font:700 32px/1.1 IN;margin-top:16px;color:#FBBF24">Retomada</div></div>
@@ -252,8 +250,7 @@ H+=pain(8,6,'Ponto 6 · Pós-visita','Depois da visita, ninguém retoma.',
 
 /* 9 LEADIMOB */
 const fi=(p,t)=>`<div class="fr"><div class="ic"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round">${p}</svg></div><div>${t}</div></div>`;
-H+=`<div class="sl" style="left:8640px;justify-content:flex-start;padding-top:104px"><div class="ghost" style="-webkit-text-stroke-color:rgba(52,211,153,.16)">✓</div>
- <div class="ttl"><div class="num" style="background:linear-gradient(160deg,#6EE7B7,#34D399);box-shadow:0 0 0 6px rgba(52,211,153,.10),0 10px 34px rgba(52,211,153,.3)">${CKW}</div><div class="kick" style="color:#6EE7B7">Onde a Leadimob entra</div></div>
+H+=`<div class="sl" style="left:8640px;padding-bottom:290px"><div class="ttl"><div class="num" style="background:linear-gradient(160deg,#6EE7B7,#34D399);box-shadow:0 0 0 6px rgba(52,211,153,.10),0 10px 34px rgba(52,211,153,.3)">${CKW}</div><div class="kick" style="color:#6EE7B7">Onde a Leadimob entra</div></div>
  <div class="h2" style="font-size:72px">A IA cuida do operacional. <span style="color:#6EE7B7">Você cuida do relacionamento.</span></div>
  <div class="card" style="margin-top:34px;padding:10px 30px">
   ${fi('<path d="M21 12a8 8 0 0 1-12 7l-5 1 1.500-4.500A8 8 0 1 1 21 12z"/>','Responde no WhatsApp, 24h')}
@@ -278,7 +275,7 @@ H+=`<div class="sl lo" style="left:9720px">
    <div class="ckl"></div><div class="ckl"></div><div class="ckl"></div><div class="ckl"></div><div class="ckl"></div>
   </div>
   <div>
-   <div class="p" style="font-size:38px">Salve este post e receba o checklist</div>
+   <div class="p" style="font-size:38px;color:#E2E8F0">Salve este post e receba o checklist</div>
    <div style="font:800 54px/1.08 IN;letter-spacing:-.03em;margin-top:10px">Onde seus leads estão morrendo</div>
    <div style="margin-top:26px;display:flex;align-items:center;gap:22px">
     <div style="width:300px;height:96px;border-radius:22px;background:#F3F7FB;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 44px rgba(0,0,0,.5)"><img src="logo.png" style="width:240px"></div>
