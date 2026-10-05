@@ -6,7 +6,7 @@ SFX sincronizados aos mesmos tempos do index.html."""
 import numpy as np
 from scipy.signal import butter, sosfilt, fftconvolve
 from scipy.io import wavfile
-SR=48000; END=24.2; N=int((END+0.5)*SR); TT=np.arange(N)/SR
+SR=48000; END=23.3; N=int((END+0.5)*SR); TT=np.arange(N)/SR
 rng=np.random.default_rng(66)
 BPM=112; B=60/BPM; BAR=4*B
 def lp(x,f): return sosfilt(butter(2,f,'low',fs=SR,output='sos'),x)
@@ -31,10 +31,10 @@ def chord_at(t):
     return CH['D']
 def sec(t):
     if t<4.3: return 'hook'
-    if t<8.5: return 'scale'
+    if t<8.4: return 'scale'
     if t<12.857: return 'clock'
-    if t<19.5: return 'full'
-    if t<21.7: return 'cta'
+    if t<19.1: return 'full'
+    if t<20.9: return 'cta'
     return 'out'
 L=np.zeros(N);R=np.zeros(N);KK=[]
 # pad (abre o filtro ao longo do arco; fecha no relógio)
@@ -102,9 +102,9 @@ for k in range(int(END/S16)):
         if pos in (0,6,8,14): bass(t,root,.1)
         if a_i>=0: marimba(t,notes[NOTE_I[a_i]]+12,.03,.3)
     else:
-        if t<22.9 and pos in (0,10): kick(t,.26)
-        if t<23.2 and pos in (0,8): bass(t,root,.09)
-        if t<23.4 and a_i in (0,2,4): marimba(t,notes[NOTE_I[a_i]]+12,.03,.3)
+        if t<22.2 and pos in (0,10): kick(t,.26)
+        if t<22.5 and pos in (0,8): bass(t,root,.09)
+        if t<22.7 and a_i in (0,2,4): marimba(t,notes[NOTE_I[a_i]]+12,.03,.3)
 sc=np.ones(N)
 for kt in KK:
     i=int(kt*SR);n=int(0.28*SR);tt=np.arange(n)/SR;j=min(N,i+n);sc[i:j]=np.minimum(sc[i:j],1-0.45*np.exp(-tt/0.09)[:j-i])
@@ -113,7 +113,7 @@ L*=sc;R*=sc
 dyn=np.ones(N)
 def duck(a,b,g,ra=0.05,rb=0.15):
     m=np.clip((TT-a)/ra,0,1)*np.clip((b-TT)/rb,0,1); dyn[:]=dyn*(1-(1-g)*m)
-duck(8.5,9.1,0.12,0.45,0.1); duck(9.1,12.4,0.45,0.05,0.2); duck(12.45,12.84,0.25,0.05,0.02)
+duck(8.4,9.0,0.12,0.45,0.1); duck(9.0,12.4,0.45,0.05,0.2); duck(12.45,12.84,0.25,0.05,0.02)
 L*=dyn;R*=dyn
 ir=rng.standard_normal(int(2.0*SR))*np.exp(-np.arange(int(2.0*SR))/SR*2.8);ir/=np.sqrt((ir**2).sum())
 L=L+0.2*fftconvolve(hp(L,350),ir)[:N];R=R+0.2*fftconvolve(hp(R,350),np.roll(ir,97))[:N]
@@ -159,42 +159,42 @@ for tx,dr in [(2.1,-1),(2.3,1),(2.5,-1)]: whoosh(tx,0.4,.03,1200,300,.4,0.4*dr)
 impact(2.1,.34,38);bell(2.1,[62,66,69],.045,3)
 # gota pelo bico + queda (crane)
 for i,tt_ in enumerate([3.2,3.3,3.4]): pop(tt_,.05,900-120*i)
-riser(3.55,1.0,.06);whoosh(3.85,0.75,.12,300,7000,.6,0,0);impact(4.6,.26,44);bell(4.62,[74,78,81],.05,4)
+riser(3.55,0.85,.06);whoosh(3.85,0.55,.12,300,7000,.6,0,0);impact(4.4,.26,44);bell(4.42,[74,78,81],.05,4)
 # B · balança
-whoosh(4.9,.3,.05,600,3500,.8);tick(4.97,.03,2000)
+whoosh(4.5,.3,.05,600,3500,.8);tick(4.57,.03,2000)
 for i,tb in enumerate([5.62,5.92,6.17,6.37,6.53]): thud(tb,.1,150-8*i);pop(tb+0.04,.05,500+30*i,-.35);tick(tb+0.1,.02,1400)
 bell(5.27,[86],.05,6,.35);pop(5.25,.06,900,.4)
 whoosh(6.45,.3,.05,600,3500,.8)
 thud(7.1,.18,60);bell(7.12,[59,63],.04,5,-.1);tick(7.3,.03,1100)
 # íris: fecha (sucção) e abre
-riser(8.5,0.5,.07);whoosh(8.45,0.6,.1,5500,300,.5)
-thud(9.0,.18,50);bell(9.02,[69,73,76],.05,3);whoosh(9.0,0.5,.08,400,6000,.5)
+riser(8.4,0.5,.07);whoosh(8.35,0.6,.1,5500,300,.5)
+thud(8.9,.18,50);bell(8.92,[69,73,76],.05,3);whoosh(8.9,0.4,.08,400,6000,.5)
 # C · relógio: tique-taque
-ti=9.2;j=0
+ti=9.1;j=0
 while ti<12.5:
     tock(ti,.045 if j%2==0 else .036,j%2==0);ti+=B/2;j+=1
-whoosh(9.25,.3,.04,700,3500,.8);bell(9.88,[74,79],.05,6,.2);bell(10.02,[79,83],.04,6,.2);pop(9.85,.06,800,.3)
+whoosh(8.95,.3,.04,700,3500,.8);bell(9.55,[74,79],.05,6,.2);bell(9.69,[79,83],.04,6,.2);pop(9.55,.06,800,.3)
 thud(10.9,.1,70);thud(11.1,.12,60);bell(11.12,[59],.03,5)
 riser(11.8,1.05,.08);whoosh(12.2,.66,.07,400,6000,.5)
 # pan (esquerda -> direita) + drop no meio
-whoosh(12.5,0.55,.13,300,7000,.5,-.6,.6);impact(12.857,.4,38)
-for ts,nt in zip([12.8,13.08,13.42,13.72],[62,66,69,74]): whoosh(ts-0.05,.22,.04,800,3500,.8,.25);thud(ts+0.08,.12,100+8*(nt-62)/4);bell(ts+0.1,[nt+12],.04,6,.2)
-impact(13.8,.28,36)
+whoosh(12.5,0.45,.13,300,7000,.5,-.6,.6);impact(12.857,.4,38)
+for ts,nt in zip([12.75,13.03,13.37,13.67],[62,66,69,74]): whoosh(ts-0.05,.22,.04,800,3500,.8,.25);thud(ts+0.08,.12,100+8*(nt-62)/4);bell(ts+0.1,[nt+12],.04,6,.2)
+impact(13.75,.28,36)
 # S4 -> S5 (lift)
-whoosh(15.9,.45,.07,3000,300,.4);thud(16.2,.08,70)
-for ts in [16.3,16.4,16.55,16.63,16.71,16.9,17.0]: tick(ts+0.04,.025,1500+100*(len(str(ts))%3))
-whoosh(16.5,.3,.05,700,3500,.8);thud(16.75,.12,80);thud(16.87,.12,90);thud(16.99,.12,100)
-for tm in [17.35,18.05,18.6,17.47,17.55]: whoosh(tm-0.04,.34,.04,900,4000,.7,0.1);tick(tm+0.3,.03,1800)
-bell(18.67,[74,78,81,86],.06,2.6);shimmer(18.69,.8,.04);thud(18.67,.12,100);pop(18.7,.06,1000,.2)
+whoosh(15.7,.4,.07,3000,300,.4);thud(16.0,.08,70)
+for ts in [15.9,15.95,16.0,16.05,16.1,16.15,16.2]: tick(ts+0.04,.025,1500+100*(len(str(ts))%3))
+whoosh(16.0,.3,.05,700,3500,.8);thud(16.3,.12,80);thud(16.42,.12,90);thud(16.54,.12,100)
+for tm in [16.9,17.55,18.05,17.0,17.08]: whoosh(tm-0.04,.34,.04,900,4000,.7,0.1);tick(tm+0.3,.03,1800)
+bell(18.22,[74,78,81,86],.06,2.6);shimmer(18.24,.8,.04);thud(18.22,.12,100);pop(18.25,.06,1000,.2)
 # rise -> CTA
-riser(19.5,.7,.07);whoosh(19.5,.7,.12,350,6000,.55);thud(20.2,.14,70)
-impact(20.05,.32,40)
-pop(20.25,.06,520)
-for i in range(11): key(20.65+i*(0.8/11),.05)
-pop(21.6,.1,900,.3);bell(21.63,[74,81],.05,5,.3);bell(21.75,[86],.04,5,.3)
-for i,dt in enumerate([-0.05,0.07,0.28,0.42]): thud(21.9+dt+0.1,.05,110+8*i)
-whoosh(21.85,.3,.04,700,3500,.8);whoosh(22.1,.3,.04,700,3500,.8)
-whoosh(22.3,.34,.035,600,3000,.8);bell(22.64,[50,57,62,66],.06,2.2);impact(22.64,.16,44);bell(23.2,[74,78,81,86],.045,2.6);shimmer(23.1,.5,.02);bell(23.7,[86,90],.03,3)
+riser(19.1,.45,.07);whoosh(19.1,.45,.12,350,6000,.55);thud(19.55,.14,70)
+impact(19.2,.32,40)
+pop(19.4,.06,520)
+for i in range(11): key(19.75+i*(0.8/11),.05)
+pop(20.7,.1,900,.3);bell(20.73,[74,81],.05,5,.3);bell(20.85,[86],.04,5,.3)
+for i,dt in enumerate([-0.05,0.07,0.28,0.42]): thud(21.0+dt+0.1,.05,110+8*i)
+whoosh(20.95,.3,.04,700,3500,.8);whoosh(21.2,.3,.04,700,3500,.8)
+whoosh(21.4,.34,.035,600,3000,.8);bell(21.65,[50,57,62,66],.06,2.2);impact(21.65,.16,44);bell(22.2,[74,78,81,86],.045,2.6);shimmer(22.1,.5,.02)
 FL=FL+0.16*fftconvolve(hp(FL,400),ir)[:N];FR=FR+0.16*fftconvolve(hp(FR,400),np.roll(ir,211))[:N]
 # ---------- mix ----------
 mus=np.sqrt(np.mean(((L+R)/2)**2));fxr=np.sqrt(np.mean(((FL+FR)/2)**2))
