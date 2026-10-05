@@ -53,3 +53,7 @@ Palavras dele: o `r2-lead-curioso` (03/10) "tem o design muito bom, padrão da m
 - Partir do modelo não é copiar o modelo: o Reel 2 de 05/10 saiu como o de 03/10 com o texto trocado. Sistema visual e motor ficam; cenas, composição e transições mudam.
 - A nota que vale é a do corte final. Entregar com nota abaixo de 8 só com o aviso "ABAIXO DA META" no LEGENDAS.md e no resumo.
 - A publicação não instala pacotes e roda um comando só; os JPEG do carrossel saem da produção (`publicar/prepara_jpg.py`).
+
+## Rotina de 05/10 (produção de 06/10)
+- Crítica independente por miniatura não vê texto pequeno nem blur real: peça quadros cheios nas transições e no gancho.
+- Reels do dia saíram ABAIXO DA META depois de 3 rodadas (ver `instagram/2026-10-06/LEGENDAS.md`): gancho vazio no 1º segundo (Reel 1), fantasmas/blur e quadros vazios nas viradas (ambos). Próximos reels: gancho grande e centrado já no quadro 0, cena antiga sai antes da nova, sem lacunas.
