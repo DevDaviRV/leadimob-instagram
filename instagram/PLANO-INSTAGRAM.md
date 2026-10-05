@@ -41,7 +41,7 @@ Ver `motion-pro/BRAND-MOTION.md` e `motion-pro/ACERTOS.md`. LID só detalhe. Âm
 | Sáb 03/10 | #30 "Você não precisa de mais tráfego. Precisa descobrir onde seus leads estão morrendo." | #7 "Esse lead 'curioso' pode ser uma venda." | "Mande 3 imóveis, não 20" (#9, método) |
 | Dom 04/10 | **PRONTO**: #25 "O cliente não quer receber mais imóveis. Quer que alguém entenda o que ele procura." (já em `instagram/2026-10-04/`, não refazer) | **PRONTO**: #20 "O lead não sumiu. Seu processo que perdeu ele." (já em `instagram/2026-10-04/`, não refazer) | **PRONTO**: "7 lugares onde seus leads morrem" (lança DIAGNÓSTICO; já em `instagram/2026-10-04/`, não refazer) |
 | Seg 05/10 | (dia sem posts; peças foram para 06/10) | RETIDO: "Imobiliária, lead pago: responda na hora" (refazer a estrutura) | (foi para 06/10) |
-| Ter 06/10 | **PRONTO**: "Você não precisa de mais leads" (v1, veio de 05/10) | (sem post às 09:00) | **PRONTO**: "Teste do cliente oculto" (veio de 05/10) |
+| Ter 06/10 | **PRONTO**: "Você não precisa de mais leads" (v1, veio de 05/10) | #1 "Quanto mais leads, maior pode ser o prejuízo." (a produzir; chamada ao ICP aqui) | **PRONTO**: "Teste do cliente oculto" (veio de 05/10) |
 | Qua 07/10 | Rosto Davi (#21 "O cliente que sumiu") — se gravado; senão motion | #11 "Imobiliárias não perdem venda quando recebem o lead. Perdem depois." | "4 perguntas que separam curioso de comprador" |
 | Qui 08/10 | #10 "Seu corretor não precisa de mais leads. Precisa de menos conversas." | #16 "Pare de abandonar quem já quer comprar." | "Antes e depois: a jornada de um lead com e sem processo" |
 
