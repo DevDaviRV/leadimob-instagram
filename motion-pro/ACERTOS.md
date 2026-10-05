@@ -53,3 +53,10 @@ Palavras dele: o `r2-lead-curioso` (03/10) "tem o design muito bom, padrão da m
 - Partir do modelo não é copiar o modelo: o Reel 2 de 05/10 saiu como o de 03/10 com o texto trocado. Sistema visual e motor ficam; cenas, composição e transições mudam.
 - A nota que vale é a do corte final. Entregar com nota abaixo de 8 só com o aviso "ABAIXO DA META" no LEGENDAS.md e no resumo.
 - A publicação não instala pacotes e roda um comando só; os JPEG do carrossel saem da produção (`publicar/prepara_jpg.py`).
+
+## Carrosséis mais leves (Davi, 05/10)
+Palavras dele sobre os carrosséis de 07/10 e 08/10: gostou do conteúdo e da produção, mas achou as artes "bem carregadas", com "excesso de conteúdo". Esses dois ficam como estão; vale para os próximos:
+- Uma ideia por slide: título, uma frase de apoio e UM artefato visual. Nada de dois blocos de conteúdo no mesmo slide (como "sem processo" e "com processo" empilhados).
+- Menos texto dentro dos artefatos e mais área vazia; se precisar de mais conteúdo, vai para a legenda ou vira outro slide.
+- O elemento contínuo entre slides fica discreto, sem fichas, rótulos e pílulas acumulando na faixa de baixo.
+- Na crítica, incluir o critério "leveza" (o slide se lê em 2 segundos).
