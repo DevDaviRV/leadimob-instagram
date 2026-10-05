@@ -19,4 +19,5 @@ O que o script faz (é a publicação automática que o Davi pediu; ver "Publica
    - `ERRO ...`: não tente contornar nem publicar por outro caminho. Tente rodar o mesmo comando mais uma vez depois de 2 minutos; se falhar de novo, pare.
    - Se faltar `instagram/AAAA-MM-DD/posts.json` (o dia não foi produzido), não publique.
    - Se o comando for negado pelo classificador de permissões: não tente de outro jeito, nem em partes. No resumo, copie o comando exato que foi negado e o motivo mostrado na negação (o texto entre colchetes, por exemplo `[Data Exfiltration]`, ou a frase completa), para o Davi ajustar a autorização.
-6. Termine com um resumo de 2 linhas em português: o que foi publicado (com o link) ou por que não foi.
+6. Registro: quando havia post para publicar e ele não saiu (`AGUARDANDO_APROVACAO`, `ERRO`, comando negado, JPEG faltando), acrescente uma linha em `rotinas/LOG.md` no formato `AAAA-MM-DD HH:MM (America/Sao_Paulo) · publicação · <modelo desta sessão> · <dia> <horário do post>: <motivo exato>`, faça commit e push na main. Quando publicou, o `PUBLICADO.json` já é o registro. Quando não havia candidato, não registre nada. Se um push for rejeitado porque a main andou, rode `git pull --rebase` e tente de novo.
+7. Termine com um resumo de 2 linhas em português: o que foi publicado (com o link) ou por que não foi.
