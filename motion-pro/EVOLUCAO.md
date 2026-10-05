@@ -79,3 +79,9 @@ Davi (01/10): o Reel 1 de 02/10 (DOM plano) ficou "um pouco inferior"; o vídeo 
 **Carrossel "Teste do cliente oculto" (a partir do modelo `carrossel-b`)**
 - Elemento contínuo novo: a linha da jornada (fio único de ponta a ponta, âmbar no ponto cego, ciano nos 5 passos numerados com rótulos, verde na solução) no lugar do fluxo de cards de imóvel. Artefatos por slide: conversa sem resposta, cronômetro com campos a preencher, checklist Sim/Não, linha de 3 dias, funil Kanban, mensagem para copiar.
 - Crítica: gancho 8 · clareza 8 · continuidade 9 · acabamento 8 · sobriedade 8. Corrigido: âmbar só no chip do slide 2, contorno de "oculto" reforçado. Backlog: espaço vazio entre conteúdo e linha nos slides 3–9.
+
+### Reel 2 de 06/10 "Corretor, mais leads?" (rotina diária, a partir do modelo `reel-tipografico`)
+- Estrutura nova, sem reaproveitar a sequência do modelo: notificações de lead → termômetro QUENTE/MORNO/FRIO (marcador percorre a trilha) → duas jornadas paralelas (na hora × no dia seguinte) → checklist com checks → CTA. Transições novas: pan lateral, crane vertical, íris circular, dolly-through; linha da jornada só aparece durante as viagens. Trilha nova (96 BPM, Ré maior).
+- Crítica do rascunho: 7/6/8/6/5/8/8/6/8 (a observação de texto pequeno não procedia: qa() mediu ≥38px). Ajustes: cena do termômetro mais curta (-0,9s), linha oculta nas cenas paradas, "ESFRIA." em tom gelo, âmbar só nos alertas.
+- Crítica do corte final: 7,5/7/8/6,5/7/7,5/6,5/7/8 → RETIDO (abaixo de 8). Pendências baratas para uma 2ª rodada: rasgo de máscara nas transições, 2 trechos quase vazios (9,6–10,2s e 14,4–15s), conteúdo mais centrado e maior (notificações, jornadas), "Outro" solo antes de "resultado.", sair do checklist com fade limpo, logo/subtítulo do CTA maiores.
+- Render: 693 quadros em 9 blocos, ~12 min; áudio −13,4 LUFS, pico −1,7 dB.

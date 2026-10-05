@@ -1,0 +1,297 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<!-- Leadimob · Reel 2 (06/10) · "Corretor, mais leads?" · tipografia cinética em espaço 3D (estrutura própria: notificações, termômetro do lead, duas jornadas, checklist, CTA)
+     three.js (mundo, linha da jornada, etiquetas, partículas) + DOM projetado com matrix3d pela mesma câmera. -->
+<style>
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0A0E14;color:#fff;font-family:IN;font-feature-settings:"tnum" 1}
+#c,#fg{position:absolute;left:0;top:0;width:1080px;height:1920px}#fg{z-index:2}#vg{z-index:3}#wipe{z-index:4}#fade{z-index:5}
+.abs{position:absolute}
+.pl{position:absolute;left:0;top:0;transform-origin:0 0;white-space:nowrap;visibility:hidden;backface-visibility:visible}
+.X{font:900 164px/1 IN;letter-spacing:-.055em}
+.L{font:900 138px/1 IN;letter-spacing:-.055em}
+.M{font:800 78px/1.1 IN;letter-spacing:-.035em}
+.m{display:inline-block;overflow:hidden;vertical-align:top;padding:.16em .04em .26em 0;margin:-.16em 0 -.26em}
+.m>span{display:inline-block}
+.gap{margin-right:.22em}
+.bub{border-radius:34px;padding:30px 40px 22px;font:500 84px/1.2 IN;letter-spacing:-.02em;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.bin{background:#202C33;color:#E9EDEF;border-top-left-radius:10px}
+.bout{background:#005C4B;color:#E9EDEF;border-top-right-radius:10px}
+.bt{font:500 34px/1 IN;color:rgba(233,237,239,.62);text-align:right;margin-top:10px;letter-spacing:0}
+.pill{display:inline-flex;align-items:center;gap:16px;padding:22px 34px;border-radius:999px;font:800 52px/1 IN;letter-spacing:-.01em;background:rgba(245,158,11,.14);border:2.5px solid rgba(245,158,11,.85);color:#FBBF24;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.chip{width:900px;height:176px;border-radius:44px;background:linear-gradient(180deg,#18212F,#111823);border:2px solid rgba(125,211,252,.26);box-shadow:0 34px 80px rgba(0,0,0,.6);display:flex;align-items:center;gap:30px;padding:0 38px;overflow:hidden}
+.chip .ic{width:98px;height:98px;border-radius:26px;background:rgba(37,99,235,.2);border:2px solid rgba(125,211,252,.5);display:flex;align-items:center;justify-content:center;flex:none}
+.chip .tx{font:800 72px/1 IN;letter-spacing:-.035em}
+.chip .sh{position:absolute;left:0;top:0;width:260px;height:176px;background:linear-gradient(100deg,rgba(125,211,252,0),rgba(125,211,252,.22),rgba(125,211,252,0))}
+.chip .ac{position:absolute;left:0;top:0;width:10px;height:176px;background:linear-gradient(180deg,#22D3EE,#2563EB)}
+.np{width:916px;height:100px;border-radius:30px;background:linear-gradient(180deg,#18212F,#111823);border:2px solid rgba(125,211,252,.28);box-shadow:0 26px 60px rgba(0,0,0,.55);display:flex;align-items:center;gap:22px;padding:0 34px 0 26px;font:700 40px/1 IN;letter-spacing:-.02em}
+.np .dt{width:22px;height:22px;border-radius:50%;background:#34D399;flex:none;box-shadow:0 0 18px rgba(52,211,153,.7)}
+.np .tm{margin-left:auto;font:600 36px/1 IN;color:#9AA3B2;letter-spacing:0}
+.ck{position:absolute;right:36px;top:46px;width:84px;height:84px;border-radius:50%;border:3.5px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center}
+#iris{z-index:6;background:#0A0E14;visibility:hidden}
+</style>
+<script src="node_modules/motion/dist/motion.js"></script>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js"}}</script>
+</head><body><div id="st">
+<canvas id="c" width="1080" height="1920"></canvas>
+<div id="pls" class="abs" style="left:0;top:0;width:1080px;height:1920px;z-index:1;isolation:isolate">
+
+<!-- A · GANCHO + NOTIFICAÇÕES -->
+<div id="a1" class="pl X q" style="font-size:150px"><span class="m"><span id="a1a">CORRETOR,</span></span></div>
+<div id="a2" class="pl L q" style="font-size:116px;color:#D5DBE5"><span class="m"><span id="a2a">MAIS LEADS?</span></span></div>
+<div id="a3" class="pl q" style="font:700 78px/1.1 IN;letter-spacing:-.035em;color:#C9D2E0"><span class="m"><span id="a3a">Só ajuda se você</span></span></div>
+<div id="a4" class="pl X q" style="font-size:150px"><span class="m"><span id="a4a">RESPONDE</span></span></div>
+<div id="a5" class="pl X q" style="font-size:150px;color:#34D399"><span class="m"><span id="a5a">NA HORA.</span></span></div>
+<div id="n0" class="pl np q"><span class="dt"></span>Novo lead · Anúncio<span class="tm">21:12</span></div>
+<div id="n1" class="pl np q"><span class="dt"></span>Novo lead · Anúncio<span class="tm">22:47</span></div>
+<div id="n2" class="pl np q"><span class="dt"></span>Novo lead · Anúncio<span class="tm">23:30</span></div>
+
+<!-- B · TERMÔMETRO DO LEAD -->
+<div id="b1" class="pl L q" style="font-size:138px"><span class="m"><span id="b1a">LEAD QUE</span></span></div>
+<div id="b2" class="pl L q" style="font-size:138px"><span class="m"><span id="b2a">ESPERA</span></span></div>
+<div id="gg" class="pl" style="width:916px;height:150px">
+ <div style="position:absolute;left:0;top:30px;width:916px;height:40px;border-radius:20px;background:linear-gradient(90deg,#34D399 0%,#22D3EE 50%,#566175 100%);box-shadow:0 22px 60px rgba(0,0,0,.55);opacity:.92"></div>
+ <div id="mk" style="position:absolute;left:0;top:10px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,#fff 0,#BFE9FF 28%,rgba(125,211,252,.0) 70%);visibility:hidden"></div>
+ <div id="gl0" class="q" style="position:absolute;left:0;top:96px;font:800 40px/1 IN;letter-spacing:.06em;color:#34D399">QUENTE</div>
+ <div id="gl1" class="q" style="position:absolute;left:0;width:916px;text-align:center;top:96px;font:800 40px/1 IN;letter-spacing:.06em;color:#7DD3FC">MORNO</div>
+ <div id="gl2" class="q" style="position:absolute;right:0;top:96px;font:800 40px/1 IN;letter-spacing:.06em;color:#9AA3B2">FRIO</div>
+</div>
+<div id="bp" class="pl pill q"><span style="width:20px;height:20px;border-radius:50%;background:#F59E0B"></span>Sem resposta</div>
+<div id="b3" class="pl X q" style="font-size:210px;color:#BFE0F5;text-shadow:0 0 50px rgba(125,211,252,.35)"><span class="m"><span id="b3a">ESFRIA.</span></span></div>
+
+<!-- C · DUAS JORNADAS -->
+<div id="c1" class="pl M q" style="font-size:88px"><span class="m"><span id="c1a">Mesmo anúncio.</span></span></div>
+<div id="c2" class="pl M q" style="font-size:88px"><span class="m"><span id="c2a">Mesmo lead.</span></span></div>
+<div id="ln1" class="pl" style="width:916px;height:320px"></div>
+<div id="ln2" class="pl" style="width:916px;height:320px"></div>
+<div id="c3" class="pl q" style="font:900 92px/1 IN;letter-spacing:-.045em"><span class="m gap"><span id="c3a">Outro</span></span><span class="m"><span id="c3b" style="color:#7DD3FC">resultado.</span></span></div>
+
+<!-- D · CHECKLIST -->
+<div id="d1" class="pl q" style="font:800 90px/1.1 IN;letter-spacing:-.04em"><span class="m"><span id="d1a">Todo lead novo:</span></span></div>
+<div id="k0" class="pl chip q"><div class="ac"></div><div class="ic"><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5 H20 V15.5 H10.5 L6 19.5 V15.5 H4 Z"/></svg></div><div class="tx" style="font-size:62px">Responda na hora</div><div class="ck" id="ck0"></div></div>
+<div id="k1" class="pl chip q"><div class="ac"></div><div class="ic"><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 H20 M7 12 H17 M10 18 H14"/></svg></div><div class="tx" style="font-size:62px">Qualifique</div><div class="ck" id="ck1"></div></div>
+<div id="k2" class="pl chip q"><div class="ac"></div><div class="ic"><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15" rx="3"/><path d="M3.5 10.5 H20.5 M8 3.5 V7 M16 3.5 V7 M8 14.5 H11"/></svg></div><div class="tx" style="font-size:62px">Agende a visita</div><div class="ck" id="ck2"></div></div>
+<div id="k3" class="pl chip q"><div class="ac"></div><div class="ic"><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12 A8 8 0 1 1 17.4 6.1 M20 4 V8.2 H15.8"/></svg></div><div class="tx" style="font-size:62px">Faça o follow-up</div><div class="ck" id="ck3"></div></div>
+
+<!-- E · CTA -->
+<div id="f5" class="pl" style="width:560px;height:170px;border-radius:38px;background:linear-gradient(180deg,#fff,#EAF1F8);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 90px rgba(37,99,235,.28);display:flex;align-items:center;justify-content:center;overflow:hidden"><div id="f5s" style="position:absolute;left:0;top:0;width:220px;height:170px;background:linear-gradient(100deg,rgba(37,99,235,0),rgba(37,99,235,.28),rgba(37,99,235,0))"></div><img src="logo.png" style="width:456px;display:block"></div>
+<div id="f1" class="pl X q" style="font-size:190px"><span class="m"><span id="f1a">Comente</span></span></div>
+<div id="f2" class="pl q" style="width:916px;height:184px;border-radius:92px;background:linear-gradient(180deg,#18212F,#111823);border:2.5px solid rgba(125,211,252,.5);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 70px rgba(37,99,235,.22);display:flex;align-items:center;padding:0 28px 0 50px;gap:6px;font:900 86px/1 IN;letter-spacing:.005em">
+ <span id="typ"></span><span id="car" style="width:6px;height:90px;background:#7DD3FC;border-radius:3px"></span>
+ <span id="send" style="margin-left:auto;width:128px;height:128px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;flex:none"><svg width="62" height="62" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+</div>
+<div id="f3" class="pl q" style="font:700 66px/1.1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m gap"><span id="f3a">e descubra</span></span><span class="m"><span id="f3b">onde seus leads</span></span></div>
+<div id="f4" class="pl q" style="font:800 66px/1.1 IN;letter-spacing:-.03em;color:#fff"><span class="m gap"><span id="f4a">estão</span></span><span class="m"><span id="f4b" style="color:#7DD3FC">morrendo.</span></span></div>
+</div>
+
+<canvas id="fg" width="540" height="960"></canvas>
+<div id="vg" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 50%,rgba(0,0,0,.62) 100%)"></div>
+<div id="iris" class="abs" style="inset:0"></div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+await Promise.all(['500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)));
+await new Promise(r=>{const i=document.querySelector('#f5 img');if(i.complete)r();else i.onload=i.onerror=r});
+const W=1080,H=1920;
+const T={n:[0.8,1.25,1.7],hb:2,aOut:4.2,B:5,g0:5.3,m0:5.6,m1:7.7,amb:7.82,esf:8.05,bOut:9,C:9.8,ln:[10.4,10.7],n1:11,n2:11.6,n3:12.2,l2a:11.9,stall:13.2,pillE:13.35,c3:13.65,iris:14.65,D:15,d1:15.2,r:[15.5,16.05,16.6,17.15],dOut:18.35,F:18.9,logo:18.75,f1:19.05,f2:19.3,typ:19.6,orb:20.2,send:20.6,sub:20.9,sheen:21.5,end:23.1};
+window.DURATION=T.end;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const lin=x=>cl(x),eOut=x=>1-Math.pow(1-cl(x),4),eOut3=x=>1-Math.pow(1-cl(x),3),eIn=x=>Math.pow(cl(x),3),eIn2=x=>cl(x)*cl(x),eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2},eIO2=x=>{x=cl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2};
+const P=(t,a,d,e=eOut)=>e((t-a)/d);const $=id=>document.getElementById(id);const lerp=(a,b,k)=>a+(b-a)*k;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const {spring}=window.Motion;
+const mkSp=(k=190,d=17)=>{const s=spring({keyframes:[0,1],stiffness:k,damping:d,mass:1});return ms=>ms<=0?0:s.next(ms).value};
+const sp=mkSp(300,20),spSoft=mkSp(130,17),spSnap=mkSp(420,24),spPop=mkSp(300,13),spFly=mkSp(150,17);
+const up=(id,t,a)=>{const v=sp((t-a)*1000);const s=$(id).style;s.transform=`translateY(${(1-v)*150}%)`;s.opacity=v>0.012?1:0};
+const dn=(id,k)=>{const s=$(id).style;s.transform=`translateY(${-k*150}%)`;if(k>0.98)s.opacity=0};
+const mixC=(a,b,k)=>a.map((v,i)=>lerp(v,b[i],k));
+
+/* faixas das duas jornadas (DOM gerado) */
+function lane(id,k,title){const el=$(id);const nodes=[0,1,2].map(i=>`<div id="l${k}n${i}" style="position:absolute;left:${100+i*358-36}px;top:154px;width:72px;height:72px;border-radius:50%;background:#0F1520;border:4px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center"></div><div class="q" style="position:absolute;left:${100+i*358-150}px;width:300px;text-align:center;top:250px;font:700 40px/1 IN;color:#9AA3B2">${['Responde','Qualifica','Visita'][i]}</div>`).join('');
+ el.innerHTML=`<div id="l${k}t" class="q" style="position:absolute;left:0;top:0;font:800 50px/1 IN;letter-spacing:-.025em;color:#C9D2E0">${title}</div><div style="position:absolute;left:100px;top:187px;width:716px;height:6px;border-radius:3px;background:rgba(255,255,255,.12)"></div><div id="l${k}f" style="position:absolute;left:100px;top:187px;width:716px;height:6px;border-radius:3px;transform-origin:0 50%;transform:scaleX(0)"></div>${nodes}`;
+ $('l'+k+'f').style.background=k==1?'linear-gradient(90deg,#22D3EE,#34D399)':'#7C8799'}
+lane('ln1',1,'Responde na hora');lane('ln2',2,'Responde amanhã');
+$('ln2').insertAdjacentHTML('beforeend','<div id="l2p" class="pill q" style="position:absolute;right:0;top:-14px;font-size:40px;padding:16px 28px;gap:12px"><span style="width:16px;height:16px;border-radius:50%;background:#F59E0B"></span>Esfriou</div>');
+const CHK='<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#06231A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17.5 L19 7"/></svg>';
+
+/* ================= MUNDO ================= */
+const r=new THREE.WebGLRenderer({canvas:$('c'),antialias:true,preserveDrawingBuffer:true});
+r.setPixelRatio(1);r.setSize(W,H,false);r.setClearColor(0x0A0E14,1);
+const scene=new THREE.Scene();scene.fog=new THREE.Fog(0x0A0E14,3200,12500);
+const FOV=38,D0=H/2/Math.tan(FOV*Math.PI/360);
+const cam=new THREE.PerspectiveCamera(FOV,W/H,8,60000);
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const station=(x,y,z,ry)=>{const o=new THREE.Object3D();o.position.set(x,y,z);o.rotation.y=ry;scene.add(o);o.updateMatrixWorld(true);return o};
+const SA=station(0,0,0,0),SB=station(2900,-400,-5400,-0.1),SC=station(2300,-4400,-9600,0.08),SD=station(-2900,-4100,-14200,-0.08),SE=station(-300,-5000,-19600,0.06);
+const LW=(st,x,y,z)=>st.localToWorld(V(x,y,z));
+const scr=(sx,sy,z=0)=>{const k=(D0-z)/D0;return [(sx-540)*k,(960-sy)*k,z]};
+
+/* linha da jornada do lead (fina) + orbe */
+const OBp=[LW(SA,...scr(990,1000,40)),LW(SB,-1500,500,2300),LW(SB,...scr(150,910,30)),LW(SC,...scr(40,790,-30)),LW(SD,...scr(60,1000,40)),LW(SE,...scr(560,1102,60)),LW(SE,...scr(906,1102,60))];
+const curve=new THREE.CatmullRomCurve3(OBp,false,'centripetal');
+const lineMats=[];{const mk=(rad,col,op)=>{const m=new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:op,blending:THREE.AdditiveBlending,depthWrite:false});m.userData.op=op;lineMats.push(m);scene.add(new THREE.Mesh(new THREE.TubeGeometry(curve,700,rad,8,false),m))};
+ mk(3.6,0xBFE9FF,.9);mk(12,0x22D3EE,.2);mk(40,0x2563EB,.07)}
+const glowTex=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.16,'rgba(255,255,255,.9)');gr.addColorStop(.42,'rgba(255,255,255,.28)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(cv)})();
+const softTex=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(.5,'rgba(255,255,255,.3)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(cv)})();
+const mkSprite=(tex,col,sz)=>{const s=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,color:col,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false,fog:false}));s.scale.set(sz,sz,1);scene.add(s);return s};
+const orb=mkSprite(glowTex,0x7DD3FC,150),orbHalo=mkSprite(softTex,0x22D3EE,520);
+const trail=Array.from({length:10},()=>mkSprite(glowTex,0x7DD3FC,90));
+const amb=[[SA,-120,60,-900],[SB,160,-80,-900],[SC,120,60,-1100],[SD,0,-40,-900],[SE,60,160,-900]].map(([st,x,y,z])=>{const s=mkSprite(softTex,0x2563EB,3000);s.position.copy(LW(st,x,y,z));s.material.depthTest=true;s.material.opacity=.2;return s});
+// poeira
+const NP=3600,dPos=new Float32Array(NP*3),dSz=new Float32Array(NP),dPh=new Float32Array(NP);
+{const S=[SA,SB,SC,SD,SE];const path=[];S.forEach((st,i)=>{path.push([LW(st,0,0,3300),LW(st,0,0,-1500)]);if(i<S.length-1)path.push([LW(st,0,0,-800),LW(S[i+1],0,0,1500)])});
+ for(let i=0;i<NP;i++){const sg=path[i%path.length];const k=rnd(i+5);const a=rnd(i+50)*6.283,rad=260+Math.pow(rnd(i+90),.7)*2300;const p=V(0,0,0).lerpVectors(sg[0],sg[1],k);dPos[i*3]=p.x+Math.cos(a)*rad;dPos[i*3+1]=p.y+Math.sin(a)*rad*1.25;dPos[i*3+2]=p.z+(rnd(i+130)-.5)*900;dSz[i]=4+rnd(i+170)*9;dPh[i]=rnd(i+210)*6.283}}
+const dG=new THREE.BufferGeometry();dG.setAttribute('position',new THREE.BufferAttribute(dPos,3));dG.setAttribute('size',new THREE.BufferAttribute(dSz,1));dG.setAttribute('ph',new THREE.BufferAttribute(dPh,1));
+const dM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uT:{value:0},uK:{value:D0}},
+ vertexShader:`attribute float size;attribute float ph;uniform float uT;uniform float uK;varying float vA;void main(){vec3 p=position;p.y+=sin(uT*0.6+ph)*26.0;p.x+=cos(uT*0.45+ph*1.7)*22.0;vec4 mv=modelViewMatrix*vec4(p,1.0);float d=-mv.z;float s=size*uK/d;float big=clamp(s/26.0,0.0,1.0);gl_PointSize=min(s,120.0);vA=(0.7-0.55*big)*smoothstep(9500.0,3000.0,d)*smoothstep(40.0,260.0,d)*(0.7+0.3*sin(uT*1.7+ph*3.0));gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.25,d);gl_FragColor=vec4(vec3(0.62,0.86,1.0)*a,a*vA);}`});
+const dust=new THREE.Points(dG,dM);dust.frustumCulled=false;scene.add(dust);
+// chão de pontos por estação
+{const fp=[];[SA,SB,SC,SD,SE].forEach(st=>{for(let x=-2860;x<=2860;x+=130)for(let z=-4400;z<=2000;z+=130){const p=LW(st,x,-820,z);fp.push(p.x,p.y,p.z)}});
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(fp,3));
+ const m=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uK:{value:D0}},
+  vertexShader:`uniform float uK;varying float vA;void main(){vec4 mv=modelViewMatrix*vec4(position,1.0);float d=-mv.z;gl_PointSize=clamp(10.0*uK/d,2.0,24.0);vA=0.85*smoothstep(7600.0,2600.0,d)*smoothstep(200.0,800.0,d);gl_Position=projectionMatrix*mv;}`,
+  fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.35,d);gl_FragColor=vec4(vec3(0.33,0.62,0.98)*a,a*vA);}`});
+ const f=new THREE.Points(g,m);f.frustumCulled=false;scene.add(f)}
+// faíscas
+const NS=200,sPos=new Float32Array(NS*3),sCol=new Float32Array(NS*3),sA=new Float32Array(NS),sS=new Float32Array(NS);
+const sG=new THREE.BufferGeometry();sG.setAttribute('position',new THREE.BufferAttribute(sPos,3));sG.setAttribute('color',new THREE.BufferAttribute(sCol,3));sG.setAttribute('alpha',new THREE.BufferAttribute(sA,1));sG.setAttribute('size',new THREE.BufferAttribute(sS,1));
+const sM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,depthTest:false,blending:THREE.AdditiveBlending,uniforms:{uK:{value:D0}},
+ vertexShader:`attribute float alpha;attribute float size;attribute vec3 color;uniform float uK;varying float vA;varying vec3 vC;void main(){vA=alpha;vC=color;vec4 mv=modelViewMatrix*vec4(position,1.0);gl_PointSize=size*uK/-mv.z;gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vA;varying vec3 vC;void main(){float d=length(gl_PointCoord-0.5)*2.0;float core=smoothstep(0.5,0.0,d);float gl=pow(max(0.0,1.0-d),2.0)*0.6;gl_FragColor=vec4(vC*(core*1.4+gl),(core+gl)*vA);}`});
+const sparks=new THREE.Points(sG,sM);sparks.frustumCulled=false;scene.add(sparks);
+const CY=[0.49,0.83,0.99],GR=[0.2,0.83,0.6],AM=[0.96,0.62,0.05],GY=[0.46,0.5,0.58];
+const BUR=[];let sN=0;const burst=(t0,st,p,n,col,spd,life,sz)=>{BUR.push({t0,p:LW(st,...p),q:st.quaternion.clone(),i0:sN,n,col,spd,life,sz});sN+=n};
+
+/* ================= PLANOS DOM projetados pela câmera ================= */
+const PLN={};const _m=new THREE.Matrix4(),_q=new THREE.Quaternion(),_e=new THREE.Euler(),_p=new THREE.Vector3(),_s=new THREE.Vector3(),_v=new THREE.Vector3(),_v2=new THREE.Vector3(),VP=new THREE.Matrix4();
+function pl(id,st,left,top,z=0,o={}){const el=$(id);const w=el.offsetWidth,h=el.offsetHeight;const k=(D0-z)/D0;if(o.cx!==undefined)left=o.cx-w/2;if(o.right!==undefined)left=o.right-w;if(o.cy!==undefined)top=o.cy-h/2;
+ const p={el,st,w,h,k,x:(left+w/2-540)*k,y:(960-top-h/2)*k,z,rz:o.rz||0,vis:-1,left,top};PLN[id]=p;return p}
+function put(id,o,a){const p=PLN[id],el=p.el;if(!(o>0.004)){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ a=a||{};const s=(a.s??1)*p.k;_e.set(a.rx||0,a.ry||0,(a.rz||0)+p.rz,a.ord||'XYZ');_q.setFromEuler(_e);_p.set(p.x+(a.dx||0),p.y+(a.dy||0),p.z+(a.dz||0));
+ if(a.pv||a.ph){_v.set((a.ph||0)*p.k,(a.pv||0)*p.k,0);_v2.set(_v.x*(a.s??1)*(a.sx??1),_v.y*(a.s??1)*(a.sy??1),0).applyQuaternion(_q);_p.add(_v).sub(_v2)}
+ _s.set(s*(a.sx??1),s*(a.sy??1),1);_m.compose(_p,_q,_s).premultiply(p.st.matrixWorld);
+ _v.setFromMatrixPosition(_m);const dist=_v.distanceTo(cam.position);_m.premultiply(VP);const e=_m.elements,w=p.w,h=p.h;
+ if(e[15]<60){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ o*=cl((dist-260)/520);if(!(o>0.004)){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ const n=1/e[15];const c0=[e[0],e[1],e[3]],c1=[-e[4],-e[5],-e[7]],c3=[e[12]-e[0]*w/2+e[4]*h/2,e[13]-e[1]*w/2+e[5]*h/2,e[15]-e[3]*w/2+e[7]*h/2];
+ const PX=c=>(c[0]+c[2])*W/2*n,PY=c=>(c[2]-c[1])*H/2*n;
+ el.style.transform=`matrix3d(${PX(c0)},${PY(c0)},0,${c0[2]*n},${PX(c1)},${PY(c1)},0,${c1[2]*n},0,0,1,0,${PX(c3)},${PY(c3)},0,${c3[2]*n})`;
+ el.style.opacity=o>0.996?1:o;el.style.zIndex=Math.max(1,30000-Math.round(dist));if(p.vis!==1){el.style.visibility='visible';p.vis=1}}
+
+// A
+pl('a1',SA,82,290,40);pl('a2',SA,82,456,20);pl('a3',SA,82,676,40);pl('a4',SA,82,776,80);pl('a5',SA,82,936,80);
+pl('n0',SA,82,1152,100);pl('n1',SA,82,1266,100);pl('n2',SA,82,1380,100);
+// B
+pl('b1',SB,82,400,40);pl('b2',SB,82,540,40);pl('gg',SB,82,860,40);pl('bp',SB,82,1090,80);pl('b3',SB,82,1240,100);
+// C
+pl('c1',SC,82,370,60);pl('c2',SC,82,476,60);pl('ln1',SC,82,680,20);pl('ln2',SC,82,1040,20);pl('c3',SC,82,1420,80);
+// D
+pl('d1',SD,82,450,40);const KT=[670,874,1078,1282];for(let i=0;i<4;i++)pl('k'+i,SD,82,KT[i],40);
+// E
+pl('f5',SE,82,470,60);pl('f1',SE,82,740,90);pl('f2',SE,82,1010,120);pl('f3',SE,82,1280,60);pl('f4',SE,82,1366,60);
+
+/* ================= CÂMERA ================= */
+const K=[];const key=(t,st,p,l,e=lin)=>K.push({t,p:LW(st,...p),l:LW(st,...l),e});
+const Z0=[0,0,0];
+key(0,SA,[200,-90,3450],Z0);key(0.8,SA,[90,-40,3000],Z0,eOut3);key(T.aOut,SA,[20,-10,2790],Z0);
+key(T.B,SB,[-160,60,3100],Z0,eIO);key(T.B+0.7,SB,[-110,40,2980],Z0,eOut3);key(T.bOut,SB,[10,-10,2790],Z0);
+key(T.C,SC,[170,-80,3150],Z0,eIO);key(T.C+0.7,SC,[120,-60,2990],Z0,eOut3);key(T.iris,SC,[30,-10,2790],Z0);key(T.D,SC,[24,-8,2780],Z0);
+key(T.D,SD,[-170,-90,3150],Z0);key(T.D+0.8,SD,[-110,-60,2990],Z0,eOut3);key(T.dOut,SD,[10,-10,2790],Z0);
+key(T.F,SE,[130,-60,3150],Z0,eIO);key(T.F+0.7,SE,[40,-20,2900],Z0,eOut3);key(T.end,SE,[-20,10,2780],Z0);
+function camAt(t){let i=0;for(let j=0;j<K.length;j++)if(K[j].t<=t)i=j;if(i>=K.length-1)return K[K.length-1];const a=K[i],b=K[i+1];const dt=b.t-a.t;const k=dt<=0?1:b.e((t-a.t)/dt);return {p:a.p.clone().lerp(b.p,k),l:a.l.clone().lerp(b.l,k)}}
+
+/* ================= ORBE (o lead) ================= */
+const OK=[[0,0],[T.aOut-0.35,0],[T.B+0.12,2,eIO2],[T.orb,5],[T.send,6,eIO2]];
+const orbP=(t,out)=>{let i=0;for(let j=0;j<OK.length;j++)if(OK[j][0]<=t)i=j;const a=OK[i],b=OK[Math.min(i+1,OK.length-1)];const dt=b[0]-a[0];const u=dt<=0?a[1]:lerp(a[1],b[1],(b[2]||lin)((t-a[0])/dt));return curve.getPoint(cl(u/(curve.points.length-1)),out)};
+// impactos
+burst(T.n[0],SA,scr(540,1200,120),14,CY,900,0.5,16);
+burst(T.n3,SC,scr(918,870,40),50,GR,1500,0.9,22);
+T.r.forEach((tk,i)=>burst(tk+0.5,SD,scr(870,KT[i]+88,60),22,GR,1000,0.6,18));
+burst(T.send,SE,scr(906,1102,140),34,GR,1300,0.8,22);
+
+/* ================= RENDER ================= */
+const tO=new THREE.Vector3(),tO2=new THREE.Vector3();
+const WORD='DIAGNÓSTICO';
+const nodeLit=(id,t,a,col)=>{const el=$(id);const v=spPop((t-a)*1000);const on=t>a;el.style.background=on?col:'#0F1520';el.style.borderColor=on?col:'rgba(255,255,255,.2)';el.style.transform=`scale(${on?0.8+0.2*v:1})`;el.style.boxShadow=on&&col==='#34D399'?`0 0 ${40*cl(v)}px rgba(52,211,153,.8)`:(on&&col==='#22D3EE'?`0 0 ${26*cl(v)}px rgba(34,211,238,.6)`:'none');el.innerHTML=on?CHK:''};
+window.render=function(t){
+ /* câmera */
+ const cp=camAt(t);cam.position.copy(cp.p);cam.position.x+=Math.sin(t*0.9)*12+Math.sin(t*2.3+1)*4;cam.position.y+=Math.sin(t*1.25+1)*10;
+ const tr=Math.sin(Math.PI*cl((t-T.aOut)/(T.B-T.aOut)));
+ cam.up.set(Math.sin(0.09*tr),Math.cos(0.09*tr),0);cam.lookAt(cp.l);cam.updateMatrixWorld();VP.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse);
+ dM.uniforms.uT.value=t;
+
+ /* orbe */
+ {orbP(t,tO);orb.position.copy(tO);orbHalo.position.copy(tO);
+  const fo=Math.min(P(t,0.1,0.4,lin)*(1-P(t,T.B+0.1,0.16,lin)),1)+P(t,T.orb,0.12,lin)*(1-P(t,T.send,0.1,lin))*(t>T.orb?1:0);
+  const col=t>T.orb?CY:CY;const pulse=1+0.12*Math.sin(t*6.5);
+  orb.material.color.setRGB(...col,THREE.SRGBColorSpace);orbHalo.material.color.setRGB(...col,THREE.SRGBColorSpace);orb.scale.setScalar(130*pulse);orbHalo.scale.setScalar(130*3.4);orb.material.opacity=fo;orbHalo.material.opacity=.3*fo;
+  const mv=(t>T.aOut-0.35&&t<T.B+0.2)||(t>T.orb&&t<T.send+0.05);
+  trail.forEach((s,k)=>{orbP(t-(k+1)*0.022,tO2);s.position.copy(tO2);s.material.color.setRGB(...col,THREE.SRGBColorSpace);s.scale.setScalar(130*0.7*(1-k/12));s.material.opacity=mv?.4*(1-k/10)*fo:0})}
+ /* faíscas */
+ {for(const b of BUR){const k=(t-b.t0)/b.life;for(let j=0;j<b.n;j++){const i=b.i0+j;if(k<=0||k>=1){sA[i]=0;continue}
+   const a=rnd(i*3+1)*6.283,sv=0.35+rnd(i*3+2)*0.65,e=1-Math.pow(1-k,2.6);_v.set(Math.cos(a)*b.spd*sv*e,Math.sin(a)*b.spd*sv*e*0.8-180*k*k,(rnd(i*3+3)-.5)*b.spd*0.5*e).applyQuaternion(b.q).add(b.p);
+   sPos[i*3]=_v.x;sPos[i*3+1]=_v.y;sPos[i*3+2]=_v.z;sCol[i*3]=b.col[0];sCol[i*3+1]=b.col[1];sCol[i*3+2]=b.col[2];sA[i]=Math.pow(1-k,1.4);sS[i]=b.sz*(0.5+rnd(i+7))}}
+  sG.attributes.position.needsUpdate=sG.attributes.color.needsUpdate=sG.attributes.alpha.needsUpdate=sG.attributes.size.needsUpdate=true}
+ {const lv=Math.max(P(t,T.aOut-0.5,0.3,lin)*(1-P(t,T.B+0.3,0.3,lin)),P(t,T.bOut-0.4,0.3,lin)*(1-P(t,T.C+0.3,0.3,lin)),P(t,T.dOut-0.3,0.3,lin)*(1-P(t,T.F+0.3,0.3,lin)));lineMats.forEach(m=>m.opacity=m.userData.op*lv)}
+ amb.forEach((s,i)=>s.material.opacity=.19+.035*Math.sin(t*0.8+i));
+ r.render(scene,cam);
+
+ /* ---------- A · GANCHO ---------- */
+ {const out=P(t,T.aOut-0.05,0.35,eIn2),oo=1-out;const lift={dy:-out*120};const dim=1-0.38*P(t,T.hb-0.1,0.4,eIO2);
+  up('a1a',t,-0.42);up('a2a',t,-0.3);put('a1',t<T.B?oo*dim:0,lift);put('a2',t<T.B?oo*dim:0,lift);
+  up('a3a',t,T.hb-0.12);up('a4a',t,T.hb);up('a5a',t,T.hb+0.26);
+  put('a3',t>T.hb-0.14&&t<T.B?oo:0,lift);
+  const pv=spPop((t-T.hb-0.26)*1000);put('a4',t>T.hb-0.02&&t<T.B?oo:0,lift);put('a5',t>T.hb+0.24&&t<T.B?oo:0,Object.assign({s:1+0.04*(1-cl(pv))},lift));
+  [0,1,2].forEach(i=>{const a=T.n[i];const v=spFly((t-a)*1000);put('n'+i,t>a&&t<T.B?cl(v*2.2)*oo:0,{dx:(1-v)*900,dz:(1-v)*-900,ry:(1-v)*-0.7,dy:out*120+0})})}
+ /* ---------- B · TERMÔMETRO ---------- */
+ {const out=P(t,T.bOut-0.05,0.35,eIn2),oo=1-out;const lift={dy:-out*120};const vis=t>T.B-0.4&&t<T.C;
+  up('b1a',t,T.B-0.3);up('b2a',t,T.B-0.15);put('b1',vis?oo:0,lift);put('b2',vis?oo:0,lift);
+  const gv=spSoft((t-T.g0)*1000);put('gg',vis&&t>T.g0?cl(gv*2)*oo:0,Object.assign({sx:0.92+0.08*gv},lift));
+  const mp=P(t,T.m0,T.m1-T.m0,eIO2);const mk=$('mk');mk.style.visibility=vis&&t>T.B+0.05?'visible':'hidden';mk.style.left=(68-40+mp*780)+'px';
+  const mcol=mixC(mixC([0.75,0.93,1],[0.49,0.83,0.99],cl(mp*2)),[0.55,0.58,0.66],cl(mp*2-1));mk.style.background=`radial-gradient(circle,#fff 0,rgb(${mcol.map(v=>Math.round(v*255)).join(',')}) 30%,rgba(125,211,252,0) 70%)`;
+  $('gl0').style.opacity=mp<0.34?1:0.4;$('gl1').style.opacity=mp>=0.34&&mp<0.7?1:0.4;$('gl2').style.opacity=mp>=0.7?1:0.4;
+  const pv=spSnap((t-T.amb)*1000);put('bp',vis&&t>T.amb?cl(pv*3)*oo:0,Object.assign({dy:-(1-pv)*26},lift));
+  up('b3a',t,T.esf);put('b3',vis&&t>T.esf-0.02?oo:0,lift)}
+ /* ---------- C · DUAS JORNADAS ---------- */
+ {const vis=t>T.C-0.4&&t<T.D;const o=vis?1-P(t,T.iris-0.05,0.25,eIn2)*0:0;
+  up('c1a',t,T.C-0.3);up('c2a',t,T.C-0.12);put('c1',vis?1:0);put('c2',vis?1:0);
+  const a1=spFly((t-T.ln[0])*1000),a2=spFly((t-T.ln[1])*1000);
+  put('ln1',vis&&t>T.ln[0]?cl(a1*2.2):0,{rx:(1-a1)*0.7,dz:(1-a1)*-400,dy:(1-a1)*120});put('ln2',vis&&t>T.ln[1]?cl(a2*2.2):0,{rx:(1-a2)*0.7,dz:(1-a2)*-400,dy:(1-a2)*120});
+  const p1=P(t,T.n1,T.n3-T.n1,lin);$('l1f').style.transform=`scaleX(${t>T.n1?p1:0})`;
+  nodeLit('l1n0',t,T.n1,'#22D3EE');nodeLit('l1n1',t,T.n2,'#22D3EE');nodeLit('l1n2',t,T.n3,'#34D399');
+  nodeLit('l2n0',t,T.l2a,'#8A93A3');$('l2f').style.transform=`scaleX(${t>T.l2a?0.47*P(t,T.l2a,T.stall-T.l2a,eIO2):0})`;
+  const pe=spSnap((t-T.pillE)*1000);const pe2=$('l2p').style;pe2.opacity=t>T.pillE?cl(pe*3):0;pe2.transform=`translateY(${-(1-pe)*18}px)`;
+  $('l2t').style.color=t>T.stall?'#9AA3B2':'#C9D2E0';
+  up('c3a',t,T.c3);up('c3b',t,T.c3+0.14);put('c3',vis&&t>T.c3-0.02?1:0)}
+ /* ---------- IRIS (C -> D) ---------- */
+ {const ir=$('iris').style;let R=-1,cx=918,cy=870;
+  if(t>T.iris&&t<T.D){R=lerp(2300,0,eIn(P(t,T.iris,T.D-T.iris,lin)))}
+  else if(t>=T.D&&t<T.D+0.4){cx=540;cy=960;R=lerp(0,2300,eOut(P(t,T.D,0.4,lin)))}
+  if(R<0){ir.visibility='hidden'}else{ir.visibility='visible';const m=`radial-gradient(circle at ${cx}px ${cy}px, transparent ${Math.max(0,R)}px, #000 ${Math.max(0,R)+2}px)`;ir.webkitMaskImage=m;ir.maskImage=m}}
+ /* ---------- D · CHECKLIST ---------- */
+ {const out=P(t,T.dOut,0.5,eIn);const vis=t>=T.D&&t<T.F;
+  up('d1a',t,T.d1);put('d1',vis&&t>T.d1-0.02?1-P(t,T.dOut,0.3,eIn2):0);
+  for(let i=0;i<4;i++){const a=T.r[i];const v=spSoft((t-a)*1000);const el=$('k'+i);const tk=T.r[i]+0.5;const lit=cl(1-(t-tk)/0.5)*(t>tk?1:0);
+   put('k'+i,vis&&t>a?cl(v*2.4):0,{dx:(1-v)*1000+0,ry:(1-v)*-0.55,dz:(1-v)*-300+out*3300+i*out*500,dy:out*(i-1.5)*60});
+   el.style.borderColor=`rgba(125,211,252,${0.26+0.5*lit})`;
+   const c=$('ck'+i);const cv=spPop((t-tk)*1000);const on=t>tk;c.style.background=on?'#34D399':'transparent';c.style.borderColor=on?'#34D399':'rgba(255,255,255,.22)';c.style.transform=`scale(${on?0.7+0.3*cv:1})`;c.style.boxShadow=on?`0 0 ${34*cl(cv)}px rgba(52,211,153,.7)`:'none';c.innerHTML=on?CHK:''}}
+ /* ---------- E · CTA ---------- */
+ {const fin=(id,a,extra)=>{const v=spFly((t-a)*1000);put(id,t>a?cl(v*2.2):0,Object.assign({rx:(1-v)*0.9,dz:(1-v)*-500,dy:(1-v)*-120},extra||{}))};
+  fin('f5',T.logo,{s:1+0.02*Math.sin(t*1.5)});$('f5s').style.transform=`translateX(${lerp(-240,600,P(t,T.sheen,0.5,eIO2))}px)`;
+  up('f1a',t,T.f1);put('f1',t>T.f1-0.02?1:0);fin('f2',T.f2);
+  const n=Math.round(cl((t-T.typ)/0.8)*WORD.length);$('typ').textContent=WORD.slice(0,n);$('car').style.opacity=(n<WORD.length?(t>T.f2+0.3?1:0):(Math.floor(t*3.3)%2?1:0));
+  const sv=spPop((t-T.send)*1000);$('send').style.transform=`scale(${t>T.send?0.8+0.2*sv+0.22*Math.max(0,1-Math.abs(sv-1)*5)*(t<T.send+0.3?1:0):1})`;$('send').style.background=t>T.send?'#22C55E':'#2563EB';
+  $('send').style.boxShadow=t>T.send?`0 0 ${50*cl(sv)}px rgba(52,211,153,.75)`:'none';
+  up('f3a',t,T.sub-0.3);up('f3b',t,T.sub-0.14);up('f4a',t,T.sub+0.06);up('f4b',t,T.sub+0.24);put('f3',t>T.sub-0.32?1:0);put('f4',t>T.sub+0.04?1:0)}
+ $('fg').getContext('2d').clearRect(0,0,540,960);
+};
+window.qa=t=>{render(t);const o=[];document.querySelectorAll('.q').forEach(el=>{if(el.style.visibility!=='visible'&&el.closest('.pl')&&el.closest('.pl').style.visibility!=='visible')return;if(+getComputedStyle(el.closest('.pl')||el).opacity<0.3)return;const b=el.getBoundingClientRect();const fs=parseFloat(getComputedStyle(el).fontSize)*b.height/el.offsetHeight;o.push([el.id||el.textContent.slice(0,12),Math.round(b.left),Math.round(b.top),Math.round(b.right),Math.round(b.bottom),Math.round(fs)])});return o};
+window.ready=(async()=>{render(0);return T.end})();
+</script></body></html>
