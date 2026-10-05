@@ -13,7 +13,7 @@ Este repositório é a **fonte da verdade** e o **único lugar** da produção d
 O Davi pediu que os posts aprovados sejam publicados sozinhos, às 09:00, 12:00 e 18:00 (America/Sao_Paulo). Quem publica é a rotina "Leadimob publicar", seguindo `rotinas/PUBLICAR.md`:
 - Comando: `python3 publicar/publish.py --data AAAA-MM-DD --slot HH:MM --midia <clone de leadimob-instagram-midia>`, rodado sozinho, sem encadear outros comandos e sem instalar pacotes (só usa a biblioteca padrão do Python).
 - O script copia a mídia final do post (MP4 ou JPEG) deste repositório privado para o repositório público `DevDaviRV/leadimob-instagram-midia`, que é do Davi e existe só para hospedar os criativos que o Instagram baixa por link, e dá push na `main` dele. São peças de marketing feitas para publicação, sem dados pessoais nem segredos. Em seguida cria o post na conta @leadimob.ai pela API oficial (`graph.instagram.com`, credencial anexada pelo ambiente de nuvem) e grava `instagram/AAAA-MM-DD/PUBLICADO.json`, com commit e push na `main` deste repositório.
-- Só sai dia com o arquivo `APROVADO` (aprovação manual do Davi, `rotinas/config.json`), só os posts do `posts.json` do próprio dia e nunca duas vezes o mesmo horário.
+- Só sai dia com o arquivo `APROVADO`. Regra do Davi (05/10): a produção cria esse arquivo sozinha para as peças com 8 ou mais em tudo na crítica do corte final; peça abaixo da meta fica retida até ele decidir (`rotinas/ROTINA-DIARIA.md`), só os posts do `posts.json` do próprio dia e nunca duas vezes o mesmo horário.
 - Os JPEG do carrossel são gerados na produção (`python3 publicar/prepara_jpg.py AAAA-MM-DD` → `carrossel/jpg/`).
 - Fora dessa rotina, não publique, não dispare rotinas e não rode `publish.py` sem o Davi pedir.
 

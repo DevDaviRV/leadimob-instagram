@@ -7,7 +7,7 @@ Toda peça nova **parte do código de um modelo aprovado**, não de uma página 
 | Peça | Modelo (`novo_trabalho.sh`) | Peça aprovada | Fontes | O que o Davi disse |
 |---|---|---|---|---|
 | Reel 2 tipográfico | `reel-tipografico` | `instagram/2026-10-03/r2-lead-curioso.mp4` | `instagram/2026-10-03/src/r2-index.html`, `r2-trilha.py` | "design muito bom, padrão da marca, sem exageros de cores ou efeitos" |
-| Reel 1 narrado | `reel-narrado` | `instagram/2026-10-05/r1-voce-nao-precisa-de-mais-leads.mp4` (v1) | `motion-pro/v1-plataforma/` (index.html com `__TIMELINE__`, script.py, gaps.json, timeline.json, trilha.py) | "o primeiro reels de todos ficou ótimo e ele é a qualidade mínima" |
+| Reel 1 narrado | `reel-narrado` | `instagram/2026-10-06/r1-voce-nao-precisa-de-mais-leads.mp4` (v1) | `motion-pro/v1-plataforma/` (index.html com `__TIMELINE__`, script.py, gaps.json, timeline.json, trilha.py) | "o primeiro reels de todos ficou ótimo e ele é a qualidade mínima" |
 | Carrossel | `carrossel` | `instagram/2026-10-04/carrossel/` ("7 lugares onde seus leads morrem") | `instagram/2026-10-02/src/c1-index.html` | "ficou animal, daí para cima" |
 | Carrossel (variação) | `carrossel-b` | `instagram/2026-10-03/carrossel/` ("Mande 3 imóveis. Não 20.") | `instagram/2026-10-03/src/c1-index.html`, `c1-shoot.js`, `c1-slides.json` | aprovado em 02/10 |
 

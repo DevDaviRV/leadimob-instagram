@@ -1,6 +1,11 @@
 {
   "aprovacao": "manual",
-  "horarios": ["09:00", "12:00", "18:00"],
+  "horarios": [
+    "09:00",
+    "12:00",
+    "18:00"
+  ],
   "repo_midia": "DevDaviRV/leadimob-instagram-midia",
-  "midia_base_url": "https://raw.githubusercontent.com/DevDaviRV/leadimob-instagram-midia/main"
+  "midia_base_url": "https://raw.githubusercontent.com/DevDaviRV/leadimob-instagram-midia/main",
+  "aprovacao_automatica": "meta"
 }
