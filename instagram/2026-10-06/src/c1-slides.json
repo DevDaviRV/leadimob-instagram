@@ -1,0 +1,74 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "LANÇAMENTO · SALVE ESTE POST",
+   "titulo": "6 pontos onde o lead esfria.",
+   "sub": "Lançamento imobiliário: veja onde o interesse se perde e como corrigir."
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Por que esfria",
+   "corpo": "No lançamento, o interesse chega no pico. E esfria rápido sem retorno.",
+   "ghost": "!"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Ponto 1 · De qual empreendimento veio esse lead?",
+   "corpo": "Corrija: cada anúncio e link leva o nome do empreendimento.",
+   "ghost": "01"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Ponto 2 · A pergunta sobre a unidade fica sem resposta",
+   "corpo": "Corrija: responda a disponibilidade na hora, direto do espelho atualizado.",
+   "ghost": "02"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Ponto 3 · Tabela desatualizada circulando",
+   "corpo": "Corrija: uma só versão vigente, que todo mundo consulta.",
+   "ghost": "03"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Ponto 4 · Plantão lotado e fila sem dono",
+   "corpo": "Corrija: todo lead da fila recebe um responsável.",
+   "ghost": "04"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Ponto 5 · Lead sem consultor definido",
+   "corpo": "Corrija: defina o consultor no instante da chegada.",
+   "ghost": "05"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Ponto 6 · Depois da visita, ninguém retoma",
+   "corpo": "Corrija: combine a próxima etapa antes de o lead sair do stand.",
+   "ghost": "06"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "A IA cuida do operacional. Você cuida do relacionamento.",
+   "corpo": "Responde no WhatsApp, consulta o catálogo, qualifica e retoma com follow-up."
+  },
+  {
+   "tipo": "cta",
+   "titulo": "Quer achar onde o seu lançamento esfria?",
+   "acao": "Comente DIAGNÓSTICO",
+   "sub": "Salve este post e receba o checklist Onde seus leads estão morrendo."
+  }
+ ]
+}
