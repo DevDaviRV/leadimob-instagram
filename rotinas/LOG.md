@@ -9,3 +9,4 @@ Formato: `AAAA-MM-DD HH:MM (America/Sao_Paulo) · produção|publicação · mod
 - 2026-10-05 08:55 · publicação · (desconhecido) · 2026-10-05 09:00: AGUARDANDO_APROVACAO (dia sem o arquivo APROVADO).
 - 2026-10-05 11:55 · publicação · (desconhecido) · 2026-10-05 12:00: AGUARDANDO_APROVACAO (dia sem o arquivo APROVADO).
 - 2026-10-05 15:36 · chat · Opus 5.5 · 05/10 sem posts por decisão do Davi; v1 e carrossel passam para 06/10 (aprovado); Reel 2 de 05/10 retido; aprovação automática pela meta ligada.
+- 2026-10-05 18:25 (America/Sao_Paulo) · produção · Sonnet 5.5 · início: vou produzir 06/10 (falta só o Reel 2 de 09:00 "Quanto mais leads, maior pode ser o prejuízo", com chamada ao ICP; Reel 1 e carrossel já prontos; 07/10 e 08/10 estão com o chat)
