@@ -1,0 +1,371 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<title>Leadimob · Carrossel 07/10 · 4 perguntas que separam curioso de comprador</title>
+<style>
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:IN;color:#fff;-webkit-font-smoothing:antialiased}
+#strip{position:relative;width:10800px;height:1350px;background:#0A0E14;overflow:hidden}
+.abs{position:absolute}
+.bg{position:absolute;inset:0;background-image:radial-gradient(rgba(125,211,252,.11) 1.8px,transparent 2.4px);background-size:46px 46px}
+.glow{position:absolute;border-radius:50%;pointer-events:none}
+.vig{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.0) 70%,rgba(6,9,14,.75) 100%)}
+
+/* ---------- slide frame ---------- */
+.sl{position:absolute;top:0;width:1080px;height:1350px;padding:96px 84px 410px;display:flex;flex-direction:column;justify-content:center;z-index:5}
+.sl.lo{padding-bottom:372px}
+.sl>*{flex:none}
+.kick{font:700 30px/1 IN;letter-spacing:.16em;text-transform:uppercase;color:#7DD3FC}
+.h1{font:900 170px/0.93 IN;letter-spacing:-.058em}
+.h2{font:800 76px/1.03 IN;letter-spacing:-.04em}
+.p{font:500 38px/1.38 IN;color:#C9D2E0}
+.hl{color:#7DD3FC}
+.am{color:#FBBF24}
+.ghost{position:absolute;font:900 520px/1 IN;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(125,211,252,.13);right:30px;top:30px;z-index:-1}
+.foot{position:absolute;left:84px;right:84px;bottom:54px;display:flex;justify-content:space-between;align-items:center;font:600 30px/1 IN;color:#5B6678;letter-spacing:.06em}
+.ttl{display:flex;align-items:center;gap:22px;margin-bottom:30px;flex:none}
+.num{font:800 30px/1 IN;color:#06202A;background:linear-gradient(160deg,#67E8F9,#22D3EE);width:66px;height:66px;border-radius:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(34,211,238,.10),0 10px 34px rgba(34,211,238,.35);flex:none}
+.num.amb{background:linear-gradient(160deg,#FCD34D,#F59E0B);color:#2A1802;box-shadow:0 0 0 6px rgba(245,158,11,.10),0 10px 34px rgba(245,158,11,.30)}
+.card{position:relative;background:linear-gradient(180deg,rgba(24,33,48,.97),rgba(13,19,29,.97));border:1px solid rgba(125,211,252,.18);border-radius:32px;box-shadow:0 50px 100px rgba(0,0,0,.55),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07)}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:15px 24px;border-radius:999px;font:700 30px/1 IN;white-space:nowrap}
+.amb{background:rgba(245,158,11,.12);border:2px solid rgba(245,158,11,.7);color:#FBBF24}
+.cy{background:rgba(34,211,238,.10);border:2px solid rgba(34,211,238,.55);color:#A5F3FC}
+.gr{background:rgba(52,211,153,.12);border:2px solid rgba(52,211,153,.7);color:#6EE7B7}
+.nt{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14);color:#C9D2E0}
+
+/* ---------- WhatsApp ---------- */
+.wa{background:#0B141A;border:1px solid rgba(255,255,255,.08);border-radius:34px;box-shadow:0 50px 100px rgba(0,0,0,.6),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);position:relative;overflow:hidden}
+.wa::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1.5px,transparent 2px);background-size:28px 28px}
+.wa>*{position:relative}
+.bub{position:relative;border-radius:24px;padding:20px 26px 14px;font:500 38px/1.3 IN;color:#E9EDEF;width:fit-content;max-width:100%;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.bin{background:#202C33;border-top-left-radius:6px}
+.bout{background:#005C4B;border-top-right-radius:6px;margin-left:auto}
+.bt{display:flex;justify-content:flex-end;align-items:center;gap:8px;font:500 30px/1 IN;color:rgba(233,237,239,.62);margin-top:8px}
+.tk{width:34px;height:22px}
+.strike{text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:#F59E0B}
+.lab{font:700 30px/1 IN;letter-spacing:.14em;text-transform:uppercase;color:#7C8799;display:flex;align-items:center;gap:12px}
+
+/* ---------- 07/10: termômetro do lead (elemento contínuo) + artefatos ---------- */
+.gn{color:#34D399}
+.sl .ghost{right:72px;font-size:400px;top:40px}
+.feat{display:flex;gap:22px;align-items:flex-start}
+.feat .ic{width:60px;height:60px;border-radius:18px;background:rgba(34,211,238,.10);border:1.5px solid rgba(34,211,238,.45);display:flex;align-items:center;justify-content:center;flex:none;position:relative;z-index:1}
+.feat .tx{font:500 38px/1.3 IN;color:#E2E8F0;padding-top:4px}
+.feat .tx b{font-weight:700;color:#fff}
+.zn{position:absolute;left:84px;right:84px}
+.frow{position:absolute;left:84px;right:84px;height:54px;border-radius:15px;display:flex;align-items:center;gap:14px;padding:0 20px 0 14px;background:rgba(13,19,29,.86);border:1.5px solid rgba(255,255,255,.10)}
+.frow .k{font:700 30px/1 IN;letter-spacing:.12em;text-transform:uppercase;color:#7C8799}
+.frow .v{margin-left:auto;font:600 30px/1 IN;color:#C9D2E0;white-space:nowrap}
+.frow .ck{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center;flex:none}
+.frow.new{background:linear-gradient(90deg,rgba(52,211,153,.20),rgba(13,19,29,.90) 70%);border-color:rgba(52,211,153,.75);box-shadow:0 0 0 5px rgba(52,211,153,.07),0 14px 34px rgba(0,0,0,.5)}
+.frow.new .k{color:#6EE7B7}.frow.new .v{color:#fff;font-weight:700}.frow.new .ck{background:#34D399}
+.lvl{position:absolute;right:84px;height:58px;padding:0 22px 0 16px;border-radius:999px;display:flex;align-items:center;gap:12px;font:700 30px/1 IN;white-space:nowrap;background:#0B1119;box-shadow:0 12px 30px rgba(0,0,0,.55)}
+.lvl i{width:14px;height:14px;border-radius:50%;flex:none}
+.scl{position:absolute;font:700 30px/1 IN;letter-spacing:.14em;text-transform:uppercase}
+.nd{position:absolute;width:54px;height:54px;border-radius:50%;background:#0B1119;border:2.5px solid rgba(125,211,252,.75);color:#A5F3FC;font:800 30px/1 IN;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.5)}
+.how{background:#0B141A;border:1px solid rgba(255,255,255,.08);border-radius:34px;box-shadow:0 50px 100px rgba(0,0,0,.6),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);padding:24px 26px 26px;position:relative;overflow:hidden}
+.how::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1.5px,transparent 2px);background-size:28px 28px}
+.how>*{position:relative}
+.qr{flex:1;height:74px;border-radius:18px;background:#111B21;border:1.5px solid rgba(255,255,255,.10);color:#8FA1AE;font:600 32px/1 IN;display:flex;align-items:center;justify-content:center;gap:10px}
+.qr.on{background:rgba(52,211,153,.13);border:2px solid #34D399;color:#fff;font-weight:700;box-shadow:0 0 34px rgba(52,211,153,.22)}
+.ib{display:flex;align-items:center;gap:22px;padding:22px 26px}
+.ib+.ib{border-top:1px solid rgba(255,255,255,.07)}
+.av{width:84px;height:84px;border-radius:50%;background:linear-gradient(160deg,#3B5672,#22364B);display:flex;align-items:center;justify-content:center;flex:none}
+.rd{display:flex;align-items:center;gap:24px;padding:22px 26px}
+.rd+.rd{border-top:1px solid rgba(255,255,255,.07)}
+.rd .t{width:206px;flex:none;display:flex}
+.rd b{display:block;font:700 36px/1.1 IN;letter-spacing:-.015em;color:#fff}
+.rd span.d{display:block;font:500 32px/1.2 IN;color:#9AA7B8;margin-top:8px}
+.tile{flex:1;height:150px;border-radius:24px;padding:0 20px;display:flex;flex-direction:column;justify-content:center;gap:12px;background:linear-gradient(180deg,rgba(24,33,48,.97),rgba(13,19,29,.97));border:1px solid rgba(52,211,153,.30);box-shadow:0 26px 54px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.07)}
+.tile .n{font:800 30px/1 IN;color:#6EE7B7;letter-spacing:.06em}
+.tile .x{font:700 32px/1.12 IN;letter-spacing:-.015em;color:#fff}
+</style></head><body><div id="strip">
+<div class="bg"></div>
+<div class="glow" style="left:-380px;top:-460px;width:1500px;height:1500px;background:radial-gradient(circle,rgba(37,99,235,.30),transparent 62%)"></div>
+<div class="glow" style="left:1000px;top:-300px;width:1300px;height:1200px;background:radial-gradient(circle,rgba(245,158,11,.06),transparent 62%)"></div>
+<div class="glow" style="left:2500px;top:-600px;width:1500px;height:1500px;background:radial-gradient(circle,rgba(34,211,238,.09),transparent 62%)"></div>
+<div class="glow" style="left:4100px;top:-640px;width:1700px;height:1600px;background:radial-gradient(circle,rgba(37,99,235,.15),transparent 62%)"></div>
+<div class="glow" style="left:5500px;top:300px;width:1900px;height:1500px;background:radial-gradient(circle,rgba(52,211,153,.10),transparent 60%)"></div>
+<div class="glow" style="left:7300px;top:-700px;width:1600px;height:1600px;background:radial-gradient(circle,rgba(34,211,238,.07),transparent 60%)"></div>
+<div class="glow" style="left:8500px;top:-560px;width:1900px;height:1800px;background:radial-gradient(circle,rgba(37,99,235,.26),transparent 62%)"></div>
+<div class="glow" style="left:9700px;top:520px;width:1500px;height:1300px;background:radial-gradient(circle,rgba(52,211,153,.10),transparent 60%)"></div>
+<div class="vig"></div>
+
+<!-- elemento contínuo: o termômetro do lead. O nível sobe um degrau a cada pergunta respondida (frio → quente) -->
+<svg id="lane" class="abs" width="10800" height="1350" style="left:0;top:0;z-index:1"></svg>
+
+<!-- 1 CAPA -->
+<div class="sl" style="left:0;justify-content:flex-start;padding-top:100px">
+ <div style="display:flex;justify-content:space-between;align-items:center">
+  <div class="ttl" style="margin:0"><div class="num"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.5" stroke-linecap="round"><path d="M10 4.500a2 2 0 014 0v9a4.200 4.200 0 11-4 0z" stroke-linejoin="round"/><path d="M12 9v7"/></svg></div><div class="kick">Método</div></div>
+  <span class="chip cy"><svg width="24" height="28" viewBox="0 0 20 24"><path d="M3 2h14v20l-7-5.500L3 22z" fill="#A5F3FC"/></svg>Salve este post</span>
+ </div>
+ <div class="h1" style="margin-top:36px;font-size:142px">4 perguntas<br>que separam<br><span style="color:transparent;-webkit-text-stroke:3px #8794A8">curioso</span> de<br><span class="gn">comprador.</span></div>
+ <div class="p" style="margin-top:26px;font-size:40px;color:#E2E8F0">O que perguntar no WhatsApp. E como<br>perguntar sem parecer interrogatório.</div>
+ <div class="scl" style="left:162px;top:937px;color:#6EE7B7">Quente</div>
+ <div class="scl" style="left:162px;top:1057px;color:#7DD3FC">Morno</div>
+ <div class="scl" style="left:162px;top:1140px;color:#8FA3BF">Frio</div>
+ <div class="nd" style="left:489px;top:1105px">1</div>
+ <div class="nd" style="left:645px;top:1045px">2</div>
+ <div class="nd" style="left:801px;top:985px;border-color:rgba(45,212,191,.8);color:#99F6E4">3</div>
+ <div class="nd" style="left:936px;top:925px;border-color:#34D399;color:#06241A;background:#34D399;box-shadow:0 0 0 7px rgba(52,211,153,.14),0 0 40px rgba(52,211,153,.5)">4</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span style="color:#7DD3FC">ARRASTE →</span></div>
+</div>
+
+<!-- 2 PROBLEMA -->
+<div class="sl" style="left:1080px;padding-bottom:236px">
+ <div class="ttl"><div class="num amb">!</div><div class="kick" style="color:#FBBF24">O problema</div></div>
+ <div class="h2" style="font-size:80px">Na primeira mensagem,<br>curioso e comprador<br><span class="am">escrevem igual.</span></div>
+ <div class="wa" style="margin-top:38px">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 26px;background:#1F2C34;border-bottom:1px solid rgba(255,255,255,.06)"><span style="font:700 38px/1 IN;color:#E9EDEF;letter-spacing:-.01em">Conversas</span><span class="chip" style="padding:11px 20px;background:rgba(37,211,102,.14);color:#7BE3A4;font-weight:600">Não lidas · 2</span></div>
+  <div class="ib"><div class="av"><svg width="52" height="52" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4.200" fill="#C9D6E2"/><path d="M3.500 21c1-4.600 4.600-6.500 8.500-6.500s7.500 1.900 8.500 6.500z" fill="#C9D6E2"/></svg></div>
+   <div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:600 36px/1 IN;color:#E9EDEF">Lead do anúncio</span><span style="font:500 30px/1 IN;color:#25D366">21:04</span></div>
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font:500 34px/1.1 IN;color:#AEBAC1">Oi, ainda está disponível?</span><span style="width:46px;height:46px;border-radius:50%;background:#25D366;color:#06241A;font:800 30px/1 IN;display:flex;align-items:center;justify-content:center;flex:none">1</span></div></div></div>
+  <div class="ib"><div class="av"><svg width="52" height="52" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4.200" fill="#C9D6E2"/><path d="M3.500 21c1-4.600 4.600-6.500 8.500-6.500s7.500 1.900 8.500 6.500z" fill="#C9D6E2"/></svg></div>
+   <div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:600 36px/1 IN;color:#E9EDEF">Lead do anúncio</span><span style="font:500 30px/1 IN;color:#25D366">21:07</span></div>
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font:500 34px/1.1 IN;color:#AEBAC1">Oi, ainda está disponível?</span><span style="width:46px;height:46px;border-radius:50%;background:#25D366;color:#06241A;font:800 30px/1 IN;display:flex;align-items:center;justify-content:center;flex:none">1</span></div></div></div>
+ </div>
+ <div class="p" style="margin-top:34px;font-size:40px">Qual dos dois vai comprar?<br><b style="color:#fff;font-weight:700">Quatro respostas</b> mostram.</div>
+ <div class="lvl" style="top:1167px;border:2px solid rgba(143,163,191,.55);color:#B6C4D8"><i style="background:#8FA3BF"></i>0 de 4 · frio</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>2/10</span></div>
+</div>
+
+<!-- 3 PERGUNTA 1 -->
+<div class="sl" style="left:2160px;padding-bottom:300px"><div class="ghost">01</div>
+ <div class="ttl"><div class="num">01</div><div class="kick">Pergunta 1 · intenção</div></div>
+ <div class="h2" style="font-size:104px;line-height:1">Compra,<br>investimento<br>ou <span class="hl">locação</span>?</div>
+ <div class="p" style="margin-top:26px"><b style="color:#fff;font-weight:700">Comprador</b> sabe para que quer o imóvel. <b style="color:#fff;font-weight:700">Curioso</b> ainda não pensou nisso.</div>
+ <div class="how" style="margin-top:34px">
+  <div class="lab">Como perguntar</div>
+  <div class="bub bout" style="margin-top:18px">Me conta: é para morar, investir ou alugar?<div class="bt">10:02 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  <div style="display:flex;gap:12px;margin-top:16px"><div class="qr on"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M4 12.500l5 5L20 6.500" stroke="#34D399" stroke-width="3.200" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Morar</div><div class="qr">Investir</div><div class="qr">Alugar</div></div>
+ </div>
+ <div id="z3"></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>3/10</span></div>
+</div>
+
+<!-- 4 PERGUNTA 2 -->
+<div class="sl" style="left:3240px;padding-bottom:360px"><div class="ghost">02</div>
+ <div class="ttl"><div class="num">02</div><div class="kick">Pergunta 2 · região</div></div>
+ <div class="h2" style="font-size:118px;line-height:1">Qual <span class="hl">região</span>?</div>
+ <div class="p" style="margin-top:22px"><b style="color:#fff;font-weight:700">Comprador</b> cita bairro, trabalho, escola. <b style="color:#fff;font-weight:700">Curioso</b> responde “qualquer lugar”.</div>
+ <div class="how" style="margin-top:30px">
+  <div class="lab">Como perguntar</div>
+  <div class="bub bout" style="margin-top:18px">Tem algum bairro em mente? Ou um lugar de que precisa ficar perto?<div class="bt">10:03 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  <div id="map" style="position:relative;margin-top:16px;height:124px;border-radius:20px;overflow:hidden;border:1.5px solid rgba(255,255,255,.10);background:#0E1622"></div>
+ </div>
+ <div id="z4"></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>4/10</span></div>
+</div>
+
+<!-- 5 PERGUNTA 3 -->
+<div class="sl" style="left:4320px;padding-bottom:420px"><div class="ghost">03</div>
+ <div class="ttl"><div class="num">03</div><div class="kick">Pergunta 3 · valor</div></div>
+ <div class="h2" style="font-size:118px;line-height:1">Até <span class="hl">quanto</span>?</div>
+ <div class="p" style="margin-top:22px"><b style="color:#fff;font-weight:700">Comprador</b> já fez a conta e tem um teto. <b style="color:#fff;font-weight:700">Curioso</b> ainda não tem número.</div>
+ <div class="how" style="margin-top:30px">
+  <div class="lab">Como perguntar</div>
+  <div class="bub bout" style="margin-top:18px">Para eu não te mandar nada fora do que faz sentido: até que valor você pensa?<div class="bt">10:05 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  <div style="position:relative;margin-top:16px;height:112px;border-radius:20px;border:1.5px solid rgba(255,255,255,.10);background:#111B21">
+   <div style="position:absolute;left:30px;right:30px;top:76px;height:12px;border-radius:6px;background:rgba(255,255,255,.10)"></div>
+   <div style="position:absolute;left:30px;width:494px;top:76px;height:12px;border-radius:6px;background:linear-gradient(90deg,rgba(52,211,153,.25),#34D399)"></div>
+   <div style="position:absolute;left:502px;top:60px;width:44px;height:44px;border-radius:50%;background:#fff;border:6px solid #34D399;box-shadow:0 0 0 7px rgba(52,211,153,.16),0 8px 20px rgba(0,0,0,.5)"></div>
+   <div style="position:absolute;left:30px;top:16px;font:600 30px/1 IN;color:#8FA1AE">Teto</div>
+   <div style="position:absolute;left:384px;top:8px;height:46px;padding:0 18px;border-radius:14px;background:rgba(52,211,153,.14);border:2px solid #34D399;color:#fff;font:700 30px/42px IN;white-space:nowrap">até R$ 600 mil</div>
+  </div>
+ </div>
+ <div id="z5"></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>5/10</span></div>
+</div>
+
+<!-- 6 PERGUNTA 4 -->
+<div class="sl" style="left:5400px;padding-bottom:478px;padding-top:84px"><div class="ghost">04</div>
+ <div class="ttl" style="margin-bottom:24px"><div class="num">04</div><div class="kick">Pergunta 4 · prazo</div></div>
+ <div class="h2" style="font-size:112px;line-height:1">Para <span class="hl">quando</span>?</div>
+ <div class="p" style="margin-top:20px"><b style="color:#fff;font-weight:700">Comprador</b> tem data ou motivo. <b style="color:#fff;font-weight:700">Curioso</b> responde “um dia”.</div>
+ <div class="how" style="margin-top:28px;padding-top:22px;padding-bottom:22px">
+  <div class="lab">Como perguntar</div>
+  <div class="bub bout" style="margin-top:16px">Você pensa em mudar ainda este ano, ou está pesquisando com calma?<div class="bt">10:06 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  <div style="position:relative;margin-top:14px;height:108px;border-radius:20px;border:1.5px solid rgba(255,255,255,.10);background:#111B21">
+   <div style="position:absolute;left:110px;right:110px;top:34px;height:4px;border-radius:2px;background:rgba(255,255,255,.14)"></div>
+   <div style="position:absolute;left:110px;width:320px;top:34px;height:4px;border-radius:2px;background:#34D399"></div>
+   <div style="position:absolute;left:98px;top:22px;width:28px;height:28px;border-radius:50%;background:#34D399"></div>
+   <div style="position:absolute;left:410px;top:14px;width:44px;height:44px;border-radius:50%;background:#fff;border:6px solid #34D399;box-shadow:0 0 0 7px rgba(52,211,153,.16)"></div>
+   <div style="position:absolute;right:98px;top:22px;width:28px;height:28px;border-radius:50%;background:#111B21;border:3px solid #5B6678"></div>
+   <div style="position:absolute;left:12px;width:200px;top:66px;text-align:center;font:600 30px/1 IN;color:#8FA1AE">Agora</div>
+   <div style="position:absolute;left:312px;width:240px;top:66px;text-align:center;font:700 30px/1 IN;color:#6EE7B7">Este ano</div>
+   <div style="position:absolute;right:12px;width:200px;top:66px;text-align:center;font:600 30px/1 IN;color:#8FA1AE">Sem data</div>
+  </div>
+ </div>
+ <div id="z6"></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>6/10</span></div>
+</div>
+
+<!-- 7 COMO LER -->
+<div class="sl" style="left:6480px;padding-bottom:470px">
+ <div class="ttl"><div class="num"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.5" stroke-linecap="round"><path d="M4 16a8 8 0 0116 0"/><path d="M12 16l4-6"/></svg></div><div class="kick">Como ler as respostas</div></div>
+ <div class="h2" style="font-size:84px">Quatro respostas claras? <span class="gn">É comprador.</span></div>
+ <div class="card" style="margin-top:36px;padding:6px 0">
+  <div class="rd"><div class="t"><span class="chip gr" style="padding:13px 20px"><svg width="14" height="14"><circle cx="7" cy="7" r="7" fill="#34D399"/></svg>Quente</span></div><div><b>Respondeu as quatro</b><span class="d">Proponha dia e horário de visita.</span></div></div>
+  <div class="rd"><div class="t"><span class="chip cy" style="padding:13px 20px"><svg width="14" height="14"><circle cx="7" cy="7" r="7" fill="#22D3EE"/></svg>Morno</span></div><div><b>Respondeu só uma parte</b><span class="d">Retome com uma opção que combine.</span></div></div>
+  <div class="rd"><div class="t"><span class="chip nt" style="padding:13px 20px"><svg width="14" height="14"><circle cx="7" cy="7" r="7" fill="#8FA3BF"/></svg>Frio</span></div><div><b>Respostas vagas</b><span class="d">Mantenha no follow-up. Não descarte.</span></div></div>
+ </div>
+ <div class="zn" style="top:1012px;font:900 142px/1 IN;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2.5px rgba(52,211,153,.6);text-shadow:0 0 60px rgba(52,211,153,.18)">comprador</div>
+ <div class="lvl" style="top:923px;border:2px solid #34D399;color:#6EE7B7"><i style="background:#34D399;box-shadow:0 0 14px #34D399"></i>Quente</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>7/10</span></div>
+</div>
+
+<!-- 8 COPIE E COLE -->
+<div class="sl" style="left:7560px;padding-bottom:470px">
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.400" stroke-linejoin="round"><rect x="8" y="8" width="12" height="13" rx="2.500"/><path d="M16 5V4.500A1.500 1.500 0 0014.500 3h-9A1.500 1.500 0 004 4.500v11A1.500 1.500 0 005.500 17H6" stroke-linecap="round"/></svg></div><div class="kick">Copie e cole</div></div>
+ <div class="h2" style="font-size:92px">A mensagem <span class="hl">pronta</span>.</div>
+ <div class="wa" style="margin-top:34px">
+  <div style="display:flex;align-items:center;gap:20px;padding:18px 26px;background:#1F2C34;border-bottom:1px solid rgba(255,255,255,.06)">
+   <svg width="26" height="30" viewBox="0 0 20 24"><path d="M14 3L5 12l9 9" stroke="#AEBAC1" stroke-width="2.600" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(160deg,#3B5672,#22364B);display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4.200" fill="#C9D6E2"/><path d="M3.500 21c1-4.600 4.600-6.500 8.500-6.500s7.500 1.900 8.500 6.500z" fill="#C9D6E2"/></svg></div>
+   <div><div style="font:600 34px/1 IN;color:#E9EDEF">Lead do anúncio</div><div style="font:500 30px/1 IN;color:#8696A0;margin-top:8px">online</div></div>
+   <span class="chip cy" style="margin-left:auto;padding:12px 20px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A5F3FC" stroke-width="2.400" stroke-linejoin="round"><rect x="8" y="8" width="12" height="13" rx="2.500"/><path d="M16 5V4.500A1.500 1.500 0 0014.500 3h-9A1.500 1.500 0 004 4.500v11A1.500 1.500 0 005.500 17H6" stroke-linecap="round"/></svg>Copiar</span>
+  </div>
+  <div style="padding:24px 26px 26px">
+   <div class="bub bout" style="font-size:40px;line-height:1.32;padding:22px 30px 16px;max-width:830px;box-shadow:0 0 0 2px rgba(52,211,153,.5),0 0 60px rgba(52,211,153,.2)">Oi! Para eu te mandar só <b style="font-weight:700;color:#fff">imóvel que faz sentido para você</b>, posso fazer <b style="font-weight:700;color:#fff">4 perguntas rápidas</b>? A primeira: é para morar, investir ou alugar?
+    <div class="bt">09:15 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   </div>
+  </div>
+ </div>
+ <div class="zn lab" style="top:1000px;color:#6EE7B7">Para não virar interrogatório</div>
+ <div class="zn" style="top:1050px;display:flex;gap:14px">
+  <div class="tile"><div class="n">1</div><div class="x">Uma pergunta por vez</div></div>
+  <div class="tile"><div class="n">2</div><div class="x">Diga o porquê da pergunta</div></div>
+  <div class="tile"><div class="n">3</div><div class="x">Comece pela mais fácil</div></div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>8/10</span></div>
+</div>
+
+<!-- 9 LEADIMOB -->
+<div class="sl" style="left:8640px;padding-bottom:470px">
+ <div class="ttl"><div class="num"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.600 9 8.200S17 19.500 12 19.500c-1 0-2-.15-2.900-.42L4.500 21l1.200-3.900C4 15.600 3 13.500 3 11.200 3 6.600 7 3 12 3z" fill="#06202A"/></svg></div><div class="kick">Onde a Leadimob entra</div></div>
+ <div class="h2" style="font-size:88px;line-height:1.02">A Leadimob faz as 4 perguntas <span class="hl">por você</span>.</div>
+ <div style="margin-top:38px;display:flex;flex-direction:column;gap:20px">
+  <div class="feat"><div class="ic" style="background:#0E1D27"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.600 9 8.200S17 19.500 12 19.500c-1 0-2-.15-2.900-.42L4.500 21l1.200-3.900C4 15.600 3 13.500 3 11.200 3 6.600 7 3 12 3z" fill="none" stroke="#7DD3FC" stroke-width="2.200" stroke-linejoin="round"/></svg></div><div class="tx">Pergunta no <b>seu WhatsApp</b>, a qualquer hora.</div></div>
+  <div class="feat"><div class="ic" style="background:#0E1D27"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2.300" stroke-linecap="round"><path d="M10 4.500a2 2 0 014 0v9a4.200 4.200 0 11-4 0z" stroke-linejoin="round"/><path d="M12 9v7"/></svg></div><div class="tx">Classifica em <b>quente, morno ou frio</b>.</div></div>
+  <div class="feat"><div class="ic" style="background:#0E221D;border-color:rgba(52,211,153,.6)"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M4 12.500l5 5L20 6.500" stroke="#34D399" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tx">Atualiza o funil e <b>chama o corretor</b>.</div></div>
+ </div>
+ <div style="margin-top:34px"><span class="chip cy">Solicite uma demonstração · link na bio</span></div>
+ <div class="zn card" style="top:996px;padding:20px 26px 22px;border-color:rgba(52,211,153,.38)">
+  <div style="display:flex;align-items:center;justify-content:space-between"><div class="lab">Resumo do lead</div><span class="chip gr" style="padding:10px 18px"><svg width="14" height="14"><circle cx="7" cy="7" r="7" fill="#34D399"/></svg>Quente</span></div>
+  <div style="margin-top:14px;font:500 34px/1.32 IN;color:#C9D2E0">Quer <b style="color:#fff;font-weight:700">comprar para morar</b> na <b style="color:#fff;font-weight:700">Zona Sul</b>, <span style="white-space:nowrap">até <b style="color:#fff;font-weight:700">R$ 600 mil</b>,</span> <b style="color:#fff;font-weight:700;white-space:nowrap">ainda este ano</b>.</div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>9/10</span></div>
+</div>
+
+<!-- 10 CTA -->
+<div class="sl" style="left:9720px;padding-bottom:470px">
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="kick">Faça o diagnóstico</div></div>
+ <div class="h2" style="font-size:92px;line-height:1.02">Quer achar onde seus leads <span class="hl">esfriam</span>?</div>
+ <div style="margin-top:44px;display:flex;gap:34px;align-items:center">
+  <div style="width:206px;height:262px;flex:none;border-radius:20px;background:linear-gradient(170deg,#F7FAFD,#DCE6F0);box-shadow:0 40px 70px rgba(0,0,0,.6),-14px 14px 0 -4px rgba(125,211,252,.16);transform:perspective(900px) rotateY(16deg) rotateZ(-4deg);padding:26px 22px;display:flex;flex-direction:column;gap:15px">
+   <div style="height:16px;width:74%;border-radius:8px;background:#0B5C73;flex:none"></div>
+   <div style="height:10px;width:48%;border-radius:8px;background:#9FB3C4;margin-bottom:6px;flex:none"></div>
+   <div class="ckl"></div><div class="ckl"></div><div class="ckl"></div><div class="ckl"></div><div class="ckl"></div>
+  </div>
+  <div>
+   <div class="p" style="font-size:38px">Receba no direct o checklist</div>
+   <div style="font:800 56px/1.08 IN;letter-spacing:-.03em;margin-top:10px">Onde seus leads estão morrendo</div>
+   <div style="margin-top:28px;display:flex;align-items:center;gap:22px">
+    <div style="width:300px;height:96px;border-radius:22px;background:#F3F7FB;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 44px rgba(0,0,0,.5)"><img src="logo.png" style="width:240px"></div>
+    <div style="font:700 34px/1 IN;color:#7DD3FC">@leadimob.ai</div>
+   </div>
+  </div>
+ </div>
+ <div class="zn" style="top:1040px;height:132px;border-radius:66px;background:#141B28;border:2px solid rgba(125,211,252,.45);box-shadow:0 0 0 8px rgba(34,211,238,.06),0 30px 70px rgba(0,0,0,.55),0 0 60px rgba(34,211,238,.14);display:flex;align-items:center;padding:0 22px 0 40px;gap:16px;font:600 44px IN">
+  <span style="color:#7C8799">Comente</span><span style="font-weight:900;letter-spacing:.02em">DIAGNÓSTICO</span><span style="width:4px;height:52px;background:#22D3EE;border-radius:2px"></span>
+  <span style="margin-left:auto;width:92px;height:92px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,99,235,.55)"><svg width="42" height="42" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>10/10</span></div>
+</div>
+</div>
+<style>
+.ckl{display:flex;align-items:center;gap:12px;height:22px;flex:none}
+.ckl::before{content:"";width:22px;height:22px;border-radius:6px;background:#34D399;flex:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M5 12.500l4.500 4.500L19 7' stroke='white' stroke-width='3.600' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>")}
+.ckl::after{content:"";height:10px;flex:1;border-radius:8px;background:#B7C6D4}
+</style>
+<script>
+/* ---------- helpers ---------- */
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const sm=(a,b,x)=>{const t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t)};
+const lerp=(a,b,t)=>a+(b-a)*t;
+
+/* ---------- o termômetro: nível sobe um degrau a cada pergunta respondida ---------- */
+const LV=[1196,1132,1072,1012,952];            // frio · 1 de 4 · morno · 3 de 4 · quente
+const SEAM=[2160,3240,4320,5400];              // o degrau acontece na virada para cada slide de pergunta
+function level(x){let y=LV[0];SEAM.forEach((s,i)=>{y+=(LV[i+1]-LV[i])*sm(s-96,s+84,x)});return y}
+// prévia tracejada na capa: os 4 degraus que o carrossel vai percorrer
+function stair(x){let y=LV[0];[420,580,738,880].forEach((s,i)=>{y+=(LV[i+1]-LV[i])*sm(s-50,s+50,x)});return y}
+(function drawLane(){
+  const X0=140;let top='',bot='';
+  for(let x=X0;x<=10840;x+=12){top+=`${x===X0?'M':'L'}${x} ${level(x).toFixed(1)} `}
+  const area=`M-20 ${LV[0]} L${X0} ${LV[0]} ${top.replace(/^M/,'L')}L10840 1350 L-20 1350 Z`;
+  let ticks='';for(let x=192,i=0;x<10800;x+=30,i++){const big=i%5===0,y=level(x)+7;ticks+=`<rect x="${x-1.5}" y="${y.toFixed(1)}" width="3" height="${big?18:9}" rx="1.5" opacity="${big?.5:.26}"/>`}
+  let pre='';for(let x=330;x<=962;x+=6){pre+=`${x===330?'M':'L'}${x} ${stair(x).toFixed(1)} `}
+  // cometas de luz nas viradas em que o nível não muda
+  let pulses='';[1080,6480,7560,8640,9720].forEach(x=>{const y=level(x);pulses+=`<rect x="${x-150}" y="${y-5}" width="300" height="10" rx="5" fill="url(#pu)" filter="url(#gl2)" opacity=".8"/><rect x="${x-110}" y="${y-2.5}" width="220" height="5" rx="2.5" fill="url(#pu)"/>`});
+  const TX=110;
+  document.getElementById('lane').innerHTML=`
+  <defs>
+   <linearGradient id="le" gradientUnits="userSpaceOnUse" x1="0" x2="10800"><stop offset="0" stop-color="#8FA3BF"/><stop offset=".19" stop-color="#8FA3BF"/><stop offset=".225" stop-color="#7DD3FC"/><stop offset=".31" stop-color="#22D3EE"/><stop offset=".41" stop-color="#22D3EE"/><stop offset=".515" stop-color="#34D399"/><stop offset="1" stop-color="#34D399"/></linearGradient>
+   <linearGradient id="fade" gradientUnits="userSpaceOnUse" x1="0" y1="940" x2="0" y2="1350"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".55" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity=".12"/></linearGradient>
+   <mask id="mk" maskUnits="userSpaceOnUse" x="0" y="0" width="10800" height="1350"><rect width="10800" height="1350" fill="url(#fade)"/></mask>
+   <linearGradient id="pu" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".7" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff"/></linearGradient>
+   <linearGradient id="pv" gradientUnits="userSpaceOnUse" x1="330" x2="962"><stop offset="0" stop-color="#8FA3BF"/><stop offset=".5" stop-color="#22D3EE"/><stop offset="1" stop-color="#34D399"/></linearGradient>
+   <linearGradient id="tb" gradientUnits="userSpaceOnUse" x1="0" y1="946" x2="0" y2="1196"><stop offset="0" stop-color="#34D399"/><stop offset=".5" stop-color="#22D3EE"/><stop offset="1" stop-color="#8FA3BF"/></linearGradient>
+   <radialGradient id="bulb" cx=".38" cy=".34" r=".8"><stop offset="0" stop-color="#DCE6F4"/><stop offset=".55" stop-color="#8FA3BF"/><stop offset="1" stop-color="#4E6283"/></radialGradient>
+   <filter id="gl" x="-5%" y="-200%" width="110%" height="500%"><feGaussianBlur stdDeviation="9"/></filter>
+   <filter id="gl2" x="-20%" y="-400%" width="140%" height="900%"><feGaussianBlur stdDeviation="7"/></filter>
+   <filter id="gl3" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="16"/></filter>
+  </defs>
+  <path d="${area}" fill="url(#le)" opacity=".17" mask="url(#mk)"/>
+  <g fill="url(#le)">${ticks}</g>
+  <path d="${top}" fill="none" stroke="url(#le)" stroke-width="12" filter="url(#gl)" opacity=".5"/>
+  <path d="${top}" fill="none" stroke="url(#le)" stroke-width="3.5" stroke-linecap="round"/>
+  ${pulses}
+  <path d="${pre}" fill="none" stroke="url(#pv)" stroke-width="3" stroke-dasharray="3 13" stroke-linecap="round" opacity=".85"/>
+  <!-- o termômetro na capa: tubo, escala e bulbo de onde o nível parte -->
+  <circle cx="${TX}" cy="${LV[0]}" r="46" fill="#8FA3BF" opacity=".22" filter="url(#gl3)"/>
+  <rect x="${TX-15}" y="930" width="30" height="${LV[0]-930}" rx="15" fill="#0D1420" stroke="rgba(255,255,255,.30)" stroke-width="2"/>
+  <rect x="${TX-15}" y="930" width="30" height="${LV[0]-930}" rx="15" fill="none" stroke="url(#tb)" stroke-width="2.5" opacity=".7"/>
+  <rect x="${TX-6}" y="1120" width="12" height="${LV[0]-1120}" rx="6" fill="#A9BAD2"/>
+  <circle cx="${TX}" cy="${LV[0]}" r="33" fill="url(#bulb)" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+  ${LV.map((y,i)=>i?`<rect x="${TX+21}" y="${y-1.5}" width="${i%2?12:22}" height="3" rx="1.5" fill="${['','#7DD3FC','#7DD3FC','#2DD4BF','#34D399'][i]}" opacity="${i%2?.55:1}"/>`:'').join('')}`;
+})();
+
+/* ---------- a ficha do lead enche junto com o termômetro (slides 3 a 6) ---------- */
+const FICHA=[['Intenção','Compra para morar'],['Região','Zona Sul'],['Orçamento','Até R$ 600 mil'],['Urgência','Ainda este ano']];
+const PILL=[['1 de 4','#7DD3FC','rgba(125,211,252,.6)','#BAE6FD'],['2 de 4 · morno','#22D3EE','rgba(34,211,238,.65)','#A5F3FC'],['3 de 4','#2DD4BF','rgba(45,212,191,.7)','#99F6E4'],['4 de 4 · quente','#34D399','#34D399','#6EE7B7']];
+const CK=c=>`<svg width="18" height="18" viewBox="0 0 24 24"><path d="M4.500 12.500l5 5L19.500 7" stroke="${c}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+for(let n=1;n<=4;n++){
+  let h='';
+  for(let i=0;i<n;i++){const nw=i===n-1;h+=`<div class="frow ${nw?'new':''}" style="top:${1178-60*i}px"><span class="ck">${CK(nw?'#06241A':'#9AA7B8')}</span><span class="k">${FICHA[i][0]}</span><span class="v">${FICHA[i][1]}</span></div>`}
+  const p=PILL[n-1];
+  h+=`<div class="lvl" style="top:${LV[n]-29}px;border:2px solid ${p[2]};color:${p[3]}"><i style="background:${p[1]};box-shadow:0 0 14px ${p[1]}"></i>${p[0]}</div>`;
+  document.getElementById('z'+(n+2)).outerHTML=h;
+}
+
+/* ---------- slide 4: mapa procedural com a região marcada ---------- */
+(function(){
+  const r=rng(407);let s=`<rect width="860" height="124" fill="#0E1622"/>`;
+  s+=`<path d="M-10 96 C120 70 210 118 330 92 S560 60 700 84 870 58 870 58 L870 134 L-10 134Z" fill="#103540" opacity=".9"/>`;
+  [22,62,104].forEach((y,i)=>{s+=`<rect x="0" y="${y-(i===1?5:3)}" width="860" height="${i===1?10:6}" fill="rgba(255,255,255,${i===1?.17:.11})"/>`});
+  for(let x=40;x<860;x+=62+Math.floor(r()*40)){s+=`<rect x="${x}" y="0" width="${r()<.3?9:5}" height="124" fill="rgba(255,255,255,.11)"/>`}
+  s+=`<path d="M-10 124 L300 -10" stroke="rgba(255,255,255,.16)" stroke-width="10"/>`;
+  for(let i=0;i<26;i++){const x=r()*840,y=[28,68,110][Math.floor(r()*3)]+r()*8;s+=`<rect x="${x.toFixed(0)}" y="${y.toFixed(0)}" width="${(18+r()*30).toFixed(0)}" height="${(10+r()*16).toFixed(0)}" rx="3" fill="rgba(125,211,252,${(.08+r()*.10).toFixed(2)})"/>`}
+  s+=`<circle cx="150" cy="62" r="50" fill="rgba(52,211,153,.16)" stroke="#34D399" stroke-width="2.5" stroke-dasharray="7 7"/>`;
+  s+=`<path d="M150 80c13-16 20-25 20-34a20 20 0 10-40 0c0 9 7 18 20 34z" fill="#34D399" stroke="#06241A" stroke-width="2"/><circle cx="150" cy="45" r="7.500" fill="#06241A"/>`;
+  document.getElementById('map').innerHTML=`<svg width="860" height="124" viewBox="0 0 860 124" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMid slice">${s}</svg><div style="position:absolute;right:16px;top:35px;height:54px;padding:0 20px;border-radius:16px;background:rgba(10,14,20,.92);border:2px solid #34D399;color:#fff;font:700 30px/50px IN;white-space:nowrap">Zona Sul, perto do trabalho</div>`;
+})();
+
+window.ready=document.fonts.ready.then(()=>Promise.all(['400 20px IN','500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)))).then(()=>Promise.all([...document.images].map(i=>i.decode().catch(()=>0)))).then(()=>new Promise(r=>setTimeout(r,300)));
+</script></body></html>

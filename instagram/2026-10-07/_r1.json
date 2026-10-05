@@ -1,0 +1,30 @@
+{
+ "arquivo": "instagram/2026-10-07/r1-cliente-que-sumiu.mp4",
+ "duracao_s": 39.87,
+ "capa_s": 2.0,
+ "legenda": "Sabe aquele cliente que sumiu? Talvez ele nunca tenha sido acompanhado de verdade.\n\nEle perguntou do imóvel, recebeu as fotos e disse que ia pensar. Depois disso, ninguém voltou a falar com ele. Cliente que diz \"vou pensar\" não está dizendo não: está pedindo um próximo passo.\n\nVolte em dois dias com uma pergunta, e não com mais um imóvel. Se ele não responder, tente de novo, com algo novo para mostrar.\n\nA Leadimob faz esse follow-up no seu WhatsApp, no tempo certo, sem depender da memória de ninguém.\n\nComente DIAGNÓSTICO e receba o checklist completo no direct.\n\n#corretordeimoveis #imobiliaria #mercadoimobiliario #followup #vendasdeimoveis",
+ "lufs": -14.0,
+ "pico_dbtp": -1.8,
+ "tecnicas": [
+  "Linha da lista de conversas (Bruno · 'Vou pensar e te aviso.') que se expande, sem corte, até virar a conversa aberta do WhatsApp",
+  "Palavra-chave do gancho ('SUMIU?') acende em ciano e esvazia para contorno, enquanto a linha da conversa escurece: o cliente some na tipografia",
+  "Conversa ancorada embaixo como no WhatsApp real: os separadores de dia (quarta, quinta, sexta) empurram o histórico e ninguém escreve, até a pílula 'Conversa parada'",
+  "Match cut por objeto: a bolha 'Gostei! Vou pensar e te aviso.' sai da conversa e vira o elemento-herói da tese ('está pedindo um próximo passo')",
+  "Calendário de cinco dias com destaque que pula um dia por vez (+1, +2) na palavra 'dois dias'; a pergunta do corretor nasce sob a quinta",
+  "Card 'Mais um imóvel' riscado por uma linha fina na fala 'e não com mais um imóvel' (o que não mandar), sem âmbar nem vermelho",
+  "A bolha da pergunta migra do calendário para a régua de follow-up e vira a segunda marca; a mesma régua ganha a moldura 'Follow-up automático' com chave ligada e marcas que ficam verdes na voz",
+  "Wipe com o símbolo do logo para o CTA; campo de comentário digita DIAGNÓSTICO junto com a palavra falada e o botão de envio confirma em verde",
+  "Viagem lateral única entre os dois blocos (dor -> prática), com o calendário já entrando junto com o plano"
+ ],
+ "ressalvas": [
+  "Peça retomada de outro agente: a crítica independente do corte final (notas por critério e teste de fidelidade ao modelo) NÃO foi feita nesta retomada; sem essas notas a peça não deve receber APROVADO automaticamente",
+  "Áudio conferido só por medição (−14,0 LUFS, −1,8 dBTP) e pelos tempos da timeline; não foi possível ouvir a mixagem nem a pronúncia de 'Lídimob' na voz",
+  "A sincronia legenda/fala vem do word_align (picos de energia); foi conferida em quadros a cada 0,5 s, não ouvindo o vídeo",
+  "Na viagem lateral (~18,2–18,8 s) há cerca de 2 quadros só com o fundo e a linha da jornada, e o motion blur de 4 subquadros aparece como fantasmas em degraus no movimento rápido",
+  "Duração de 39,87 s, no teto da faixa de 30–40 s (narração de 37,6 s + pausas de seção + 1,5 s de fecho)",
+  "No trecho 14,5–15,7 s (fala 'Cliente que diz que vai pensar') o quadro mostra só o kicker e a bolha, com deriva lenta de câmera; não há legenda dessa frase porque a tipografia grande a carrega em seguida",
+  "Textos de interface menores (hora das bolhas, subtítulo do cabeçalho) estão em 28–29 px: acima do mínimo de 28 px para mockup, abaixo dos 36 px do texto essencial",
+  "Dois detalhes em âmbar na peça, em cenas diferentes: pílula 'Sem retorno' no gancho e 'Conversa parada' na conversa",
+  "EVOLUCAO.md e LEGENDAS.md não foram atualizados (fora do escopo desta tarefa)"
+ ]
+}

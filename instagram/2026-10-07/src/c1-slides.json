@@ -1,0 +1,76 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "MÉTODO · SALVE ESTE POST",
+   "titulo": "4 perguntas que separam curioso de comprador.",
+   "sub": "O que perguntar no WhatsApp. E como perguntar sem parecer interrogatório."
+  },
+  {
+   "tipo": "passo",
+   "titulo": "O problema",
+   "corpo": "Na primeira mensagem, curioso e comprador escrevem igual: \"Oi, ainda está disponível?\" Qual dos dois vai comprar? Quatro respostas mostram.",
+   "ghost": "?"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Pergunta 1 · Compra, investimento ou locação?",
+   "corpo": "Comprador sabe para que quer o imóvel. Curioso ainda não pensou nisso. Como perguntar: \"Me conta: é para morar, investir ou alugar?\"",
+   "ghost": "01"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Pergunta 2 · Qual região?",
+   "corpo": "Comprador cita bairro, trabalho, escola. Curioso responde \"qualquer lugar\". Como perguntar: \"Tem algum bairro em mente? Ou um lugar de que precisa ficar perto?\"",
+   "ghost": "02"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Pergunta 3 · Até quanto?",
+   "corpo": "Comprador já fez a conta e tem um teto. Curioso ainda não tem número. Como perguntar: \"Para eu não te mandar nada fora do que faz sentido: até que valor você pensa?\"",
+   "ghost": "03"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "Pergunta 4 · Para quando?",
+   "corpo": "Comprador tem data ou motivo. Curioso responde \"um dia\". Como perguntar: \"Você pensa em mudar ainda este ano, ou está pesquisando com calma?\"",
+   "ghost": "04"
+  },
+  {
+   "tipo": "lista",
+   "titulo": "Quatro respostas claras? É comprador.",
+   "itens": [
+    "Quente · respondeu as quatro: proponha dia e horário de visita.",
+    "Morno · respondeu só uma parte: retome com uma opção que combine.",
+    "Frio · respostas vagas: mantenha no follow-up. Não descarte."
+   ]
+  },
+  {
+   "tipo": "insight",
+   "texto": "Oi! Para eu te mandar só imóvel que faz sentido para você, posso fazer 4 perguntas rápidas? A primeira: é para morar, investir ou alugar?",
+   "fonte": "Copie e cole · uma pergunta por vez, diga o porquê, comece pela mais fácil"
+  },
+  {
+   "tipo": "passo",
+   "titulo": "A Leadimob faz as 4 perguntas por você.",
+   "corpo": "Pergunta no seu WhatsApp, a qualquer hora. Classifica em quente, morno ou frio. Atualiza o funil e chama o corretor. Solicite uma demonstração · link na bio."
+  },
+  {
+   "tipo": "cta",
+   "titulo": "Quer achar onde seus leads esfriam?",
+   "acao": "Comente DIAGNÓSTICO",
+   "sub": "E receba no direct o checklist Onde seus leads estão morrendo."
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "legenda": "O mesmo lead. Dois finais.\n\nA mensagem chega às 21:47: \"Essa casa ainda está disponível?\". O que acontece depois depende de ter processo ou não.\n\n1. Mensagem à noite: fica para amanhã × alguém responde na hora\n2. Primeira resposta: genérica × fala do imóvel que ele viu\n3. Qualificação: manda o catálogo × pergunta antes de oferecer\n4. Imóvel: envia tudo × envia o que combina com o perfil\n5. Visita: \"qualquer coisa, me chama\" × horários propostos e visita agendada\n6. Follow-up: depende da memória × retomada com um motivo novo\n7. Funil: ninguém sabe onde o lead parou × funil atualizado, com resumo\n\nO lead é o mesmo. Muda o processo. A Leadimob faz essas etapas no seu WhatsApp e chama você na hora de negociar.\n\nSalve este post para revisar o seu atendimento etapa por etapa.\n\nSolicite uma demonstração — link na bio.\n\n#imobiliaria #corretordeimoveis #mercadoimobiliario #leadsimobiliarios #gestaoimobiliaria",
+ "notas": {
+  "gancho da capa": 8,
+  "clareza": 8,
+  "continuidade entre slides": 9,
+  "acabamento": 8,
+  "legibilidade no celular": 8,
+  "marca": 9,
+  "sobriedade": 8,
+  "fidelidade ao padrão dos carrosséis aprovados": 8,
+  "estrutura própria": 9
+ },
+ "quem_criticou": "AUTOAVALIAÇÃO de quem produziu. Não houve crítica independente: este agente não tem ferramenta para criar subagente. As notas acima NÃO valem como a crítica independente exigida para criar o APROVADO; a sessão principal precisa rodar a crítica antes de publicar.",
+ "ressalvas": [
+  "Sem crítica independente (ver quem_criticou). Foram 3 rodadas de revisão própria olhando os PNG.",
+  "Slides 2 a 8 usam o mesmo esqueleto (título, bloco sem processo, trilhas, bloco com processo); a variação vem só do artefato de cada bloco. Mais densos que os carrosséis aprovados.",
+  "Texto dentro dos mockups entre 30 e 34px (bolhas 34, horários e campos 30-32): cumpre a regra de 30px, mas fica abaixo dos 38px de apoio dos aprovados.",
+  "Sete pílulas âmbar no total, uma por slide de etapa (detalhe de dor).",
+  "Slide 9: a tabela começa em x=132 (o título em 84) para dar espaço à curva da trilha.",
+  "Horários das conversas (21:47, 21:48, 08:12) são ilustrativos do mockup; nenhum texto afirma tempo de resposta. O chip 'atendimento 24h' segue a funcionalidade 'Resposta 24h' do BRAND-MOTION.",
+  "JPEG para publicação (publicar/prepara_jpg.py) não foram gerados: fora da lista de entrega."
+ ],
+ "tecnicas": [
+  "Elemento contínuo novo: duas trilhas paralelas no meio da faixa (y 716 e 796), nascendo de um garfo na capa a partir da mensagem do lead.",
+  "Trilha de cima (sem processo): gradiente em userSpaceOnUse que perde cor e opacidade ao longo dos 10800px, tracejado que rareia slide a slide, 16 quebras com fragmento caído e fim em anel vazio no slide 8.",
+  "Trilha de baixo (com processo): contínua com glow, ciano até a visita e verde dali em diante, cometas cruzando as emendas, cotovelo no slide 9 e término no cartão do logo no slide 10.",
+  "Estações pareadas por etapa (x em cima, check embaixo) e conteúdo dividido em antes/depois em volta das trilhas; sem faixa vazia entre conteúdo e rodapé.",
+  "Layout por posição absoluta (grade fixa) em vez do flex centralizado do modelo."
+ ],
+ "aprendizados": [
+  "`.wa>*{position:relative}` do modelo anula position:absolute de filhos (pílula de status): precisa de regra própria.",
+  "Hora da bolha com float vaza para fora sem clearfix; em linha flex a bolha precisa de flex:none + nowrap e a soma chip+bolha tem de caber em 860px.",
+  "A foto property.jpg é uma casa: o texto do mockup tem de dizer casa, não apê.",
+  "Título de uma linha a 70px tem limite de ~25 caracteres em 912px.",
+  "A auditoria do shoot.js não pega elemento que estoura o cartão mas fica dentro da margem do slide: conferir os PNG."
+ ]
+}

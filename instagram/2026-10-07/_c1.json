@@ -1,0 +1,39 @@
+{
+ "legenda": "Curioso e comprador mandam a mesma primeira mensagem: \"Oi, ainda está disponível?\"\n\nO que separa os dois são quatro respostas:\n1. Compra, investimento ou locação?\n2. Qual região?\n3. Até quanto?\n4. Para quando?\n\nRespondeu as quatro com clareza: proponha a visita. Respondeu só uma parte: retome com uma opção que combine. Respostas vagas: mantenha no follow-up, não descarte.\n\nPara não virar interrogatório: uma pergunta por vez, diga o porquê e comece pela mais fácil. A mensagem pronta está no slide 8.\n\nSalve este post para usar no próximo atendimento.\n\nComente DIAGNÓSTICO e receba no direct o checklist Onde seus leads estão morrendo.\n\n#corretordeimoveis #imobiliaria #mercadoimobiliario #atendimentoimobiliario #marketingimobiliario",
+ "notas": {
+  "gancho da capa": 8.5,
+  "clareza": 8.5,
+  "continuidade entre slides": 8.5,
+  "acabamento": 8,
+  "legibilidade no celular": 8,
+  "marca": 8.5,
+  "sobriedade": 8.5,
+  "fidelidade ao padrão dos carrosséis aprovados": 8.5,
+  "estrutura própria": 8
+ },
+ "quem_criticou": "Autoavaliação de quem produziu (sem ferramenta de subagentes nesta sessão). NÃO houve crítica independente: estas notas não valem para a regra de aprovação automática; falta rodar o crítico independente sobre a versão final.",
+ "ressalvas": [
+  "Notas são autoavaliação, não crítica independente.",
+  "Os slides 3 a 6 (as quatro perguntas) usam o mesmo esqueleto (pergunta, porquê, cartão 'Como perguntar'); variam o artefato de resposta (botões, mapa, régua de valor, linha de prazo) e a altura do título.",
+  "Slide 6 é o mais apertado: título e cartão ficam mais próximos do topo porque o nível do termômetro está no ponto mais alto.",
+  "Exemplo ilustrativo de resposta do cliente com valor ('Até R$ 600 mil'), no mesmo espírito do carrossel aprovado de 03/10; não é preço da Leadimob nem estatística.",
+  "Textos de interface (linhas da ficha, pílulas, horário das bolhas) estão no mínimo de 30px.",
+  "Nos slides 8 a 10 o nível fica parado em 'quente' (linha reta); a variação vem do que ocupa a faixa abaixo dele.",
+  "O carrossel-editor.html é uma versão simplificada do conteúdo (formato do editor), não reproduz os artefatos do PNG."
+ ],
+ "tecnicas": [
+  "Elemento contínuo novo: termômetro do lead. Bulbo e escala FRIO/MORNO/QUENTE na capa; o nível sai do bulbo, atravessa os 10 slides e sobe um degrau na virada para cada pergunta (curva suave cruzando a emenda), mudando de cinza-azulado para ciano e verde.",
+  "Faixa inferior nunca repetida: a ficha do lead empilha uma linha por resposta (1, 2, 3, 4 linhas) e o nível sobe exatamente uma linha por pergunta; depois a faixa recebe 'comprador' em contorno, as 3 regras anti-interrogatório, o resumo do lead e o campo de comentário.",
+  "Prévia tracejada na capa com os 4 degraus numerados (índice visual do carrossel).",
+  "Régua de marcações sob a linha (escala de instrumento) e pílula de leitura sobre a linha ('0 de 4 · frio' até '4 de 4 · quente').",
+  "Artefatos novos: lista de conversas do WhatsApp com dois leads idênticos, botões de resposta rápida, mapa procedural em SVG com pino e raio, régua de teto de valor, linha de prazo com três paradas, tabela de leitura quente/morno/frio.",
+  "Elementos da faixa são filhos absolutos de cada slide, então entram na auditoria de fonte e margem do shoot.js."
+ ],
+ "aprendizados": [
+  "Fazer o elemento contínuo mudar de altura resolve os dois defeitos dos carrosséis anteriores (faixa vazia e faixa repetida): o conteúdo de cima encolhe e a faixa de baixo ganha função diferente em cada slide.",
+  "Ao recortar o CSS do modelo, conferir as classes da parte 'slide-specific' (a falta do .feat derrubou a fonte para 16px e só a auditoria pegou).",
+  "O número fantasma do modelo (right:30px, 520px) fura a margem e cruza o texto de apoio; com 400px e right:72px passa na auditoria e fica atrás só do título.",
+  "Título de pergunta curta em 112–118px e título longo em três linhas dão ritmo diferente a slides de mesmo esqueleto.",
+  "Sem subagente disponível, a crítica independente precisa ser pedida por quem orquestra antes de criar o APROVADO."
+ ]
+}
