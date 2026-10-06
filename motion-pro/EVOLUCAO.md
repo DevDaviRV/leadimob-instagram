@@ -85,3 +85,9 @@ Davi (01/10): o Reel 1 de 02/10 (DOM plano) ficou "um pouco inferior"; o vídeo 
 - Crítica do rascunho: 7/6/8/6/5/8/8/6/8 (a observação de texto pequeno não procedia: qa() mediu ≥38px). Ajustes: cena do termômetro mais curta (-0,9s), linha oculta nas cenas paradas, "ESFRIA." em tom gelo, âmbar só nos alertas.
 - Crítica do corte final: 7,5/7/8/6,5/7/7,5/6,5/7/8 → RETIDO (abaixo de 8). Pendências baratas para uma 2ª rodada: rasgo de máscara nas transições, 2 trechos quase vazios (9,6–10,2s e 14,4–15s), conteúdo mais centrado e maior (notificações, jornadas), "Outro" solo antes de "resultado.", sair do checklist com fade limpo, logo/subtítulo do CTA maiores.
 - Render: 693 quadros em 9 blocos, ~12 min; áudio −13,4 LUFS, pico −1,7 dB.
+
+### Reel 2 de 07/10 "Imobiliária, você não perde a venda quando o lead chega. Perde depois." (rotina diária)
+- Estrutura nova: uma linha do tempo vertical do lead; a câmera desce etapa a etapa (as etapas apagam), recua para a linha inteira (acendem com processo) e a linha vira o cabeçalho do CTA. Trilha 96 BPM em Mi menor → Sol maior.
+- Crítica do rascunho e do corte final: gancho 7,5 · ritmo 6 · clareza 8 · acabamento 6,5 · legibilidade 7,5 · marca 8 · sobriedade 9 · fidelidade 7 · estrutura 5 → RETIDO. Só quadro 0 mais amplo e CTA 0,2s antes foram ajustados.
+- Pendências para uma 2ª rodada: variar a composição das 4 cenas "Ninguém…" (objeto por cena: balão sem resposta, relógio), transições sem cópias fantasma (7,5/9,6/11,7s), teses paradas ≥1,6s, miolo diferente da lista que acende (nós horizontais que apagam e reacendem), CTA com elemento próprio.
+- Aprendizado: o tempo das etapas está amarrado à trilha e à câmera (TN/HOP); mudar ritmo exige mexer em index.html e trilha.py juntos. Planejar a variação de composição desde o roteiro, não depois do render.
