@@ -85,3 +85,9 @@ Davi (01/10): o Reel 1 de 02/10 (DOM plano) ficou "um pouco inferior"; o vídeo 
 - Crítica do rascunho: 7/6/8/6/5/8/8/6/8 (a observação de texto pequeno não procedia: qa() mediu ≥38px). Ajustes: cena do termômetro mais curta (-0,9s), linha oculta nas cenas paradas, "ESFRIA." em tom gelo, âmbar só nos alertas.
 - Crítica do corte final: 7,5/7/8/6,5/7/7,5/6,5/7/8 → RETIDO (abaixo de 8). Pendências baratas para uma 2ª rodada: rasgo de máscara nas transições, 2 trechos quase vazios (9,6–10,2s e 14,4–15s), conteúdo mais centrado e maior (notificações, jornadas), "Outro" solo antes de "resultado.", sair do checklist com fade limpo, logo/subtítulo do CTA maiores.
 - Render: 693 quadros em 9 blocos, ~12 min; áudio −13,4 LUFS, pico −1,7 dB.
+
+### Reel 2 de 07/10 "Imobiliária, recebeu o lead?" (rotina diária, modelo `reel-tipografico`)
+- Estrutura nova: gancho com card de lead → persianas → funil Kanban com lead parado (âmbar) → giro 3D → UMA ETAPA / UM DONO / UM PRÓXIMO PASSO → cortina horizontal → funil que vira visita (verde) → viagem da linha → CTA. Trilha nova (108 BPM, Mi menor → Sol).
+- Crítica do 1º corte: 6,5/6/7,5/6/5,5/7,5/8/7/7,5. Ajustes: Kanban com texto maior e colunas mais altas, "Visita agendada" em verde pleno, sem fantasma sobre o herói, CTA maior.
+- Crítica do corte final: 7,5/6,5/8/7/7/8/8,5/7,5/8,5 → RETIDO. Pendências: encurtar a cena do funil (5,6–10s) ou animar o lead parado, evitar quadros quase vazios nas transições (17,6s), rótulos do Kanban maiores, "UM PRÓXIMO PASSO." em duas linhas.
+- Aprendizado: o Kanban é limitado a 916px de largura; ganhar leitura pede mais altura e menos estática, não mais escala. Áudio −13,8 LUFS, pico −1,8 dB; render ~12 min.
