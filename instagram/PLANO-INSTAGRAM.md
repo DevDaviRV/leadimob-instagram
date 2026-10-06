@@ -17,7 +17,7 @@ Objetivo: crescer @leadimob.ai e captar leads qualificados (donos de imobiliári
 | Bastidor/rosto/incorporador/novidades | 10% | Confiança |
 
 ## CTA e isca
-- Educativos: "Comente **DIAGNÓSTICO** e receba o checklist *Onde seus leads estão morrendo*" (arquivo `ISCA-DIAGNOSTICO.md`).
+- Educativos: "Comente <PALAVRA>", com uma palavra nova escolhida para cada post, ligada ao tema dele (por exemplo FOLLOW-UP, PERGUNTAS, VISITA). O Davi tirou o "Comente DIAGNÓSTICO" fixo em 06/10: não use mais essa palavra como padrão. Não prometa material que não existe: só diga que a pessoa recebe algo se esse material estiver pronto; senão, peça o comentário como resposta ou conversa.
 - Produto: "Solicite uma demonstração — link na bio".
 - Nunca: teste grátis, números sem fonte, preços (salvo aprovação).
 
@@ -65,7 +65,7 @@ Narrações já geradas (ver `instagram/narracoes/ROTEIROS-semana-02.md`). "Púb
 | Qui 15/10 | Imobiliária (R1) | "Imobiliária que só responde no horário comercial deixa o cliente esperando." | "Lead de portal e lead de anúncio: trate diferente." | "Antes e depois: a jornada de um lead com e sem processo" |
 
 ## Métricas (semanal, por print de insights)
-Alcance de não seguidores, salvamentos, compartilhamentos, comentários "DIAGNÓSTICO", DMs, demos agendadas. Ajustar ganchos e horários a cada domingo.
+Alcance de não seguidores, salvamentos, compartilhamentos, comentários com a palavra do post, DMs, demos agendadas. Ajustar ganchos e horários a cada domingo.
 
 ## Narração
 Ver `CLAUDE.md`: chave paga em `ELEVEN_LABS_API_KEY` (automático) ou o Davi sobe `instagram/narracoes/AAAA-MM-DD-r1.mp3` neste repositório / anexa no chat.

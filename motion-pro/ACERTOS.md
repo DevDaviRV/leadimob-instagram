@@ -60,3 +60,7 @@ Palavras dele sobre os carrosséis de 07/10 e 08/10: gostou do conteúdo e da pr
 - Menos texto dentro dos artefatos e mais área vazia; se precisar de mais conteúdo, vai para a legenda ou vira outro slide.
 - O elemento contínuo entre slides fica discreto, sem fichas, rótulos e pílulas acumulando na faixa de baixo.
 - Na crítica, incluir o critério "leveza" (o slide se lê em 2 segundos).
+
+## Palavra de comentário por post (Davi, 06/10)
+- "Comente DIAGNÓSTICO" deixou de ser regra: ele achou que não tinha a ver. Cada post pede uma palavra própria, ligada ao tema, na arte, na narração e na legenda.
+- Peças já prontas ou narrações já gravadas com DIAGNÓSTICO ficam como estão; vale para o que for produzido a partir de agora (roteiros novos inclusive).

@@ -28,7 +28,7 @@ Leia antes de produzir: `motion-pro/BRAND-MOTION.md`, `motion-pro/ACERTOS.md`, `
 - Toda peça parte do código de um modelo aprovado (`motion-pro/novo_trabalho.sh`, ver MODELOS.md), não de página em branco.
 - Produção 100% em código (three.js/DOM/canvas, Playwright + ffmpeg, trilha em numpy). Sem geradores de terceiros.
 - Sem números inventados, sem "teste grátis", sem preços. LID só como detalhe. Âmbar só para alerta. Texto ≥ 36px nos reels, ≥ 30px no carrossel, margem 72px.
-- CTA educativo: "Comente DIAGNÓSTICO" (isca em `instagram/ISCA-DIAGNOSTICO.md`); produto: "Solicite uma demonstração — link na bio".
+- CTA educativo: "Comente <PALAVRA>", com uma palavra nova escolhida para cada post, ligada ao tema dele (por exemplo FOLLOW-UP, PERGUNTAS, VISITA). O Davi tirou o "Comente DIAGNÓSTICO" fixo em 06/10: não use mais essa palavra como padrão. Não prometa material que não existe: só diga que a pessoa recebe algo se esse material estiver pronto; senão, peça o comentário como resposta ou conversa. Produto: "Solicite uma demonstração — link na bio".
 - Um dos dois reels do dia abre com chamada direta a um público da Leadimob pelo nome ("Corretor, …", "Imobiliária que …", "Incorporador, …"), em rodízio (ver "Linha de ganchos" no plano).
 - Direção de arte dos reels: premium, sóbria e corporativa, no padrão do `instagram/2026-10-03/r2-lead-curioso.mp4` (ver ACERTOS). Efeitos bonitos e profissionais, sem exagero visual; um destaque de cor por cena; profundidade e câmera com contenção.
 - Cada vídeo supera o anterior: registre técnicas, crítica e aprendizados no EVOLUCAO e correções do Davi no ACERTOS.
