@@ -14,14 +14,20 @@
   {
    "tipo": "capa",
    "kicker": "MÉTODO · SALVE ESTE POST",
-   "titulo": "Do formulário ao WhatsApp.",
-   "sub": "5 checagens da sua captação."
+   "titulo": "O lead preencheu. Alguém respondeu?",
+   "sub": "5 checagens para ver onde a sua captação de leads trava."
   },
   {
    "tipo": "conteudo",
    "kicker": "O PROBLEMA",
-   "titulo": "O lead preencheu. E ficou parado.",
-   "sub": "Numa planilha, na central de leads, no e-mail de alguém."
+   "titulo": "O lead preencheu. E parou na planilha.",
+   "sub": "Ninguém foi avisado. Ninguém escreveu."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "O TESTE",
+   "titulo": "Preencha o seu próprio formulário.",
+   "sub": "Depois, siga as 5 checagens."
   },
   {
    "tipo": "conteudo",
@@ -32,8 +38,8 @@
   {
    "tipo": "conteudo",
    "kicker": "CHECAGEM 2 · PRIMEIRA MENSAGEM",
-   "titulo": "Vai pelo WhatsApp e cita o anúncio?",
-   "sub": "Ele precisa reconhecer o imóvel que viu."
+   "titulo": "A primeira mensagem vai pelo WhatsApp e cita o anúncio?",
+   "sub": "O cliente precisa reconhecer o imóvel."
   },
   {
    "tipo": "conteudo",
@@ -49,27 +55,21 @@
   },
   {
    "tipo": "conteudo",
-   "kicker": "CHECAGEM 5 · FUNIL",
+   "kicker": "DONO E PRÓXIMO PASSO",
    "titulo": "Cada lead tem dono e próximo passo?",
    "sub": "Sem isso, ele volta para a planilha."
   },
   {
    "tipo": "conteudo",
-   "kicker": "RESUMO · FAÇA O TESTE",
-   "titulo": "Preencha o seu próprio formulário.",
-   "sub": "E veja em qual checagem a resposta trava."
-  },
-  {
-   "tipo": "conteudo",
    "kicker": "ONDE A LEADIMOB ENTRA",
    "titulo": "Formulário enviado. Conversa iniciada.",
-   "sub": "A Leadimob começa no seu WhatsApp na hora, 24h, já citando o anúncio."
+   "sub": "A Leadimob puxa a conversa no seu WhatsApp na hora, 24h, citando o anúncio."
   },
   {
    "tipo": "cta",
    "kicker": "SUA VEZ",
-   "titulo": "Onde a sua captação trava?",
-   "sub": "Comente CAPTAÇÃO e conte qual checagem falha hoje na sua imobiliária."
+   "titulo": "Onde a sua captação de leads trava?",
+   "sub": "Comente CHECAGEM e conte qual delas falha hoje na sua imobiliária."
   }
  ]
 }
