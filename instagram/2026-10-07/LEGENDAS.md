@@ -1,20 +1,21 @@
 # Posts de 07/10 (quarta-feira)
 
-> **RETIDO: aguardando o Davi.** Reel 2 das 09:00 (`r2-imobiliaria-lead-depois.mp4`, 23s) ficou ABAIXO DA META no corte final (crítica independente): gancho 7,5 · ritmo 6,5 · clareza 8 · acabamento 7 · legibilidade 7 · marca 8 · sobriedade 8,5 · fidelidade ao modelo 7,5 · estrutura própria 8,5. Motivo: cena do funil longa e parada (5,6–10s), transições com quadros quase vazios, rótulos do Kanban pequenos na proporção do quadro (medidos ≥36px). Não está no posts.json; legenda em `posts-retidos.json`. Para liberar: o Davi aprova e a peça entra às 09:00. ICP do dia: Reel 2 chama "Imobiliária" (o Reel 1 já estava gravado sem chamada).
+> Reel 2 das 09:00 refeito em 06/10 a pedido do Davi, com as correções da crítica; aprovação automática pela meta (crítica independente do corte final: gancho 8 · ritmo 8 · clareza 8 · acabamento 8 · legibilidade 8 · marca 9 · sobriedade 9 · fidelidade ao modelo 9 · estrutura própria 8). As peças das 12:00 e 18:00 seguem aprovadas pelo Davi em 05/10.
 
-## 09:00 · Reel (RETIDO)
-Arquivo: `r2-imobiliaria-lead-depois.mp4` · capa sugerida: ~3,4s · fontes: `src/r2-*` · CTA educativo
+## 09:00 · Reel 2 tipográfico — "Imobiliária, recebeu o lead?"
+Arquivo: `r2-imobiliaria-lead-depois.mp4` (20,7s, sem voz) · capa sugerida: ~2,6s (gancho completo) · fontes: `src/r2-*` · CTA educativo com palavra própria: ETAPA
+ICP do dia: este reel, chamando **Imobiliária** (o Reel 1 já estava gravado sem chamada).
 
 **Legenda:**
 Imobiliária, o lead chegou. A venda se perde depois.
 
-Receber o lead não é o problema. O problema aparece quando ele fica parado numa etapa, sem dono e sem próximo passo, enquanto os outros avançam.
+Receber o lead não é o problema. O problema aparece quando ele trava numa etapa, sem dono e sem próximo passo, enquanto os outros avançam.
 
-Todo lead precisa de uma etapa, um responsável e um próximo passo definido: ligar amanhã, enviar opções, confirmar a visita. Quem registra isso enxerga onde a venda esfria.
+Cada lead precisa de três coisas: uma etapa, um dono e um próximo passo com data. Quem registra isso enxerga onde a venda esfria antes de perder o cliente.
 
 A Leadimob acompanha cada lead no funil, no seu WhatsApp, e mostra onde ele parou.
 
-Comente DIAGNÓSTICO e receba no direct o checklist Onde seus leads estão morrendo.
+Comente ETAPA e conte onde os seus leads costumam travar.
 
 #imobiliaria #gestaoimobiliaria #mercadoimobiliario #funildevendas #leadsimobiliarios
 
