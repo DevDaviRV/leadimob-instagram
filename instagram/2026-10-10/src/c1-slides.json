@@ -57,17 +57,17 @@
    "tipo": "conteudo",
    "kicker": "05 · DONO",
    "titulo": "Cada lead tem dono e próximo passo?",
-   "sub": "Sem isso, ele volta para a planilha."
+   "sub": "Sem isso, o lead fica esquecido na planilha."
   },
   {
    "tipo": "conteudo",
    "kicker": "ONDE A LEADIMOB ENTRA",
    "titulo": "Formulário enviado. Conversa iniciada.",
-   "sub": "Abre a conversa no WhatsApp na hora, citando o anúncio."
+   "sub": "A Leadimob abre a conversa no WhatsApp na hora, citando o anúncio."
   },
   {
    "tipo": "cta",
-   "kicker": "SEU RESULTADO",
+   "kicker": "SUA VEZ",
    "titulo": "Onde o lead do formulário trava?",
    "sub": "Comente CHECAGEM e conte qual das 5 checagens falha hoje na sua operação."
   }
