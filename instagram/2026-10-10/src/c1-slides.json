@@ -13,21 +13,21 @@
  "slides": [
   {
    "tipo": "capa",
-   "kicker": "TESTE · SALVE ESTE POST",
+   "kicker": "CHECKLIST · SALVE ESTE POST",
    "titulo": "O lead preencheu. Alguém respondeu?",
    "sub": "5 checagens para ver onde o lead do formulário trava."
   },
   {
    "tipo": "conteudo",
    "kicker": "O PROBLEMA",
-   "titulo": "O lead preencheu. E parou na planilha.",
+   "titulo": "Chegou sábado, 22:47. E parou na planilha.",
    "sub": "Ninguém foi avisado. Ninguém escreveu."
   },
   {
    "tipo": "conteudo",
-   "kicker": "O TESTE",
+   "kicker": "CHECKLIST",
    "titulo": "Preencha o seu próprio formulário.",
-   "sub": "Depois, confira as 5 checagens: Aviso · Anúncio · 22h · Perguntas · Dono."
+   "sub": "Depois, confira as 5 checagens: Aviso · Anúncio · Horário · Perguntas · Dono."
   },
   {
    "tipo": "conteudo",
@@ -55,7 +55,7 @@
   },
   {
    "tipo": "conteudo",
-   "kicker": "CHECAGEM 5 · DISTRIBUIÇÃO",
+   "kicker": "CHECAGEM 5 · DONO",
    "titulo": "Cada lead tem dono e próximo passo?",
    "sub": "Sem isso, ele volta para a planilha."
   },
@@ -69,7 +69,7 @@
    "tipo": "cta",
    "kicker": "SUA VEZ",
    "titulo": "Onde o lead do formulário trava?",
-   "sub": "Comente CHECAGEM e conte qual checagem falha hoje na sua imobiliária."
+   "sub": "Comente CHECAGEM e conte qual delas falha hoje na sua operação."
   }
  ]
 }
