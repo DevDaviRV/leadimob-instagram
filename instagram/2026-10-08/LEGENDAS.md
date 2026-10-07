@@ -1,6 +1,26 @@
 # Posts de 08/10 (quinta-feira)
 
-> Peças abaixo aprovadas pelo Davi no chat em 05/10/2026.
+> **RETIDO: aguardando o Davi.** Reel 1 das 12:00 "Seu corretor não precisa de mais leads" (abaixo da meta; não está no posts.json). Crítica independente do corte final (3 rodadas): gancho 8 · ritmo 7,5 · clareza 8,5 · acabamento 7,5 · legibilidade 8,5 · marca 8,5 · sobriedade 8 · fidelidade ao modelo 8,5 · estrutura própria 8,5. **ABAIXO DA META** em ritmo (caixa de entrada de 5 a 13s longa e com pouco movimento) e acabamento (wipe do símbolo azul chapado, fantasmas rápidos na troca de artefatos). Para liberar, o Davi aprova e o horário vago das 12:00 entra no posts.json.
+> Peças das 09:00 e 18:00 aprovadas pelo Davi no chat em 05/10/2026.
+
+## 12:00 · Reel 1 narrado — "Seu corretor não precisa de mais leads" (RETIDO)
+Arquivo: `r1-menos-conversas.mp4` (37s, voz Bianca; narração gravada em `instagram/narracoes/2026-10-08-r1.mp3`) · capa sugerida: ~2,4s · fontes: `src/r1-*` · CTA: DIAGNÓSTICO (palavra já na narração gravada)
+ICP do dia: os dois reels já estavam sem chamada direta ao público (narração gravada); a regra não se aplica a este dia.
+
+**Legenda:**
+Seu corretor não precisa de mais leads. Precisa de menos conversas.
+
+Conversa que não leva a lugar nenhum, a mesma pergunta repetida, o "ainda está disponível?" às onze da noite: tudo isso toma o tempo de quem deveria estar vendendo.
+
+Quando a triagem acontece antes, o corretor só entra nas conversas com perfil, orçamento e intenção de visita.
+
+A Leadimob atende no seu WhatsApp, qualifica e passa para o corretor quem vale o próximo passo.
+
+Comente DIAGNÓSTICO e receba o checklist completo no direct.
+
+#corretordeimoveis #imobiliaria #mercadoimobiliario #leadsimobiliarios #atendimentoimobiliario
+
+---
 
 ## 09:00 · Reel
 Arquivo: `r2-pare-de-abandonar.mp4` · capa sugerida: ~2.0s
