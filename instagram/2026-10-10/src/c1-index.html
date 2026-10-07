@@ -119,12 +119,16 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 .ci{display:flex;align-items:center;gap:24px;padding:17px 0;border-top:1px solid rgba(255,255,255,.08);font:600 36px/1.15 IN;color:#E2E8F0}
 .ci:first-child{border-top:0}
 .ci .n{width:50px;height:50px;border-radius:14px;border:3px solid rgba(125,211,252,.55);display:flex;align-items:center;justify-content:center;font:800 30px/1 IN;color:#7DD3FC;flex:none}
+.bx{width:44px;height:44px;border-radius:12px;border:3px solid rgba(125,211,252,.55);flex:none}
+.mini{display:flex;justify-content:space-between;width:912px}
+.mini span{display:inline-flex;align-items:center;gap:9px;padding:14px 9px;border-radius:18px;font:600 32px/1 IN;color:#E2E8F0;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14)}
+.mini i{width:26px;height:26px;border-radius:8px;border:2.5px solid rgba(125,211,252,.55)}
 /* chat final */
 .chat{width:912px;padding:28px 0 16px}
 .chat .top{display:flex;align-items:center;gap:20px;padding:12px 30px;background:#1F2C34;margin-bottom:26px}
 .chat .top b{display:block;font:700 36px/1.1 IN;color:#E9EDEF}
 .chat .top em{display:block;font:500 30px/1.2 IN;color:#8696A0;font-style:normal}
-.chat .bub{font-size:36px;margin:0 30px 14px;padding:16px 24px 12px}
+.chat .bub{font-size:36px;margin:0 30px 14px;padding:16px 24px 12px;max-width:82%}
 .chat .bout{margin-left:auto}
 </style></head><body><div id="strip">
 <div class="bg"></div>
@@ -172,18 +176,22 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 
 <!-- 3 o teste -->
 <div class="sl" style="left:2160px">
- <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg></div><div class="kick">Checklist</div></div>
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg></div><div class="kick">O teste</div></div>
  <div class="h2">Preencha o seu próprio <span class="hl">formulário</span>.</div>
  <div class="p">Depois, confira as 5 checagens.</div>
- <div class="art" style="width:912px;display:flex;flex-wrap:wrap;gap:18px">
-  <span class="wd nt"><s>1</s>Aviso</span><span class="wd nt"><s>2</s>Anúncio</span><span class="wd nt"><s>3</s>Horário</span><span class="wd nt"><s>4</s>Perguntas</span><span class="wd nt"><s>5</s>Dono</span>
+ <div class="card cl art">
+  <div class="ci"><span class="bx"></span>Aviso</div>
+  <div class="ci"><span class="bx"></span>Anúncio</div>
+  <div class="ci"><span class="bx"></span>Horário</div>
+  <div class="ci"><span class="bx"></span>Perguntas</div>
+  <div class="ci"><span class="bx"></span>Dono</div>
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>3/10</span></div></div>
 
 <!-- 4 checagem 1 -->
-<div class="sl" style="left:3240px;padding-top:216px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">01</div>
- <div class="ttl" style="width:912px"><div class="num">01</div><div class="kick">Checagem 1 · aviso</div><div class="prog"><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i></i><i></i><i></i><i></i></div></div>
- <div class="h2">O lead chega a <span class="hl">alguém</span> na hora?</div>
+<div class="sl" style="left:3240px;justify-content:flex-start;padding-top:170px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">01</div>
+ <div class="ttl"><div class="num">01</div><div class="kick">aviso</div></div>
+ <div class="h2">Alguém fica sabendo <span class="hl">na hora</span>?</div>
  <div class="p">Formulário enviado vira aviso no celular, não planilha para baixar depois.</div>
  <div class="card ntf art">
   <div class="ico"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.500 7.500 2.500 7.500h-17S6 15 6 9z"/><path d="M10 20a2.200 2.200 0 0 0 4 0"/></svg></div>
@@ -194,8 +202,8 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 <div class="gate" style="left:3440px"><i><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
 <!-- 5 checagem 2 -->
-<div class="sl" style="left:4320px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">02</div>
- <div class="ttl" style="width:912px"><div class="num">02</div><div class="kick">Checagem 2 · anúncio</div><div class="prog"><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i></i><i></i><i></i></div></div>
+<div class="sl" style="left:4320px;justify-content:flex-start;padding-top:170px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">02</div>
+ <div class="ttl"><div class="num">02</div><div class="kick">anúncio</div></div>
  <div class="h2">A primeira mensagem cita o <span class="hl">anúncio</span>?</div>
  <div class="p">O cliente precisa reconhecer o imóvel.</div>
  <div class="wa one art" style="padding:30px 30px 32px">
@@ -206,8 +214,8 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 <div class="gate" style="left:4690px"><i><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
 <!-- 6 checagem 3 -->
-<div class="sl" style="left:5400px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">03</div>
- <div class="ttl" style="width:912px"><div class="num">03</div><div class="kick">Checagem 3 · horário</div><div class="prog"><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i></i><i></i></div></div>
+<div class="sl" style="left:5400px;justify-content:flex-start;padding-top:170px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">03</div>
+ <div class="ttl"><div class="num">03</div><div class="kick">horário</div></div>
  <div class="h2">Alguém responde às <span class="hl">22h</span>?</div>
  <div class="p">O formulário chega quando o cliente tem tempo: à noite, no fim de semana.</div>
  <div class="card day24 art">
@@ -220,22 +228,22 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 <div class="gate" style="left:5940px"><i><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
 <!-- 7 checagem 4 -->
-<div class="sl" style="left:6480px;padding-top:236px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">04</div>
- <div class="ttl" style="width:912px"><div class="num">04</div><div class="kick">Checagem 4 · perguntas</div><div class="prog"><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i></i></div></div>
+<div class="sl" style="left:6480px;justify-content:flex-start;padding-top:170px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">04</div>
+ <div class="ttl"><div class="num">04</div><div class="kick">perguntas</div></div>
  <div class="h2">Alguém pergunta <span class="hl">antes</span> de mandar imóveis?</div>
  <div class="p">As respostas dizem o que vale enviar.</div>
  <div class="qs art">
   <div class="q nt"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#22D3EE" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Morar ou investir?</div>
   <div class="q nt"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#22D3EE" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Qual região?</div>
   <div class="q nt"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#22D3EE" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Até quanto?</div>
-  <div class="q nt"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#22D3EE" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Quantos quartos?</div>
+  <div class="q nt"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#22D3EE" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Para quando?</div>
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>7/10</span></div></div>
 <div class="gate" style="left:7190px"><i><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
 <!-- 8 checagem 5 -->
-<div class="sl" style="left:7560px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">05</div>
- <div class="ttl" style="width:912px"><div class="num">05</div><div class="kick">Checagem 5 · dono</div><div class="prog"><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div></div>
+<div class="sl" style="left:7560px;justify-content:flex-start;padding-top:170px"><div class="ghost" style="-webkit-text-stroke-color:rgba(125,211,252,.08)">05</div>
+ <div class="ttl"><div class="num">05</div><div class="kick">dono</div></div>
  <div class="h2">Cada lead tem <span class="hl">dono</span> e próximo passo?</div>
  <div class="p">Sem isso, ele volta para a planilha.</div>
  <div class="card crm art">
@@ -250,7 +258,7 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 <div class="sl" style="left:8640px">
  <div class="ttl"><div class="num"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.600 9 8.200S17 19.500 12 19.500c-1 0-2-.15-2.900-.42L4.500 21l1.200-3.900C4 15.600 3 13.500 3 11.200 3 6.600 7 3 12 3z" fill="#06202A"/></svg></div><div class="kick">Onde a Leadimob entra</div></div>
  <div class="h2" style="font-size:84px">Formulário enviado. <span style="color:#6EE7B7">Conversa iniciada.</span></div>
- <div class="p">A Leadimob puxa a conversa no seu WhatsApp na hora, 24h, citando o anúncio.</div>
+ <div class="p" style="font-size:34px;white-space:nowrap;letter-spacing:-.01em">Abre a conversa no WhatsApp na hora, citando o anúncio.</div>
  <div class="wa chat art" id="a-chat" style="margin-top:40px">
   <div class="bub bout">Oi, Carla! Sobre o apto de 2 quartos do anúncio: é para morar ou investir?<div class="bt">22:47 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
   <div class="bub bin">Para morar. Pode mandar as fotos?<div class="bt">22:48</div></div>
@@ -258,20 +266,20 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>9/10</span></div></div>
 
-<!-- 10 CTA -->
-<div class="sl" style="left:9720px;padding-bottom:250px">
- <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="kick">Sua vez</div></div>
+<!-- 10 CTA: seu resultado -->
+<div class="sl" style="left:9720px;padding-bottom:230px">
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="kick">Seu resultado</div></div>
  <div class="h2">Onde o lead do formulário <span class="hl">trava</span>?</div>
- <div id="a-field" style="margin-top:56px;height:132px;border-radius:66px;background:#141B28;border:2px solid rgba(125,211,252,.45);box-shadow:0 0 0 8px rgba(34,211,238,.06),0 30px 70px rgba(0,0,0,.55);display:flex;align-items:center;padding:0 22px 0 40px;gap:16px;font:600 44px IN">
+ <div class="mini" style="margin-top:44px"><span><i></i>Aviso</span><span><i></i>Anúncio</span><span><i></i>Horário</span><span><i></i>Perguntas</span><span><i></i>Dono</span></div>
+ <div id="a-field" style="margin-top:44px;height:132px;border-radius:66px;background:#141B28;border:2px solid rgba(125,211,252,.45);box-shadow:0 0 0 8px rgba(34,211,238,.06),0 30px 70px rgba(0,0,0,.55);display:flex;align-items:center;padding:0 22px 0 40px;gap:16px;font:600 44px IN">
   <span style="color:#7C8799">Comente</span><span style="font-weight:900;letter-spacing:.02em">CHECAGEM</span><span style="width:4px;height:52px;background:#22D3EE;border-radius:2px"></span>
   <span id="a-send" style="margin-left:auto;width:92px;height:92px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,99,235,.55)"><svg width="42" height="42" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
  </div>
- <div class="p" style="margin-top:34px">e conte qual delas falha hoje<br>na sua operação.</div>
- <div style="margin-top:56px;display:flex;align-items:center;gap:22px">
-  <div style="width:300px;height:96px;border-radius:22px;background:#F3F7FB;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 44px rgba(0,0,0,.5)"><img src="logo.png" style="width:240px"></div>
-  <div style="font:700 34px/1 IN;color:#7DD3FC">@leadimob.ai</div>
+ <div class="p" style="margin-top:28px;font-size:38px;max-width:780px">e conte qual das 5 checagens falha hoje na sua operação.</div>
+ <div style="margin-top:44px;display:flex;align-items:center;gap:22px">
+  <div style="width:280px;height:90px;border-radius:22px;background:#F3F7FB;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 44px rgba(0,0,0,.5)"><img src="logo.png" style="width:224px"></div>
+  <div><div style="font:700 32px/1 IN;color:#7DD3FC">@leadimob.ai</div><div style="margin-top:10px;font:600 30px/1.25 IN;color:#7C8799">Solicite uma demonstração<br>link na bio</div></div>
  </div>
- <div style="margin-top:30px;font:600 32px/1.3 IN;color:#7C8799">Solicite uma demonstração · link na bio</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>10/10</span></div></div>
 </div>
 <script>

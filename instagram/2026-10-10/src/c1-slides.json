@@ -25,37 +25,37 @@
   },
   {
    "tipo": "conteudo",
-   "kicker": "CHECKLIST",
+   "kicker": "O TESTE",
    "titulo": "Preencha o seu próprio formulário.",
    "sub": "Depois, confira as 5 checagens: Aviso · Anúncio · Horário · Perguntas · Dono."
   },
   {
    "tipo": "conteudo",
-   "kicker": "CHECAGEM 1 · AVISO",
-   "titulo": "O lead chega a alguém na hora?",
+   "kicker": "01 · AVISO",
+   "titulo": "Alguém fica sabendo na hora?",
    "sub": "Formulário enviado vira aviso no celular, não planilha para baixar depois."
   },
   {
    "tipo": "conteudo",
-   "kicker": "CHECAGEM 2 · ANÚNCIO",
+   "kicker": "02 · ANÚNCIO",
    "titulo": "A primeira mensagem cita o anúncio?",
    "sub": "O cliente precisa reconhecer o imóvel."
   },
   {
    "tipo": "conteudo",
-   "kicker": "CHECAGEM 3 · HORÁRIO",
+   "kicker": "03 · HORÁRIO",
    "titulo": "Alguém responde às 22h?",
    "sub": "O formulário chega quando o cliente tem tempo: à noite, no fim de semana."
   },
   {
    "tipo": "conteudo",
-   "kicker": "CHECAGEM 4 · PERGUNTAS",
+   "kicker": "04 · PERGUNTAS",
    "titulo": "Alguém pergunta antes de mandar imóveis?",
    "sub": "As respostas dizem o que vale enviar."
   },
   {
    "tipo": "conteudo",
-   "kicker": "CHECAGEM 5 · DONO",
+   "kicker": "05 · DONO",
    "titulo": "Cada lead tem dono e próximo passo?",
    "sub": "Sem isso, ele volta para a planilha."
   },
@@ -63,13 +63,13 @@
    "tipo": "conteudo",
    "kicker": "ONDE A LEADIMOB ENTRA",
    "titulo": "Formulário enviado. Conversa iniciada.",
-   "sub": "A Leadimob puxa a conversa no seu WhatsApp na hora, 24h, citando o anúncio."
+   "sub": "Abre a conversa no WhatsApp na hora, citando o anúncio."
   },
   {
    "tipo": "cta",
-   "kicker": "SUA VEZ",
+   "kicker": "SEU RESULTADO",
    "titulo": "Onde o lead do formulário trava?",
-   "sub": "Comente CHECAGEM e conte qual delas falha hoje na sua operação."
+   "sub": "Comente CHECAGEM e conte qual das 5 checagens falha hoje na sua operação."
   }
  ]
 }
