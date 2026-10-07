@@ -1,0 +1,334 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<!-- Leadimob · Reel 2 (10/10) · "Imobiliária, quem responde o formulário da Meta?" · tipográfico em espaço 3D
+     Motor e sistema visual do modelo aprovado (r2 de 03/10; linhagem do r2 de 07/10, que chegou à meta).
+     Estrutura própria: gancho com o card do formulário parado ("Sem resposta", único âmbar) → foco desfocado (rack focus) →
+     conversa no WhatsApp que rola sozinha (cita o imóvel do anúncio, faz as perguntas) → painel diagonal que atravessa a tela →
+     ficha com etapa e dono (passagem para a corretora) → linha da jornada → frase-tese → recolhe num ponto que se abre no campo do CTA. -->
+<style>
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0A0E14;color:#fff;font-family:IN;font-feature-settings:"tnum" 1}
+#c,#fg{position:absolute;left:0;top:0;width:1080px;height:1920px}#fg{z-index:2}#vg{z-index:3}
+.abs{position:absolute}
+.pl{position:absolute;left:0;top:0;transform-origin:0 0;white-space:nowrap;visibility:hidden;backface-visibility:visible}
+.X{font:900 164px/1 IN;letter-spacing:-.055em;word-spacing:.16em}
+.L{font:900 138px/1 IN;letter-spacing:-.055em;word-spacing:.16em}
+.m{display:inline-block;overflow:hidden;vertical-align:top;padding:.16em .04em .26em 0;margin:-.16em 0 -.26em}
+.m>span{display:inline-block}
+.gap{margin-right:.24em}.X .gap,.L .gap{margin-right:.4em}
+.gh{font:900 420px/1 IN;-webkit-text-stroke:4px rgba(125,211,252,.14);color:transparent;letter-spacing:.03em}
+.card{border-radius:40px;background:linear-gradient(180deg,#18212F,#101721);border:3px solid rgba(125,211,252,.3);box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.fr{position:relative;height:104px;display:flex;align-items:center;border-top:2px solid rgba(255,255,255,.07)}
+.fl{width:300px;font:600 40px/1 IN;color:#8E98AA}
+.fv{font:800 50px/1 IN;letter-spacing:-.025em}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:16px 28px;border-radius:999px;font:800 42px/1 IN;letter-spacing:-.01em}
+.am{background:rgba(245,158,11,.14);border:2.5px solid rgba(245,158,11,.85);color:#FBBF24}
+.gr{background:rgba(52,211,153,.2);border:2.5px solid #34D399;color:#A7F3D0}
+/* WhatsApp */
+#ch{width:916px;height:900px;border-radius:44px;overflow:hidden;background:#0B141A;border:2px solid rgba(255,255,255,.08);box-shadow:0 40px 90px rgba(0,0,0,.6)}
+#chh{position:absolute;left:0;top:0;width:916px;height:128px;background:#1F2C34;display:flex;align-items:center;gap:24px;padding:0 34px;z-index:2}
+#chs{position:absolute;left:0;top:0;width:916px}
+.msg{position:absolute;max-width:760px;border-radius:30px;padding:22px 30px 16px;font:500 46px/1.22 IN;letter-spacing:-.015em;color:#E9EDEF;box-shadow:0 14px 30px rgba(0,0,0,.35);white-space:normal}
+.mo{right:30px;background:#005C4B;border-top-right-radius:8px}
+.mi{left:30px;background:#202C33;border-top-left-radius:8px}
+.mt{font:500 30px/1 IN;color:rgba(233,237,239,.6);text-align:right;margin-top:8px;letter-spacing:0}
+.chip2{display:inline-flex;align-items:center;padding:14px 26px;border-radius:999px;font:700 40px/1 IN;letter-spacing:-.015em;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.16);color:#E5E9F0;margin-right:14px}
+#dw{position:absolute;left:540px;top:960px;width:0;height:0;z-index:7;transform:rotate(-24deg);visibility:hidden}
+#dwp{position:absolute;left:-2000px;top:-1300px;width:4000px;height:2600px;background:#0A0E14}
+#dwp i{position:absolute;left:0;width:4000px;height:4px;background:linear-gradient(90deg,rgba(34,211,238,0),#7DD3FC 30%,#7DD3FC 70%,rgba(34,211,238,0));box-shadow:0 0 24px rgba(34,211,238,.6)}
+#dot{position:absolute;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:#7DD3FC;box-shadow:0 0 40px rgba(34,211,238,.8);z-index:8;visibility:hidden}
+</style>
+<script src="node_modules/motion/dist/motion.js"></script>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js"}}</script>
+</head><body><div id="st">
+<canvas id="c" width="1080" height="1920"></canvas>
+<div id="pls" class="abs" style="left:0;top:0;width:1080px;height:1920px;z-index:1;isolation:isolate">
+
+<div id="gA" class="pl gh">META</div><div id="gB" class="pl gh">WHATSAPP</div><div id="gC" class="pl gh">DONO</div><div id="gD" class="pl gh">CONVERSA</div><div id="gE" class="pl gh">FORMULÁRIO</div>
+
+<!-- A · GANCHO -->
+<div id="a1" class="pl X q" style="font-size:124px"><span class="m"><span id="a1a">IMOBILIÁRIA,</span></span></div>
+<div id="a2" class="pl L q" style="font-size:96px;color:#D5DBE5"><span class="m"><span id="a2a">QUEM RESPONDE</span></span></div>
+<div id="a3" class="pl L q" style="font-size:96px;color:#D5DBE5"><span class="m"><span id="a3a">O FORMULÁRIO</span></span></div>
+<div id="a4" class="pl L q" style="font-size:96px;color:#D5DBE5"><span class="m"><span id="a4a">DA META?</span></span></div>
+<div id="fm" class="pl card" style="width:916px;padding:30px 40px 18px">
+ <div style="display:flex;align-items:center;gap:22px;margin-bottom:22px"><div style="width:76px;height:76px;border-radius:20px;background:rgba(37,99,235,.2);border:2px solid rgba(125,211,252,.45);display:flex;align-items:center;justify-content:center"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="3" width="15" height="18" rx="2.5"/><path d="M8 8 H16 M8 12 H16 M8 16 H12.5"/></svg></div>
+ <div class="q" style="font:700 44px/1 IN;letter-spacing:-.02em;color:#C9D2E0">Formulário do anúncio</div><div class="q" style="margin-left:auto;font:600 38px/1 IN;color:#8E98AA">10:05</div></div>
+ <div class="fr"><div class="fl q">Nome</div><div class="fv q">Marina</div></div>
+ <div class="fr"><div class="fl q">Interesse</div><div class="fv q">Apto 2 quartos</div></div>
+ <div class="fr"><div class="fl q">Status</div><div id="fmp" class="pill am q" style="opacity:0"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line id="fmh" x1="12" y1="12" x2="12" y2="6.5" style="transform-origin:12px 12px"/></svg>Sem resposta</div></div>
+</div>
+<div id="a5" class="pl q" style="font:700 64px/1.1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m gap"><span id="a5a">Ele precisa de</span></span><span class="m"><span id="a5b">uma conversa</span></span></div>
+<div id="a6" class="pl q" style="font:700 64px/1.1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m gap"><span id="a6a">no WhatsApp,</span></span><span class="m"><span id="a6b" style="color:#fff;font-weight:800">na hora.</span></span></div>
+
+<!-- B · A CONVERSA -->
+<div id="b1" class="pl L q" style="font-size:100px"><span class="m gap"><span id="b1a">CITE O</span></span><span class="m"><span id="b1b" style="color:#7DD3FC">IMÓVEL</span></span></div>
+<div id="b2" class="pl L q" style="font-size:100px"><span class="m"><span id="b2a">DO ANÚNCIO.</span></span></div>
+<div id="b3" class="pl L q" style="font-size:100px"><span class="m gap"><span id="b3a">E</span></span><span class="m"><span id="b3b" style="color:#7DD3FC">PERGUNTE.</span></span></div>
+<div id="ch" class="pl">
+ <div id="chh"><div style="width:76px;height:76px;border-radius:50%;background:#2A3942;display:flex;align-items:center;justify-content:center"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#AEBAC1" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5 C5.5 16.5 8.5 14.5 12 14.5 C15.5 14.5 18.5 16.5 19.5 20.5"/></svg></div>
+  <div><div class="q" style="font:700 46px/1 IN;color:#E9EDEF;letter-spacing:-.02em">Marina</div><div class="q" style="font:500 40px/1 IN;color:#8696A0;margin-top:8px">via formulário do anúncio</div></div></div>
+ <div id="chs">
+  <div id="m0" class="msg mo"><div style="width:700px;height:250px;border-radius:20px;overflow:hidden;margin:-6px -14px 16px;position:relative"><img src="property.jpg" style="width:100%;height:100%;object-fit:cover;display:block"><div class="q" style="position:absolute;left:18px;bottom:16px;padding:10px 18px;border-radius:14px;background:rgba(10,14,20,.78);font:700 40px/1 IN">Apto 2 quartos · anúncio</div></div><span class="q">Oi, Marina! Vi seu interesse no </span><b class="q" style="font-weight:800">apto de 2 quartos do anúncio.</b><div class="mt">10:05 ✓✓</div></div>
+  <div id="m1" class="msg mo"><span class="q">É para morar ou para investir?</span><div class="mt">10:05 ✓✓</div></div>
+  <div id="m2" class="msg mi"><span class="q">Para morar.</span><div class="mt">10:06</div></div>
+  <div id="m3" class="msg mo"><span class="q">E para quando seria a mudança?</span><div class="mt">10:06 ✓✓</div></div>
+  <div id="m4" class="msg mi"><span class="q">Começo do ano.</span><div class="mt">10:07</div></div>
+ </div>
+</div>
+
+<!-- C · DONO NO FUNIL -->
+<div id="c1" class="pl L q" style="font-size:112px"><span class="m gap"><span id="c1a">COM</span></span><span class="m"><span id="c1b" style="color:#34D399">DONO</span></span></div>
+<div id="c2" class="pl L q" style="font-size:112px"><span class="m"><span id="c2a">NO FUNIL.</span></span></div>
+<div id="kc" class="pl card" style="width:916px;padding:36px 42px 30px">
+ <div style="position:relative;height:120px">
+  <div style="position:absolute;left:30px;right:30px;top:24px;height:6px;border-radius:3px;background:rgba(255,255,255,.1)"></div>
+  <div id="sbar" style="position:absolute;left:30px;top:24px;height:6px;border-radius:3px;background:#34D399;width:0"></div>
+  <div id="sd0" style="position:absolute;left:12px;top:9px;width:36px;height:36px;border-radius:50%;background:#5C6678"></div>
+  <div id="sd1" style="position:absolute;left:398px;top:9px;width:36px;height:36px;border-radius:50%;background:#2A3342;border:3px solid #5C6678"></div>
+  <div id="sd2" style="position:absolute;left:784px;top:9px;width:36px;height:36px;border-radius:50%;background:#2A3342;border:3px solid #5C6678"></div>
+  <div id="sl0" class="q" style="position:absolute;left:0;top:70px;font:700 38px/1 IN;color:#8E98AA">Novo</div>
+  <div id="sl1" class="q" style="position:absolute;left:416px;transform:translateX(-50%);top:70px;font:700 38px/1 IN;color:#8E98AA">Qualificado</div>
+  <div id="sl2" class="q" style="position:absolute;right:0;top:70px;font:700 38px/1 IN;color:#8E98AA">Visita</div>
+ </div>
+ <div style="height:2px;background:rgba(255,255,255,.08);margin:22px 0 30px"></div>
+ <div class="q" style="font:800 64px/1 IN;letter-spacing:-.03em">Marina</div>
+ <div style="margin-top:24px;height:72px;white-space:nowrap"><span id="cp0" class="chip2 q">Morar</span><span id="cp1" class="chip2 q">2 quartos</span><span id="cp2" class="chip2 q">Começo do ano</span></div>
+ <div style="height:2px;background:rgba(255,255,255,.08);margin:30px 0 24px"></div>
+ <div style="display:flex;align-items:center;gap:26px;height:110px"><div id="av" style="width:100px;height:100px;border-radius:50%;background:#2A3342;border:3px dashed rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font:800 50px/1 IN;color:#fff;flex:none"><span id="avt" style="opacity:0">A</span></div>
+  <div><div class="q" style="font:600 40px/1 IN;color:#8E98AA">Dono</div><div id="ow" class="q" style="font:800 54px/1 IN;letter-spacing:-.025em;margin-top:10px;color:#5C6678">—</div></div></div>
+</div>
+<div id="cpl" class="pl pill gr q" style="font-size:44px"><span style="width:20px;height:20px;border-radius:50%;background:#34D399"></span>Próximo passo: visita</div>
+
+<!-- D · TESE -->
+<div id="d1" class="pl L q" style="font-size:124px"><span class="m"><span id="d1a">FORMULÁRIO</span></span></div>
+<div id="d2" class="pl L q" style="font-size:124px;color:#D5DBE5"><span class="m"><span id="d2a">É O COMEÇO</span></span></div>
+<div id="d3" class="pl L q" style="font-size:124px"><span class="m gap"><span id="d3a">DA</span></span><span class="m"><span id="d3b" style="color:#7DD3FC">CONVERSA.</span></span></div>
+
+<!-- E · CTA -->
+<div id="f5" class="pl" style="width:560px;height:170px;border-radius:38px;background:linear-gradient(180deg,#fff,#EAF1F8);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 90px rgba(37,99,235,.28);display:flex;align-items:center;justify-content:center;overflow:hidden"><div id="f5s" style="position:absolute;left:0;top:0;width:220px;height:170px;background:linear-gradient(100deg,rgba(37,99,235,0),rgba(37,99,235,.28),rgba(37,99,235,0))"></div><img src="logo.png" style="width:456px;display:block"></div>
+<div id="f1" class="pl X q" style="font-size:180px"><span class="m"><span id="f1a">Comente</span></span></div>
+<div id="f2" class="pl q" style="width:916px;height:184px;border-radius:92px;background:linear-gradient(180deg,#18212F,#111823);border:2.5px solid rgba(125,211,252,.5);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 70px rgba(37,99,235,.22);display:flex;align-items:center;padding:0 28px 0 50px;gap:6px;font:900 84px/1 IN;letter-spacing:.005em">
+ <span id="typ"></span><span id="car" style="width:6px;height:90px;background:#7DD3FC;border-radius:3px"></span>
+ <span id="send" style="margin-left:auto;width:128px;height:128px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;flex:none"><svg width="62" height="62" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+</div>
+<div id="f3" class="pl q" style="font:700 68px/1.1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m gap"><span id="f3a">e conte quem</span></span><span class="m"><span id="f3b">responde</span></span></div>
+<div id="f4" class="pl q" style="font:800 68px/1.1 IN;letter-spacing:-.03em;color:#fff"><span class="m gap"><span id="f4a">hoje na sua</span></span><span class="m"><span id="f4b" style="color:#7DD3FC">imobiliária.</span></span></div>
+</div>
+
+<canvas id="fg" width="540" height="960"></canvas>
+<div id="vg" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 50%,rgba(0,0,0,.62) 100%)"></div>
+<div id="dw"><div id="dwp"><i style="top:0"></i><i style="bottom:0"></i></div></div>
+<div id="dot"></div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+await Promise.all(['500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)));
+await Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>i.onload=i.onerror=r)));
+const W=1080,H=1920;
+const T={fm:-0.4,a3:0.2,a4:0.4,pill:1.15,pr:1.8,pr2:2.15,rf:[4.15,4.45,4.8],B:4.45,b1:4.55,ch:4.6,m:[4.95,7.05,7.85,8.6,9.35],b3:6.85,dw:[10.45,10.8,11.15],C:10.8,c1:10.9,kc:11.05,stp:11.7,cp:[12.0,12.25,12.5],own:13.0,cpl:13.75,cOut:15.15,D:15.6,d:[15.62,15.82,16.05],dOut:18.15,dot:18.45,F:18.45,f2:18.55,f1:18.7,logo:18.9,typ:19.0,send:19.85,sub:20.15,sheen:20.9,end:22.6};
+window.DURATION=T.end;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const lin=x=>cl(x),eOut=x=>1-Math.pow(1-cl(x),4),eOut3=x=>1-Math.pow(1-cl(x),3),eIn=x=>Math.pow(cl(x),3),eIn2=x=>cl(x)*cl(x),eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2},eIO2=x=>{x=cl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2};
+const P=(t,a,d,e=eOut)=>e((t-a)/d);const $=id=>document.getElementById(id);const lerp=(a,b,k)=>a+(b-a)*k;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const {spring}=window.Motion;
+const mkSp=(k=190,d=17)=>{const s=spring({keyframes:[0,1],stiffness:k,damping:d,mass:1});return ms=>ms<=0?0:s.next(ms).value};
+const sp=mkSp(300,20),spSoft=mkSp(130,17),spSnap=mkSp(420,24),spPop=mkSp(300,13),spFly=mkSp(150,17),spChat=mkSp(210,24);
+const up=(id,t,a)=>{const v=sp((t-a)*1000);const s=$(id).style;s.transform=`translateY(${(1-v)*150}%)`;s.opacity=v>0.012?1:0};
+const CHKL='<svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#06231A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17.5 L19 7"/></svg>';
+
+/* ================= MUNDO ================= */
+const r=new THREE.WebGLRenderer({canvas:$('c'),antialias:true,preserveDrawingBuffer:true});
+r.setPixelRatio(1);r.setSize(W,H,false);r.setClearColor(0x0A0E14,1);
+const scene=new THREE.Scene();scene.fog=new THREE.Fog(0x0A0E14,3200,12500);
+const FOV=38,D0=H/2/Math.tan(FOV*Math.PI/360);
+const cam=new THREE.PerspectiveCamera(FOV,W/H,8,60000);
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const station=(x,y,z,ry)=>{const o=new THREE.Object3D();o.position.set(x,y,z);o.rotation.y=ry;scene.add(o);o.updateMatrixWorld(true);return o};
+const SA=station(0,0,0,0),SB=station(2900,-400,-5400,-0.1),SC=station(-2900,-4100,-10200,-0.08),SD=station(2900,-4300,-14800,0.05),SE=station(-300,-9000,-18800,0.06);
+const LW=(st,x,y,z)=>st.localToWorld(V(x,y,z));
+const scr=(sx,sy,z=0)=>{const k=(D0-z)/D0;return [(sx-540)*k,(960-sy)*k,z]};
+
+/* linha da jornada do lead (fina) + orbe */
+const LINES=[];
+function mkLine(pts){const c=new THREE.CatmullRomCurve3(pts,false,'centripetal');const mats=[];
+ [[3.6,0xBFE9FF,.9],[12,0x22D3EE,.2],[40,0x2563EB,.07]].forEach(([rad,col,op])=>{const m=new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false});m.userData.op=op;mats.push(m);scene.add(new THREE.Mesh(new THREE.TubeGeometry(c,500,rad,8,false),m))});
+ const L={curve:c,mats};LINES.push(L);return L}
+const glowTex=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.16,'rgba(255,255,255,.9)');gr.addColorStop(.42,'rgba(255,255,255,.28)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(cv)})();
+const softTex=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(.5,'rgba(255,255,255,.3)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(cv)})();
+const mkSprite=(tex,col,sz)=>{const s=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,color:col,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false,fog:false}));s.scale.set(sz,sz,1);scene.add(s);return s};
+const orb=mkSprite(glowTex,0x7DD3FC,150),orbHalo=mkSprite(softTex,0x22D3EE,520);
+const trail=Array.from({length:10},()=>mkSprite(glowTex,0x7DD3FC,90));
+const amb=[[SA,-120,60,-900],[SB,160,-80,-900],[SC,120,60,-900],[SD,-100,40,-900],[SE,60,160,-900]].map(([st,x,y,z])=>{const s=mkSprite(softTex,0x2563EB,3000);s.position.copy(LW(st,x,y,z));s.material.depthTest=true;s.material.opacity=.2;return s});
+// poeira
+const NP=3600,dPos=new Float32Array(NP*3),dSz=new Float32Array(NP),dPh=new Float32Array(NP);
+{const S=[SA,SB,SC,SD,SE];const path=[];S.forEach((st,i)=>{path.push([LW(st,0,0,3300),LW(st,0,0,-1500)]);if(i<S.length-1)path.push([LW(st,0,0,-800),LW(S[i+1],0,0,1500)])});
+ for(let i=0;i<NP;i++){const sg=path[i%path.length];const k=rnd(i+5);const a=rnd(i+50)*6.283,rad=260+Math.pow(rnd(i+90),.7)*2300;const p=V(0,0,0).lerpVectors(sg[0],sg[1],k);dPos[i*3]=p.x+Math.cos(a)*rad;dPos[i*3+1]=p.y+Math.sin(a)*rad*1.25;dPos[i*3+2]=p.z+(rnd(i+130)-.5)*900;dSz[i]=4+rnd(i+170)*9;dPh[i]=rnd(i+210)*6.283}}
+const dG=new THREE.BufferGeometry();dG.setAttribute('position',new THREE.BufferAttribute(dPos,3));dG.setAttribute('size',new THREE.BufferAttribute(dSz,1));dG.setAttribute('ph',new THREE.BufferAttribute(dPh,1));
+const dM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uT:{value:0},uK:{value:D0}},
+ vertexShader:`attribute float size;attribute float ph;uniform float uT;uniform float uK;varying float vA;void main(){vec3 p=position;p.y+=sin(uT*0.6+ph)*26.0;p.x+=cos(uT*0.45+ph*1.7)*22.0;vec4 mv=modelViewMatrix*vec4(p,1.0);float d=-mv.z;float s=size*uK/d;float big=clamp(s/26.0,0.0,1.0);gl_PointSize=min(s,120.0);vA=(0.7-0.55*big)*smoothstep(9500.0,3000.0,d)*smoothstep(40.0,260.0,d)*(0.7+0.3*sin(uT*1.7+ph*3.0));gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.25,d);gl_FragColor=vec4(vec3(0.62,0.86,1.0)*a,a*vA);}`});
+const dust=new THREE.Points(dG,dM);dust.frustumCulled=false;scene.add(dust);
+// chão de pontos por estação
+{const fp=[];[SA,SB,SC,SD,SE].forEach(st=>{for(let x=-2860;x<=2860;x+=130)for(let z=-4400;z<=2000;z+=130){const p=LW(st,x,-820,z);fp.push(p.x,p.y,p.z)}});
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(fp,3));
+ const m=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uK:{value:D0}},
+  vertexShader:`uniform float uK;varying float vA;void main(){vec4 mv=modelViewMatrix*vec4(position,1.0);float d=-mv.z;gl_PointSize=clamp(10.0*uK/d,2.0,24.0);vA=0.85*smoothstep(7600.0,2600.0,d)*smoothstep(200.0,800.0,d);gl_Position=projectionMatrix*mv;}`,
+  fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.35,d);gl_FragColor=vec4(vec3(0.33,0.62,0.98)*a,a*vA);}`});
+ const f=new THREE.Points(g,m);f.frustumCulled=false;scene.add(f)}
+// faíscas
+const NS=200,sPos=new Float32Array(NS*3),sCol=new Float32Array(NS*3),sA=new Float32Array(NS),sS=new Float32Array(NS);
+const sG=new THREE.BufferGeometry();sG.setAttribute('position',new THREE.BufferAttribute(sPos,3));sG.setAttribute('color',new THREE.BufferAttribute(sCol,3));sG.setAttribute('alpha',new THREE.BufferAttribute(sA,1));sG.setAttribute('size',new THREE.BufferAttribute(sS,1));
+const sM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,depthTest:false,blending:THREE.AdditiveBlending,uniforms:{uK:{value:D0}},
+ vertexShader:`attribute float alpha;attribute float size;attribute vec3 color;uniform float uK;varying float vA;varying vec3 vC;void main(){vA=alpha;vC=color;vec4 mv=modelViewMatrix*vec4(position,1.0);gl_PointSize=size*uK/-mv.z;gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vA;varying vec3 vC;void main(){float d=length(gl_PointCoord-0.5)*2.0;float core=smoothstep(0.5,0.0,d);float gl=pow(max(0.0,1.0-d),2.0)*0.6;gl_FragColor=vec4(vC*(core*1.4+gl),(core+gl)*vA);}`});
+const sparks=new THREE.Points(sG,sM);sparks.frustumCulled=false;scene.add(sparks);
+const CY=[0.49,0.83,0.99],GR=[0.2,0.83,0.6],AM=[0.96,0.62,0.05],GY=[0.46,0.5,0.58];
+const BUR=[];let sN=0;const burst=(t0,st,p,n,col,spd,life,sz)=>{BUR.push({t0,p:LW(st,...p),q:st.quaternion.clone(),i0:sN,n,col,spd,life,sz});sN+=n};
+
+/* ================= PLANOS DOM projetados pela câmera ================= */
+const PLN={};const _m=new THREE.Matrix4(),_q=new THREE.Quaternion(),_e=new THREE.Euler(),_p=new THREE.Vector3(),_s=new THREE.Vector3(),_v=new THREE.Vector3(),_v2=new THREE.Vector3(),VP=new THREE.Matrix4();
+function pl(id,st,left,top,z=0,o={}){const el=$(id);const w=el.offsetWidth,h=el.offsetHeight;const k=(D0-z)/D0;if(o.cx!==undefined)left=o.cx-w/2;if(o.right!==undefined)left=o.right-w;if(o.cy!==undefined)top=o.cy-h/2;
+ const p={el,st,w,h,k,x:(left+w/2-540)*k,y:(960-top-h/2)*k,z,rz:o.rz||0,vis:-1,left,top};PLN[id]=p;return p}
+function put(id,o,a){const p=PLN[id],el=p.el;if(!(o>0.004)){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ a=a||{};const s=(a.s??1)*p.k;_e.set(a.rx||0,a.ry||0,(a.rz||0)+p.rz,a.ord||'XYZ');_q.setFromEuler(_e);_p.set(p.x+(a.dx||0),p.y+(a.dy||0),p.z+(a.dz||0));
+ if(a.pv||a.ph){_v.set((a.ph||0)*p.k,(a.pv||0)*p.k,0);_v2.set(_v.x*(a.s??1)*(a.sx??1),_v.y*(a.s??1)*(a.sy??1),0).applyQuaternion(_q);_p.add(_v).sub(_v2)}
+ _s.set(s*(a.sx??1),s*(a.sy??1),1);_m.compose(_p,_q,_s).premultiply(p.st.matrixWorld);
+ _v.setFromMatrixPosition(_m);const dist=_v.distanceTo(cam.position);_m.premultiply(VP);const e=_m.elements,w=p.w,h=p.h;
+ if(e[15]<60){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ o*=cl((dist-260)/520);if(!(o>0.004)){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ const n=1/e[15];const c0=[e[0],e[1],e[3]],c1=[-e[4],-e[5],-e[7]],c3=[e[12]-e[0]*w/2+e[4]*h/2,e[13]-e[1]*w/2+e[5]*h/2,e[15]-e[3]*w/2+e[7]*h/2];
+ const PX=c=>(c[0]+c[2])*W/2*n,PY=c=>(c[2]-c[1])*H/2*n;
+ el.style.transform=`matrix3d(${PX(c0)},${PY(c0)},0,${c0[2]*n},${PX(c1)},${PY(c1)},0,${c1[2]*n},0,0,1,0,${PX(c3)},${PY(c3)},0,${c3[2]*n})`;
+ el.style.opacity=o>0.996?1:o;el.style.zIndex=Math.max(1,30000-Math.round(dist));if(p.vis!==1){el.style.visibility='visible';p.vis=1}}
+
+
+/* layout (bloco de cada cena centrado entre ~y 330 e 1500) */
+pl('gA',SA,0,0,-1300,{cx:600,cy:1620});pl('gB',SB,0,0,-1300,{cx:900,cy:1660});pl('gC',SC,0,0,-1300,{cx:600,cy:1640});pl('gD',SD,0,0,-1300,{cx:900,cy:1630});pl('gE',SE,0,0,-1300,{cx:1100,cy:1620});
+pl('a1',SA,82,330,60);pl('a2',SA,82,478,40);pl('a3',SA,82,584,40);pl('a4',SA,82,690,40);pl('fm',SA,82,830,90);pl('a5',SA,82,1352,40);pl('a6',SA,82,1432,40);
+pl('b1',SB,82,300,40);pl('b2',SB,82,410,40);pl('b3',SB,82,355,40);pl('ch',SB,82,580,20);
+pl('c1',SC,82,410,40);pl('c2',SC,82,532,40);pl('kc',SC,82,700,50);pl('cpl',SC,82,1320,90);
+pl('d1',SD,82,700,60);pl('d2',SD,82,850,60);pl('d3',SD,82,1000,60);
+pl('f5',SE,82,420,60);pl('f1',SE,82,680,90);pl('f2',SE,82,906,120);pl('f3',SE,82,1180,60);pl('f4',SE,82,1268,60);
+
+/* linha da jornada: entrega o formulário (A), leva da ficha à tese (C->D) */
+const L0=mkLine([LW(SA,...scr(1400,1300,0)),LW(SA,...scr(1180,1080,60)),LW(SA,...scr(998,906,90))]);
+const L1=mkLine([LW(SC,...scr(950,1360,90)),LW(SC,600,-1300,-1600),LW(SD,1500,1300,1900),LW(SD,...scr(540,1420,60))]);
+const SEG=[{L:L0,t0:-1.0,t1:T.fm,on:-1.2,off:0.35},{L:L1,t0:T.cOut,t1:T.D-0.05,on:T.cOut-0.15,off:T.D-0.05}];
+
+/* ================= CÂMERA ================= */
+const K=[];const key=(t,st,p,l,e=lin)=>K.push({t,p:LW(st,...p),l:LW(st,...l),e});
+const Z0=[0,0,0];
+key(0,SA,[160,-80,3420],Z0);key(0.9,SA,[70,-30,3020],Z0,eOut3);key(T.rf[1]-0.01,SA,[10,-10,2760],Z0);
+key(T.rf[1],SB,[0,-160,2600],[0,-120,0]);key(T.rf[1]+0.9,SB,[-40,-40,2930],Z0,eOut3);key(T.dw[1]-0.01,SB,[-10,0,2800],Z0);
+key(T.dw[1],SC,[-200,90,3050],Z0);key(T.dw[1]+0.8,SC,[-80,30,2940],Z0,eOut3);key(T.cOut,SC,[0,0,2800],Z0);
+key(T.D,SD,[0,-60,3150],Z0,eIO);key(T.D+0.8,SD,[0,-20,2960],Z0,eOut3);key(T.dOut,SD,[0,0,2780],Z0);
+key(T.F-0.01,SD,[0,0,2740],Z0);key(T.F,SE,[0,0,3020],Z0);key(T.F+0.7,SE,[30,-15,2900],Z0,eOut3);key(T.end,SE,[-20,10,2780],Z0);
+function camAt(t){let i=0;for(let j=0;j<K.length;j++)if(K[j].t<=t)i=j;if(i>=K.length-1)return K[K.length-1];const a=K[i],b=K[i+1];const dt=b.t-a.t;const k=dt<=0?1:b.e((t-a.t)/dt);return {p:a.p.clone().lerp(b.p,k),l:a.l.clone().lerp(b.l,k)}}
+burst(T.cpl+0.05,SC,scr(400,1360,90),30,GR,1100,0.8,18);
+burst(T.send,SE,scr(906,998,140),34,GR,1300,0.8,22);
+burst(T.fm+0.05,SA,scr(998,906,90),14,CY,900,0.5,16);
+
+/* chat: mensagens empilhadas, a conversa rola sozinha conforme chegam */
+const MS=[0,1,2,3,4].map(i=>$('m'+i));const MH=MS.map(e=>e.offsetHeight);const GAP=22,TOP0=158,AREA=900-24;
+
+const tO=new THREE.Vector3(),tO2=new THREE.Vector3();
+const WORD='FORMULÁRIO';
+window.render=function(t){
+ const cp=camAt(t);cam.position.copy(cp.p);cam.position.x+=Math.sin(t*0.9)*12+Math.sin(t*2.3+1)*4;cam.position.y+=Math.sin(t*1.25+1)*10;
+ cam.up.set(0,1,0);cam.lookAt(cp.l);cam.updateMatrixWorld();VP.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse);
+ dM.uniforms.uT.value=t;
+ {let act=null;for(const g of SEG){const lv=P(t,g.on,0.25,lin)*(1-P(t,g.off,0.35,lin));g.L.mats.forEach(m=>m.opacity=m.userData.op*lv);if(t>=g.t0-0.05&&t<=g.t1+0.12)act=g}
+  if(act){const u=k=>cl((k-act.t0)/(act.t1-act.t0));act.L.curve.getPoint(u(t),tO);orb.position.copy(tO);orbHalo.position.copy(tO);
+   const fo=cl((t-act.t0+0.05)/0.1)*(1-cl((t-act.t1)/0.12));orb.scale.setScalar(130*(1+0.12*Math.sin(t*6.5)));orbHalo.scale.setScalar(440);orb.material.opacity=fo;orbHalo.material.opacity=.3*fo;
+   trail.forEach((s,k)=>{act.L.curve.getPoint(u(t-(k+1)*0.022),tO2);s.position.copy(tO2);s.scale.setScalar(91*(1-k/12));s.material.opacity=t<act.t1?.4*(1-k/10)*fo:0})}
+  else{orb.material.opacity=orbHalo.material.opacity=0;trail.forEach(s=>s.material.opacity=0)}}
+ {for(const b of BUR){const k=(t-b.t0)/b.life;for(let j=0;j<b.n;j++){const i=b.i0+j;if(k<=0||k>=1){sA[i]=0;continue}
+   const a=rnd(i*3+1)*6.283,sv=0.35+rnd(i*3+2)*0.65,e=1-Math.pow(1-k,2.6);_v.set(Math.cos(a)*b.spd*sv*e,Math.sin(a)*b.spd*sv*e*0.8-180*k*k,(rnd(i*3+3)-.5)*b.spd*0.5*e).applyQuaternion(b.q).add(b.p);
+   sPos[i*3]=_v.x;sPos[i*3+1]=_v.y;sPos[i*3+2]=_v.z;sCol[i*3]=b.col[0];sCol[i*3+1]=b.col[1];sCol[i*3+2]=b.col[2];sA[i]=Math.pow(1-k,1.4);sS[i]=b.sz*(0.5+rnd(i+7))}}
+  sG.attributes.position.needsUpdate=sG.attributes.color.needsUpdate=sG.attributes.alpha.needsUpdate=sG.attributes.size.needsUpdate=true}
+ amb.forEach((s,i)=>s.material.opacity=.19+.035*Math.sin(t*0.8+i));
+ r.render(scene,cam);
+
+ /* palavras fantasma no chão */
+ put('gA',t<T.rf[1]?P(t,0.05,0.6):0,{dx:-40*t});
+ put('gB',t>T.rf[1]&&t<T.dw[1]?P(t,T.B+0.2,0.5):0,{dx:-40*(t-T.B)});
+ put('gC',t>T.dw[1]&&t<T.cOut+0.3?P(t,T.C+0.2,0.5)*(1-P(t,T.cOut,0.3,lin)):0,{dx:-40*(t-T.C)});
+ put('gD',t>T.D-0.1&&t<T.dOut?P(t,T.D+0.2,0.5)*(1-P(t,T.dOut-0.1,0.2,lin)):0,{dx:-40*(t-T.D)});
+ put('gE',t>T.F?P(t,T.F+0.1,0.6):0,{dx:-70*(t-T.F)});
+
+ /* ---------- A · GANCHO ---------- */
+ {const vis=t<T.rf[1];const o=1-P(t,T.rf[0]+0.05,0.22,lin);const back={dz:-260*P(t,T.rf[0],0.3,eIn2)};
+  const dim=1-0.35*P(t,T.pr-0.1,0.4,eIO2);
+  up('a1a',t,-0.45);up('a2a',t,-0.32);up('a3a',t,T.a3);up('a4a',t,T.a4);
+  put('a1',vis?o*dim:0,back);put('a2',vis?o*dim:0,back);put('a3',vis&&t>T.a3-0.02?o*dim:0,back);put('a4',vis&&t>T.a4-0.02?o*dim:0,back);
+  const fv=spFly((t-T.fm)*1000);put('fm',vis&&t>T.fm?cl(fv*2.2)*o:0,Object.assign({dx:(1-fv)*240,dz:(1-fv)*-300-260*P(t,T.rf[0],0.3,eIn2),ry:(1-fv)*-0.28,rx:0},{}));
+  const st=t>T.pill,pv=spSnap((t-T.pill)*1000),pu=0.5+0.5*Math.sin((t-T.pill)*5.2),pe=$('fmp').style;
+  pe.opacity=st?cl(pv*3):0;pe.transform=`translateX(${(1-cl(pv))*-30}px) scale(${st?0.9+0.1*cl(pv):0.9})`;
+  pe.boxShadow=st?`0 0 ${12+14*pu}px rgba(245,158,11,${0.15+0.15*pu})`:'none';
+  $('fmh').style.transform=`rotate(${Math.max(0,t-T.pill)*120}deg)`;
+  $('fm').style.borderColor=st?`rgba(245,158,11,${0.35+0.15*pu})`:'rgba(125,211,252,.3)';
+  up('a5a',t,T.pr);up('a5b',t,T.pr+0.14);put('a5',vis&&t>T.pr-0.02?o:0,back);
+  up('a6a',t,T.pr2);up('a6b',t,T.pr2+0.16);const hp=spPop((t-T.pr2-0.16)*1000);put('a6',vis&&t>T.pr2-0.02?o:0,back)}
+ /* ---------- B · A CONVERSA ---------- */
+ {const vis=t>T.rf[1]-0.02&&t<T.dw[1];
+  up('b1a',t,T.b1);up('b1b',t,T.b1+0.12);up('b2a',t,T.b1+0.22);
+  const sw=t>T.b3-0.32;const k1=P(t,T.b3-0.32,0.3,eIn2);
+  $('b1a').style.transform+=` translateY(${-k1*150}%)`;$('b1b').style.transform+=` translateY(${-k1*150}%)`;$('b2a').style.transform+=` translateY(${-k1*150}%)`;
+  put('b1',vis&&t>T.b1-0.02&&k1<0.99?1:0);put('b2',vis&&t>T.b1-0.02&&k1<0.99?1:0);
+  up('b3a',t,T.b3);up('b3b',t,T.b3+0.12);put('b3',vis&&t>T.b3-0.02?1:0);
+  const cv=spSoft((t-T.ch)*1000);put('ch',vis&&t>T.ch?cl(cv*2):0,{rx:(1-cl(cv))*0.45,dy:(1-cl(cv))*90});
+  let y=0,tot=0;const ys=[];
+  for(let i=0;i<5;i++){const v=spChat((t-T.m[i])*1000);const k=t>T.m[i]?cl(v):0;ys.push([y,v,k]);y+=(MH[i]+GAP)*k}
+  const scroll=Math.max(0,y-(AREA-TOP0));
+  for(let i=0;i<5;i++){const [yy,v,k]=ys[i];const s=MS[i].style;s.top=(TOP0+yy-scroll)+'px';s.opacity=t>T.m[i]?cl(v*2.5):0;s.transform=`translateY(${(1-cl(v))*40}px) scale(${0.94+0.06*cl(v)})`;s.transformOrigin=i==2||i==4?'0 0':'100% 0'}}
+ /* ---------- C · DONO NO FUNIL ---------- */
+ {const vis=t>T.dw[1]-0.02&&t<T.cOut+0.4;const o=1-P(t,T.cOut-0.2,0.22,lin);
+  up('c1a',t,T.c1);up('c1b',t,T.c1+0.12);up('c2a',t,T.c1+0.24);put('c1',vis&&t>T.c1-0.02?o:0);put('c2',vis&&t>T.c1-0.02?o:0);
+  const kv=spSoft((t-T.kc)*1000);put('kc',vis&&t>T.kc?cl(kv*2)*o:0,{ry:(1-cl(kv))*0.35,dx:(1-cl(kv))*-60});
+  const sk=eIO2((t-T.stp)/0.55);$('sbar').style.width=(386*sk)+'px';
+  const q=t>T.stp+0.5,qv=spPop((t-T.stp-0.5)*1000);
+  $('sd0').style.background='#34D399';
+  const d1=$('sd1').style;d1.background=q?'#34D399':'#2A3342';d1.borderColor=q?'#34D399':'#5C6678';d1.transform=`scale(${q?1+0.35*Math.max(0,1-Math.abs(qv-1)*3):1})`;d1.boxShadow=q?`0 0 ${26*cl(qv)}px rgba(52,211,153,.6)`:'none';
+  $('sl1').style.color=q?'#fff':'#8E98AA';$('sl0').style.color='#8E98AA';
+  for(let i=0;i<3;i++){const v=spPop((t-T.cp[i])*1000);const s=$('cp'+i).style;s.opacity=t>T.cp[i]?cl(v*2.5):0;s.transform=`translateY(${(1-cl(v))*20}px) scale(${0.85+0.15*cl(v)})`;s.display='inline-flex'}
+  const ov=spPop((t-T.own)*1000),on=t>T.own,a=$('av').style;a.background=on?'#2563EB':'#2A3342';a.borderStyle=on?'solid':'dashed';a.borderColor=on?'#0F1520':'rgba(255,255,255,.25)';a.transform=`scale(${on?0.7+0.3*cl(ov):1})`;
+  $('avt').style.opacity=on?1:0;
+  const FV='Corretora Ana';const n=Math.round(cl((t-T.own-0.15)/0.45)*FV.length);$('ow').textContent=t>T.own+0.15?FV.slice(0,n):'—';$('ow').style.color=t>T.own+0.15?'#fff':'#5C6678';
+  $('kc').style.borderColor=t>T.cpl?'#34D399':'rgba(125,211,252,.3)';
+  const pv=spSnap((t-T.cpl)*1000);put('cpl',vis&&t>T.cpl?cl(pv*3)*o:0,{dy:-(1-pv)*26})}
+ /* ---------- D · TESE ---------- */
+ {const vis=t>T.D-0.3&&t<T.dot+0.05;const c=P(t,T.dOut,0.3,eIn);
+    up('d1a',t,T.d[0]);up('d2a',t,T.d[1]);up('d3a',t,T.d[2]);up('d3b',t,T.d[2]+0.12);
+  const o=1-P(t,T.dOut+0.04,0.16,lin);
+  const z=(id,y)=>({s:1-0.8*c,dy:-c*(960-y)});
+  put('d1',vis&&t>T.d[0]-0.02?o:0,z('d1',762));put('d2',vis&&t>T.d[1]-0.02?o:0,z('d2',912));put('d3',vis&&t>T.d[2]-0.02?o:0,z('d3',1062))}
+ /* ---------- ponto que vira campo (D -> E) ---------- */
+ {const d=$('dot').style;const a=P(t,T.dOut+0.2,0.12,eOut),b=P(t,T.dot,0.15,lin);const v=a*(1-b);
+  d.visibility=v>0.01?'visible':'hidden';d.opacity=v;d.left='540px';d.top=lerp(960,998,P(t,T.dOut+0.15,0.3,eIO2))+'px';d.transform=`scale(${0.4+0.6*a})`}
+ /* ---------- E · CTA ---------- */
+ {const fin=(id,a,extra)=>{const v=spFly((t-a)*1000);put(id,t>a?cl(v*2.2):0,Object.assign({rx:(1-v)*0.9,dz:(1-v)*-500,dy:(1-v)*-120},extra||{}))};
+  const fv=spSoft((t-T.f2)*1000);put('f2',t>T.f2?cl(fv*4):0,{sx:0.04+0.96*cl(eOut(cl(fv))),sy:0.22+0.78*cl(fv)});
+  fin('f5',T.logo,{s:1+0.02*Math.sin(t*1.5)});$('f5s').style.transform=`translateX(${lerp(-240,600,P(t,T.sheen,0.5,eIO2))}px)`;
+  up('f1a',t,T.f1);put('f1',t>T.f1-0.02?1:0);
+  const n=Math.round(cl((t-T.typ)/0.6)*WORD.length);$('typ').textContent=WORD.slice(0,n);$('car').style.opacity=(n<WORD.length?(t>T.f2+0.2?1:0):(Math.floor(t*3.3)%2?1:0));
+  const sv=spPop((t-T.send)*1000);$('send').style.transform=`scale(${t>T.send?0.8+0.2*sv+0.22*Math.max(0,1-Math.abs(sv-1)*5)*(t<T.send+0.3?1:0):1})`;$('send').style.background=t>T.send?'#22C55E':'#2563EB';
+  $('send').style.boxShadow=t>T.send?`0 0 ${50*cl(sv)}px rgba(52,211,153,.75)`:'none';
+  up('f3a',t,T.sub-0.3);up('f3b',t,T.sub-0.14);up('f4a',t,T.sub+0.06);up('f4b',t,T.sub+0.24);put('f3',t>T.sub-0.32?1:0);put('f4',t>T.sub+0.04?1:0)}
+ /* ---------- transição 1: foco (rack focus) A -> B ---------- */
+ {const b=t<T.rf[1]?eIn2((t-T.rf[0])/(T.rf[1]-T.rf[0])):1-eOut3((t-T.rf[1])/(T.rf[2]-T.rf[1]));const px=t>T.rf[0]&&t<T.rf[2]?28*cl(b):0;
+  const f=px>0.2?`blur(${px.toFixed(1)}px)`:'none';$('pls').style.filter=f;$('c').style.filter=px>0.2?`blur(${(px*0.6).toFixed(1)}px) brightness(${1-0.25*cl(b)})`:'none'}
+ /* ---------- transição 2: painel diagonal que atravessa (B -> C) ---------- */
+ {const [a,m,e]=T.dw;const w=$('dw');if(t>a&&t<e){const k=eIO2((t-a)/(e-a));w.style.visibility='visible';$('dwp').style.transform=`translateY(${lerp(2950,-2950,k)}px)`}else w.style.visibility='hidden'}
+ $('fg').getContext('2d').clearRect(0,0,540,960);
+};
+window.qa=t=>{render(t);const o=[];document.querySelectorAll('.q').forEach(el=>{const p=el.closest('.pl');if(p&&p.style.visibility!=='visible')return;if(+getComputedStyle(p||el).opacity<0.3)return;if(+getComputedStyle(el).opacity<0.3)return;const b=el.getBoundingClientRect();const fs=parseFloat(getComputedStyle(el).fontSize)*b.height/el.offsetHeight;o.push([el.id||el.textContent.slice(0,14),Math.round(b.left),Math.round(b.top),Math.round(b.right),Math.round(b.bottom),Math.round(fs)])});return o};
+window.ready=(async()=>{render(0);return T.end})();
+</script></body></html>
