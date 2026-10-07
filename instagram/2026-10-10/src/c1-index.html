@@ -58,26 +58,34 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 .art{margin-top:60px}
 .bt{font-size:30px}
 /* formulário do anúncio */
-.form{width:600px;padding:34px 36px 36px}
+.form{width:912px;padding:34px 36px 36px}
 .form .lab{margin-bottom:26px}
-.fld{border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);border-radius:18px;padding:16px 24px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
+.fld{border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);border-radius:18px;padding:22px 26px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
 .fld b{font:600 30px/1 IN;color:#7C8799;letter-spacing:.02em}
-.fld span{font:600 34px/1 IN;color:#E2E8F0}
-.btn{margin-top:22px;height:84px;border-radius:18px;background:#2563EB;display:flex;align-items:center;justify-content:center;gap:14px;font:700 36px/1 IN;color:#fff;box-shadow:0 14px 34px rgba(37,99,235,.45)}
+.fld span{font:600 40px/1 IN;color:#E2E8F0}
+.btn{margin-top:22px;height:96px;border-radius:18px;background:#2563EB;display:flex;align-items:center;justify-content:center;gap:14px;font:700 36px/1 IN;color:#fff;box-shadow:0 14px 34px rgba(37,99,235,.45)}
+/* progresso da checklist (slides 4–8) */
+.prog{margin-left:auto;display:flex;gap:10px}
+.prog i{width:30px;height:30px;border-radius:9px;border:2.5px solid rgba(125,211,252,.28);display:flex;align-items:center;justify-content:center}
+.prog i.ok{background:rgba(34,211,238,.22);border-color:rgba(34,211,238,.6)}
+.prog i.on{background:#22D3EE;border-color:#22D3EE;box-shadow:0 0 16px rgba(34,211,238,.6)}
+.wd{display:inline-flex;align-items:center;gap:16px;padding:24px 32px;border-radius:24px;font:700 42px/1 IN;color:#E2E8F0}
+.wd s{text-decoration:none;width:50px;height:50px;border-radius:12px;border:2.5px solid rgba(125,211,252,.55);display:flex;align-items:center;justify-content:center;font:800 30px/1 IN;color:#7DD3FC}
+.strk{text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:#8794A8;color:#8794A8}
 /* nó de checagem na linha */
-.gate{position:absolute;top:1107px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;z-index:6}
-.gate i{width:48px;height:48px;border-radius:14px;background:#0A0E14;border:3px solid #22D3EE;box-shadow:0 0 24px rgba(34,211,238,.45);display:flex;align-items:center;justify-content:center}
+.gate{position:absolute;top:1104px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;z-index:6}
+.gate i{width:52px;height:52px;border-radius:15px;background:#22D3EE;border:3px solid #22D3EE;box-shadow:0 0 0 7px rgba(34,211,238,.12),0 0 26px rgba(34,211,238,.55);display:flex;align-items:center;justify-content:center}
 .gate span{font:700 30px/1 IN;letter-spacing:.14em;color:#7DD3FC}
 .stop{position:absolute;top:1115px;transform:translateX(-50%);z-index:6;width:32px;height:32px;border-radius:50%;background:#0A0E14;border:4px solid #F59E0B;box-shadow:0 0 18px rgba(245,158,11,.4)}
 /* central de leads (dor) */
-.tbl{width:860px;padding:30px 34px 14px}
+.tbl{width:912px;padding:30px 34px 14px}
 .row{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-top:1px solid rgba(255,255,255,.08);font:600 36px/1 IN;color:#C9D2E0}
 .row small{font:500 30px/1 IN;color:#7C8799;margin-left:18px}
 /* notificação */
-.ntf{width:880px;padding:30px 34px;display:flex;gap:28px;align-items:center}
+.ntf{width:912px;padding:30px 34px;display:flex;gap:28px;align-items:center}
 .ico{width:96px;height:96px;border-radius:24px;background:linear-gradient(160deg,#67E8F9,#22D3EE);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 10px 30px rgba(34,211,238,.3)}
 /* bolha com citação do anúncio */
-.wa.one{padding:34px 34px 38px;width:900px}
+.wa.one{padding:34px 34px 38px;width:912px}
 .wa.one .bub{font-size:42px;line-height:1.28;padding:16px 18px 16px;max-width:820px}
 .quote{border-left:6px solid #22D3EE;background:rgba(0,0,0,.22);border-radius:12px;padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:18px}
 .quote b{display:block;font:700 30px/1.1 IN;color:#7DD3FC}
@@ -85,7 +93,7 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 .thumb{width:84px;height:84px;border-radius:10px;background:url(property.jpg) center/cover;flex:none}
 .msgt{padding:0 10px}
 /* régua do dia */
-.day24{width:900px;padding:40px 40px 34px}
+.day24{width:912px;padding:40px 40px 34px}
 .bar{position:relative;height:26px;border-radius:13px;background:rgba(255,255,255,.07);margin:120px 0 22px}
 .biz{position:absolute;top:0;bottom:0;border-radius:13px;background:rgba(125,211,252,.22);border:2px solid rgba(125,211,252,.35)}
 .tks{position:relative;height:30px;font:600 30px/1 IN;color:#7C8799}
@@ -95,24 +103,24 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 .pin i{width:3px;height:30px;background:#22D3EE}
 .pin u{width:30px;height:30px;border-radius:50%;background:#22D3EE;box-shadow:0 0 0 6px rgba(34,211,238,.2),0 0 22px rgba(34,211,238,.6);margin-top:-2px}
 /* perguntas */
-.qs{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:900px}
+.qs{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:912px}
 .q{display:flex;align-items:center;gap:16px;padding:28px 28px;border-radius:24px;font:600 36px/1.1 IN;color:#E2E8F0}
 .q svg{flex:none}
 .after{margin-top:26px;display:flex;align-items:center;gap:14px;font:600 32px/1 IN;color:#7C8799}
 /* ficha do lead */
-.crm{width:860px;padding:34px 38px 30px}
+.crm{width:912px;padding:34px 38px 30px}
 .crm .hd{display:flex;align-items:center;gap:22px;padding-bottom:26px}
 .av{width:76px;height:76px;border-radius:50%;background:#1E3A5F;display:flex;align-items:center;justify-content:center;font:800 34px/1 IN;color:#A5F3FC;flex:none}
 .kv{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-top:1px solid rgba(255,255,255,.08)}
 .kv b{font:600 30px/1 IN;letter-spacing:.12em;text-transform:uppercase;color:#7C8799}
 .kv span{font:700 38px/1 IN;color:#fff}
 /* checklist resumo */
-.cl{width:900px;padding:22px 38px}
+.cl{width:912px;padding:22px 38px}
 .ci{display:flex;align-items:center;gap:24px;padding:17px 0;border-top:1px solid rgba(255,255,255,.08);font:600 36px/1.15 IN;color:#E2E8F0}
 .ci:first-child{border-top:0}
 .ci .n{width:50px;height:50px;border-radius:14px;border:3px solid rgba(125,211,252,.55);display:flex;align-items:center;justify-content:center;font:800 30px/1 IN;color:#7DD3FC;flex:none}
 /* chat final */
-.chat{width:900px;padding:0 0 30px}
+.chat{width:912px;padding:0 0 30px}
 .chat .top{display:flex;align-items:center;gap:20px;padding:16px 30px;background:#1F2C34;margin-bottom:26px}
 .chat .top b{display:block;font:700 36px/1.1 IN;color:#E9EDEF}
 .chat .top em{display:block;font:500 30px/1.2 IN;color:#8696A0;font-style:normal}
@@ -128,32 +136,32 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 <div class="vig"></div>
 <svg id="fio" class="abs" width="10800" height="1350" style="left:0;top:0;z-index:6;pointer-events:none"></svg>
 
-<!-- 1 capa -->
+<!-- 1 capa: o formulário da Carla em cima, título embaixo -->
 <div class="sl" style="left:0;justify-content:flex-start;padding-top:118px">
  <div style="display:flex;justify-content:space-between;align-items:center">
-  <div class="ttl" style="margin:0"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg></div><div class="kick">Método</div></div>
+  <div class="ttl" style="margin:0"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg></div><div class="kick">Teste</div></div>
   <span class="chip cy"><svg width="24" height="28" viewBox="0 0 20 24"><path d="M3 2h14v20l-7-5.500L3 22z" fill="#A5F3FC"/></svg>Salve este post</span>
  </div>
- <div class="h1" style="margin-top:64px;font-size:100px;line-height:1.0">O lead preencheu.<br>Alguém<br><span class="hl">respondeu?</span></div>
- <div class="p" style="margin-top:34px;font-size:42px;font-weight:500;color:#E2E8F0">5 checagens para ver onde a sua captação de leads trava.</div>
- <div class="card form" id="a-form" style="margin-top:52px">
+ <div class="card form" id="a-form" style="margin-top:56px">
   <div class="lab">Formulário do anúncio</div>
   <div class="fld"><b>Nome</b><span>Carla</span></div>
   <div class="btn">Enviar <svg width="30" height="30" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></div>
  </div>
+ <div class="h1" style="margin-top:64px;font-size:104px;line-height:1.0">O lead preencheu.<br>Alguém <span style="color:transparent;-webkit-text-stroke:3px #7DD3FC">respondeu?</span></div>
+ <div class="p" style="margin-top:32px;font-size:42px;color:#E2E8F0">5 checagens para ver onde o lead do formulário trava.</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span style="color:#7DD3FC">ARRASTE →</span></div></div>
 
 <!-- 2 problema: caminho travado (formulário → planilha) -->
-<div class="sl" style="left:1080px">
+<div class="sl" style="left:1080px;padding-top:236px">
  <div class="ttl"><div class="num">!</div><div class="kick">O problema</div></div>
  <div class="h2">O lead preencheu.<br><span style="color:#8794A8">E parou na planilha.</span></div>
  <div class="p">Ninguém foi avisado. Ninguém escreveu.</div>
  <div class="art" style="display:flex;align-items:center;width:912px">
-  <div class="card" style="width:270px;padding:30px 26px;text-align:center">
+  <div class="card" style="width:300px;padding:30px 26px;text-align:center">
    <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.500 8h7M8.500 12h7M8.500 16h4"/></svg>
-   <div style="font:700 32px/1.1 IN;margin-top:14px">Formulário</div><div style="font:500 30px/1.2 IN;color:#7C8799;margin-top:8px">sáb. 22:47</div></div>
+   <div style="font:700 34px/1.1 IN;margin-top:14px">Formulário</div><div style="font:500 30px/1.2 IN;color:#7C8799;margin-top:8px">sáb. 22:47</div></div>
   <div style="flex:1;height:3px;background:#22D3EE;opacity:.7;position:relative"><span style="position:absolute;right:-2px;top:-9px;border-left:16px solid #22D3EE;border-top:10px solid transparent;border-bottom:10px solid transparent"></span></div>
-  <div class="card" style="width:480px;padding:26px 28px 14px">
+  <div class="card" style="width:500px;padding:26px 28px 14px">
    <div class="lab" style="margin-bottom:14px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7C8799" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg>Planilha</div>
    <div class="row"><span>Carla</span><span class="chip nt" style="font-size:30px;padding:12px 20px">Sem contato</span></div>
   </div>
@@ -165,43 +173,40 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
 <div class="sl" style="left:2160px">
  <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg></div><div class="kick">O teste</div></div>
  <div class="h2">Preencha o seu próprio <span class="hl">formulário</span>.</div>
- <div class="p">Depois, siga as 5 checagens.</div>
- <div class="card cl art">
-  <div class="ci"><span class="n">1</span>Chega a alguém na hora?</div>
-  <div class="ci"><span class="n">2</span>WhatsApp citando o anúncio?</div>
-  <div class="ci"><span class="n">3</span>Resposta fora do horário?</div>
-  <div class="ci"><span class="n">4</span>Perguntas antes dos imóveis?</div>
-  <div class="ci"><span class="n">5</span>Dono e próximo passo?</div>
+ <div class="p">Depois, confira as 5 checagens.</div>
+ <div class="art" style="width:912px;display:flex;flex-wrap:wrap;gap:18px">
+  <span class="wd nt"><s>1</s>Aviso</span><span class="wd nt"><s>2</s>Anúncio</span><span class="wd nt"><s>3</s>22h</span><span class="wd nt"><s>4</s>Perguntas</span><span class="wd nt"><s>5</s>Dono</span>
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>3/10</span></div></div>
 
 <!-- 4 checagem 1 -->
-<div class="sl" style="left:3240px;padding-top:216px"><div class="ghost">01</div>
- <div class="ttl"><div class="num">01</div><div class="kick">Checagem 1 · entrada</div></div>
+<div class="sl" style="left:3240px;padding-top:216px">
+ <div class="ttl" style="width:912px"><div class="num">01</div><div class="kick">Checagem 1 · aviso</div><div class="prog"><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i></i><i></i><i></i><i></i></div></div>
  <div class="h2">O lead chega a <span class="hl">alguém</span> na hora?</div>
- <div class="p">Formulário enviado vira aviso, não arquivo para baixar depois.</div>
+ <div class="p">Formulário enviado vira aviso no celular, não planilha para baixar depois.</div>
  <div class="card ntf art">
   <div class="ico"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.500 7.500 2.500 7.500h-17S6 15 6 9z"/><path d="M10 20a2.200 2.200 0 0 0 4 0"/></svg></div>
   <div style="flex:1"><div style="display:flex;justify-content:space-between;font:700 30px/1 IN;letter-spacing:.12em;color:#7DD3FC;text-transform:uppercase"><span>Novo lead</span><span style="color:#7C8799;letter-spacing:.04em;text-transform:none">agora</span></div>
   <div style="font:600 38px/1.2 IN;color:#fff;margin-top:14px">Carla · apto de 2 quartos</div></div>
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>4/10</span></div></div>
-<div class="gate" style="left:3780px"><i><svg width="26" height="26" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#7DD3FC" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>1</span></div>
+<div class="gate" style="left:3780px"><i><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
 <!-- 5 checagem 2 -->
-<div class="sl" style="left:4320px"><div class="ghost">02</div>
- <div class="ttl"><div class="num">02</div><div class="kick">Checagem 2 · primeira mensagem</div></div>
- <div class="h2" style="font-size:80px">A primeira mensagem vai pelo <span class="hl">WhatsApp</span> e cita o anúncio?</div>
+<div class="sl" style="left:4320px">
+ <div class="ttl" style="width:912px"><div class="num">02</div><div class="kick">Checagem 2 · anúncio</div><div class="prog"><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i></i><i></i><i></i></div></div>
+ <div class="h2">A primeira mensagem cita o <span class="hl">anúncio</span>?</div>
  <div class="p">O cliente precisa reconhecer o imóvel.</div>
- <div class="wa one art">
-  <div class="bub bout" style="padding:22px 28px 18px"><div>Oi, Carla! Sobre o apto de 2 quartos do anúncio: é para morar ou para investir?</div><div class="bt"><svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+ <div class="wa one art" style="padding:30px 30px 32px">
+  <div class="bub bout" style="padding:20px 26px;margin-bottom:20px;background:#1F2C34"><span class="strk">Olá, recebemos seu cadastro.</span></div>
+  <div class="bub bout" style="padding:20px 26px 16px">Oi, Carla! Sobre o apto de 2 quartos do anúncio: é para morar ou para investir?</div>
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>5/10</span></div></div>
-<div class="gate" style="left:4860px"><i><svg width="26" height="26" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#7DD3FC" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>2</span></div>
+<div class="gate" style="left:4860px"><i><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
 <!-- 6 checagem 3 -->
-<div class="sl" style="left:5400px"><div class="ghost">03</div>
- <div class="ttl"><div class="num">03</div><div class="kick">Checagem 3 · fora do horário</div></div>
+<div class="sl" style="left:5400px">
+ <div class="ttl" style="width:912px"><div class="num">03</div><div class="kick">Checagem 3 · horário</div><div class="prog"><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i></i><i></i></div></div>
  <div class="h2">Alguém responde às <span class="hl">22h</span>?</div>
  <div class="p">O formulário chega quando o cliente tem tempo: à noite, no fim de semana.</div>
  <div class="card day24 art">
@@ -211,12 +216,12 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
   <div class="tks"><span style="left:2%">0h</span><span style="left:37.5%">9h</span><span style="left:75%">18h</span><span style="left:97%">24h</span></div>
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>6/10</span></div></div>
-<div class="gate" style="left:5940px"><i><svg width="26" height="26" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#7DD3FC" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>3</span></div>
+<div class="gate" style="left:5940px"><i><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
 <!-- 7 checagem 4 -->
-<div class="sl" style="left:6480px"><div class="ghost">04</div>
- <div class="ttl"><div class="num">04</div><div class="kick">Checagem 4 · qualificação</div></div>
- <div class="h2">Pergunta <span class="hl">antes</span> de mandar imóvel?</div>
+<div class="sl" style="left:6480px;padding-top:236px">
+ <div class="ttl" style="width:912px"><div class="num">04</div><div class="kick">Checagem 4 · perguntas</div><div class="prog"><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i></i></div></div>
+ <div class="h2">Alguém pergunta <span class="hl">antes</span> de mandar imóveis?</div>
  <div class="p">As respostas dizem o que vale enviar.</div>
  <div class="qs art">
   <div class="q nt"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#22D3EE" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Morar ou investir?</div>
@@ -225,20 +230,20 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
   <div class="q nt"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#22D3EE" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Para quando?</div>
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>7/10</span></div></div>
-<div class="gate" style="left:7020px"><i><svg width="26" height="26" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#7DD3FC" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>4</span></div>
+<div class="gate" style="left:7020px"><i><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
 <!-- 8 checagem 5 -->
-<div class="sl" style="left:7560px"><div class="ghost">05</div>
- <div class="ttl"><div class="num">05</div><div class="kick">Dono e próximo passo</div></div>
- <div class="h2">Cada lead tem <span class="hl">dono e próximo passo</span>?</div>
+<div class="sl" style="left:7560px">
+ <div class="ttl" style="width:912px"><div class="num">05</div><div class="kick">Checagem 5 · distribuição</div><div class="prog"><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="ok"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#A5F3FC" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="on"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div></div>
+ <div class="h2">Cada lead tem <span class="hl">dono</span> e próximo passo?</div>
  <div class="p">Sem isso, ele volta para a planilha.</div>
  <div class="card crm art">
   <div class="hd"><div class="av">C</div><div><div style="font:700 38px/1.1 IN">Carla</div><div style="font:500 30px/1.3 IN;color:#7C8799">Apto 2 quartos · Centro</div></div></div>
   <div class="kv"><b>Dono</b><span>Ana, corretora</span></div>
-  <div class="kv"><b>Próximo passo</b><span class="chip cy" style="font-size:32px">Visita seg. 10h</span></div>
+  <div class="kv"><b>Próximo passo</b><span class="chip nt" style="font-size:32px">Visita seg. 10h</span></div>
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>8/10</span></div></div>
-<div class="gate" style="left:8100px"><i><svg width="26" height="26" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#7DD3FC" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>5</span></div>
+<div class="gate" style="left:8100px"><i><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
 
 <!-- 9 produto -->
 <div class="sl" style="left:8640px">
@@ -247,41 +252,37 @@ body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:
  <div class="p">A Leadimob puxa a conversa no seu WhatsApp na hora, 24h, citando o anúncio.</div>
  <div class="wa chat art" id="a-chat" style="margin-top:44px">
   <div class="top"><div class="av" style="width:64px;height:64px;font-size:30px">C</div><div><b>Carla</b><em>online</em></div></div>
-  <div class="bub bout">Oi, Carla! Sobre o apto de 2 quartos: é para morar ou para investir?<div class="bt">22:47 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
   <div class="bub bin">Para morar. Pode mandar as fotos?<div class="bt">22:48</div></div>
+  <div class="bub bout">Claro! Seguem as fotos. Quer visitar segunda às 10h?<div class="bt">22:48 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
  </div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>9/10</span></div></div>
 
-<!-- 10 CTA -->
-<div class="sl" style="left:9720px;padding-bottom:170px">
- <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="kick">Sua vez</div></div>
- <div class="h2">Onde a sua captação de leads <span class="hl">trava</span>?</div>
- <div style="margin-top:56px;height:132px;border-radius:66px;background:#141B28;border:2px solid rgba(125,211,252,.45);box-shadow:0 0 0 8px rgba(34,211,238,.06),0 30px 70px rgba(0,0,0,.55);display:flex;align-items:center;padding:0 22px 0 40px;gap:16px;font:600 44px IN">
+<!-- 10 CTA: composição centrada -->
+<div class="sl" style="left:9720px;padding-bottom:170px;align-items:center;text-align:center">
+ <div style="width:330px;height:104px;border-radius:24px;background:#F3F7FB;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 44px rgba(0,0,0,.5)"><img src="logo.png" style="width:260px"></div>
+ <div class="h2" style="margin-top:64px">Onde o lead do formulário <span class="hl">trava</span>?</div>
+ <div style="margin-top:56px;width:912px;height:132px;border-radius:66px;background:#141B28;border:2px solid rgba(125,211,252,.45);box-shadow:0 0 0 8px rgba(34,211,238,.06),0 30px 70px rgba(0,0,0,.55);display:flex;align-items:center;padding:0 22px 0 40px;gap:16px;font:600 44px IN">
   <span style="color:#7C8799">Comente</span><span style="font-weight:900;letter-spacing:.02em">CHECAGEM</span><span style="width:4px;height:52px;background:#22D3EE;border-radius:2px"></span>
   <span style="margin-left:auto;width:92px;height:92px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,99,235,.55)"><svg width="42" height="42" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
  </div>
- <div class="p" style="margin-top:34px">e conte qual delas falha hoje na sua imobiliária.</div>
- <div style="margin-top:56px;display:flex;align-items:center;gap:22px">
-  <div style="width:300px;height:96px;border-radius:22px;background:#F3F7FB;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 44px rgba(0,0,0,.5)"><img src="logo.png" style="width:240px"></div>
-  <div style="font:700 34px/1 IN;color:#7DD3FC">@leadimob.ai</div>
- </div>
- <div style="margin-top:30px;font:600 32px/1.3 IN;color:#7C8799">Solicite uma demonstração · link na bio</div>
+ <div class="p" style="margin-top:34px">e conte qual checagem falha hoje na sua imobiliária.</div>
+ <div style="margin-top:44px;font:600 32px/1.3 IN;color:#7DD3FC">Solicite uma demonstração · link na bio</div>
  <div class="foot"><span>@LEADIMOB.AI</span><span>10/10</span></div></div>
 </div>
 <script>
-// O fio: sai do formulário (capa), desce até a linha e trava no nó âmbar do slide 2 (planilha);
+// O fio: sai da borda direita do formulário (capa), desce até a linha e trava no nó âmbar do slide 2 (planilha);
 // reconecta no slide 3 (o teste), passa pelas 5 checagens (slides 4–8) e no slide 9 sobe, verde, e entra na conversa.
 function fio(){
  const S=document.getElementById('fio'),st=document.getElementById('strip').getBoundingClientRect();
  const r=id=>{const b=document.getElementById(id).getBoundingClientRect();return{x:b.left-st.left,y:b.top-st.top,w:b.width,h:b.height}};
  const Y=1130,f=r('a-form'),c=r('a-chat'),R=40;
- const fx=f.x+f.w/2,fy=f.y+f.h, cx=c.x+c.w/2, cy=c.y+c.h;
+ const fx=f.x+f.w,fy=f.y+f.h/2, cx=c.x+c.w/2, cy=c.y+c.h;
  const ns='http://www.w3.org/2000/svg';
  S.innerHTML=`<defs>
  <linearGradient id="g1" gradientUnits="userSpaceOnUse" x1="0" x2="1840" y1="0" y2="0"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#22D3EE"/></linearGradient>
  <linearGradient id="g2" gradientUnits="userSpaceOnUse" x1="2160" x2="9200" y1="0" y2="0"><stop offset="0" stop-color="#22D3EE" stop-opacity="0"/><stop offset=".06" stop-color="#22D3EE" stop-opacity=".9"/><stop offset=".92" stop-color="#22D3EE" stop-opacity=".9"/><stop offset="1" stop-color="#34D399" stop-opacity=".9"/></linearGradient>
  <filter id="gl" x="-5%" y="-50%" width="110%" height="200%"><feGaussianBlur stdDeviation="6"/></filter></defs>`;
- const d1=`M${fx},${fy} V${Y-R} Q${fx},${Y} ${fx+R},${Y} H1824`;
+ const X1=1040,d1=`M${fx},${fy} H${X1-R} Q${X1},${fy} ${X1},${fy+R} V${Y-R} Q${X1},${Y} ${X1+R},${Y} H1824`;
  const d2=`M2160,${Y} H${cx-R} Q${cx},${Y} ${cx},${Y-R} V${cy}`;
  for(const[d,g,dash]of[[d1,'g1',''],[d2,'g2','']]){
   S.insertAdjacentHTML('beforeend',`<path d="${d}" fill="none" stroke="url(#${g})" stroke-width="8" opacity=".35" filter="url(#gl)"/><path d="${d}" fill="none" stroke="url(#${g})" stroke-width="3" stroke-linecap="round"/>`)}
