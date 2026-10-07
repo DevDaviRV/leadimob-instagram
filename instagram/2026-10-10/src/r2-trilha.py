@@ -10,7 +10,7 @@ from scipy.io import wavfile
 SR=48000; END=22.6; N=int((END+0.4)*SR); TT=np.arange(N)/SR
 rng=np.random.default_rng(1010)
 B=60/116; S16=B/4
-T=dict(fm=-0.4,a3=0.2,a4=0.4,pill=1.15,pr=1.8,pr2=2.15,rf=[4.15,4.45,4.8],B=4.45,b1=4.55,ch=4.6,m=[4.95,7.05,7.85,8.6,9.35],b3=6.85,dw=[10.45,10.8,11.15],C=10.8,c1=10.9,kc=11.05,stp=11.7,cp=[12.0,12.25,12.5],own=13.0,cpl=13.75,cOut=15.15,D=15.6,d=[15.62,15.82,16.05],dOut=18.15,dot=18.45,F=18.45,f2=18.55,f1=18.7,logo=18.9,typ=19.0,send=19.85,sub=20.15,sheen=20.9)
+T=dict(fm=-0.4,a3=0.2,a4=0.4,pill=1.15,pr=1.8,pr2=2.15,rf=[4.15,4.45,4.8],B=4.45,b1=4.55,ch=4.6,m=[4.95,7.05,7.85,8.6,9.35],b3=6.85,dw=[10.35,10.8,11.25],C=10.8,c1=10.9,kc=11.05,stp=11.7,cp=[12.0,12.25,12.5],own=13.0,cpl=13.75,cOut=15.15,D=15.6,d=[15.62,15.82,16.05],dOut=18.15,dot=18.45,F=18.45,f2=18.55,f1=18.7,logo=18.9,typ=19.0,send=19.85,sub=20.15,sheen=20.9)
 def lp(x,f): return sosfilt(butter(2,f,'low',fs=SR,output='sos'),x)
 def hp(x,f): return sosfilt(butter(2,f,'high',fs=SR,output='sos'),x)
 def bp(x,a,b): return sosfilt(butter(2,[a,b],'band',fs=SR,output='sos'),x)
