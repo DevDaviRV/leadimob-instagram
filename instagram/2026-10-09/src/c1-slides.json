@@ -1,0 +1,75 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "MÉTODO · SALVE ESTE POST",
+   "titulo": "Follow-up em 5 toques.",
+   "sub": "Copie e cole. Sem parecer cobrança."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "O PROBLEMA",
+   "titulo": "Ele disse “vou pensar”. E ninguém voltou.",
+   "sub": "Gostei. Vou pensar e te falo."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "TOQUE 1 · NO MESMO DIA",
+   "titulo": "Confirme o que ele procura.",
+   "sub": "Só para eu acertar nas opções: é para morar ou para investir?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "TOQUE 2 · DIA 2",
+   "titulo": "Volte com uma pergunta.",
+   "sub": "Ficou alguma dúvida sobre a casa que você viu?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "TOQUE 3 · DIA 4",
+   "titulo": "Traga algo novo.",
+   "sub": "Entrou uma opção parecida, na mesma região. Quer ver as fotos?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "TOQUE 4 · DIA 7",
+   "titulo": "Convide para a visita.",
+   "sub": "Tenho horário no sábado de manhã para visitar. Combina com você?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "TOQUE 5 · DIA 14",
+   "titulo": "Deixe a porta aberta.",
+   "sub": "Sem pressa. Posso te avisar quando entrar algo no seu perfil?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "A REGRA",
+   "titulo": "Cada toque traz um motivo novo.",
+   "sub": "Repetir a mesma pergunta é só cobrar."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "ONDE A LEADIMOB ENTRA",
+   "titulo": "A Leadimob faz esse follow-up por você.",
+   "sub": "No seu WhatsApp, no tempo certo, sem depender da memória de ninguém."
+  },
+  {
+   "tipo": "cta",
+   "kicker": "SUA VEZ",
+   "titulo": "Qual toque falta no seu atendimento?",
+   "sub": "Comente TOQUES e conte qual deles você ainda não faz."
+  }
+ ]
+}
