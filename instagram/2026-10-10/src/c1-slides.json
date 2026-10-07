@@ -1,0 +1,75 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "MÉTODO · SALVE ESTE POST",
+   "titulo": "Do formulário ao WhatsApp.",
+   "sub": "5 checagens da sua captação."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "O PROBLEMA",
+   "titulo": "O lead preencheu. E ficou parado.",
+   "sub": "Numa planilha, na central de leads, no e-mail de alguém."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "CHECAGEM 1 · ENTRADA",
+   "titulo": "O lead chega a alguém na hora?",
+   "sub": "Formulário enviado vira aviso, não arquivo para baixar depois."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "CHECAGEM 2 · PRIMEIRA MENSAGEM",
+   "titulo": "Vai pelo WhatsApp e cita o anúncio?",
+   "sub": "Ele precisa reconhecer o imóvel que viu."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "CHECAGEM 3 · FORA DO HORÁRIO",
+   "titulo": "Alguém responde às 22h?",
+   "sub": "O formulário chega quando o cliente tem tempo: à noite, no fim de semana."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "CHECAGEM 4 · QUALIFICAÇÃO",
+   "titulo": "Pergunta antes de mandar imóvel?",
+   "sub": "As respostas dizem o que vale enviar."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "CHECAGEM 5 · FUNIL",
+   "titulo": "Cada lead tem dono e próximo passo?",
+   "sub": "Sem isso, ele volta para a planilha."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "RESUMO · FAÇA O TESTE",
+   "titulo": "Preencha o seu próprio formulário.",
+   "sub": "E veja em qual checagem a resposta trava."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "ONDE A LEADIMOB ENTRA",
+   "titulo": "Formulário enviado. Conversa iniciada.",
+   "sub": "A Leadimob começa no seu WhatsApp na hora, 24h, já citando o anúncio."
+  },
+  {
+   "tipo": "cta",
+   "kicker": "SUA VEZ",
+   "titulo": "Onde a sua captação trava?",
+   "sub": "Comente CAPTAÇÃO e conte qual checagem falha hoje na sua imobiliária."
+  }
+ ]
+}
