@@ -64,3 +64,7 @@ Palavras dele sobre os carrosséis de 07/10 e 08/10: gostou do conteúdo e da pr
 ## Palavra de comentário por post (Davi, 06/10)
 - "Comente DIAGNÓSTICO" deixou de ser regra: ele achou que não tinha a ver. Cada post pede uma palavra própria, ligada ao tema, na arte, na narração e na legenda.
 - Peças já prontas ou narrações já gravadas com DIAGNÓSTICO ficam como estão; vale para o que for produzido a partir de agora (roteiros novos inclusive).
+
+## Rotina de 10/10 (aprendizados de processo)
+- Motion blur: em grua/pan muito rápido (> ~40px por quadro), 4 subquadros deixam cópias em escada; re-renderize esses blocos com 12 subquadros (ou desacelere o movimento). Confira sempre no MP4, quadro a quadro, nas viradas.
+- Carrossel: margem de 72px vale também em cima; o slide de prática não pode repetir o esqueleto "card Copie e… + bolha verde" do carrossel anterior.
