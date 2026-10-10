@@ -81,3 +81,13 @@ Alcance de não seguidores, salvamentos, compartilhamentos, comentários com a p
 
 ## Narração
 Ver `CLAUDE.md`: chave paga em `ELEVEN_LABS_API_KEY` (automático) ou o Davi sobe `instagram/narracoes/AAAA-MM-DD-r1.mp3` neste repositório / anexa no chat.
+
+
+## Remanejamento de 10/10 (limite de uso parou a fila)
+Os posts de 08/10 e 09/10 não saíram (sem `PUBLICADO.json`). Peças já aprovadas pelo Davi, mudadas de data:
+- 10/10 (hoje, só 12:00 e 18:00): conteúdo de 08/10 (Reel 1 "Seu corretor não precisa de mais leads" e carrossel "O mesmo lead. Dois finais").
+- 11/10: sem mudança (completo, aprovado pela meta).
+- 12/10: conteúdo de 09/10 inteiro (Reel 2 "Resposta rápida sem pergunta", Reel 1 "Corretor, o seu follow-up depende da sua memória?", carrossel "Follow-up em 5 toques").
+- Reel 2 de 08/10 "Pare de abandonar quem já quer comprar": `instagram/reserva/reel-pare-de-abandonar/`.
+- Formulário da Meta (era 10/10, incompleto): `instagram/pendentes/formulario-meta/`.
+Os temas por dia da tabela acima valem só para os dias ainda não produzidos (13/10 em diante).

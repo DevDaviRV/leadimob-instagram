@@ -13,63 +13,84 @@
  "slides": [
   {
    "tipo": "capa",
-   "kicker": "CHECKLIST · SALVE ESTE POST",
-   "titulo": "O lead preencheu. Alguém respondeu?",
-   "sub": "5 checagens para ver onde o lead do formulário trava."
+   "kicker": "ANTES E DEPOIS · SALVE ESTE POST",
+   "titulo": "O mesmo lead. Dois finais.",
+   "sub": "A jornada de um lead no WhatsApp, com e sem processo. Etapa por etapa."
   },
   {
-   "tipo": "conteudo",
-   "kicker": "O PROBLEMA",
-   "titulo": "Chegou sábado, 22:47. E parou na planilha.",
-   "sub": "Ninguém foi avisado. Ninguém escreveu."
+   "tipo": "lista",
+   "titulo": "Etapa 1 · A mensagem chega à noite",
+   "itens": [
+    "Sem processo: ninguém vê. Fica para amanhã.",
+    "Com processo: alguém responde. A qualquer hora."
+   ]
   },
   {
-   "tipo": "conteudo",
-   "kicker": "O TESTE",
-   "titulo": "Preencha o seu próprio formulário.",
-   "sub": "Depois, confira as 5 checagens: Aviso · Anúncio · Horário · Perguntas · Dono."
+   "tipo": "lista",
+   "titulo": "Etapa 2 · A primeira resposta",
+   "itens": [
+    "Sem processo: chega no dia seguinte. E genérica.",
+    "Com processo: fala do imóvel que ele viu."
+   ]
   },
   {
-   "tipo": "conteudo",
-   "kicker": "01 · AVISO",
-   "titulo": "Alguém fica sabendo na hora?",
-   "sub": "Formulário enviado vira aviso no celular, não planilha para baixar depois."
+   "tipo": "lista",
+   "titulo": "Etapa 3 · A qualificação",
+   "itens": [
+    "Sem processo: manda o catálogo. Não pergunta nada.",
+    "Com processo: pergunta antes de oferecer."
+   ]
   },
   {
-   "tipo": "conteudo",
-   "kicker": "02 · ANÚNCIO",
-   "titulo": "A primeira mensagem cita o anúncio?",
-   "sub": "O cliente precisa reconhecer o imóvel."
+   "tipo": "lista",
+   "titulo": "Etapa 4 · O imóvel certo",
+   "itens": [
+    "Sem processo: envia tudo. O cliente que escolha.",
+    "Com processo: busca no catálogo o que combina."
+   ]
   },
   {
-   "tipo": "conteudo",
-   "kicker": "03 · HORÁRIO",
-   "titulo": "Alguém responde à noite?",
-   "sub": "O formulário chega quando o cliente tem tempo: à noite, no fim de semana."
+   "tipo": "lista",
+   "titulo": "Etapa 5 · O convite para a visita",
+   "itens": [
+    "Sem processo: a conversa acaba sem convite.",
+    "Com processo: propõe horários. Visita agendada."
+   ]
   },
   {
-   "tipo": "conteudo",
-   "kicker": "04 · PERGUNTAS",
-   "titulo": "Alguém pergunta antes de mandar imóveis?",
-   "sub": "As respostas dizem o que vale enviar."
+   "tipo": "lista",
+   "titulo": "Etapa 6 · O follow-up",
+   "itens": [
+    "Sem processo: depende da memória de cada corretor.",
+    "Com processo: retoma com um motivo novo."
+   ]
   },
   {
-   "tipo": "conteudo",
-   "kicker": "05 · DONO",
-   "titulo": "Cada lead tem dono e próximo passo?",
-   "sub": "Sem isso, o lead fica esquecido na planilha."
+   "tipo": "lista",
+   "titulo": "Etapa 7 · O funil",
+   "itens": [
+    "Sem processo: ninguém sabe onde o lead parou.",
+    "Com processo: funil atualizado, com resumo."
+   ]
   },
   {
-   "tipo": "conteudo",
-   "kicker": "ONDE A LEADIMOB ENTRA",
-   "titulo": "Formulário enviado. Conversa iniciada.",
-   "sub": "A Leadimob abre a conversa no WhatsApp na hora, citando o anúncio."
+   "tipo": "lista",
+   "titulo": "O lead é o mesmo. Muda o processo.",
+   "itens": [
+    "Fica para amanhã → Resposta na hora",
+    "Resposta genérica → Fala do imóvel",
+    "Manda o catálogo → Pergunta antes",
+    "Envia tudo → O imóvel certo",
+    "“Me chama” → Visita agendada",
+    "Fica na memória → Retoma a conversa",
+    "Sem registro → Funil atualizado"
+   ]
   },
   {
    "tipo": "cta",
-   "kicker": "SUA VEZ",
-   "titulo": "Onde o lead do formulário trava?",
-   "sub": "Comente CHECAGEM e conte qual das 5 checagens falha hoje na sua operação."
+   "titulo": "Coloque processo no seu WhatsApp.",
+   "acao": "Solicite uma demonstração — link na bio",
+   "sub": "A Leadimob responde, qualifica, envia o imóvel certo, agenda a visita, faz o follow-up e atualiza o funil. Na negociação, chama você. Ou comente DIAGNÓSTICO e receba o checklist Onde seus leads estão morrendo."
   }
  ]
 }

@@ -1,4 +1,6 @@
-# Posts de 08/10 (quinta-feira)
+# Posts de 10/10 (sábado) — remanejado de 08/10 em 10/10 (limite de uso parou a fila; peças já aprovadas)
+
+> Reel 2 das 09:00 (`r2-pare-de-abandonar`) perdeu o horário e foi para `instagram/reserva/reel-pare-de-abandonar/`.
 
 > **APROVADO pelo Davi no chat em 07/10/2026:** Reel 1 das 12:00 "Seu corretor não precisa de mais leads" (notas do corte final: gancho 8 · ritmo 7,5 · clareza 8,5 · acabamento 7,5 · legibilidade 8,5 · marca 8,5 · sobriedade 8 · fidelidade 8,5 · estrutura 8,5; aprovado pelo Davi apesar de ritmo e acabamento abaixo de 8).
 > Peças das 09:00 e 18:00 aprovadas pelo Davi no chat em 05/10/2026.
@@ -22,21 +24,6 @@ Comente DIAGNÓSTICO e receba o checklist completo no direct.
 
 ---
 
-## 09:00 · Reel
-Arquivo: `r2-pare-de-abandonar.mp4` · capa sugerida: ~2.0s
-
-**Legenda:**
-Pare de abandonar quem já quer comprar.
-
-O lead perguntou, recebeu a resposta e disse que ia pensar. Se ninguém volta a falar com ele, a venda esfria sozinha.
-
-Quem já demonstrou interesse precisa de um próximo passo: uma pergunta, uma opção que combine, um horário de visita.
-
-Comente DIAGNÓSTICO e descubra onde seus leads estão morrendo.
-
-#corretordeimoveis #imobiliaria #mercadoimobiliario #leadsimobiliarios #followup
-
----
 
 ## 18:00 · Carrossel
 Arquivo: `carrossel/slide-01..10.png`

@@ -1,4 +1,4 @@
-# Posts de 09/10 (sexta-feira)
+# Posts de 12/10 (segunda-feira) — remanejado de 09/10 em 10/10 (limite de uso parou a fila; peças já aprovadas)
 
 > **APROVADO pelo Davi no chat em 07/10/2026**, peça por peça (carrossel, Reel 2 e Reel 1). Produzido no chat; a crítica só rodou no Reel 2, a pedido dele.
 > ICP do dia: Corretor (o Reel 1 abre com "Corretor, …").
