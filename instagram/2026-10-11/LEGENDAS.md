@@ -1,10 +1,31 @@
 # Posts de 11/10 (domingo)
 
 > Produção da rotina diária (10/10). ICP do dia: Corretor (o Reel 1 abre com "Corretor, …").
+> Reel 2: corte final 8/8,5/9/8/8,5/8,5/8,5/8/8 (mesmos critérios) → aprovação automática pela meta.
 > Reel 1: corte final 8,5/8,5/8,5/8/8,5/8,5/8,5/8/8,5 (gancho, ritmo, clareza, acabamento, legibilidade, marca, sobriedade, fidelidade, estrutura própria) → aprovação automática pela meta.
 > Carrossel: corte final 8/9/8,5/8,5/8/9/8,5/9/8,5/8 (gancho, clareza, leveza, continuidade, acabamento, legibilidade, marca, sobriedade, fidelidade, estrutura própria) → aprovação automática pela meta.
 
-<!-- R2 -->
+## 09:00 · Reel 2 tipográfico — "Visitou e não fechou?"
+Arquivo: `r2-visitou-e-nao-fechou.mp4` (19,6s, sem voz) · capa sugerida: ~2.0s · fontes: `src/r2-*` · CTA: VISITA
+
+**Legenda:**
+Visitou e não fechou? O problema pode estar no que vem depois da visita.
+
+Ele ficou de pensar, os dias passaram e a conversa parou. Sem próximo passo, a visita vira lembrança.
+
+Depois da visita, pergunte:
+1. Do que você mais gostou?
+2. O que faltou?
+3. O que falta para decidir?
+
+A resposta mostra o próximo passo: uma opção nova do catálogo, uma segunda visita.
+
+Comente VISITA e conte o que você pergunta depois da visita.
+
+#corretordeimoveis #imobiliaria #mercadoimobiliario #visitaimobiliaria #atendimentoimobiliario
+
+---
+
 
 ## 12:00 · Reel 1 narrado — "Corretor, pare de perguntar 'ainda tem interesse?'" (ICP do dia: Corretor)
 Arquivo: `r1-pare-de-perguntar-interesse.mp4` (38s, voz Bianca; narração em `instagram/narracoes/2026-10-11-r1.mp3`) · capa sugerida: ~2.8s · fontes: `src/r1-*` · CTA: DIAGNÓSTICO (palavra já estava na narração gravada; o checklist existe em `instagram/ISCA-DIAGNOSTICO.md`)

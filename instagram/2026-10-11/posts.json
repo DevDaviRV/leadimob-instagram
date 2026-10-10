@@ -2,6 +2,13 @@
  "data": "2026-10-11",
  "posts": [
   {
+   "horario": "09:00",
+   "tipo": "reel",
+   "arquivo": "r2-visitou-e-nao-fechou.mp4",
+   "capa_s": 2.0,
+   "legenda": "Visitou e não fechou? O problema pode estar no que vem depois da visita.\n\nEle ficou de pensar, os dias passaram e a conversa parou. Sem próximo passo, a visita vira lembrança.\n\nDepois da visita, pergunte:\n1. Do que você mais gostou?\n2. O que faltou?\n3. O que falta para decidir?\n\nA resposta mostra o próximo passo: uma opção nova do catálogo, uma segunda visita.\n\nComente VISITA e conte o que você pergunta depois da visita.\n\n#corretordeimoveis #imobiliaria #mercadoimobiliario #visitaimobiliaria #atendimentoimobiliario"
+  },
+  {
    "horario": "12:00",
    "tipo": "reel",
    "arquivo": "r1-pare-de-perguntar-interesse.mp4",
