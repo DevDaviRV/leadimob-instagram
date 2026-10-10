@@ -55,7 +55,7 @@
   },
   {
    "tipo": "conteudo",
-   "kicker": "ELE DISSE: NÃO SEI",
+   "kicker": "ELE DISSE: EM DÚVIDA",
    "titulo": "Peça uma escolha simples.",
    "sub": "Para eu filtrar melhor: você prefere mais espaço ou ficar perto do trabalho?"
   },
@@ -63,7 +63,7 @@
    "tipo": "conteudo",
    "kicker": "ONDE A LEADIMOB ENTRA",
    "titulo": "A Leadimob retoma com contexto.",
-   "sub": "No seu WhatsApp, com o que o cliente pediu. Quando ele responde, você assume."
+   "sub": "No seu WhatsApp. Quando o cliente responde, você assume."
   },
   {
    "tipo": "cta",
