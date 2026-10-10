@@ -62,7 +62,19 @@ Narrações já geradas (ver `instagram/narracoes/ROTEIROS-semana-02.md`). "Púb
 | Seg 12/10 | Imobiliária / gestor (R2) | #24 "Se você precisa perguntar ao corretor o que aconteceu com um lead…" (áudio de 05/10) | "Gestor, quantas conversas você não está vendo?" | "O painel mínimo do gestor: o que olhar toda segunda" |
 | Ter 13/10 | Incorporador (R1) | "Incorporador, o que acontece com o lead do lançamento quando o plantão fecha?" | "Lançamento: o lead pergunta da unidade e espera." | "Plantão e WhatsApp: como não perder o lead do lançamento" |
 | Qua 14/10 | Corretor (R1) | "Corretor, a sua primeira mensagem faz o cliente responder?" | "Pergunta fácil vence mensagem longa." | "Primeira mensagem: modelos que geram resposta" |
-| Qui 15/10 | Imobiliária (R1) | "Imobiliária que só responde no horário comercial deixa o cliente esperando." | "Lead de portal e lead de anúncio: trate diferente." | "Antes e depois: a jornada de um lead com e sem processo" |
+| Qui 15/10 | Imobiliária (R1) | "Imobiliária que só responde no horário comercial deixa o cliente esperando." | "Lead de portal e lead de anúncio: trate diferente." | "Fora do horário: as 3 coisas que a primeira resposta precisa ter" (troca feita em 10/10: "Antes e depois" já saiu em 08/10) |
+
+## Semana 3 (16/10 – 22/10)
+Narrações geradas em 10/10 (ver `instagram/narracoes/ROTEIROS-semana-03.md`). "Público do dia" = quem é chamado pelo nome na primeira palavra. Palavra = CTA "Comente <PALAVRA>" do Reel 1 (Reel 2 e carrossel escolhem a sua, ligada ao tema).
+| Dia | Público do dia | Reel 1 narrado | Reel 2 tipográfico | Carrossel |
+|---|---|---|---|---|
+| Sex 16/10 | Corretor (R1) | "Corretor, você marca a visita e só fala com o cliente no dia?" (CONFIRMA) | "Visita marcada não é visita feita." | "Antes da visita: a mensagem da véspera, pronta para copiar" |
+| Sáb 17/10 | Incorporador (R1) | "Incorporador? Agora a Leadimob também é para você." (áudio de 06/10, CTA de demonstração) | "Lançamento: o lead chega de noite e o plantão abre de manhã." | "Lançamento imobiliário: 6 pontos onde o lead esfria" (veio da semana 1) |
+| Dom 18/10 | Corretor (R1) | "Corretor, o cliente perguntou só o preço. E você respondeu só o preço?" (PREÇO) | "Quem só manda tabela vira tabela." | "Ele perguntou o preço: 5 respostas que continuam a conversa" |
+| Seg 19/10 | Imobiliária (R1) | "Imobiliária, quem ouve os áudios que o cliente manda no WhatsApp?" (ÁUDIO) | "O que o cliente disse no áudio está escrito em algum lugar?" | "Do áudio ao funil: o que registrar de cada conversa" |
+| Ter 20/10 | Corretor (R1) | "Corretor, pare de mandar só o link do imóvel." (MOTIVO) | "Um imóvel com motivo vale mais que dez sem." | "Como apresentar um imóvel no WhatsApp em 3 linhas" |
+| Qua 21/10 | Imobiliária / gestor (R1) | "Gestor, quem atende o lead que chega no sábado à tarde?" (PLANTÃO) | "Segunda-feira: quem sabe o que aconteceu no fim de semana?" | "Fim de semana sem lead perdido: o combinado do time" |
+| Qui 22/10 | Corretor (R1) | "Corretor, o cliente recebeu a proposta e parou de responder?" (PROPOSTA) | "Silêncio depois da proposta é uma dúvida que ele não disse." | "Depois da proposta: perguntas que trazem a objeção para a conversa" |
 
 ## Métricas (semanal, por print de insights)
 Alcance de não seguidores, salvamentos, compartilhamentos, comentários com a palavra do post, DMs, demos agendadas. Ajustar ganchos e horários a cada domingo.
