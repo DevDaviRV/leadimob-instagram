@@ -1,0 +1,316 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<!-- Leadimob · Reel 2 (11/10) · "Visitou e não fechou? O que perguntar depois." · tipográfico em espaço 3D
+     Motor e sistema visual do modelo aprovado (r2 de 03/10): mundo three.js + DOM projetado por matrix3d, poeira, chão de pontos,
+     palavras fantasma, springs, logo em cartão claro. Uma estação só: o mundo se transforma no lugar.
+     Estrutura própria: card da agenda com a visita realizada (gancho) → o card encolhe e vira a célula de sábado de uma semana (recuo de câmera)
+     → os dias passam em silêncio, "Sem próximo passo" (único âmbar) → a célula de hoje (quarta) se expande e vira a conversa com o Rafael,
+     onde saem as três perguntas → match cut: a 3ª pergunta desce, gira e vira a resposta dele → nova opção do catálogo, 2ª visita (verde)
+     → CTA ancorado no card da 2ª visita na agenda (fecha o laço com o gancho). -->
+<style>
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0A0E14;color:#fff;font-family:IN;font-feature-settings:"tnum" 1}
+#c{position:absolute;left:0;top:0;width:1080px;height:1920px}#vg{z-index:3}
+.abs{position:absolute}
+.pl{position:absolute;left:0;top:0;transform-origin:0 0;white-space:nowrap;visibility:hidden;backface-visibility:visible}
+.X{font:900 164px/1 IN;letter-spacing:-.055em;word-spacing:.16em}
+.L{font:900 138px/1 IN;letter-spacing:-.05em;word-spacing:.16em}
+.m{display:inline-block;overflow:hidden;vertical-align:top;padding:.16em .04em .26em 0;margin:-.16em 0 -.26em}
+.m>span{display:inline-block}
+.gap{margin-right:.24em}.X .gap,.L .gap{margin-right:.4em}
+.gh{font:900 420px/1 IN;-webkit-text-stroke:4px rgba(125,211,252,.14);color:transparent;letter-spacing:.03em}
+.card{border-radius:40px;background:linear-gradient(180deg,#18212F,#101721);border:3px solid rgba(125,211,252,.3);box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:18px 30px;border-radius:999px;font:800 44px/1 IN;letter-spacing:-.01em}
+.am{background:rgba(245,158,11,.14);border:2.5px solid rgba(245,158,11,.85);color:#FBBF24}
+.gr{background:rgba(52,211,153,.18);border:2.5px solid #34D399;color:#A7F3D0}
+.ico{width:80px;height:80px;border-radius:22px;background:rgba(37,99,235,.2);border:2px solid rgba(125,211,252,.45);display:flex;align-items:center;justify-content:center;flex:none}
+/* semana */
+#wk{width:916px;height:330px}
+.dc{position:absolute;top:0;width:168px;height:330px;border-radius:30px;background:linear-gradient(180deg,#151D2A,#0F1520);border:2.5px solid rgba(255,255,255,.1)}
+.dl{position:absolute;left:0;right:0;top:34px;text-align:center;font:800 46px/1 IN;letter-spacing:.06em;color:#8E98AA}
+.dd{position:absolute;left:44px;right:44px;top:196px;height:5px;border-radius:3px;background:rgba(255,255,255,.12)}
+#cur{position:absolute;top:-6px;width:180px;height:342px;margin-left:-6px;border-radius:34px;border:3.5px solid rgba(230,236,245,.85);box-shadow:0 0 30px rgba(230,236,245,.18)}
+#curl{position:absolute;top:360px;left:50%;transform:translateX(-50%);font:700 38px/1 IN;color:#E6ECF5;letter-spacing:.02em}
+/* conversa */
+#cp{width:1080px;height:1920px}
+#cpi{position:absolute;overflow:hidden;background:#0B141A;border:2.5px solid rgba(255,255,255,.08);box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.ob{border-radius:30px;border-top-right-radius:8px;background:#005C4B;padding:22px 32px 14px;font:500 54px/1.2 IN;letter-spacing:-.015em;color:#E9EDEF;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+/* resposta */
+.msg{max-width:916px;border-radius:34px;padding:26px 36px 18px;font:500 54px/1.22 IN;letter-spacing:-.015em;color:#E9EDEF;box-shadow:0 24px 50px rgba(0,0,0,.45);white-space:normal;background:#202C33;border-top-left-radius:8px}
+.mt{font:500 36px/1 IN;color:rgba(233,237,239,.6);text-align:right;margin-top:10px;letter-spacing:0}
+.mb{position:absolute;left:0;top:0;border-radius:40px;background:linear-gradient(180deg,#18212F,#101721);border:3px solid rgba(125,211,252,.3);box-shadow:0 40px 90px rgba(0,0,0,.6)}
+</style>
+<script src="node_modules/motion/dist/motion.js"></script>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js"}}</script>
+</head><body><div id="st">
+<canvas id="c" width="1080" height="1920"></canvas>
+<div id="pls" class="abs" style="left:0;top:0;width:1080px;height:1920px;z-index:1;isolation:isolate">
+
+<div id="gA" class="pl gh">VISITA</div><div id="gB" class="pl gh">DEPOIS</div><div id="gC" class="pl gh">PERGUNTAR</div><div id="gD" class="pl gh">RESPOSTA</div><div id="gE" class="pl gh">VISITA</div>
+
+<!-- caixas que mudam de forma (as três viradas) -->
+<div id="mx" class="pl" style="width:1080px;height:1920px"><div id="mxb" class="mb"></div></div>
+
+<!-- A · GANCHO -->
+<div id="a1" class="pl X q" style="font-size:176px"><span class="m"><span id="a1a">VISITOU</span></span></div>
+<div id="a2" class="pl L q" style="font-size:104px;color:#D5DBE5"><span class="m gap"><span id="a2a">E NÃO</span></span><span class="m"><span id="a2b">FECHOU?</span></span></div>
+<div id="ag" class="pl card" style="width:916px;padding:32px 44px 36px">
+ <div style="display:flex;align-items:center;gap:24px"><div class="ico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10 H20.5 M8 3 V6.8 M16 3 V6.8"/></svg></div>
+  <div class="q" style="font:700 46px/1 IN;letter-spacing:-.02em;color:#C9D2E0">Agenda</div><div class="q" style="margin-left:auto;font:600 44px/1 IN;color:#8E98AA">Sábado</div></div>
+ <div style="height:2px;background:rgba(255,255,255,.08);margin:30px 0 30px"></div>
+ <div style="display:flex;gap:34px;align-items:flex-start">
+  <div class="q" style="font:800 54px/1 IN;letter-spacing:-.02em;color:#C9D2E0;padding-top:6px">10:00</div>
+  <div style="width:5px;align-self:stretch;border-radius:3px;background:rgba(125,211,252,.4)"></div>
+  <div><div class="q" style="font:800 58px/1 IN;letter-spacing:-.03em">Visita · Rafael</div><div class="q" style="font:600 44px/1 IN;color:#9AA3B2;margin-top:16px">Apto com varanda</div></div>
+ </div>
+ <div style="height:96px;margin-top:34px"><div id="agp" class="pill gr q" style="opacity:0;font-size:50px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17.5 L19 7"/></svg>Visita realizada</div></div>
+</div>
+
+<!-- B · E DEPOIS? -->
+<div id="b1" class="pl X q" style="font-size:156px"><span class="m gap"><span id="b1a">E</span></span><span class="m"><span id="b1b">DEPOIS?</span></span></div>
+<div id="wk" class="pl">
+ <div id="dc0" class="dc" style="left:0"><div class="dl q">SÁB</div>
+  <div style="position:absolute;left:0;right:0;top:118px;display:flex;flex-direction:column;align-items:center;gap:18px"><div style="width:64px;height:64px;border-radius:50%;background:rgba(201,210,224,.14);border:2.5px solid rgba(201,210,224,.5);display:flex;align-items:center;justify-content:center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C9D2E0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17.5 L19 7"/></svg></div><div class="q" style="font:700 40px/1 IN;color:#C9D2E0">Visita</div></div></div>
+ <div id="dc1" class="dc" style="left:187px"><div class="dl q">DOM</div><div class="dd"></div></div>
+ <div id="dc2" class="dc" style="left:374px"><div class="dl q">SEG</div><div class="dd"></div></div>
+ <div id="dc3" class="dc" style="left:561px"><div class="dl q">TER</div><div class="dd"></div></div>
+ <div id="dc4" class="dc" style="left:748px"><div class="dl q">QUA</div><div class="dd"></div></div>
+ <div id="cur"><div id="curl">hoje</div></div>
+</div>
+<div id="b2" class="pl q" style="font:700 66px/1.1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m"><span id="b2a">Ele ficou de pensar.</span></span></div>
+<div id="b3" class="pl q" style="font:800 66px/1.1 IN;letter-spacing:-.03em;color:#fff"><span class="m"><span id="b3a">E a conversa parou.</span></span></div>
+<div id="bp" class="pl pill am q"><span style="width:20px;height:20px;border-radius:50%;background:#F59E0B"></span>Sem próximo passo</div>
+
+<!-- C · AS PERGUNTAS, enviadas hoje -->
+<div id="c1" class="pl L q" style="font-size:92px;color:#D5DBE5"><span class="m"><span id="c1a">O QUE PERGUNTAR</span></span></div>
+<div id="c2" class="pl L q" style="font-size:92px"><span class="m"><span id="c2a" style="color:#7DD3FC">DEPOIS DA VISITA</span></span></div>
+<div id="cp" class="pl"><div id="cpi"><div id="cph" style="width:916px;height:130px;background:#1F2C34;display:flex;align-items:center;gap:24px;padding:0 34px"><div style="width:80px;height:80px;border-radius:50%;background:#2A3942;display:flex;align-items:center;justify-content:center"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#AEBAC1" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5 C5.5 16.5 8.5 14.5 12 14.5 C15.5 14.5 18.5 16.5 19.5 20.5"/></svg></div>
+ <div><div class="q" style="font:700 48px/1 IN;color:#E9EDEF;letter-spacing:-.02em">Rafael</div><div class="q" style="font:500 38px/1 IN;color:#8696A0;margin-top:10px">quarta · hoje</div></div></div></div></div>
+<div id="o0" class="pl ob q">Do que você mais gostou?<div class="mt">18:20 <span id="ck0">✓✓</span></div></div>
+<div id="o1" class="pl ob q">O que faltou?<div class="mt">18:20 <span id="ck1">✓✓</span></div></div>
+<div id="o2" class="pl ob q">O que falta para decidir?<div class="mt">18:21 <span id="ck2">✓✓</span></div></div>
+
+<!-- D · RESPOSTA -->
+<div id="d1" class="pl L q" style="font-size:104px"><span class="m"><span id="d1a">A RESPOSTA</span></span></div>
+<div id="d2" class="pl L q" style="font-size:104px;color:#D5DBE5"><span class="m"><span id="d2a">MOSTRA O</span></span></div>
+<div id="d3" class="pl L q" style="font-size:104px;color:#34D399"><span class="m"><span id="d3a">PRÓXIMO PASSO.</span></span></div>
+<div id="rb" class="pl msg q" style="width:916px">Amei a varanda. Só faltou um <span id="kw" style="border-radius:12px;padding:0 6px;margin:0 -6px">escritório</span>.<div class="mt">18:42</div></div>
+<div id="cat" class="pl card" style="width:916px;height:300px;padding:24px;display:flex;gap:34px;align-items:center">
+ <div style="width:300px;height:252px;border-radius:26px;overflow:hidden;flex:none"><img src="property.jpg" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+ <div><div class="q" style="font:700 38px/1 IN;color:#8E98AA;letter-spacing:.01em">Nova opção · catálogo</div><div class="q" style="font:800 54px/1.12 IN;letter-spacing:-.03em;margin-top:22px">Apto com varanda</div><div class="q" style="font:800 54px/1.12 IN;letter-spacing:-.03em;color:#34D399">e escritório</div></div>
+</div>
+<div id="np" class="pl pill gr q" style="font-size:48px;padding:22px 36px"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10 H20.5 M8 3 V6.8 M16 3 V6.8 M8.5 15 L11 17.3 L15.5 12.8"/></svg>2ª visita agendada</div>
+
+<!-- E · CTA ancorado no card da 2ª visita -->
+<div id="ag2" class="pl card" style="width:916px;padding:30px 44px 34px;border-color:rgba(52,211,153,.7)">
+ <div style="display:flex;align-items:center;gap:24px"><div class="ico" style="background:rgba(52,211,153,.14);border-color:rgba(52,211,153,.6)"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10 H20.5 M8 3 V6.8 M16 3 V6.8 M8.5 15 L11 17.3 L15.5 12.8"/></svg></div>
+  <div class="q" style="font:700 46px/1 IN;letter-spacing:-.02em;color:#C9D2E0">Agenda</div><div class="q" style="margin-left:auto;font:600 44px/1 IN;color:#8E98AA">Sábado</div></div>
+ <div style="display:flex;gap:34px;align-items:center;margin-top:30px">
+  <div class="q" style="font:800 54px/1 IN;letter-spacing:-.02em;color:#C9D2E0">10:00</div>
+  <div style="width:5px;height:64px;border-radius:3px;background:#34D399"></div>
+  <div class="q" style="font:800 58px/1 IN;letter-spacing:-.03em">2ª visita · Rafael</div></div>
+</div>
+<div id="f1" class="pl X q" style="font-size:150px"><span class="m"><span id="f1a">Comente</span></span></div>
+<div id="f2" class="pl q" style="width:916px;height:184px;border-radius:92px;background:linear-gradient(180deg,#18212F,#111823);border:2.5px solid rgba(125,211,252,.5);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 70px rgba(37,99,235,.22);display:flex;align-items:center;padding:0 28px 0 50px;gap:6px;font:900 88px/1 IN;letter-spacing:.01em">
+ <span id="typ"></span><span id="car" style="width:6px;height:90px;background:#7DD3FC;border-radius:3px"></span>
+ <span id="send" style="margin-left:auto;width:128px;height:128px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;flex:none"><svg width="62" height="62" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+</div>
+<div id="f3" class="pl q" style="font:700 66px/1.12 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m gap"><span id="f3a">e conte o que</span></span><span class="m"><span id="f3b">você pergunta</span></span></div>
+<div id="f4" class="pl q" style="font:800 66px/1.12 IN;letter-spacing:-.03em;color:#fff"><span class="m gap"><span id="f4a">depois da</span></span><span class="m"><span id="f4b" style="color:#7DD3FC">visita.</span></span></div>
+<div id="f5" class="pl" style="width:520px;height:150px;border-radius:38px;background:linear-gradient(180deg,#fff,#EAF1F8);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 90px rgba(37,99,235,.28);display:flex;align-items:center;justify-content:center;overflow:hidden"><div id="f5s" style="position:absolute;left:0;top:0;width:220px;height:170px;background:linear-gradient(100deg,rgba(37,99,235,0),rgba(37,99,235,.28),rgba(37,99,235,0))"></div><img src="logo.png" style="width:420px;display:block"></div>
+</div>
+
+<div id="vg" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 50%,rgba(0,0,0,.62) 100%)"></div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+await Promise.all(['500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)));
+await Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>i.onload=i.onerror=r)));
+const W=1080,H=1920;
+const T={a1:-0.45,a2:-0.3,ag:-0.35,chk:0.85,t1:2.95,b1:3.07,cur:[3.9,4.4,4.9,5.4],b2:4.25,b3:5.05,bp:5.9,t2:6.9,c1:6.82,q:[7.55,8.45,9.35],cOut:11.4,d:[11.5,11.62,11.74],rb:11.95,kw:12.6,cat:12.95,np:13.7,dOut:15.1,ag2:15.34,f1:15.48,f2:15.66,typ:15.66,send:16.45,sub:16.75,logo:17.25,sheen:18.1,end:19.6};
+window.DURATION=T.end;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const lin=x=>cl(x),eOut=x=>1-Math.pow(1-cl(x),4),eOut3=x=>1-Math.pow(1-cl(x),3),eIn=x=>Math.pow(cl(x),3),eIn2=x=>cl(x)*cl(x),eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2},eIO2=x=>{x=cl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2},eIO3=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const P=(t,a,d,e=eOut)=>e((t-a)/d);const $=id=>document.getElementById(id);const lerp=(a,b,k)=>a+(b-a)*k;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const {spring}=window.Motion;
+const mkSp=(k=190,d=17)=>{const s=spring({keyframes:[0,1],stiffness:k,damping:d,mass:1});return ms=>ms<=0?0:s.next(ms).value};
+const sp=mkSp(300,20),spSoft=mkSp(130,17),spSnap=mkSp(420,24),spPop=mkSp(300,13),spFly=mkSp(150,17),spDeck=mkSp(170,21);
+const up=(id,t,a)=>{const v=sp((t-a)*1000);const s=$(id).style;s.transform=`translateY(${(1-v)*150}%)`;s.opacity=v>0.012?1:0};
+const dn=(id,k)=>{if(k<=0)return;const s=$(id).style;s.transform=`translateY(${-k*150}%)`;if(k>0.98)s.opacity=0};
+
+/* ================= MUNDO ================= */
+const r=new THREE.WebGLRenderer({canvas:$('c'),antialias:true,preserveDrawingBuffer:true});
+r.setPixelRatio(1);r.setSize(W,H,false);r.setClearColor(0x0A0E14,1);
+const scene=new THREE.Scene();scene.fog=new THREE.Fog(0x0A0E14,3200,12500);
+const FOV=38,D0=H/2/Math.tan(FOV*Math.PI/360);
+const cam=new THREE.PerspectiveCamera(FOV,W/H,8,60000);
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const station=(x,y,z,ry)=>{const o=new THREE.Object3D();o.position.set(x,y,z);o.rotation.y=ry;scene.add(o);o.updateMatrixWorld(true);return o};
+const S1=station(0,0,0,0);
+const LW=(st,x,y,z)=>st.localToWorld(V(x,y,z));
+const scr=(sx,sy,z=0)=>{const k=(D0-z)/D0;return [(sx-540)*k,(960-sy)*k,z]};
+
+const softTex=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(.5,'rgba(255,255,255,.3)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(cv)})();
+const mkSprite=(tex,col,sz)=>{const s=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,color:col,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false,fog:false}));s.scale.set(sz,sz,1);scene.add(s);return s};
+const amb=[[S1,-120,60,-900],[S1,300,-400,-1400]].map(([st,x,y,z])=>{const s=mkSprite(softTex,0x2563EB,3000);s.position.copy(LW(st,x,y,z));s.material.depthTest=true;s.material.opacity=.2;return s});
+// poeira
+const NP=3400,dPos=new Float32Array(NP*3),dSz=new Float32Array(NP),dPh=new Float32Array(NP);
+{const path=[[LW(S1,0,0,3600),LW(S1,0,0,-1500)]];
+ for(let i=0;i<NP;i++){const sg=path[i%path.length];const k=rnd(i+5);const a=rnd(i+50)*6.283,rad=260+Math.pow(rnd(i+90),.7)*2300;const p=V(0,0,0).lerpVectors(sg[0],sg[1],k);dPos[i*3]=p.x+Math.cos(a)*rad;dPos[i*3+1]=p.y+Math.sin(a)*rad*1.25;dPos[i*3+2]=p.z+(rnd(i+130)-.5)*900;dSz[i]=4+rnd(i+170)*9;dPh[i]=rnd(i+210)*6.283}}
+const dG=new THREE.BufferGeometry();dG.setAttribute('position',new THREE.BufferAttribute(dPos,3));dG.setAttribute('size',new THREE.BufferAttribute(dSz,1));dG.setAttribute('ph',new THREE.BufferAttribute(dPh,1));
+const dM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uT:{value:0},uK:{value:D0}},
+ vertexShader:`attribute float size;attribute float ph;uniform float uT;uniform float uK;varying float vA;void main(){vec3 p=position;p.y+=sin(uT*0.6+ph)*26.0;p.x+=cos(uT*0.45+ph*1.7)*22.0;vec4 mv=modelViewMatrix*vec4(p,1.0);float d=-mv.z;float s=size*uK/d;float big=clamp(s/26.0,0.0,1.0);gl_PointSize=min(s,120.0);vA=(0.7-0.55*big)*smoothstep(9500.0,3000.0,d)*smoothstep(40.0,260.0,d)*(0.7+0.3*sin(uT*1.7+ph*3.0));gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.25,d);gl_FragColor=vec4(vec3(0.62,0.86,1.0)*a,a*vA);}`});
+const dust=new THREE.Points(dG,dM);dust.frustumCulled=false;scene.add(dust);
+// chão de pontos por estação
+{const fp=[];[S1].forEach(st=>{for(let x=-3380;x<=3380;x+=130)for(let z=-4400;z<=2400;z+=130){const p=LW(st,x,-820,z);fp.push(p.x,p.y,p.z)}});
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(fp,3));
+ const m=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uK:{value:D0}},
+  vertexShader:`uniform float uK;varying float vA;void main(){vec4 mv=modelViewMatrix*vec4(position,1.0);float d=-mv.z;gl_PointSize=clamp(10.0*uK/d,2.0,24.0);vA=0.85*smoothstep(7600.0,2600.0,d)*smoothstep(200.0,800.0,d);gl_Position=projectionMatrix*mv;}`,
+  fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.35,d);gl_FragColor=vec4(vec3(0.33,0.62,0.98)*a,a*vA);}`});
+ const f=new THREE.Points(g,m);f.frustumCulled=false;scene.add(f)}
+// faíscas (poucas: check da visita, segunda visita, envio)
+const NS=160,sPos=new Float32Array(NS*3),sCol=new Float32Array(NS*3),sA=new Float32Array(NS),sS=new Float32Array(NS);
+const sG=new THREE.BufferGeometry();sG.setAttribute('position',new THREE.BufferAttribute(sPos,3));sG.setAttribute('color',new THREE.BufferAttribute(sCol,3));sG.setAttribute('alpha',new THREE.BufferAttribute(sA,1));sG.setAttribute('size',new THREE.BufferAttribute(sS,1));
+const sM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,depthTest:false,blending:THREE.AdditiveBlending,uniforms:{uK:{value:D0}},
+ vertexShader:`attribute float alpha;attribute float size;attribute vec3 color;uniform float uK;varying float vA;varying vec3 vC;void main(){vA=alpha;vC=color;vec4 mv=modelViewMatrix*vec4(position,1.0);gl_PointSize=size*uK/-mv.z;gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vA;varying vec3 vC;void main(){float d=length(gl_PointCoord-0.5)*2.0;float core=smoothstep(0.5,0.0,d);float gl=pow(max(0.0,1.0-d),2.0)*0.6;gl_FragColor=vec4(vC*(core*1.4+gl),(core+gl)*vA);}`});
+const sparks=new THREE.Points(sG,sM);sparks.frustumCulled=false;scene.add(sparks);
+const CY=[0.49,0.83,0.99],GR=[0.2,0.83,0.6];
+const BUR=[];let sN=0;const burst=(t0,st,p,n,col,spd,life,sz)=>{BUR.push({t0,p:LW(st,...p),q:st.quaternion.clone(),i0:sN,n,col,spd,life,sz});sN+=n};
+
+/* ================= PLANOS DOM projetados pela câmera ================= */
+const PLN={};const _m=new THREE.Matrix4(),_q=new THREE.Quaternion(),_e=new THREE.Euler(),_p=new THREE.Vector3(),_s=new THREE.Vector3(),_v=new THREE.Vector3(),_v2=new THREE.Vector3(),VP=new THREE.Matrix4();
+function pl(id,st,left,top,z=0,o={}){const el=$(id);const w=el.offsetWidth,h=el.offsetHeight;const k=(D0-z)/D0;if(o.cx!==undefined)left=o.cx-w/2;if(o.right!==undefined)left=o.right-w;if(o.cy!==undefined)top=o.cy-h/2;
+ const p={el,st,w,h,k,x:(left+w/2-540)*k,y:(960-top-h/2)*k,z,rz:o.rz||0,vis:-1,left,top};PLN[id]=p;return p}
+function put(id,o,a){const p=PLN[id],el=p.el;if(!(o>0.004)){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ a=a||{};const s=(a.s??1)*p.k;_e.set(a.rx||0,a.ry||0,(a.rz||0)+p.rz,a.ord||'XYZ');_q.setFromEuler(_e);_p.set(p.x+(a.dx||0),p.y+(a.dy||0),p.z+(a.dz||0));
+ if(a.pv||a.ph){_v.set((a.ph||0)*p.k,(a.pv||0)*p.k,0);_v2.set(_v.x*(a.s??1)*(a.sx??1),_v.y*(a.s??1)*(a.sy??1),0).applyQuaternion(_q);_p.add(_v).sub(_v2)}
+ _s.set(s*(a.sx??1),s*(a.sy??1),1);_m.compose(_p,_q,_s).premultiply(p.st.matrixWorld);
+ _v.setFromMatrixPosition(_m);const dist=_v.distanceTo(cam.position);_m.premultiply(VP);const e=_m.elements,w=p.w,h=p.h;
+ if(e[15]<60){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ o*=cl((dist-260)/520);if(!(o>0.004)){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ const n=1/e[15];const c0=[e[0],e[1],e[3]],c1=[-e[4],-e[5],-e[7]],c3=[e[12]-e[0]*w/2+e[4]*h/2,e[13]-e[1]*w/2+e[5]*h/2,e[15]-e[3]*w/2+e[7]*h/2];
+ const PX=c=>(c[0]+c[2])*W/2*n,PY=c=>(c[2]-c[1])*H/2*n;
+ el.style.transform=`matrix3d(${PX(c0)},${PY(c0)},0,${c0[2]*n},${PX(c1)},${PY(c1)},0,${c1[2]*n},0,0,1,0,${PX(c3)},${PY(c3)},0,${c3[2]*n})`;
+ el.style.opacity=o>0.996?1:o;el.style.zIndex=Math.max(1,30000-Math.round(dist)+(a.zb||0));if(p.vis!==1){el.style.visibility='visible';p.vis=1}}
+
+/* layout (blocos centrados entre ~y 380 e 1470) */
+pl('gA',S1,0,0,-1300,{cx:600,cy:1640});pl('gB',S1,0,0,-1300,{cx:820,cy:1640});pl('gC',S1,0,0,-1300,{cx:1100,cy:1640});pl('gD',S1,0,0,-1300,{cx:900,cy:1640});pl('gE',S1,0,0,-1300,{cx:700,cy:1640});
+pl('mx',S1,0,0,0);
+pl('a1',S1,82,430,40);pl('a2',S1,82,640,40);pl('ag',S1,82,830,60);
+const AG={x:82,y:830,w:PLN.ag.w,h:PLN.ag.h};
+pl('b1',S1,82,410,40);pl('wk',S1,82,670,0);pl('b2',S1,82,1110,30);pl('b3',S1,82,1194,30);pl('bp',S1,82,1320,50);
+const WK={y:670,h:330,x:i=>82+i*187,w:168};
+pl('c1',S1,82,400,40);pl('c2',S1,82,505,40);pl('cp',S1,0,0,0);
+const OY=[800,973,1146];['o0','o1','o2'].forEach((id,i)=>pl(id,S1,0,OY[i],30,{right:968}));
+pl('d1',S1,82,380,40);pl('d2',S1,82,496,40);pl('d3',S1,82,612,40);pl('rb',S1,82,760,30);pl('cat',S1,82,1010,60);pl('np',S1,82,1356,80);
+pl('ag2',S1,82,380,60);pl('f1',S1,82,690,60);pl('f2',S1,82,880,40);pl('f3',S1,82,1110,40);pl('f4',S1,82,1188,40);pl('f5',S1,82,1330,60);
+
+/* ================= CÂMERA (uma estação: o mundo se transforma no lugar) ================= */
+const K=[];const key=(t,st,p,l,e=lin)=>K.push({t,p:LW(st,...p),l:LW(st,...l),e});
+const Z0=[0,0,0];
+key(0,S1,[150,-70,3300],Z0);key(1.0,S1,[60,-20,2930],Z0,eOut3);key(T.t1,S1,[10,-4,2780],Z0);            // A · aproxima
+key(T.t1+0.8,S1,[-40,20,3020],[0,10,0],eIO3);                                                             // virada 1 · recua (o card vira célula)
+key(T.t2,S1,[50,10,2940],[30,10,0]);                                                                      // B · acompanha os dias
+key(T.t2+0.75,S1,[0,-10,2860],Z0,eIO3);                                                                   // virada 2 · avança (a célula vira a conversa)
+key(T.cOut,S1,[-30,-10,2780],Z0);key(T.cOut+0.6,S1,[30,0,2900],Z0,eIO3);                                  // virada 3 · respira com o match cut
+key(T.dOut,S1,[-10,0,2790],Z0);key(T.dOut+0.6,S1,[0,0,2900],Z0,eIO3);key(T.end,S1,[-20,10,2770],Z0);
+function camAt(t){let i=0;for(let j=0;j<K.length;j++)if(K[j].t<=t)i=j;if(i>=K.length-1)return K[K.length-1];const a=K[i],b=K[i+1];const dt=b.t-a.t;const k=dt<=0?1:b.e((t-a.t)/dt);return {p:a.p.clone().lerp(b.p,k),l:a.l.clone().lerp(b.l,k)}}
+burst(T.chk+0.05,S1,scr(170,1215,90),20,GR,900,0.7,16);
+burst(T.np+0.05,S1,scr(330,1400,90),26,GR,1100,0.8,18);
+burst(T.send,S1,scr(906,972,140),30,GR,1300,0.8,22);
+
+/* caixa que muda de forma: retângulo de tela a -> b */
+const MB=(box,o,a,b,k,brd,bg)=>{const s=$(box).style;s.left=lerp(a[0],b[0],k)+'px';s.top=lerp(a[1],b[1],k)+'px';s.width=lerp(a[2],b[2],k)+'px';s.height=lerp(a[3],b[3],k)+'px';s.borderRadius=lerp(a[4],b[4],k)+'px';s.borderColor=brd;if(bg)s.background=bg;s.opacity=o};
+const rise=(id,t,a,d=0.3)=>{const k=P(t,a,d,eOut3);const s=$(id).style;s.transform=`translateY(${(1-k)*28}px)`;s.opacity=k};
+const WORD='VISITA';
+window.render=function(t){
+ const cp=camAt(t);cam.position.copy(cp.p);cam.position.x+=Math.sin(t*0.9)*12+Math.sin(t*2.3+1)*4;cam.position.y+=Math.sin(t*1.25+1)*10;
+ cam.up.set(0,1,0);cam.lookAt(cp.l);cam.updateMatrixWorld();VP.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse);
+ dM.uniforms.uT.value=t;
+ {for(const b of BUR){const k=(t-b.t0)/b.life;for(let j=0;j<b.n;j++){const i=b.i0+j;if(k<=0||k>=1){sA[i]=0;continue}
+   const a=rnd(i*3+1)*6.283,sv=0.35+rnd(i*3+2)*0.65,e=1-Math.pow(1-k,2.6);_v.set(Math.cos(a)*b.spd*sv*e,Math.sin(a)*b.spd*sv*e*0.8-180*k*k,(rnd(i*3+3)-.5)*b.spd*0.5*e).applyQuaternion(b.q).add(b.p);
+   sPos[i*3]=_v.x;sPos[i*3+1]=_v.y;sPos[i*3+2]=_v.z;sCol[i*3]=b.col[0];sCol[i*3+1]=b.col[1];sCol[i*3+2]=b.col[2];sA[i]=Math.pow(1-k,1.4);sS[i]=b.sz*(0.5+rnd(i+7))}}
+  sG.attributes.position.needsUpdate=sG.attributes.color.needsUpdate=sG.attributes.alpha.needsUpdate=sG.attributes.size.needsUpdate=true}
+ amb.forEach((s,i)=>s.material.opacity=.19+.035*Math.sin(t*0.8+i));
+ r.render(scene,cam);
+
+ /* palavras fantasma no chão */
+ put('gA',t<T.t1+0.3?P(t,0.05,0.6)*(1-P(t,T.t1,0.3,lin)):0,{dx:-40*t});
+ put('gB',t>T.t1+0.1&&t<T.t2+0.3?P(t,T.b1,0.5)*(1-P(t,T.t2,0.3,lin)):0,{dx:-40*(t-T.b1)});
+ put('gC',t>T.t2+0.1&&t<T.cOut+0.3?P(t,T.c1,0.5)*(1-P(t,T.cOut,0.3,lin)):0,{dx:-40*(t-T.c1)});
+ put('gD',t>T.cOut+0.1&&t<T.dOut+0.3?P(t,T.cOut+0.1,0.5)*(1-P(t,T.dOut,0.3,lin)):0,{dx:-40*(t-T.cOut)});
+ put('gE',t>T.dOut+0.1?P(t,T.dOut+0.2,0.6):0,{dx:-60*(t-T.dOut)});
+
+ /* ---------- A · GANCHO: a visita na agenda ---------- */
+ {const vis=t<T.t1+0.3;const ho=P(t,T.t1,0.16,eIn2);
+  up('a1a',t,T.a1);up('a2a',t,T.a2);up('a2b',t,T.a2+0.12);dn('a1a',ho);dn('a2a',ho);dn('a2b',ho);
+  put('a1',vis?1:0);put('a2',vis?1:0);
+  const fv=spFly((t-T.ag)*1000);const co=1-P(t,T.t1+0.04,0.3,lin);
+  const shr=eIO2((t-T.t1-0.04)/0.55);put('ag',vis&&t>T.ag?cl(fv*2.2)*co:0,{dy:(1-fv)*-260+(AG.y-WK.y)*shr,dz:(1-fv)*-300,rx:(1-cl(fv))*0.35,sx:lerp(1,WK.w/AG.w,shr),sy:lerp(1,WK.h/AG.h,shr),ph:-AG.w/2,pv:AG.h/2});
+  const st=t>T.chk,pv=spPop((t-T.chk)*1000),pe=$('agp').style;pe.opacity=st?cl(pv*3):0;pe.transform=`scale(${st?0.75+0.25*pv:0.75})`;pe.transformOrigin='0 50%';
+  $('ag').style.borderColor=st?`rgba(52,211,153,${0.3+0.25*P(t,T.chk,0.4)})`:'rgba(125,211,252,.3)'}
+ /* ---------- virada 1: o card da agenda encolhe e vira a célula de sábado (os outros dias já estão lá) ---------- */
+ let mxOn=false;
+ {const a=T.t1+0.04,e=T.t1+0.59;const k=eIO2((t-a)/(e-a));
+  if(t>a&&t<e+0.2){const o=1-P(t,e+0.02,0.16,lin);mxOn=true;MB('mxb',o,[AG.x,AG.y,AG.w,AG.h,40],[WK.x(0),WK.y,WK.w,WK.h,30],k,`rgba(52,211,153,${0.55*(1-k)+0.1*k})`,'')}}
+ /* ---------- B · E DEPOIS? os dias passam ---------- */
+ {const vis=t>T.t1&&t<T.t2+0.8;const ho=P(t,T.t2-0.12,0.24,eIn2);
+  const bi=P(t,T.b1,0.3,eOut3);const bo=1-P(t,T.t2-0.32,0.2,lin);put('b1',vis&&t>T.b1?bi*bo:0,{dy:-(1-bi)*30+P(t,T.t2-0.32,0.22,eIn2)*70});
+  for(let i=0;i<5;i++){const s=$('dc'+i).style;const a=T.t1+0.6+i*0.06;const v=spSnap((t-a)*1000);
+   const gone=i<4?P(t,T.t2+0.0+i*0.03,0.18,lin):0;s.opacity=i==0?P(t,T.t1+0.42,0.16,lin)*(1-gone):cl(v*2)*(1-gone);s.transform=i==0?'none':`translateY(${(1-cl(v))*30}px)`;
+   if(i==4)s.visibility=t>T.t2+0.03?'hidden':'visible'}
+  let cx=0;for(let i=0;i<4;i++)cx+=187*P(t,T.cur[i],0.32,eIO3);const cs=$('cur').style;cs.left=cx+'px';cs.opacity=P(t,T.cur[0]-0.35,0.3,lin)*(1-P(t,T.t2-0.1,0.15,lin));
+  for(let i=1;i<5;i++){const lit=t>T.cur[i-1]+0.2;$('dc'+i).style.borderColor=lit?'rgba(230,236,245,.32)':'rgba(255,255,255,.1)'}
+  put('wk',vis?1:0,{zb:5});
+  up('b2a',t,T.b2);up('b3a',t,T.b3);dn('b2a',ho);dn('b3a',ho);put('b2',vis&&t>T.b2-0.02?1:0);put('b3',vis&&t>T.b3-0.02?1:0);
+  const pv=spSnap((t-T.bp)*1000),po=1-P(t,T.t2-0.1,0.16,lin);put('bp',vis&&t>T.bp?cl(pv*3)*po:0,{dy:-(1-pv)*26})}
+ /* ---------- virada 2: a célula de hoje (QUA) se expande e vira a conversa com o Rafael (cresce a cada mensagem) ---------- */
+ {const a=T.t2+0.03,e=T.t2+0.55;const k=eIO3((t-a)/(e-a));const H=i=>PLN['o'+i].top+PLN['o'+i].h+30-640;
+  let h=lerp(WK.h,150,k);for(let i=0;i<3;i++)h+=(H(i)-(i?H(i-1):150))*cl(spSnap((t-T.q[i]+0.1)*1000));
+  const c=$('cpi').style;c.left=lerp(WK.x(4),82,k)+'px';c.top=lerp(WK.y,640,k)+'px';c.width=lerp(WK.w,916,k)+'px';c.height=h+'px';c.borderRadius=lerp(30,44,k)+'px';
+  c.borderColor=`rgba(${lerp(230,255,k)},${lerp(236,255,k)},${lerp(245,255,k)},${lerp(.85,.08,k)})`;c.background=k<1?`linear-gradient(180deg,${k>0.5?'#0B141A':'#151D2A'},#0B141A)`:'#0B141A';
+  $('cph').style.opacity=P(t,a+0.12,0.25,lin)}
+ put('mx',mxOn?1:0);
+ /* ---------- C · AS PERGUNTAS, enviadas hoje ---------- */
+ {const vis=t>T.t2&&t<T.cOut+0.35;const o=1-P(t,T.cOut,0.18,lin);const lift=P(t,T.cOut,0.3,eIn2)*90;
+  up('c1a',t,T.c1);up('c2a',t,T.c1+0.14);put('c1',vis&&t>T.c1-0.02?o:0,{dy:lift});put('c2',vis&&t>T.c1+0.12?o:0,{dy:lift});
+  put('cp',vis&&t>T.t2+0.03?o:0,{dy:lift});
+  for(let i=0;i<3;i++){const id='o'+i;const v=spPop((t-T.q[i])*1000);const vv=cl(v);
+   if(i<2)put(id,vis&&t>T.q[i]?cl(v*2.5)*o:0,{s:0.7+0.3*v,ph:PLN[id].w/2,pv:PLN[id].h/2,dy:lift+(1-vv)*-30});
+   else{ // match cut: a 3ª pergunta desce até o lugar da resposta e vira a resposta do Rafael
+    const p=PLN[id];const m=eIO3((t-T.cOut-0.02)/0.3);const fl=P(t,T.rb-0.15,0.15,eIn2);
+    const dx=-(886-p.w)*m*p.k, dy=(OY[2]-760)*m*p.k;
+    put(id,t>T.q[i]&&t<T.rb?cl(v*2.5):0,{s:0.7+0.3*v,ph:p.w/2,pv:p.h/2,dy:dy+(1-vv)*-30,dx,rx:fl*Math.PI/2})}}
+  for(let i=0;i<3;i++)$('ck'+i).style.color=t>T.q[i]+0.35?'#53BDEB':'rgba(233,237,239,.6)'}
+ /* ---------- D · RESPOSTA ---------- */
+ {const vis=t>T.cOut&&t<T.dOut+0.4;const o=1-P(t,T.dOut,0.15,lin);const lift={dy:P(t,T.dOut,0.2,eIn2)*120};
+  up('d1a',t,T.d[0]);up('d2a',t,T.d[1]);up('d3a',t,T.d[2]);
+  put('d1',vis&&t>T.d[0]-0.02?o:0,lift);put('d2',vis&&t>T.d[1]-0.02?o:0,lift);put('d3',vis&&t>T.d[2]-0.02?o:0,lift);
+  const fr=1-P(t,T.rb,0.18,eOut3);put('rb',vis&&t>T.rb?o:0,{rx:-fr*Math.PI/2,dy:lift.dy});
+  const kk=P(t,T.kw,0.35,eIO2);$('kw').style.background=`rgba(52,211,153,${0.28*kk})`;$('kw').style.color=kk>0.5?'#fff':'#E9EDEF';$('kw').style.boxShadow=`inset 0 -5px 0 rgba(52,211,153,${kk})`;
+  const cv=spSoft((t-T.cat)*1000);put('cat',vis&&t>T.cat?cl(cv*2)*o:0,{dy:(1-cv)*-160+lift.dy,s:0.94+0.06*cl(cv)});
+  const nv=spSnap((t-T.np)*1000);{const np=PLN.np,a2=PLN.ag2;const mv=eIO3((t-T.dOut)/0.24);const fl=P(t,T.ag2-0.1,0.1,eIn2);   // match cut: a pílula sobe até o card da agenda
+   const ddy=((np.top+np.h/2)-(a2.top+a2.h/2))*mv*np.k;put('np',t>T.np&&t<T.ag2?cl(nv*3):0,{dx:(540-(82+np.w/2))*mv*np.k,dy:-(1-nv)*26+ddy,s:(0.9+0.1*cl(nv))*(1+0.25*mv),rx:fl*Math.PI/2})}}
+ /* ---------- E · CTA ancorado na 2ª visita ---------- */
+ {const fin=(id,a,extra)=>{const v=spFly((t-a)*1000);put(id,t>a?cl(v*2.2):0,Object.assign({rx:(1-v)*0.9,dz:(1-v)*-500,dy:(1-v)*-120},extra||{}))};
+  const af=1-P(t,T.ag2,0.2,eOut3);put('ag2',t>T.ag2?1:0,{rx:-af*Math.PI/2});
+  {const k=P(t,T.f1,0.12,eOut3);$('f1a').style.transform='none';put('f1',t>T.f1?k:0,{dy:-(1-k)*30})}
+  const fv=spSnap((t-T.f2)*1000);put('f2',t>T.f2?cl(fv*2.5):0,{dy:(1-fv)*-40});
+  fin('f5',T.logo,{s:1+0.02*Math.sin(t*1.5)});$('f5s').style.transform=`translateX(${lerp(-240,600,P(t,T.sheen,0.5,eIO2))}px)`;
+  const n=Math.max(1,Math.round(cl((t-T.typ)/0.45)*WORD.length));$('typ').textContent=WORD.slice(0,n);$('car').style.opacity=(n<WORD.length?1:(Math.floor(t*3.3)%2?1:0));
+  const sv=spPop((t-T.send)*1000);$('send').style.transform=`scale(${t>T.send?0.8+0.2*sv+0.22*Math.max(0,1-Math.abs(sv-1)*5)*(t<T.send+0.3?1:0):1})`;$('send').style.background=t>T.send?'#22C55E':'#2563EB';
+  $('send').style.boxShadow=t>T.send?`0 0 ${50*cl(sv)}px rgba(52,211,153,.75)`:'none';
+  up('f3a',t,T.sub-0.3);up('f3b',t,T.sub-0.14);up('f4a',t,T.sub+0.06);up('f4b',t,T.sub+0.22);put('f3',t>T.sub-0.32?1:0);put('f4',t>T.sub+0.04?1:0)}
+};
+window.qa=t=>{render(t);const o=[];document.querySelectorAll('.q').forEach(el=>{const p=el.closest('.pl');if(p&&p.style.visibility!=='visible')return;if(+getComputedStyle(p||el).opacity<0.3)return;if(+getComputedStyle(el).opacity<0.3)return;const b=el.getBoundingClientRect();const fs=parseFloat(getComputedStyle(el).fontSize)*b.height/el.offsetHeight;o.push([el.id||el.textContent.slice(0,14),Math.round(b.left),Math.round(b.top),Math.round(b.right),Math.round(b.bottom),Math.round(fs)])});return o};
+window.ready=(async()=>{render(0);return T.end})();
+</script></body></html>
