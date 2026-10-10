@@ -1,0 +1,75 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "LANÇAMENTO · SALVE ESTE POST",
+   "titulo": "O plantão fecha. O anúncio, não.",
+   "sub": "Como não perder o lead do lançamento que chega à noite."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "O PROBLEMA",
+   "titulo": "A pergunta da noite espera até amanhã.",
+   "sub": "O anúncio roda o dia todo. O plantão tem horário."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "1 · DE ONDE ELE VEIO",
+   "titulo": "Saiba de qual lançamento é o lead.",
+   "sub": "A resposta certa depende do anúncio."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "2 · FORA DO HORÁRIO",
+   "titulo": "Responda com a planta do catálogo.",
+   "sub": "Informação real, na hora da dúvida."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "3 · ANTES DO PLANTÃO",
+   "titulo": "Entenda o perfil na conversa.",
+   "sub": "O corretor chega sabendo o que importa."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "4 · VISITA NO PLANTÃO",
+   "titulo": "Ofereça o horário na mesma conversa.",
+   "sub": "Quem escolhe o horário já se comprometeu."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "5 · PARA O CORRETOR",
+   "titulo": "Passe o resumo para quem está no plantão.",
+   "sub": "Ninguém pergunta tudo de novo."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "6 · FUNIL DO LANÇAMENTO",
+   "titulo": "Quem não veio volta para o funil.",
+   "sub": "Separe por empreendimento e retome cada um."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "ONDE A LEADIMOB ENTRA",
+   "titulo": "A Leadimob atende quando o plantão fecha.",
+   "sub": "E chama o corretor com o resumo pronto."
+  },
+  {
+   "tipo": "cta",
+   "kicker": "SUA VEZ",
+   "titulo": "Quem responde o seu lançamento à noite?",
+   "sub": "Comente LANÇAMENTO e conte como o seu time faz hoje. Solicite uma demonstração — link na bio."
+  }
+ ]
+}
