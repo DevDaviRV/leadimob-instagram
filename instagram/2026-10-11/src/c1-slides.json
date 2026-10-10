@@ -15,49 +15,49 @@
    "tipo": "capa",
    "kicker": "RETOMADA · SALVE ESTE POST",
    "titulo": "Retome sem cobrar.",
-   "sub": "Mensagens para o cliente que sumiu, prontas para copiar."
+   "sub": "Mensagens para o cliente que sumiu, prontas para adaptar."
   },
   {
    "tipo": "conteudo",
    "kicker": "O QUE EVITAR",
-   "titulo": "“Ainda tem interesse?” soa como cobrança.",
-   "sub": "Pede uma resposta e não traz nada novo."
+   "titulo": "Cobrar resposta vira silêncio.",
+   "sub": "Mensagem que só pede retorno não dá motivo para responder."
   },
   {
    "tipo": "conteudo",
    "kicker": "A REGRA",
    "titulo": "Volte com um motivo.",
-   "sub": "Algo novo para ele, e uma pergunta fácil de responder."
+   "sub": "Consegui a planta do apartamento que você pediu. Te mando agora?"
   },
   {
    "tipo": "conteudo",
-   "kicker": "RETOMADA 1 · OPÇÃO NOVA",
+   "kicker": "ELE DISSE: ESCOLA",
    "titulo": "Mostre uma opção que bate com o pedido.",
-   "sub": "Entrou um 3 quartos com quintal, perto da escola que você comentou. Te mando as fotos?"
+   "sub": "Achei uma casa na mesma rua da escola. Quer ver por dentro?"
   },
   {
    "tipo": "conteudo",
-   "kicker": "RETOMADA 2 · NOVIDADE DO BAIRRO",
+   "kicker": "ELE DISSE: O BAIRRO",
    "titulo": "Conte uma novidade do bairro.",
-   "sub": "Abriu um mercado ao lado daquele apartamento que você gostou. Quer rever com calma?"
+   "sub": "Abriram um mercado e uma padaria na rua do apartamento. Quer passar lá de novo?"
   },
   {
    "tipo": "conteudo",
-   "kicker": "RETOMADA 3 · HORÁRIO LIVRE",
+   "kicker": "ELE DISSE: SEM TEMPO",
    "titulo": "Ofereça um horário livre.",
-   "sub": "Vou estar no Jardim Europa na quinta, no fim da tarde. Quer aproveitar e ver o apartamento?"
+   "sub": "Reservei um horário depois do seu trabalho. Pode ser? Quinta · 18:30"
   },
   {
    "tipo": "conteudo",
-   "kicker": "RETOMADA 4 · A DÚVIDA QUE FICOU",
+   "kicker": "ELE PERGUNTOU: PET",
    "titulo": "Traga a resposta da dúvida que ficou.",
-   "sub": "Confirmei com o condomínio: aceita pet, sim. Quer marcar a visita?"
+   "sub": "Confirmei com o síndico: aceita, sim. Quer ver a área de lazer na visita?"
   },
   {
    "tipo": "conteudo",
-   "kicker": "RETOMADA 5 · ESCOLHA A OU B",
+   "kicker": "ELE DISSE: NÃO SEI",
    "titulo": "Peça uma escolha simples.",
-   "sub": "Para eu filtrar melhor: você prefere mais espaço ou ficar mais perto do trabalho?"
+   "sub": "Para eu filtrar melhor: você prefere mais espaço ou ficar perto do trabalho?"
   },
   {
    "tipo": "conteudo",
