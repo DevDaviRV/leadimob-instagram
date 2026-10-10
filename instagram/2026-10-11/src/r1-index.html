@@ -316,7 +316,7 @@ window.render=function(t){
   const X=1100*enter-pan;
   $('strip').style.transform=`translateX(${X}px)`;
   $('cam').style.display=t>TK&&t<TE+0.65?'block':'none';
-  let hero=0;[0,1,2].forEach(k=>{const cx=130+k*880+X;const sd=(cx-130)/880;const d=Math.abs(sd);hero=Math.max(hero,cl(1-d*3));$('k'+k).style.opacity=cl(1-d*(t>TD?1.6:1.15));$('k'+k).style.transform=`perspective(1800px) rotateY(${cl(sd,-1,1)*-14}deg) scale(${1-0.05*cl(d)})`});
+  let hero=0;[0,1,2].forEach(k=>{const cx=130+k*880+X;const sd=(cx-130)/880;const d=Math.abs(sd);hero=Math.max(hero,cl(1-d*3));$('k'+k).style.opacity=cl(1-d*(t>TD?1.6:1.15))*(1-P(t,TD,0.2,lin));$('k'+k).style.transform=`perspective(1800px) rotateY(${cl(sd,-1,1)*-14}deg) scale(${1-0.05*cl(d)})`});
   const ro=hero*(1-P(t,TD,0.3,eIn))*P(t,TK+0.5,0.4);S($('ring'),ro*0.9,`scale(${0.92+0.08*hero})`);S($('csh'),ro);
   $('ph').style.transform=`translate(${-10*P(t,TK,P1-TK,lin)}px,${-8*P(t,TK,P1-TK,lin)}px) scale(${1+0.04*P(t,TK,P1-TK,lin)})`;
   // motivo 1: o que ele pediu acende

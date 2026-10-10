@@ -12,7 +12,7 @@ from scipy.io import wavfile
 SR=48000; END=19.6; N=int((END+0.5)*SR); TT=np.arange(N)/SR
 rng=np.random.default_rng(1110)
 B=60/84; E8=B/2; E16=B/4
-T=dict(a1=-0.45,ag=-0.35,chk=0.85,t1=2.95,b1=3.07,cur=[3.9,4.4,4.9,5.4],b2=4.25,b3=5.05,bp=5.9,t2=6.9,c1=6.82,q=[7.55,8.45,9.35],cOut=11.4,d=[11.5,11.62,11.74],rb=11.95,kw=12.6,cat=12.95,np=13.7,dOut=15.1,ag2=15.34,f1=15.48,f2=15.66,typ=15.66,send=16.45,sub=16.75,logo=17.25,sheen=18.1)
+T=dict(a1=-0.45,ag=-0.35,chk=0.85,t1=2.95,b1=3.07,cur=[3.9,4.4,4.9,5.4],b2=4.25,b3=5.05,bp=5.9,t2=6.9,c1=6.82,q=[7.3,8.35,9.35],cOut=11.4,d=[11.5,11.62,11.74],rb=11.95,kw=12.6,cat=12.95,np=13.7,dOut=15.1,ag2=15.36,f1=15.48,f2=15.74,typ=15.74,send=16.42,sub=16.72,logo=17.2,sheen=18.0)
 def lp(x,f): return sosfilt(butter(2,f,'low',fs=SR,output='sos'),x)
 def hp(x,f): return sosfilt(butter(2,f,'high',fs=SR,output='sos'),x)
 def bp(x,a,b): return sosfilt(butter(2,[a,b],'band',fs=SR,output='sos'),x)
@@ -149,7 +149,7 @@ st(bell([82,87],1,5),T['kw']+0.05,.04,-.1,True)
 st(whoosh(0.45,700,4500),T['cat']-0.15,.06,.25,True);st(pop(1,820),T['cat']+0.08,.05,.25,True)
 st(pop(1,1050),T['np'],.08,.1,True);st(bell([75,79,82],1,3),T['np']+0.03,.07,.1,True);st(thud(1,46),T['np'],.14,0,True)
 # CTA: o card da 2ª visita chega
-st(whoosh(0.5,500,4000),T['dOut']+0.0,.06,0,True);st(tick(1,1800),T['ag2']-0.1,.05,0,True);st(pop(1,760),T['ag2']+0.05,.05,0,True);st(thud(1,80),T['f1'],.1,0,True)
+st(whoosh(0.5,500,4000),T['dOut']+0.0,.06,0,True);st(whoosh(0.5,700,3800),T['dOut'],.05,0,True);st(pop(1,760),T['ag2']+0.05,.05,0,True);st(thud(1,80),T['f1'],.1,0,True)
 for i in range(6): st(key(1),T['typ']+0.03+i*0.075,.05,0,True)
 st(pop(1,900),T['send'],.09,.3,True);st(bell([82,87],1,4),T['send']+0.03,.06,.3,True);st(thud(1,44),T['send'],.12,0,True)
 for i,dt in enumerate([-0.3,-0.14,0.06,0.22]): st(thud(1,110+8*i),T['sub']+dt+0.1,.04,0,True)

@@ -133,7 +133,7 @@ import * as THREE from 'three';
 await Promise.all(['500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)));
 await Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>i.onload=i.onerror=r)));
 const W=1080,H=1920;
-const T={a1:-0.45,a2:-0.3,ag:-0.35,chk:0.85,t1:2.95,b1:3.07,cur:[3.9,4.4,4.9,5.4],b2:4.25,b3:5.05,bp:5.9,t2:6.9,c1:6.82,q:[7.55,8.45,9.35],cOut:11.4,d:[11.5,11.62,11.74],rb:11.95,kw:12.6,cat:12.95,np:13.7,dOut:15.1,ag2:15.34,f1:15.48,f2:15.66,typ:15.66,send:16.45,sub:16.75,logo:17.25,sheen:18.1,end:19.6};
+const T={a1:-0.45,a2:-0.3,ag:-0.35,chk:0.85,t1:2.95,b1:3.07,cur:[3.9,4.4,4.9,5.4],b2:4.25,b3:5.05,bp:5.9,t2:6.9,c1:6.82,q:[7.3,8.35,9.35],cOut:11.4,d:[11.5,11.62,11.74],rb:11.95,kw:12.6,cat:12.95,np:13.7,dOut:15.1,ag2:15.36,f1:15.48,f2:15.74,typ:15.74,send:16.42,sub:16.72,logo:17.2,sheen:18.0,end:19.6};
 window.DURATION=T.end;
 const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 const lin=x=>cl(x),eOut=x=>1-Math.pow(1-cl(x),4),eOut3=x=>1-Math.pow(1-cl(x),3),eIn=x=>Math.pow(cl(x),3),eIn2=x=>cl(x)*cl(x),eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2},eIO2=x=>{x=cl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2},eIO3=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
@@ -255,18 +255,18 @@ window.render=function(t){
   up('a1a',t,T.a1);up('a2a',t,T.a2);up('a2b',t,T.a2+0.12);dn('a1a',ho);dn('a2a',ho);dn('a2b',ho);
   put('a1',vis?1:0);put('a2',vis?1:0);
   const fv=spFly((t-T.ag)*1000);const co=1-P(t,T.t1+0.04,0.3,lin);
-  const shr=eIO2((t-T.t1-0.04)/0.55);put('ag',vis&&t>T.ag?cl(fv*2.2)*co:0,{dy:(1-fv)*-260+(AG.y-WK.y)*shr,dz:(1-fv)*-300,rx:(1-cl(fv))*0.35,sx:lerp(1,WK.w/AG.w,shr),sy:lerp(1,WK.h/AG.h,shr),ph:-AG.w/2,pv:AG.h/2});
+  const shr=eIO2((t-T.t1-0.04)/0.4);put('ag',vis&&t>T.ag?cl(fv*2.2)*co:0,{dy:(1-fv)*-260+(AG.y-WK.y)*shr,dz:(1-fv)*-300,rx:(1-cl(fv))*0.35,sx:lerp(1,WK.w/AG.w,shr),sy:lerp(1,WK.h/AG.h,shr),ph:-AG.w/2,pv:AG.h/2});
   const st=t>T.chk,pv=spPop((t-T.chk)*1000),pe=$('agp').style;pe.opacity=st?cl(pv*3):0;pe.transform=`scale(${st?0.75+0.25*pv:0.75})`;pe.transformOrigin='0 50%';
   $('ag').style.borderColor=st?`rgba(52,211,153,${0.3+0.25*P(t,T.chk,0.4)})`:'rgba(125,211,252,.3)'}
  /* ---------- virada 1: o card da agenda encolhe e vira a célula de sábado (os outros dias já estão lá) ---------- */
  let mxOn=false;
- {const a=T.t1+0.04,e=T.t1+0.59;const k=eIO2((t-a)/(e-a));
+ {const a=T.t1+0.04,e=T.t1+0.44;const k=eIO2((t-a)/(e-a));
   if(t>a&&t<e+0.2){const o=1-P(t,e+0.02,0.16,lin);mxOn=true;MB('mxb',o,[AG.x,AG.y,AG.w,AG.h,40],[WK.x(0),WK.y,WK.w,WK.h,30],k,`rgba(52,211,153,${0.55*(1-k)+0.1*k})`,'')}}
  /* ---------- B · E DEPOIS? os dias passam ---------- */
  {const vis=t>T.t1&&t<T.t2+0.8;const ho=P(t,T.t2-0.12,0.24,eIn2);
   const bi=P(t,T.b1,0.3,eOut3);const bo=1-P(t,T.t2-0.32,0.2,lin);put('b1',vis&&t>T.b1?bi*bo:0,{dy:-(1-bi)*30+P(t,T.t2-0.32,0.22,eIn2)*70});
-  for(let i=0;i<5;i++){const s=$('dc'+i).style;const a=T.t1+0.6+i*0.06;const v=spSnap((t-a)*1000);
-   const gone=i<4?P(t,T.t2+0.0+i*0.03,0.18,lin):0;s.opacity=i==0?P(t,T.t1+0.42,0.16,lin)*(1-gone):cl(v*2)*(1-gone);s.transform=i==0?'none':`translateY(${(1-cl(v))*30}px)`;
+  for(let i=0;i<5;i++){const s=$('dc'+i).style;const a=T.t1+0.36+i*0.04;const v=spSnap((t-a)*1000);
+   const gone=i<4?P(t,T.t2+0.0+i*0.03,0.18,lin):0;s.opacity=i==0?P(t,T.t1+0.22,0.14,lin)*(1-gone):cl(v*2)*(1-gone);s.transform=i==0?'none':`translateY(${(1-cl(v))*30}px)`;
    if(i==4)s.visibility=t>T.t2+0.03?'hidden':'visible'}
   let cx=0;for(let i=0;i<4;i++)cx+=187*P(t,T.cur[i],0.32,eIO3);const cs=$('cur').style;cs.left=cx+'px';cs.opacity=P(t,T.cur[0]-0.35,0.3,lin)*(1-P(t,T.t2-0.1,0.15,lin));
   for(let i=1;i<5;i++){const lit=t>T.cur[i-1]+0.2;$('dc'+i).style.borderColor=lit?'rgba(230,236,245,.32)':'rgba(255,255,255,.1)'}
@@ -275,10 +275,15 @@ window.render=function(t){
   const pv=spSnap((t-T.bp)*1000),po=1-P(t,T.t2-0.1,0.16,lin);put('bp',vis&&t>T.bp?cl(pv*3)*po:0,{dy:-(1-pv)*26})}
  /* ---------- virada 2: a célula de hoje (QUA) se expande e vira a conversa com o Rafael (cresce a cada mensagem) ---------- */
  {const a=T.t2+0.03,e=T.t2+0.55;const k=eIO3((t-a)/(e-a));const H=i=>PLN['o'+i].top+PLN['o'+i].h+30-640;
-  let h=lerp(WK.h,150,k);for(let i=0;i<3;i++)h+=(H(i)-(i?H(i-1):150))*cl(spSnap((t-T.q[i]+0.1)*1000));
+  let h=lerp(WK.h,H(0),k);for(let i=1;i<3;i++)h+=(H(i)-H(i-1))*cl(spSnap((t-T.q[i]+0.1)*1000));
   const c=$('cpi').style;c.left=lerp(WK.x(4),82,k)+'px';c.top=lerp(WK.y,640,k)+'px';c.width=lerp(WK.w,916,k)+'px';c.height=h+'px';c.borderRadius=lerp(30,44,k)+'px';
   c.borderColor=`rgba(${lerp(230,255,k)},${lerp(236,255,k)},${lerp(245,255,k)},${lerp(.85,.08,k)})`;c.background=k<1?`linear-gradient(180deg,${k>0.5?'#0B141A':'#151D2A'},#0B141A)`:'#0B141A';
   $('cph').style.opacity=P(t,a+0.12,0.25,lin)}
+ {const a=T.dOut+0.02,e=T.dOut+0.42;const k=eIO3((t-a)/(e-a));const np=PLN.np,a2=PLN.ag2;const mb=$('mxb');
+  if(t>a&&t<e+0.12){mxOn=true;if(!mb._p){mb.innerHTML='<div id="mxp" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:14px;font:800 48px/1 IN;color:#A7F3D0;white-space:nowrap"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10 H20.5 M8 3 V6.8 M16 3 V6.8 M8.5 15 L11 17.3 L15.5 12.8"/></svg>2ª visita agendada</div>';mb._p=1}
+   $('mxp').style.opacity=1-P(t,a+0.26,0.12,lin);
+   MB('mxb',1-P(t,e,0.1,lin),[np.left,np.top,np.w,np.h,np.h/2],[a2.left,a2.top,a2.w,a2.h,40],k,'rgba(52,211,153,.75)',k<0.3?'rgba(16,40,34,.95)':'linear-gradient(180deg,#18212F,#101721)')}
+  else if(mb._p){mb.innerHTML='';mb._p=0}}
  put('mx',mxOn?1:0);
  /* ---------- C · AS PERGUNTAS, enviadas hoje ---------- */
  {const vis=t>T.t2&&t<T.cOut+0.35;const o=1-P(t,T.cOut,0.18,lin);const lift=P(t,T.cOut,0.3,eIn2)*90;
@@ -299,11 +304,11 @@ window.render=function(t){
   const kk=P(t,T.kw,0.35,eIO2);$('kw').style.background=`rgba(52,211,153,${0.28*kk})`;$('kw').style.color=kk>0.5?'#fff':'#E9EDEF';$('kw').style.boxShadow=`inset 0 -5px 0 rgba(52,211,153,${kk})`;
   const cv=spSoft((t-T.cat)*1000);put('cat',vis&&t>T.cat?cl(cv*2)*o:0,{dy:(1-cv)*-160+lift.dy,s:0.94+0.06*cl(cv)});
   const nv=spSnap((t-T.np)*1000);{const np=PLN.np,a2=PLN.ag2;const mv=eIO3((t-T.dOut)/0.24);const fl=P(t,T.ag2-0.1,0.1,eIn2);   // match cut: a pílula sobe até o card da agenda
-   const ddy=((np.top+np.h/2)-(a2.top+a2.h/2))*mv*np.k;put('np',t>T.np&&t<T.ag2?cl(nv*3):0,{dx:(540-(82+np.w/2))*mv*np.k,dy:-(1-nv)*26+ddy,s:(0.9+0.1*cl(nv))*(1+0.25*mv),rx:fl*Math.PI/2})}}
+   const ddy=((np.top+np.h/2)-(a2.top+a2.h/2))*mv*np.k;put('np',t>T.np&&t<T.dOut+0.03?cl(nv*3):0,{dx:(540-(82+np.w/2))*mv*np.k,dy:-(1-nv)*26+ddy,s:(0.9+0.1*cl(nv))*(1+0.25*mv),rx:fl*Math.PI/2})}}
  /* ---------- E · CTA ancorado na 2ª visita ---------- */
  {const fin=(id,a,extra)=>{const v=spFly((t-a)*1000);put(id,t>a?cl(v*2.2):0,Object.assign({rx:(1-v)*0.9,dz:(1-v)*-500,dy:(1-v)*-120},extra||{}))};
-  const af=1-P(t,T.ag2,0.2,eOut3);put('ag2',t>T.ag2?1:0,{rx:-af*Math.PI/2});
-  {const k=P(t,T.f1,0.12,eOut3);$('f1a').style.transform='none';put('f1',t>T.f1?k:0,{dy:-(1-k)*30})}
+  put('ag2',t>T.ag2?P(t,T.ag2,0.14,lin):0);
+  {const k=P(t,T.f1,0.1,eOut3);$('f1a').style.transform='none';put('f1',t>T.f1?k:0,{dy:-(1-k)*30})}
   const fv=spSnap((t-T.f2)*1000);put('f2',t>T.f2?cl(fv*2.5):0,{dy:(1-fv)*-40});
   fin('f5',T.logo,{s:1+0.02*Math.sin(t*1.5)});$('f5s').style.transform=`translateX(${lerp(-240,600,P(t,T.sheen,0.5,eIO2))}px)`;
   const n=Math.max(1,Math.round(cl((t-T.typ)/0.45)*WORD.length));$('typ').textContent=WORD.slice(0,n);$('car').style.opacity=(n<WORD.length?1:(Math.floor(t*3.3)%2?1:0));
