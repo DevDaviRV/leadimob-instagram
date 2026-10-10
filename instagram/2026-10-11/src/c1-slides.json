@@ -1,0 +1,75 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "RETOMADA · SALVE ESTE POST",
+   "titulo": "Retome sem cobrar.",
+   "sub": "Mensagens para o cliente que sumiu, prontas para copiar."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "O QUE EVITAR",
+   "titulo": "“Ainda tem interesse?” soa como cobrança.",
+   "sub": "Pede uma resposta e não traz nada novo."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "A REGRA",
+   "titulo": "Volte com um motivo.",
+   "sub": "Algo novo para ele, e uma pergunta fácil de responder."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "RETOMADA 1 · OPÇÃO NOVA",
+   "titulo": "Mostre uma opção que bate com o pedido.",
+   "sub": "Entrou um 3 quartos com quintal, perto da escola que você comentou. Te mando as fotos?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "RETOMADA 2 · NOVIDADE DO BAIRRO",
+   "titulo": "Conte uma novidade do bairro.",
+   "sub": "Abriu um mercado ao lado daquele apartamento que você gostou. Quer rever com calma?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "RETOMADA 3 · HORÁRIO LIVRE",
+   "titulo": "Ofereça um horário livre.",
+   "sub": "Vou estar no Jardim Europa na quinta, no fim da tarde. Quer aproveitar e ver o apartamento?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "RETOMADA 4 · A DÚVIDA QUE FICOU",
+   "titulo": "Traga a resposta da dúvida que ficou.",
+   "sub": "Confirmei com o condomínio: aceita pet, sim. Quer marcar a visita?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "RETOMADA 5 · ESCOLHA A OU B",
+   "titulo": "Peça uma escolha simples.",
+   "sub": "Para eu filtrar melhor: você prefere mais espaço ou ficar mais perto do trabalho?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "ONDE A LEADIMOB ENTRA",
+   "titulo": "A Leadimob retoma com contexto.",
+   "sub": "No seu WhatsApp, com o que o cliente pediu. Quando ele responde, você assume."
+  },
+  {
+   "tipo": "cta",
+   "titulo": "Qual retomada funciona com os seus clientes?",
+   "acao": "Comente RETOMADA",
+   "sub": "E conte qual mensagem você usa para voltar a conversar. Solicite uma demonstração — link na bio."
+  }
+ ]
+}

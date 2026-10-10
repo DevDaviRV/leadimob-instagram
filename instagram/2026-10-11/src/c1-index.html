@@ -1,0 +1,223 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<title>Leadimob · Carrossel 11/10 · Retome sem cobrar</title>
+<style>
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:IN;color:#fff;-webkit-font-smoothing:antialiased}
+#strip{position:relative;width:10800px;height:1350px;background:#0A0E14;overflow:hidden}
+.abs{position:absolute}
+.bg{position:absolute;inset:0;background-image:radial-gradient(rgba(125,211,252,.11) 1.8px,transparent 2.4px);background-size:46px 46px}
+.glow{position:absolute;border-radius:50%;pointer-events:none}
+.vig{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.0) 70%,rgba(6,9,14,.75) 100%)}
+
+/* ---------- slide frame ---------- */
+.sl{position:absolute;top:0;width:1080px;height:1350px;padding:96px 84px 410px;display:flex;flex-direction:column;justify-content:center;z-index:5}
+.sl.lo{padding-bottom:372px}
+.sl>*{flex:none}
+.kick{font:700 30px/1 IN;letter-spacing:.16em;text-transform:uppercase;color:#7DD3FC}
+.h1{font:900 170px/0.93 IN;letter-spacing:-.058em}
+.h2{font:800 76px/1.03 IN;letter-spacing:-.04em}
+.p{font:500 38px/1.38 IN;color:#C9D2E0}
+.hl{color:#7DD3FC}
+.am{color:#FBBF24}
+.ghost{position:absolute;font:900 520px/1 IN;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(125,211,252,.13);right:30px;top:30px;z-index:-1}
+.foot{position:absolute;left:84px;right:84px;bottom:54px;display:flex;justify-content:space-between;align-items:center;font:600 30px/1 IN;color:#5B6678;letter-spacing:.06em}
+.ttl{display:flex;align-items:center;gap:22px;margin-bottom:30px;flex:none}
+.num{font:800 30px/1 IN;color:#06202A;background:linear-gradient(160deg,#67E8F9,#22D3EE);width:66px;height:66px;border-radius:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(34,211,238,.10),0 10px 34px rgba(34,211,238,.35);flex:none}
+.num.amb{background:linear-gradient(160deg,#FCD34D,#F59E0B);color:#2A1802;box-shadow:0 0 0 6px rgba(245,158,11,.10),0 10px 34px rgba(245,158,11,.30)}
+.card{position:relative;background:linear-gradient(180deg,rgba(24,33,48,.97),rgba(13,19,29,.97));border:1px solid rgba(125,211,252,.18);border-radius:32px;box-shadow:0 50px 100px rgba(0,0,0,.55),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07)}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:15px 24px;border-radius:999px;font:700 30px/1 IN;white-space:nowrap}
+.amb{background:rgba(245,158,11,.12);border:2px solid rgba(245,158,11,.7);color:#FBBF24}
+.cy{background:rgba(34,211,238,.10);border:2px solid rgba(34,211,238,.55);color:#A5F3FC}
+.gr{background:rgba(52,211,153,.12);border:2px solid rgba(52,211,153,.7);color:#6EE7B7}
+.nt{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14);color:#C9D2E0}
+
+/* ---------- WhatsApp ---------- */
+.wa{background:#0B141A;border:1px solid rgba(255,255,255,.08);border-radius:34px;box-shadow:0 50px 100px rgba(0,0,0,.6),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);position:relative;overflow:hidden}
+.wa::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1.5px,transparent 2px);background-size:28px 28px}
+.wa>*{position:relative}
+.bub{position:relative;border-radius:24px;padding:20px 26px 14px;font:500 38px/1.3 IN;color:#E9EDEF;width:fit-content;max-width:100%;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.bin{background:#202C33;border-top-left-radius:6px}
+.bout{background:#005C4B;border-top-right-radius:6px;margin-left:auto}
+.bt{display:flex;justify-content:flex-end;align-items:center;gap:8px;font:500 28px/1 IN;color:rgba(233,237,239,.62);margin-top:8px}
+.tk{width:34px;height:22px}
+.strike{text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:#F59E0B}
+.lab{font:700 30px/1 IN;letter-spacing:.14em;text-transform:uppercase;color:#7C8799;display:flex;align-items:center;gap:12px}
+
+/* ---------- peça 11/10: retomada ---------- */
+.sl{padding:96px 84px 330px}
+.h2{font-size:92px;line-height:1.0}
+.p{font-size:42px;margin-top:30px}
+.qghost{position:absolute;right:56px;top:-40px;font:900 640px/1 IN;color:transparent;-webkit-text-stroke:2px rgba(125,211,252,.12);z-index:-1;letter-spacing:0}
+.chat{margin-top:58px;padding:0 0 34px}
+.chat .hd{display:flex;align-items:center;gap:20px;padding:24px 30px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(32,44,51,.55)}
+.chat .av{width:64px;height:64px;border-radius:50%;background:linear-gradient(160deg,#3B4A54,#26323A);display:flex;align-items:center;justify-content:center;font:700 30px/1 IN;color:#C9D2E0;flex:none}
+.chat .nm{font:600 34px/1.1 IN;color:#E9EDEF}
+.chat .st{font:500 30px/1 IN;color:#7C8799;margin-left:auto}
+.chat .bx{padding:30px 34px 0}
+.chat .bub{font-size:44px;line-height:1.3;padding:24px 30px 16px;max-width:840px}
+.bt{font-size:30px}
+.mv{text-decoration:underline;text-decoration-color:rgba(103,232,249,.9);text-decoration-thickness:3px;text-underline-offset:10px;text-decoration-skip-ink:none}
+.strk{text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:#F59E0B}
+.node{position:absolute;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:#0B121B;border:3px solid #22D3EE;box-shadow:0 0 0 8px rgba(34,211,238,.07),0 0 30px rgba(34,211,238,.35);display:flex;align-items:center;justify-content:center;z-index:6}
+.node.g{border-color:#34D399;box-shadow:0 0 0 8px rgba(52,211,153,.07),0 0 30px rgba(52,211,153,.35)}
+.tile{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:26px;padding:34px 32px 36px}
+.tile .ic{width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center}
+.tile .t{font:800 44px/1.08 IN;letter-spacing:-.025em}
+.plus{font:800 64px/1 IN;color:#5B6678;align-self:center;flex:none}
+</style></head><body><div id="strip">
+<div class="bg"></div>
+<div class="glow" style="left:-420px;top:-480px;width:1600px;height:1500px;background:radial-gradient(circle,rgba(37,99,235,.30),transparent 62%)"></div>
+<div class="glow" style="left:1000px;top:520px;width:1400px;height:1200px;background:radial-gradient(circle,rgba(245,158,11,.06),transparent 62%)"></div>
+<div class="glow" style="left:2300px;top:-420px;width:1500px;height:1400px;background:radial-gradient(circle,rgba(34,211,238,.09),transparent 60%)"></div>
+<div class="glow" style="left:5200px;top:500px;width:1700px;height:1400px;background:radial-gradient(circle,rgba(37,99,235,.10),transparent 60%)"></div>
+<div class="glow" style="left:8200px;top:-520px;width:1900px;height:1700px;background:radial-gradient(circle,rgba(37,99,235,.24),transparent 62%)"></div>
+<div class="vig"></div>
+<svg id="thread" class="abs" width="10800" height="1350" style="left:0;top:0;z-index:1;overflow:visible"></svg>
+<div id="nodes"></div>
+
+<!-- 1 capa -->
+<div class="sl" style="left:0;justify-content:flex-start;padding-top:118px">
+ <div style="display:flex;justify-content:space-between;align-items:center">
+  <div class="ttl" style="margin:0"><div class="num"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10.500a5.500 5.500 0 0 1 0 11H11"/></svg></div><div class="kick">Retomada</div></div>
+  <span class="chip cy"><svg width="24" height="28" viewBox="0 0 20 24"><path d="M3 2h14v20l-7-5.500L3 22z" fill="#A5F3FC"/></svg>Salve este post</span>
+ </div>
+ <div class="h1" style="margin-top:84px;font-size:180px">Retome<br>sem<br><span class="hl">cobrar.</span></div>
+ <div class="p" style="margin-top:50px;font-size:46px;color:#E2E8F0;max-width:800px">Mensagens para o cliente que sumiu, prontas para copiar.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span style="color:#7DD3FC">ARRASTE →</span></div></div>
+
+<!-- 2 o que evitar -->
+<div class="sl" style="left:1080px">
+ <div class="ttl"><div class="num amb">!</div><div class="kick" style="color:#FBBF24">O que evitar</div></div>
+ <div class="h2">“Ainda tem interesse?” <span class="am">soa como cobrança.</span></div>
+ <div class="p">Pede uma resposta e não traz nada novo.</div>
+ <div class="wa chat"><div class="bx">
+  <div class="bub bout">Oi, tudo bem? Ainda tem interesse no apartamento?<div class="bt">10:12 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  <div style="display:flex;justify-content:flex-end;margin-top:26px"><span class="chip nt" style="color:#C9D2E0"><i style="width:14px;height:14px;border-radius:50%;background:#F59E0B;display:block"></i>Lida · sem resposta</span></div>
+ </div></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>2/10</span></div></div>
+
+<!-- 3 a regra -->
+<div class="sl" style="left:2160px">
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#06202A" stroke-width="2.8" stroke-linecap="round"><path d="M12 5v9M12 18.500v.5"/></svg></div><div class="kick">A regra</div></div>
+ <div class="h2">Volte com <span class="hl">um motivo</span>.</div>
+ <div class="p">Algo novo para ele, e uma pergunta fácil de responder.</div>
+ <div style="margin-top:58px;display:flex;align-items:stretch;gap:26px">
+  <div class="card tile" style="border-color:rgba(34,211,238,.5)"><div class="ic" style="background:rgba(34,211,238,.12);border:1.5px solid rgba(34,211,238,.55)"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#A5F3FC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.200 5.300L19.500 10l-5.300 2.200L12 17.500l-2.200-5.300L4.500 10l5.300-1.700z"/></svg></div><div class="t"><span class="mv">Um motivo</span><br>novo</div></div>
+  <div class="plus">+</div>
+  <div class="card tile"><div class="ic" style="background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.16)"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#C9D2E0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c5 0 9 3.600 9 8.200S17 19.500 12 19.500c-1 0-2-.15-2.900-.42L4.500 21l1.200-3.900C4 15.600 3 13.500 3 11.200 3 6.600 7 3 12 3z"/></svg></div><div class="t" style="color:#E2E8F0">Uma pergunta<br>fácil</div></div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>3/10</span></div></div>
+
+<!-- 4 retomada 1 -->
+<div class="sl" style="left:3240px">
+ <div class="ttl"><div class="num">1</div><div class="kick">Retomada 1 · Opção nova</div></div>
+ <div class="h2">Mostre uma opção que <span class='hl'>bate com o pedido</span>.</div>
+ <div class="p">Nova para ele e filtrada pelo que ele contou.</div>
+ <div class="wa chat"><div class="hd"><div class="av">M</div><div class="nm">Marina</div><div class="st">Copie e adapte</div></div><div class="bx">
+  <div class="bub bout"><span class='mv'>Entrou um 3 quartos com quintal, perto da escola que você comentou.</span> Te mando as fotos?<div class="bt">09:40 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+ </div></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>4/10</span></div></div>
+
+<!-- 5 retomada 2 -->
+<div class="sl" style="left:4320px">
+ <div class="ttl"><div class="num">2</div><div class="kick">Retomada 2 · Novidade do bairro</div></div>
+ <div class="h2">Conte uma <span class='hl'>novidade do bairro</span>.</div>
+ <div class="p">Mostra que você segue de olho na região dele.</div>
+ <div class="wa chat"><div class="hd"><div class="av">P</div><div class="nm">Paulo</div><div class="st">Copie e adapte</div></div><div class="bx">
+  <div class="bub bout"><span class='mv'>Abriu um mercado ao lado daquele apartamento que você gostou.</span> Quer rever com calma?<div class="bt">11:05 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+ </div></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>5/10</span></div></div>
+
+<!-- 6 retomada 3 -->
+<div class="sl" style="left:5400px">
+ <div class="ttl"><div class="num">3</div><div class="kick">Retomada 3 · Horário livre</div></div>
+ <div class="h2">Ofereça um <span class='hl'>horário livre</span>.</div>
+ <div class="p">Uma visita fácil de encaixar na semana dele.</div>
+ <div class="wa chat"><div class="hd"><div class="av">R</div><div class="nm">Renata</div><div class="st">Copie e adapte</div></div><div class="bx">
+  <div class="bub bout"><span class='mv'>Vou estar no Jardim Europa na quinta, no fim da tarde.</span> Quer aproveitar e ver o apartamento?<div class="bt">16:20 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+ </div></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>6/10</span></div></div>
+
+<!-- 7 retomada 4 -->
+<div class="sl" style="left:6480px">
+ <div class="ttl"><div class="num">4</div><div class="kick">Retomada 4 · A dúvida que ficou</div></div>
+ <div class="h2">Traga a resposta da <span class='hl'>dúvida que ficou</span>.</div>
+ <div class="p">A resposta já é o motivo para voltar.</div>
+ <div class="wa chat"><div class="hd"><div class="av">C</div><div class="nm">Carlos</div><div class="st">Copie e adapte</div></div><div class="bx">
+  <div class="bub bout"><span class='mv'>Confirmei com o condomínio: aceita pet, sim.</span> Quer marcar a visita?<div class="bt">10:30 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+ </div></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>7/10</span></div></div>
+
+<!-- 8 retomada 5 -->
+<div class="sl" style="left:7560px">
+ <div class="ttl"><div class="num">5</div><div class="kick">Retomada 5 · Escolha A ou B</div></div>
+ <div class="h2">Peça uma <span class='hl'>escolha simples</span>.</div>
+ <div class="p">Escolher entre duas opções é mais fácil que decidir.</div>
+ <div class="wa chat"><div class="hd"><div class="av">A</div><div class="nm">Ana</div><div class="st">Copie e adapte</div></div><div class="bx">
+  <div class="bub bout"><span class='mv'>Para eu filtrar melhor:</span> você prefere mais espaço ou ficar mais perto do trabalho?<div class="bt">18:15 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+ </div></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>8/10</span></div></div>
+<!-- 9 Leadimob -->
+<div class="sl" style="left:8640px">
+ <div class="ttl"><div class="num"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.600 9 8.200S17 19.500 12 19.500c-1 0-2-.15-2.900-.42L4.500 21l1.200-3.900C4 15.600 3 13.500 3 11.200 3 6.600 7 3 12 3z" fill="#06202A"/></svg></div><div class="kick">Onde a Leadimob entra</div></div>
+ <div class="h2">A Leadimob retoma <span style="color:#6EE7B7">com contexto</span>.</div>
+ <div class="p">No seu WhatsApp, com o que o cliente pediu. Quando ele responde, você assume.</div>
+ <div class="wa chat"><div class="hd"><div class="lab" style="color:#6EE7B7"><i style="width:14px;height:14px;border-radius:50%;background:#34D399;display:block"></i>Follow-up</div><div class="st" style="display:flex;gap:14px"><span class="chip nt" style="padding:12px 20px">3 quartos</span><span class="chip nt" style="padding:12px 20px">Perto da escola</span></div></div><div class="bx">
+  <div class="bub bout">Oi, Marina! Separei no catálogo uma casa com quintal perto da escola. Quer ver as fotos?<div class="bt">09:40 <svg class="tk" viewBox="0 0 34 22"><path d="M2 12l6 6L20 4M14 18l12-14" stroke="#53BDEB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+ </div></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>9/10</span></div></div>
+
+<!-- 10 CTA -->
+<div class="sl" style="left:9720px">
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7" stroke="#06202A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="kick">Sua vez</div></div>
+ <div class="h2">Qual retomada <span class="hl">funciona</span> com os seus clientes?</div>
+ <div style="margin-top:58px;height:132px;border-radius:66px;background:#141B28;border:2px solid rgba(125,211,252,.45);box-shadow:0 0 0 8px rgba(34,211,238,.06),0 30px 70px rgba(0,0,0,.55);display:flex;align-items:center;padding:0 22px 0 40px;gap:16px;font:600 44px IN">
+  <span style="color:#7C8799">Comente</span><span style="font-weight:900;letter-spacing:.02em">RETOMADA</span><span style="width:4px;height:52px;background:#22D3EE;border-radius:2px"></span>
+  <span style="margin-left:auto;width:92px;height:92px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,99,235,.55)"><svg width="42" height="42" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+ </div>
+ <div class="p" style="margin-top:34px">e conte qual mensagem você usa para voltar a conversar.</div>
+ <div style="margin-top:58px;display:flex;align-items:center;gap:26px">
+  <div style="width:300px;height:96px;border-radius:22px;background:#F3F7FB;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 44px rgba(0,0,0,.5);flex:none"><img src="logo.png" style="width:240px"></div>
+  <div style="font:600 30px/1.3 IN;color:#7DD3FC">Solicite uma demonstração<br>link na bio</div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>10/10</span></div></div>
+</div>
+<script>
+// fio da conversa: contínuo de ponta a ponta. Silêncio (tracejado) no slide 2, a volta (laço) no slide 3,
+// um nó com o ícone do motivo em cada retomada, verde na Leadimob.
+(function(){
+ const Y=1150, S=document.getElementById('thread'), N=document.getElementById('nodes');
+ const ns='http://www.w3.org/2000/svg';
+ function path(d,attrs){const p=document.createElementNS(ns,'path');p.setAttribute('d',d);p.setAttribute('fill','none');for(const k in attrs)p.setAttribute(k,attrs[k]);S.appendChild(p);return p}
+ S.innerHTML='<defs><linearGradient id="g0" x1="0" x2="1080" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#22D3EE" stop-opacity="0"/><stop offset=".55" stop-color="#22D3EE" stop-opacity=".55"/><stop offset="1" stop-color="#7C8799" stop-opacity=".5"/></linearGradient>'+
+  '<linearGradient id="g9" x1="8100" x2="10500" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#22D3EE" stop-opacity=".7"/><stop offset=".3" stop-color="#34D399" stop-opacity=".75"/><stop offset=".8" stop-color="#34D399" stop-opacity=".35"/><stop offset="1" stop-color="#34D399" stop-opacity="0"/></linearGradient></defs>';
+ // capa: o fio ainda ativo
+ path(`M 0 ${Y} L 1080 ${Y}`,{stroke:'url(#g0)','stroke-width':3});
+ // slide 2: silêncio (tracejado cinza, cede um pouco)
+ path(`M 1080 ${Y} C 1380 ${Y} 1440 ${Y+34} 1620 ${Y+34} S 1860 ${Y} 2160 ${Y}`,{stroke:'#5B6678','stroke-width':3,'stroke-dasharray':'2 16','stroke-linecap':'round'});
+ // slide 3: a volta (laço) e o fio retoma em ciano
+ path(`M 2160 ${Y} L 2520 ${Y} C 2740 ${Y} 2800 ${Y-150} 2700 ${Y-150} C 2600 ${Y-150} 2660 ${Y} 2880 ${Y} L 8100 ${Y}`,{stroke:'#22D3EE','stroke-opacity':.7,'stroke-width':3});
+ path(`M 2160 ${Y} L 2520 ${Y} C 2740 ${Y} 2800 ${Y-150} 2700 ${Y-150} C 2600 ${Y-150} 2660 ${Y} 2880 ${Y} L 8100 ${Y}`,{stroke:'#22D3EE','stroke-opacity':.18,'stroke-width':12,'filter':'blur(6px)'});
+ path(`M 8100 ${Y} L 10800 ${Y}`,{stroke:'url(#g9)','stroke-width':3});
+ // ponto do silêncio
+ const dot=(x,y,c,r)=>{const e=document.createElementNS(ns,'circle');e.setAttribute('cx',x);e.setAttribute('cy',y);e.setAttribute('r',r);e.setAttribute('fill','#0A0E14');e.setAttribute('stroke',c);e.setAttribute('stroke-width',4);S.appendChild(e)};
+ dot(1620,Y+34,'#F59E0B',11);
+ const ic={
+  casa:'<path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/>',
+  pino:'<path d="M12 21s-7-6.200-7-11.500a7 7 0 0 1 14 0C19 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/>',
+  agenda:'<rect x="4" y="5" width="16" height="15" rx="2.500"/><path d="M4 10h16M8 3v4M16 3v4"/>',
+  duvida:'<circle cx="12" cy="12" r="9"/><path d="M9.500 9.500a2.500 2.500 0 1 1 3.500 2.300c-.7.3-1 .8-1 1.500v.4M12 17h.01"/>',
+  escolha:'<path d="M12 21v-7M12 14L6.500 7.500M12 14l5.500-6.500"/><circle cx="5.500" cy="5.500" r="2"/><circle cx="18.500" cy="5.500" r="2"/>',
+  chat:'<path d="M12 3c5 0 9 3.600 9 8.200S17 19.500 12 19.500c-1 0-2-.15-2.900-.42L4.500 21l1.200-3.900C4 15.600 3 13.500 3 11.200 3 6.600 7 3 12 3z"/>'};
+ [['casa',3],['pino',4],['agenda',5],['duvida',6],['escolha',7],['chat',8]].forEach(([k,i])=>{
+  const g=i===8, c=g?'#6EE7B7':'#A5F3FC';
+  N.insertAdjacentHTML('beforeend',`<div class="node${g?' g':''}" style="left:${i*1080+540}px;top:${Y}px"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round">${ic[k]}</svg></div>`)});
+})();
+window.ready=document.fonts.ready.then(()=>Promise.all(['400 20px IN','500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)))).then(()=>Promise.all([...document.images].map(i=>i.decode().catch(()=>0)))).then(()=>new Promise(r=>setTimeout(r,300)));
+</script></body></html>
