@@ -1,0 +1,86 @@
+{
+ "kit": "tech",
+ "formato": "4:5",
+ "paleta": {
+  "bg": "#0A0E14",
+  "fg": "#FFFFFF",
+  "muted": "#8A93A3",
+  "accent": "#22D3EE",
+  "surface": "#141B28",
+  "cream": "#F3F7FB"
+ },
+ "handle": "@leadimob.ai",
+ "slides": [
+  {
+   "tipo": "capa",
+   "kicker": "PRIMEIRA MENSAGEM · SALVE ESTE POST",
+   "titulo": "“Como posso ajudar?” não abre conversa.",
+   "sub": "Modelos de primeira mensagem para copiar, um para cada tipo de lead."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "O PROBLEMA",
+   "titulo": "Pergunta aberta devolve o trabalho ao cliente.",
+   "sub": "Ele teria que explicar tudo. E deixa para depois."
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "A REGRA",
+   "titulo": "Cite o imóvel. Faça uma pergunta fácil.",
+   "sub": "Comece pelo imóvel que ele viu.",
+   "corpo": "Antes: Olá, tudo bem? Como posso ajudar?\nDepois: Oi, Ana! Vi que você se interessou pela casa com quintal no Campo Belo. Quer ver as fotos do quintal?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "CASO 1 · ANÚNCIO",
+   "titulo": "Veio do anúncio? Cite o anúncio.",
+   "sub": "Ele lembra do imóvel, não do seu nome.",
+   "corpo": "Oi, [nome]! Vi que você chamou pelo anúncio do sobrado da Vila Mariana. Quer ver o vídeo por dentro?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "CASO 2 · PORTAL",
+   "titulo": "Lead de portal? Diga qual imóvel.",
+   "sub": "Ele pediu contato de vários imóveis.",
+   "corpo": "Oi, [nome]! Recebi seu contato pelo portal sobre o apê do Jardim América. Prefere fotos ou uma visita?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "CASO 3 · INDICAÇÃO",
+   "titulo": "Veio por indicação? Diga quem indicou.",
+   "sub": "Um nome de confiança abre a porta.",
+   "corpo": "Oi, [nome]! O Carlos me passou seu contato. Você procura casa perto do trabalho? Qual bairro é melhor para você?"
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "CASO 4 · FORA DO HORÁRIO",
+   "titulo": "Chegou à noite? Volte ao assunto dele.",
+   "sub": "Comece pelo que ele perguntou.",
+   "corpo": "Bom dia, [nome]! Vi sua pergunta de ontem sobre o apê do Centro. Prefere visitar sábado ou durante a semana?"
+  },
+  {
+   "tipo": "lista",
+   "kicker": "O RESULTADO",
+   "titulo": "A resposta cabe em uma palavra.",
+   "sub": "Quatro modelos, quatro respostas fáceis.",
+   "itens": [
+    "Quero!",
+    "Visita!",
+    "Pinheiros.",
+    "Sábado."
+   ]
+  },
+  {
+   "tipo": "conteudo",
+   "kicker": "ONDE A LEADIMOB ENTRA",
+   "titulo": "A Leadimob abre a conversa pelo imóvel.",
+   "sub": "Responde a qualquer hora com o seu catálogo, qualifica o lead e chama você na hora de negociar."
+  },
+  {
+   "tipo": "cta",
+   "kicker": "SUA VEZ",
+   "titulo": "Qual modelo você testa primeiro?",
+   "sub": "Conte qual no comentário: Comente ABERTURA. Solicite uma demonstração — link na bio."
+  }
+ ]
+}

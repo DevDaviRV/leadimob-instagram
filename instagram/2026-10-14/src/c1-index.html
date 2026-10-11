@@ -1,0 +1,259 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<title>Leadimob · Carrossel 14/10 · Como posso ajudar não abre conversa</title>
+<style>
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0A0E14;width:10800px;height:1350px;overflow:hidden;font-family:IN;color:#fff;-webkit-font-smoothing:antialiased}
+#strip{position:relative;width:10800px;height:1350px;background:#0A0E14;overflow:hidden}
+.abs{position:absolute}
+.bg{position:absolute;inset:0;background-image:radial-gradient(rgba(125,211,252,.11) 1.8px,transparent 2.4px);background-size:46px 46px}
+.glow{position:absolute;border-radius:50%;pointer-events:none}
+.vig{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.0) 70%,rgba(6,9,14,.75) 100%)}
+
+/* ---------- slide frame ---------- */
+.sl{position:absolute;top:0;width:1080px;height:1350px;padding:96px 84px 410px;display:flex;flex-direction:column;justify-content:center;z-index:5}
+.sl.lo{padding-bottom:372px}
+.sl>*{flex:none}
+.kick{font:700 30px/1 IN;letter-spacing:.16em;text-transform:uppercase;color:#7DD3FC}
+.h1{font:900 170px/0.93 IN;letter-spacing:-.058em}
+.h2{font:800 76px/1.03 IN;letter-spacing:-.04em}
+.p{font:500 38px/1.38 IN;color:#C9D2E0}
+.hl{color:#7DD3FC}
+.am{color:#FBBF24}
+.ghost{position:absolute;font:900 520px/1 IN;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(125,211,252,.13);right:30px;top:30px;z-index:-1}
+.foot{position:absolute;left:84px;right:84px;bottom:54px;display:flex;justify-content:space-between;align-items:center;font:600 30px/1 IN;color:#5B6678;letter-spacing:.06em}
+.ttl{display:flex;align-items:center;gap:22px;margin-bottom:30px;flex:none}
+.num{font:800 30px/1 IN;color:#06202A;background:linear-gradient(160deg,#67E8F9,#22D3EE);width:66px;height:66px;border-radius:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(34,211,238,.10),0 10px 34px rgba(34,211,238,.35);flex:none}
+.num.amb{background:linear-gradient(160deg,#FCD34D,#F59E0B);color:#2A1802;box-shadow:0 0 0 6px rgba(245,158,11,.10),0 10px 34px rgba(245,158,11,.30)}
+.card{position:relative;background:linear-gradient(180deg,rgba(24,33,48,.97),rgba(13,19,29,.97));border:1px solid rgba(125,211,252,.18);border-radius:32px;box-shadow:0 50px 100px rgba(0,0,0,.55),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07)}
+.chip{display:inline-flex;align-items:center;gap:12px;padding:15px 24px;border-radius:999px;font:700 30px/1 IN;white-space:nowrap}
+.amb{background:rgba(245,158,11,.12);border:2px solid rgba(245,158,11,.7);color:#FBBF24}
+.cy{background:rgba(34,211,238,.10);border:2px solid rgba(34,211,238,.55);color:#A5F3FC}
+.gr{background:rgba(52,211,153,.12);border:2px solid rgba(52,211,153,.7);color:#6EE7B7}
+.nt{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14);color:#C9D2E0}
+
+/* ---------- WhatsApp ---------- */
+.wa{background:#0B141A;border:1px solid rgba(255,255,255,.08);border-radius:34px;box-shadow:0 50px 100px rgba(0,0,0,.6),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);position:relative;overflow:hidden}
+.wa::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1.5px,transparent 2px);background-size:28px 28px}
+.wa>*{position:relative}
+.bub{position:relative;border-radius:24px;padding:20px 26px 14px;font:500 38px/1.3 IN;color:#E9EDEF;width:fit-content;max-width:100%;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.bin{background:#202C33;border-top-left-radius:6px}
+.bout{background:#005C4B;border-top-right-radius:6px;margin-left:auto}
+.bt{display:flex;justify-content:flex-end;align-items:center;gap:8px;font:500 28px/1 IN;color:rgba(233,237,239,.62);margin-top:8px}
+.tk{width:34px;height:22px}
+.strike{text-decoration:line-through;text-decoration-thickness:4px;text-decoration-color:#F59E0B}
+.lab{font:700 30px/1 IN;letter-spacing:.14em;text-transform:uppercase;color:#7C8799;display:flex;align-items:center;gap:12px}
+
+/* ---------- peça 14/10: primeira mensagem ---------- */
+.sl{padding:110px 84px 250px}
+.foot{bottom:72px}
+.h2{font-size:88px;line-height:1.02;text-wrap:balance}
+.p{font-size:40px;margin-top:28px;text-wrap:balance}
+.art{margin-top:54px}
+.bt{font-size:30px}
+.ghost{font-size:560px;right:76px;top:40px;-webkit-text-stroke:2px rgba(125,211,252,.10)}
+/* mensagem-modelo */
+.mod{position:relative;border-radius:34px;background:linear-gradient(180deg,rgba(24,33,48,.97),rgba(13,19,29,.97));border:1px solid rgba(125,211,252,.16);box-shadow:0 50px 100px rgba(0,0,0,.55),0 12px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.07)}
+.mt{text-wrap:pretty;position:relative;padding:34px 38px 38px 80px;font:500 39px/1.4 IN;color:#C9D2E0}
+.mt::before{content:"";position:absolute;left:40px;top:44px;bottom:48px;width:5px;border-radius:3px;background:linear-gradient(180deg,#22D3EE,#34D399)}
+.ci{color:#7DD3FC;font-weight:700}
+.qu{color:#6EE7B7;font-weight:700}
+.fld{display:inline-block;padding:0 8px;border-radius:12px;background:rgba(255,255,255,.10);color:#E2E8F0;font-weight:500;font-style:italic;line-height:1.2}
+.lab2{display:flex;align-items:center;gap:16px;font:700 30px/1 IN;letter-spacing:.12em;text-transform:uppercase;color:#8A96A8}
+.tile{width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;flex:none;background:rgba(125,211,252,.10);border:1.5px solid rgba(125,211,252,.30)}
+.av{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 36px/1 IN;flex:none;box-shadow:0 14px 30px rgba(0,0,0,.5)}
+.dot{display:inline-block;width:18px;height:18px;border-radius:50%}
+.row{display:flex;align-items:center;gap:22px}
+.ans{display:flex;align-items:center;gap:26px}
+.ans .bub{font-size:54px;font-weight:600;padding:16px 34px;margin:0;box-shadow:0 24px 44px rgba(0,0,0,.45)}
+.bneu{background:#27323D;border-top-right-radius:6px;margin-left:auto;color:#D5DCE4}
+</style></head><body><div id="strip">
+<div class="bg"></div>
+<div class="glow" style="left:-380px;top:-460px;width:1500px;height:1500px;background:radial-gradient(circle,rgba(37,99,235,.30),transparent 62%)"></div>
+<div class="glow" style="left:900px;top:560px;width:1500px;height:1200px;background:radial-gradient(circle,rgba(245,158,11,.07),transparent 62%)"></div>
+<div class="glow" style="left:2300px;top:-600px;width:1500px;height:1500px;background:radial-gradient(circle,rgba(34,211,238,.10),transparent 62%)"></div>
+<div class="glow" style="left:3500px;top:300px;width:1700px;height:1500px;background:radial-gradient(circle,rgba(37,99,235,.14),transparent 60%)"></div>
+<div class="glow" style="left:5300px;top:-700px;width:1700px;height:1600px;background:radial-gradient(circle,rgba(37,99,235,.18),transparent 62%)"></div>
+<div class="glow" style="left:6400px;top:200px;width:1600px;height:1600px;background:radial-gradient(circle,rgba(34,211,238,.08),transparent 60%)"></div>
+<div class="glow" style="left:7400px;top:300px;width:1600px;height:1600px;background:radial-gradient(circle,rgba(52,211,153,.10),transparent 60%)"></div>
+<div class="glow" style="left:8500px;top:-560px;width:1900px;height:1800px;background:radial-gradient(circle,rgba(37,99,235,.28),transparent 62%)"></div>
+<div class="glow" style="left:9900px;top:500px;width:1300px;height:1300px;background:radial-gradient(circle,rgba(34,211,238,.09),transparent 60%)"></div>
+<div class="vig"></div>
+
+<!-- elemento contínuo: a linha de digitação; o cursor avança a cada slide e a linha vira o campo do comentário no slide 10 -->
+<svg id="lane" class="abs" width="10800" height="1350" style="left:0;top:0;z-index:4;pointer-events:none"></svg>
+
+<!-- 1 CAPA -->
+<div class="sl" style="left:0">
+ <div style="display:flex;justify-content:space-between;align-items:center">
+  <div class="ttl" style="margin:0"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.6 9 8.2S17 19.5 12 19.5c-1 0-2-.15-2.9-.42L4.5 21l1.2-3.9C4 15.6 3 13.5 3 11.2 3 6.6 7 3 12 3z" fill="#06202A"/></svg></div><div class="kick">Primeira mensagem</div></div>
+  <span class="chip cy"><svg width="24" height="28" viewBox="0 0 20 24"><path d="M3 2h14v20l-7-5.5L3 22z" fill="#A5F3FC"/></svg>Salve este post</span>
+ </div>
+ <div class="h1" style="margin-top:84px;font-size:124px;line-height:.98">“Como posso ajudar?” <span class="hl">não abre conversa.</span></div>
+ <div class="p" style="margin-top:44px;color:#E2E8F0">Modelos de primeira mensagem para copiar, um para cada tipo de lead.</div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span style="color:#7DD3FC">ARRASTE →</span></div>
+</div>
+
+<!-- 2 PROBLEMA -->
+<div class="sl" style="left:1080px">
+ <div class="ttl"><div class="num amb">!</div><div class="kick" style="color:#FBBF24">O problema</div></div>
+ <div class="h2">Pergunta aberta devolve o trabalho <span class="am">ao cliente.</span></div>
+ <div class="p">Ele teria que explicar tudo. E deixa para depois.</div>
+ <div class="wa art" style="padding:30px 30px 32px">
+  <div class="bub bneu" style="font-size:42px">Olá, tudo bem? Como posso ajudar?</div>
+  <div class="lab2" style="margin-top:30px">O que ele teria que escrever</div>
+  <div class="bub bin" style="margin-top:16px;width:640px;padding:28px 30px;border:2px dashed rgba(245,158,11,.5);background:rgba(32,44,51,.55)">
+   <div style="height:14px;width:92%;border-radius:7px;background:rgba(201,210,224,.22)"></div>
+   <div style="height:14px;width:100%;border-radius:7px;background:rgba(201,210,224,.22);margin-top:20px"></div>
+   <div style="height:14px;width:58%;border-radius:7px;background:rgba(201,210,224,.22);margin-top:20px"></div>
+  </div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>2/10</span></div>
+</div>
+
+<!-- 3 A REGRA: antes -> depois na mesma mensagem -->
+<div class="sl" style="left:2160px">
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" stroke="#06202A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="kick">A regra</div></div>
+ <div class="h2">Cite o imóvel. Faça uma <span class="hl">pergunta fácil</span>.</div>
+ <div class="p">Comece pelo imóvel que ele viu.</div>
+ <div class="mod art">
+  <div style="padding:30px 38px 26px 80px;font:500 36px/1.2 IN;color:#6B7687;border-bottom:1px solid rgba(255,255,255,.07)"><span style="text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:#8A96A8">Olá, tudo bem? Como posso ajudar?</span></div>
+  <div class="mt" style="font-size:42px">Oi, Ana! Vi que você se interessou pela <span class="ci">casa com quintal no Campo Belo</span>. <span class="qu">Quer ver as fotos do quintal?</span></div>
+ </div>
+ <div style="display:flex;gap:44px;margin-top:30px;padding-left:6px">
+  <div class="lab2" style="color:#A5F3FC"><span class="dot" style="background:#22D3EE"></span>Cita o imóvel</div>
+  <div class="lab2" style="color:#6EE7B7"><span class="dot" style="background:#34D399"></span>Pergunta fácil</div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>3/10</span></div>
+</div>
+
+<!-- 4 CASO 1: ANÚNCIO (foto sangrando pela direita, mensagem sobreposta) -->
+<div class="sl" style="left:3240px"><div class="ghost">01</div>
+ <div class="ttl"><div class="num">1</div><div class="kick">Caso 1 · anúncio</div></div>
+ <div class="h2">Veio do anúncio? <span class="hl">Cite o anúncio.</span></div>
+ <div class="p">Ele lembra do imóvel, não do seu nome.</div>
+ <div class="art" style="position:relative;margin-right:-12px;height:300px;border-radius:30px;background:url(property.jpg) center 40%/cover;box-shadow:0 40px 80px rgba(0,0,0,.5)">
+  <div style="position:absolute;inset:0;border-radius:30px;background:linear-gradient(180deg,rgba(10,14,20,0) 30%,rgba(10,14,20,.75))"></div>
+  <span class="chip" style="position:absolute;left:28px;top:28px;background:rgba(10,14,20,.72);border:1.5px solid rgba(255,255,255,.18);color:#E2E8F0">Anúncio</span>
+ </div>
+ <div class="mod" style="margin-top:-90px;margin-left:40px;z-index:2"><div class="mt">Oi, <span class="fld">nome</span>! Vi que você chamou pelo anúncio do <span class="ci">sobrado da Vila Mariana</span>. <span class="qu">Quer ver o vídeo por dentro?</span></div></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>4/10</span></div>
+</div>
+
+<!-- 5 CASO 2: PORTAL (tipográfico, sem cartão) -->
+<div class="sl" style="left:4320px"><div class="ghost">02</div>
+ <div class="ttl"><div class="num">2</div><div class="kick">Caso 2 · portal</div></div>
+ <div class="h2">Lead de portal? <span class="hl">Diga qual imóvel.</span></div>
+ <div class="p">Ele pediu contato de vários imóveis.</div>
+ <div class="art" style="position:relative;padding-left:44px">
+  <div style="position:absolute;left:0;top:6px;bottom:6px;width:6px;border-radius:3px;background:linear-gradient(180deg,#22D3EE,#34D399);box-shadow:0 0 18px rgba(34,211,238,.4)"></div>
+  <div class="lab2" style="margin-bottom:26px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#8A96A8" stroke-width="2.2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 13h5M7 16h8" stroke-linecap="round"/></svg>Mensagem-modelo</div>
+  <div style="font:600 50px/1.3 IN;letter-spacing:-.01em;color:#E2E8F0;text-wrap:balance">Oi, <span class="fld">nome</span>! Recebi seu contato pelo portal sobre o <span class="ci">apê do Jardim América</span>. <span class="qu">Prefere fotos ou uma visita?</span></div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>5/10</span></div>
+</div>
+
+<!-- 6 CASO 3: INDICAÇÃO (avatares sobre a borda do cartão) -->
+<div class="sl" style="left:5400px"><div class="ghost">03</div>
+ <div class="ttl"><div class="num">3</div><div class="kick">Caso 3 · indicação</div></div>
+ <div class="h2">Veio por indicação? <span class="hl">Diga quem indicou.</span></div>
+ <div class="p">Um nome de confiança abre a porta.</div>
+ <div class="mod" style="margin-top:96px">
+  <div class="row" style="position:absolute;left:44px;top:-42px;gap:0">
+   <div class="av" style="background:#2A3E55;color:#D5E1EC;border:4px solid #0F1622">C</div>
+   <svg width="64" height="24" viewBox="0 0 64 24" style="margin:0 6px"><path d="M2 12h52M46 4l9 8-9 8" stroke="#7DD3FC" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   <div class="av" style="background:#123241;border:4px solid #0F1622;box-shadow:0 0 0 2px rgba(34,211,238,.6),0 14px 30px rgba(0,0,0,.5)"><svg width="42" height="42" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4" fill="#A5F3FC"/><path d="M4 21c1-4.5 4.4-6.5 8-6.5s7 2 8 6.5z" fill="#A5F3FC"/></svg></div>
+  </div>
+  <div class="mt" style="padding-top:66px">Oi, <span class="fld">nome</span>! <span class="ci">O Carlos me passou seu contato</span>. Você procura casa perto do trabalho? <span class="qu">Qual bairro é melhor para você?</span></div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>6/10</span></div>
+</div>
+
+<!-- 7 CASO 4: À NOITE (horário fantasma, cartão deslocado à direita) -->
+<div class="sl" style="left:6480px">
+ <div class="ghost" style="font-size:300px;top:auto;bottom:250px;right:76px;-webkit-text-stroke-color:rgba(125,211,252,.16)">23:40</div>
+ <div class="ttl"><div class="num">4</div><div class="kick">Caso 4 · fora do horário</div></div>
+ <div class="h2">Chegou à noite?<br><span class="hl">Volte ao assunto dele.</span></div>
+ <div class="p">Comece pelo que ele perguntou.</div>
+ <div class="mod art" style="margin-left:84px">
+  <div class="lab2" style="padding:28px 38px 0 40px"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="none" stroke="#8A96A8" stroke-width="2.2" stroke-linejoin="round"/></svg>Pergunta das 23:40</div>
+  <div class="mt" style="padding-top:22px">Bom dia, <span class="fld">nome</span>! Vi sua pergunta de ontem sobre o <span class="ci">apê do Centro</span>. <span class="qu">Prefere visitar sábado ou durante a semana?</span></div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>7/10</span></div>
+</div>
+
+<!-- 8 O RESULTADO -->
+<div class="sl" style="left:7560px">
+ <div class="ttl"><div class="num" style="background:linear-gradient(160deg,#6EE7B7,#34D399);box-shadow:0 0 0 6px rgba(52,211,153,.10),0 10px 34px rgba(52,211,153,.35)"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" stroke="#06241A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="kick" style="color:#6EE7B7">O resultado</div></div>
+ <div class="h2">A resposta cabe em <span style="color:#6EE7B7">uma palavra</span>.</div>
+ <div class="p">Quatro modelos, quatro respostas fáceis.</div>
+ <div class="art" style="display:flex;flex-direction:column;gap:18px;margin-top:48px" id="answers"></div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>8/10</span></div>
+</div>
+
+<!-- 9 LEADIMOB -->
+<div class="sl" style="left:8640px">
+ <div class="ttl"><div class="num"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.6 9 8.2S17 19.5 12 19.5c-1 0-2-.15-2.9-.42L4.5 21l1.2-3.9C4 15.6 3 13.5 3 11.2 3 6.6 7 3 12 3z" fill="#06202A"/></svg></div><div class="kick">Onde a Leadimob entra</div></div>
+ <div class="h2">A Leadimob abre a conversa <span class="hl">pelo imóvel</span>.</div>
+ <div class="p">Responde a qualquer hora com o seu catálogo, qualifica o lead e chama você na hora de negociar.</div>
+ <div class="card art" style="padding:30px 34px 30px">
+  <div style="display:flex;align-items:center;justify-content:space-between">
+   <div class="row"><div class="av" style="width:72px;height:72px;font-size:32px;background:#22364B;color:#C9D6E2;box-shadow:none">A</div><div><div style="font:700 38px/1 IN">Ana</div><div style="font:500 30px/1 IN;color:#8A96A8;margin-top:10px">Casa com quintal · Campo Belo</div></div></div>
+   <span class="chip gr"><svg width="14" height="14"><circle cx="7" cy="7" r="7" fill="#34D399"/></svg>Quente</span>
+  </div>
+  <div style="margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:20px;font:600 36px/1.2 IN;color:#E2E8F0">
+   <div class="tile" style="width:64px;height:64px;border-radius:18px;background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.5)"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M21 3l-8 8"/><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></svg></div>
+   Corretor chamado para negociar
+  </div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>9/10</span></div>
+</div>
+
+<!-- 10 CTA: a linha de digitação sobe e vira o campo do comentário -->
+<div class="sl" style="left:9720px;padding-top:230px">
+ <div class="ttl"><div class="num"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" stroke="#06202A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="kick">Sua vez</div></div>
+ <div class="h2">Qual modelo você <span class="hl">testa primeiro?</span></div>
+ <div class="p">Conte qual no comentário.</div>
+ <div id="cta" style="margin-top:50px;height:124px;border-radius:62px;background:#141B28;border:2px solid rgba(125,211,252,.5);box-shadow:0 0 0 8px rgba(34,211,238,.06),0 30px 70px rgba(0,0,0,.55),0 0 60px rgba(34,211,238,.16);display:flex;align-items:center;padding:0 16px 0 40px;gap:16px;font:600 44px IN">
+  <span style="color:#7C8799">Comente</span><span style="font-weight:900;letter-spacing:.02em">ABERTURA</span><span style="width:4px;height:52px;background:#22D3EE;border-radius:2px;box-shadow:0 0 12px #22D3EE"></span>
+  <span style="margin-left:auto;width:90px;height:90px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,99,235,.55)"><svg width="40" height="40" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+ </div>
+ <div style="margin-top:48px;display:flex;align-items:center;gap:28px">
+  <div style="width:300px;height:96px;border-radius:22px;background:#F3F7FB;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 44px rgba(0,0,0,.5);flex:none"><img src="logo.png" style="width:240px"></div>
+  <div style="font:700 32px/1.3 IN;color:#7DD3FC">Solicite uma demonstração<br><span style="color:#C9D2E0;font-weight:600">link na bio</span></div>
+ </div>
+ <div class="foot"><span>@LEADIMOB.AI</span><span>10/10</span></div>
+</div>
+</div>
+<script>
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const ICON={
+ ad:'<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="CLR" stroke-width="2.2" stroke-linejoin="round"><path d="M3 10v4h3l7 5V5L6 10z"/><path d="M17 9a4 4 0 0 1 0 6" stroke-linecap="round"/></svg>',
+ portal:'<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="CLR" stroke-width="2.2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 13h5M7 16h8" stroke-linecap="round"/></svg>',
+ ind:'<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="CLR" stroke-width="2.2" stroke-linecap="round"><circle cx="8" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3-5.5 5.5-5.5s4.7 1.9 5.5 5.5"/><path d="M15 9h6M18 6l3 3-3 3" stroke-linejoin="round"/></svg>',
+ moon:'<svg width="36" height="36" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="none" stroke="CLR" stroke-width="2.2" stroke-linejoin="round"/></svg>'};
+const ic=(k,c)=>ICON[k].replace(/CLR/g,c);
+// slide 8: degrau regular, uma resposta por caso
+document.getElementById('answers').innerHTML=[['ad','Quero!'],['portal','Visita!'],['ind','Pinheiros.'],['moon','Sábado.']].map(([k,w],i)=>
+ `<div class="ans" style="margin-left:${i*72}px"><div class="tile">${ic(k,'#6EE7B7')}</div><div class="bub bin" style="border:1.5px solid rgba(52,211,153,.30)">${w}</div></div>`).join('');
+// linha de digitação contínua
+function drawLane(){const r=rng(1410),Y=1152;let s='';
+ const cb=document.getElementById('cta').getBoundingClientRect(),FX=cb.left+2,FY=cb.top+cb.height/2;
+ s+=`<defs><linearGradient id="ln" gradientUnits="userSpaceOnUse" x1="0" x2="10800"><stop offset="0" stop-color="#22D3EE" stop-opacity=".25"/><stop offset=".06" stop-color="#22D3EE"/><stop offset=".099" stop-color="#22D3EE"/><stop offset=".101" stop-color="#F59E0B"/><stop offset=".199" stop-color="#F59E0B"/><stop offset=".201" stop-color="#22D3EE"/><stop offset=".699" stop-color="#22D3EE"/><stop offset=".701" stop-color="#34D399"/><stop offset=".899" stop-color="#34D399"/><stop offset=".901" stop-color="#22D3EE"/></linearGradient><filter id="gl" x="-5%" y="-400%" width="110%" height="900%"><feGaussianBlur stdDeviation="8"/></filter><filter id="gl3" x="-5%" y="-800%" width="110%" height="1700%"><feGaussianBlur stdDeviation="18"/></filter><filter id="gl2" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="7"/></filter></defs>`;
+ const X1=84,XC=9720-70;
+ const d=`M${X1} ${Y}H${XC}C${XC+70} ${Y} ${FX-80} ${FY} ${FX} ${FY}`;
+ s+=`<path d="${d}" fill="none" stroke="url(#ln)" stroke-width="16" opacity=".22" filter="url(#gl3)"/><path d="${d}" fill="none" stroke="url(#ln)" stroke-width="6" opacity=".45" filter="url(#gl)"/><path d="${d}" fill="none" stroke="url(#ln)" stroke-width="2.5" opacity=".85"/>`;
+ for(let i=0;i<9;i++){const base=i*1080,cx=base+(i===0?150:180+i*78);
+  const col=i===1?'#F59E0B':(i>=7?'#34D399':'#22D3EE');
+  if(i>0){let x=base+86;while(true){const w=30+r()*90;if(x+w>cx-22)break;s+=`<rect x="${x.toFixed(0)}" y="${Y-28}" width="${w.toFixed(0)}" height="8" rx="4" fill="${i>=7?'rgba(110,231,183,.30)':'rgba(201,210,224,.22)'}"/>`;x+=w+16}}
+  s+=`<circle cx="${cx}" cy="${Y}" r="22" fill="${col}" opacity=".30" filter="url(#gl2)"/><rect x="${cx-9}" y="${Y-50}" width="18" height="50" rx="9" fill="${col}" opacity=".35" filter="url(#gl2)"/><rect x="${cx-2.5}" y="${Y-46}" width="5" height="42" rx="2.5" fill="${col}"/><circle cx="${cx}" cy="${Y}" r="7" fill="#0A0E14" stroke="${col}" stroke-width="3"/>`;
+  if(i===0)s+=`<text x="${cx+24}" y="${Y-16}" font-family="IN" font-weight="500" font-size="32" fill="#7C8799">Escreva a primeira mensagem…</text>`;
+ }
+ document.getElementById('lane').innerHTML=s}
+window.ready=document.fonts.ready.then(()=>document.fonts.load('600 44px IN')).then(()=>drawLane()).then(()=>Promise.all(['400 20px IN','500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)))).then(()=>Promise.all([...document.images].map(i=>i.decode().catch(()=>0)))).then(()=>new Promise(r=>{const im=new Image();im.onload=im.onerror=()=>setTimeout(r,300);im.src='property.jpg'}));
+</script></body></html>
