@@ -31,7 +31,7 @@
   },
   {
    "tipo": "conteudo",
-   "kicker": "2 · FORA DO HORÁRIO",
+   "kicker": "2 · RESPOSTA",
    "titulo": "Responda com a planta do catálogo.",
    "sub": "Informação real, na hora da dúvida."
   },
@@ -61,8 +61,8 @@
   },
   {
    "tipo": "conteudo",
-   "kicker": "A NOITE COM A LEADIMOB",
-   "titulo": "A Leadimob atende quando o plantão fecha.",
+   "kicker": "DEPOIS DAS 18H",
+   "titulo": "O plantão fecha. A Leadimob atende.",
    "sub": "Na mesma noite: responde com a planta, qualifica o perfil e agenda a visita no plantão."
   },
   {
