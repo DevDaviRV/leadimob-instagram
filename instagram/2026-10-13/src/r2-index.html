@@ -1,0 +1,334 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<!-- Leadimob · Reel 2 (13/10) · "Lançamento: o lead pergunta da unidade e espera." · tipográfico em espaço 3D
+     Motor e sistema visual do modelo aprovado (r2 de 03/10): mundo three.js + DOM projetado por matrix3d, poeira, chão de pontos,
+     palavras fantasma, springs, logo em cartão claro.
+     Estrutura própria: espelho de vendas do lançamento (andares × finais) que se monta e acende a unidade 1204 com a pergunta do lead (gancho)
+     → ÓRBITA da câmera em volta do espelho (o prédio gira em perspectiva) → relógio do plantão em time-lapse sex 21:40 → sáb 09:00,
+     pílula âmbar "esperando resposta" (único âmbar) → tese "Quem espera, compara." → TROCA DE FOCO (desfoque em profundidade)
+     → card do catálogo da unidade que cresce em três passos: resposta 21:40 com a planta desenhada, pergunta de volta, visita no plantão (verde)
+     → o card recua e o CTA "Comente UNIDADE" sobe. -->
+<style>
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0A0E14;color:#fff;font-family:IN;font-feature-settings:"tnum" 1}
+#c{position:absolute;left:0;top:0;width:1080px;height:1920px}#vg{z-index:3}
+.abs{position:absolute}
+.pl{position:absolute;left:0;top:0;transform-origin:0 0;white-space:nowrap;visibility:hidden;backface-visibility:visible}
+.X{font:900 164px/1 IN;letter-spacing:-.055em;word-spacing:.16em}
+.L{font:900 138px/1 IN;letter-spacing:-.05em;word-spacing:.16em}
+.m{display:inline-block;overflow:hidden;vertical-align:top;padding:.16em .04em .26em 0;margin:-.16em 0 -.26em}
+.m>span{display:inline-block}
+.gap{margin-right:.24em}.X .gap,.L .gap{margin-right:.4em}
+.kk{font:700 40px/1 IN;letter-spacing:.14em;color:#7DD3FC}
+.gh{font:900 420px/1 IN;-webkit-text-stroke:4px rgba(125,211,252,.14);color:transparent;letter-spacing:.03em}
+.card{border-radius:40px;background:linear-gradient(180deg,#18212F,#101721);border:3px solid rgba(125,211,252,.3);box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.pill{display:inline-flex;align-items:center;gap:16px;padding:20px 32px;border-radius:999px;font:800 46px/1 IN;letter-spacing:-.01em}
+.am{background:rgba(245,158,11,.14);border:2.5px solid rgba(245,158,11,.85);color:#FBBF24}
+.gr{background:rgba(52,211,153,.18);border:2.5px solid #34D399;color:#A7F3D0}
+.ico{width:80px;height:80px;border-radius:22px;background:rgba(37,99,235,.2);border:2px solid rgba(125,211,252,.45);display:flex;align-items:center;justify-content:center;flex:none}
+/* espelho de vendas */
+#es{width:916px}
+.eh{display:flex;padding-left:104px;gap:14px;margin-bottom:18px}
+.eh div{width:189px;text-align:center;font:700 38px/1 IN;color:#7C8799;letter-spacing:.08em}
+.er{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.ef{width:90px;font:800 40px/1 IN;color:#8E98AA;text-align:right;letter-spacing:-.01em}
+.ec{width:189px;height:72px;border-radius:16px;background:#141B28;border:2px solid rgba(255,255,255,.08);position:relative}
+.ec.v{background:#0F141D;border-color:rgba(255,255,255,.04)}
+.ec i{position:absolute;left:22px;top:31px;width:46px;height:6px;border-radius:3px;background:rgba(255,255,255,.12)}
+#u{display:flex;align-items:center;justify-content:center;font:900 44px/1 IN;letter-spacing:-.02em;color:transparent}
+/* pergunta do lead */
+.qb{border-radius:34px;border-top-right-radius:8px;background:#1C2633;border:2.5px solid rgba(255,255,255,.12);padding:26px 38px 22px;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+/* relógio */
+#ck{width:560px;height:560px}
+/* card do catálogo */
+#cd{width:916px;padding:34px 44px 40px;overflow:hidden}
+.hr{height:2px;background:rgba(255,255,255,.08)}
+.sec{overflow:hidden;height:0}
+.inf{font:600 44px/1 IN;color:#9AA3B2;letter-spacing:-.01em}
+.chp{display:inline-flex;align-items:center;gap:14px;padding:16px 26px;border-radius:999px;font:800 42px/1 IN;border:2.5px solid rgba(125,211,252,.7);background:rgba(37,99,235,.16);color:#BAE6FD}
+</style>
+<script src="node_modules/motion/dist/motion.js"></script>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js"}}</script>
+</head><body><div id="st">
+<canvas id="c" width="1080" height="1920"></canvas>
+<div id="pls" class="abs" style="left:0;top:0;width:1080px;height:1920px;z-index:1;isolation:isolate">
+
+<div id="gA" class="pl gh">UNIDADE</div><div id="gB" class="pl gh">ESPERA</div><div id="gC" class="pl gh">COMPARA</div><div id="gD" class="pl gh">RESPOSTA</div><div id="gE" class="pl gh">UNIDADE</div>
+
+<!-- A · GANCHO: o espelho do lançamento -->
+<div id="aK" class="pl kk q"><span class="m"><span id="aKa">LANÇAMENTO</span></span></div>
+<div id="a1" class="pl X q" style="font-size:100px"><span class="m gap"><span id="a1a">O LEAD</span></span><span class="m"><span id="a1b">PERGUNTA</span></span></div>
+<div id="a2" class="pl X q" style="font-size:136px"><span class="m gap"><span id="a2a">DA</span></span><span class="m"><span id="a2b">UNIDADE.</span></span></div>
+<div id="es" class="pl">
+ <div class="eh"><div class="q">01</div><div class="q">02</div><div class="q">03</div><div class="q">04</div></div>
+</div>
+<div id="aq" class="pl qb q"><div style="font:600 50px/1.15 IN;letter-spacing:-.015em;color:#E9EDEF">Ainda tem a 1204?</div><div style="font:600 36px/1 IN;color:#8E98AA;margin-top:14px;text-align:right">sex · 21:40</div></div>
+
+<!-- B · E ESPERA: relógio do plantão -->
+<div id="b1" class="pl X q" style="font-size:170px"><span class="m gap"><span id="b1a">E</span></span><span class="m"><span id="b1b">ESPERA.</span></span></div>
+<div id="ckw" class="pl"><svg id="ck" viewBox="-280 -280 560 560">
+ <circle r="262" fill="#101721" stroke="rgba(255,255,255,.14)" stroke-width="5"/>
+ <g id="ticks"></g>
+ <path id="arc" fill="none" stroke="rgba(201,210,224,.38)" stroke-width="14" stroke-linecap="round"/>
+ <line id="hh" x1="0" y1="20" x2="0" y2="-130" stroke="#E6ECF5" stroke-width="16" stroke-linecap="round"/>
+ <line id="mh" x1="0" y1="26" x2="0" y2="-200" stroke="#E6ECF5" stroke-width="9" stroke-linecap="round"/>
+ <circle r="16" fill="#E6ECF5"/><circle r="6" fill="#101721"/>
+</svg></div>
+<div id="bt" class="pl q" style="font:800 64px/1 IN;letter-spacing:-.02em"><span id="btd" style="color:#8E98AA">sex</span><span style="color:#55607A"> · </span><span id="bth">21:40</span></div>
+<div id="bp" class="pl pill am q"><span style="width:20px;height:20px;border-radius:50%;background:#F59E0B"></span>esperando resposta</div>
+<!-- B2 · tese -->
+<div id="b4" class="pl X q" style="font-size:120px"><span class="m"><span id="b4a">QUEM ESPERA,</span></span></div>
+<div id="b5" class="pl X q" style="font-size:120px"><span class="m"><span id="b5a">COMPARA.</span></span></div>
+<div id="b6" class="pl q" style="font:700 68px/1.1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m"><span id="b6a">com outro lançamento.</span></span></div>
+
+<!-- C · A PRÁTICA: o card do catálogo cresce -->
+<div id="c1" class="pl X q" style="font-size:122px"><span class="m"><span id="c1a">RESPONDA</span></span></div>
+<div id="c1b" class="pl X q" style="font-size:122px"><span class="m"><span id="c1ba">NA HORA</span></span></div>
+<div id="c2" class="pl q" style="font:700 54px/1.1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m"><span id="c2a">com a informação <b style="color:#7DD3FC;font-weight:800">real</b> da unidade.</span></span></div>
+<div id="c3" class="pl X q" style="font-size:122px"><span class="m"><span id="c3a">DEVOLVA UMA</span></span></div>
+<div id="c4" class="pl X q" style="font-size:122px"><span class="m"><span id="c4a">PERGUNTA.</span></span></div>
+<div id="c5" class="pl X q" style="font-size:122px"><span class="m"><span id="c5a">OFEREÇA</span></span></div>
+<div id="c6" class="pl X q" style="font-size:122px"><span class="m"><span id="c6a">A VISITA.</span></span></div>
+<div id="cd" class="pl card">
+ <div style="display:flex;align-items:center;gap:24px"><div class="ico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M11 21v-3h2v3"/></svg></div>
+  <div class="q" style="font:700 46px/1 IN;letter-spacing:-.02em;color:#C9D2E0">Catálogo · Torre A</div><div id="cdt" class="q" style="margin-left:auto;font:700 40px/1 IN;color:#8E98AA">21:40</div></div>
+ <div class="hr" style="margin:30px 0 32px"></div>
+ <div style="display:flex;gap:40px;align-items:center">
+  <svg id="pln" width="300" height="260" viewBox="0 0 300 260" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path class="pp" d="M10 10 H290 V250 H10 Z" stroke="#7DD3FC" stroke-width="5"/>
+   <path class="pp" d="M10 128 H120 M170 128 H290 M150 10 V96 M150 158 V250 M210 128 V250 M86 250 V196" stroke="#7DD3FC" stroke-width="3.5" opacity=".75"/>
+   <path class="pp" d="M120 128 A 50 50 0 0 0 150 98 M170 128 A 40 40 0 0 1 150 158" stroke="#7DD3FC" stroke-width="2.5" opacity=".5"/>
+   <rect id="plk" x="216" y="134" width="68" height="110" rx="6" fill="rgba(125,211,252,.0)"/>
+  </svg>
+  <div><div class="q" style="font:800 62px/1 IN;letter-spacing:-.03em">Unidade 1204</div>
+   <div class="inf q" style="margin-top:22px">12º andar · final 04</div>
+   <div class="inf q" style="margin-top:16px">2 suítes · 1 vaga</div>
+   <div id="dsp" class="chp q" style="margin-top:26px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17.5 L19 7"/></svg>Disponível</div></div>
+ </div>
+ <div id="s2" class="sec"><div class="hr" style="margin:34px 0 30px"></div>
+  <div style="display:flex;align-items:center;gap:26px"><div id="s2i" class="ico" style="border-radius:50%;font:900 46px/1 IN;color:#7DD3FC">?</div><div id="s2t" class="q" style="font:700 54px/1.1 IN;letter-spacing:-.02em;color:#fff">É para morar ou investir?</div></div></div>
+ <div id="s3" class="sec"><div class="hr" style="margin:34px 0 30px"></div>
+  <div id="vp" class="pill gr q" style="font-size:46px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10 H20.5 M8 3 V6.8 M16 3 V6.8 M8.5 15 L11 17.5 L15.5 13"/></svg>Visita no plantão · sáb 10:00</div></div>
+</div>
+
+<!-- D · CTA -->
+<div id="f1" class="pl X q" style="font-size:190px"><span class="m"><span id="f1a">Comente</span></span></div>
+<div id="f2" class="pl q" style="width:880px;height:184px;border-radius:92px;background:linear-gradient(180deg,#18212F,#111823);border:2.5px solid rgba(125,211,252,.5);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 70px rgba(37,99,235,.22);display:flex;align-items:center;padding:0 28px 0 50px;gap:6px;font:900 86px/1 IN;letter-spacing:.005em">
+ <span id="typ"></span><span id="car" style="width:6px;height:90px;background:#7DD3FC;border-radius:3px"></span>
+ <span id="send" style="margin-left:auto;width:128px;height:128px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;flex:none"><svg width="62" height="62" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+</div>
+<div id="f3" class="pl q" style="font:700 64px/1.1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m gap"><span id="f3a">e conte como</span></span><span class="m"><span id="f3b">o seu plantão</span></span></div>
+<div id="f4" class="pl q" style="font:800 64px/1.1 IN;letter-spacing:-.03em;color:#fff"><span class="m"><span id="f4a">responde hoje.</span></span></div>
+<div id="f5" class="pl" style="width:560px;height:170px;border-radius:38px;background:linear-gradient(180deg,#fff,#EAF1F8);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 90px rgba(37,99,235,.28);display:flex;align-items:center;justify-content:center;overflow:hidden"><div id="f5s" style="position:absolute;left:0;top:0;width:220px;height:170px;background:linear-gradient(100deg,rgba(37,99,235,0),rgba(37,99,235,.28),rgba(37,99,235,0))"></div><img src="logo.png" style="width:456px;display:block"></div>
+</div>
+<div id="vg" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 50%,rgba(0,0,0,.62) 100%)"></div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+/* espelho: 7 andares (14º a 08º) × 4 finais; a 1204 é a unidade da pergunta */
+{const es=document.getElementById('es');const SOLD=new Set(['1401','1302','1303','1103','1001','1004','0902','0803','0804','1101']);
+ for(let r=0;r<7;r++){const fl=14-r;const row=document.createElement('div');row.className='er';row.id='er'+r;
+  row.innerHTML=`<div class="ef q">${fl}º</div>`+[1,2,3,4].map(c=>{const id=String(fl).padStart(2,'0')+'0'+c;return id==='1204'?`<div id="u" class="ec">1204</div>`:`<div class="ec${SOLD.has(id)?' v':''}">${SOLD.has(id)?'':'<i></i>'}</div>`}).join('');es.appendChild(row)}}
+{const g=document.getElementById('ticks');let s='';for(let i=0;i<12;i++){const a=i*Math.PI/6,big=i%3==0;const r0=big?212:226,r1=244;s+=`<line x1="${Math.sin(a)*r0}" y1="${-Math.cos(a)*r0}" x2="${Math.sin(a)*r1}" y2="${-Math.cos(a)*r1}" stroke="rgba(255,255,255,${big?.5:.25})" stroke-width="${big?7:4}" stroke-linecap="round"/>`}g.innerHTML=s}
+await Promise.all(['500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)));
+await Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>i.onload=i.onerror=r)));
+const W=1080,H=1920;
+const T={aK:-0.5,a1:-0.42,a2:-0.1,rows:-0.3,lit:1.15,aq:1.55,o1:3.0,o2:3.85,b1:3.74,ck:3.84,tl:4.45,tlE:6.05,bp:4.75,bOut:6.95,b4:7.14,b5:7.4,b6:7.75,rf:9.75,c1:10.05,c2:10.3,pln:10.4,dsp:11.3,st2:12.95,st3:15.0,cOut:17.05,f1:17.32,f2:17.5,typ:17.8,send:18.45,sub:18.75,logo:19.4,sheen:20.2,end:21.6};
+window.DURATION=T.end;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const lin=x=>cl(x),eOut=x=>1-Math.pow(1-cl(x),4),eOut3=x=>1-Math.pow(1-cl(x),3),eIn=x=>Math.pow(cl(x),3),eIn2=x=>cl(x)*cl(x),eIO2=x=>{x=cl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2},eIO3=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const P=(t,a,d,e=eOut)=>e((t-a)/d);const $=id=>document.getElementById(id);const lerp=(a,b,k)=>a+(b-a)*k;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const {spring}=window.Motion;
+const mkSp=(k=190,d=17)=>{const s=spring({keyframes:[0,1],stiffness:k,damping:d,mass:1});return ms=>ms<=0?0:s.next(ms).value};
+const sp=mkSp(300,20),spSoft=mkSp(130,17),spSnap=mkSp(420,24),spPop=mkSp(300,13),spFly=mkSp(150,17);
+const up=(id,t,a)=>{const v=sp((t-a)*1000);const s=$(id).style;s.transform=`translateY(${(1-v)*150}%)`;s.opacity=v>0.012?1:0};
+const dn=(id,k)=>{if(k<=0)return;const s=$(id).style;s.transform=`translateY(${-k*150}%)`;if(k>0.98)s.opacity=0};
+
+/* ================= MUNDO ================= */
+const r=new THREE.WebGLRenderer({canvas:$('c'),antialias:true,preserveDrawingBuffer:true});
+r.setPixelRatio(1);r.setSize(W,H,false);r.setClearColor(0x0A0E14,1);
+const scene=new THREE.Scene();scene.fog=new THREE.Fog(0x0A0E14,3200,12500);
+const FOV=38,D0=H/2/Math.tan(FOV*Math.PI/360);
+const cam=new THREE.PerspectiveCamera(FOV,W/H,8,60000);
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const station=(x,y,z,ry)=>{const o=new THREE.Object3D();o.position.set(x,y,z);o.rotation.y=ry;scene.add(o);o.updateMatrixWorld(true);return o};
+// órbita: S1 (espelho) na origem; S2 (relógio, tese, prática, CTA) de frente para a câmera depois da volta
+const PHI=-0.85,DB=320;
+const S1=station(0,0,0,0),S2=station(Math.sin(PHI)*DB,0,Math.cos(PHI)*DB,PHI);
+const LW=(st,x,y,z)=>st.localToWorld(V(x,y,z));
+const scr=(sx,sy,z=0)=>{const k=(D0-z)/D0;return [(sx-540)*k,(960-sy)*k,z]};
+
+const softTex=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(.5,'rgba(255,255,255,.3)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(cv)})();
+const mkSprite=(tex,col,sz)=>{const s=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,color:col,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false,fog:false}));s.scale.set(sz,sz,1);scene.add(s);return s};
+const amb=[[S1,-120,60,-900],[S2,200,-300,-1200],[S1,-900,-300,-1600]].map(([st,x,y,z])=>{const s=mkSprite(softTex,0x2563EB,3000);s.position.copy(LW(st,x,y,z));s.material.depthTest=true;s.material.opacity=.2;return s});
+// poeira
+const NP=3600,dPos=new Float32Array(NP*3),dSz=new Float32Array(NP),dPh=new Float32Array(NP);
+{const path=[[LW(S1,0,0,3600),LW(S1,0,0,-1500)],[LW(S2,0,0,3600),LW(S2,0,0,-1500)]];
+ for(let i=0;i<NP;i++){const sg=path[i%path.length];const k=rnd(i+5);const a=rnd(i+50)*6.283,rad=260+Math.pow(rnd(i+90),.7)*2300;const p=V(0,0,0).lerpVectors(sg[0],sg[1],k);dPos[i*3]=p.x+Math.cos(a)*rad;dPos[i*3+1]=p.y+Math.sin(a)*rad*1.25;dPos[i*3+2]=p.z+(rnd(i+130)-.5)*900;dSz[i]=4+rnd(i+170)*9;dPh[i]=rnd(i+210)*6.283}}
+const dG=new THREE.BufferGeometry();dG.setAttribute('position',new THREE.BufferAttribute(dPos,3));dG.setAttribute('size',new THREE.BufferAttribute(dSz,1));dG.setAttribute('ph',new THREE.BufferAttribute(dPh,1));
+const dM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uT:{value:0},uK:{value:D0}},
+ vertexShader:`attribute float size;attribute float ph;uniform float uT;uniform float uK;varying float vA;void main(){vec3 p=position;p.y+=sin(uT*0.6+ph)*26.0;p.x+=cos(uT*0.45+ph*1.7)*22.0;vec4 mv=modelViewMatrix*vec4(p,1.0);float d=-mv.z;float s=size*uK/d;float big=clamp(s/26.0,0.0,1.0);gl_PointSize=min(s,120.0);vA=(0.7-0.55*big)*smoothstep(9500.0,3000.0,d)*smoothstep(40.0,260.0,d)*(0.7+0.3*sin(uT*1.7+ph*3.0));gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.25,d);gl_FragColor=vec4(vec3(0.62,0.86,1.0)*a,a*vA);}`});
+const dust=new THREE.Points(dG,dM);dust.frustumCulled=false;scene.add(dust);
+// chão de pontos (um só, em volta do pivô da órbita: na volta da câmera ele gira e dá a profundidade)
+{const fp=[];for(let x=-4600;x<=4600;x+=130)for(let z=-5200;z<=3900;z+=130){const p=LW(S1,x,-820,z);fp.push(p.x,p.y,p.z)}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(fp,3));
+ const m=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uK:{value:D0}},
+  vertexShader:`uniform float uK;varying float vA;void main(){vec4 mv=modelViewMatrix*vec4(position,1.0);float d=-mv.z;gl_PointSize=clamp(10.0*uK/d,2.0,24.0);vA=0.85*smoothstep(7600.0,2600.0,d)*smoothstep(200.0,800.0,d);gl_Position=projectionMatrix*mv;}`,
+  fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.35,d);gl_FragColor=vec4(vec3(0.33,0.62,0.98)*a,a*vA);}`});
+ const f=new THREE.Points(g,m);f.frustumCulled=false;scene.add(f)}
+// faíscas (poucas: unidade acesa, visita, envio)
+const NS=120,sPos=new Float32Array(NS*3),sCol=new Float32Array(NS*3),sA=new Float32Array(NS),sS=new Float32Array(NS);
+const sG=new THREE.BufferGeometry();sG.setAttribute('position',new THREE.BufferAttribute(sPos,3));sG.setAttribute('color',new THREE.BufferAttribute(sCol,3));sG.setAttribute('alpha',new THREE.BufferAttribute(sA,1));sG.setAttribute('size',new THREE.BufferAttribute(sS,1));
+const sM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,depthTest:false,blending:THREE.AdditiveBlending,uniforms:{uK:{value:D0}},
+ vertexShader:`attribute float alpha;attribute float size;attribute vec3 color;uniform float uK;varying float vA;varying vec3 vC;void main(){vA=alpha;vC=color;vec4 mv=modelViewMatrix*vec4(position,1.0);gl_PointSize=size*uK/-mv.z;gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vA;varying vec3 vC;void main(){float d=length(gl_PointCoord-0.5)*2.0;float core=smoothstep(0.5,0.0,d);float gl=pow(max(0.0,1.0-d),2.0)*0.6;gl_FragColor=vec4(vC*(core*1.4+gl),(core+gl)*vA);}`});
+const sparks=new THREE.Points(sG,sM);sparks.frustumCulled=false;scene.add(sparks);
+const CY=[0.49,0.83,0.99],GR=[0.2,0.83,0.6];
+const BUR=[];let sN=0;const burst=(t0,st,p,n,col,spd,life,sz)=>{BUR.push({t0,p:LW(st,...p),q:st.quaternion.clone(),i0:sN,n,col,spd,life,sz});sN+=n};
+
+/* ================= PLANOS DOM projetados pela câmera ================= */
+const PLN={};const _m=new THREE.Matrix4(),_q=new THREE.Quaternion(),_e=new THREE.Euler(),_p=new THREE.Vector3(),_s=new THREE.Vector3(),_v=new THREE.Vector3(),_v2=new THREE.Vector3(),VP=new THREE.Matrix4();
+function pl(id,st,left,top,z=0,o={}){const el=$(id);const w=el.offsetWidth,h=el.offsetHeight;const k=(D0-z)/D0;if(o.cx!==undefined)left=o.cx-w/2;if(o.right!==undefined)left=o.right-w;if(o.cy!==undefined)top=o.cy-h/2;
+ const p={el,st,w,h,k,x:(left+w/2-540)*k,y:(960-top-h/2)*k,z,rz:o.rz||0,vis:-1,left,top};PLN[id]=p;return p}
+function put(id,o,a){const p=PLN[id],el=p.el;if(!(o>0.004)){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ a=a||{};const s=(a.s??1)*p.k;_e.set(a.rx||0,a.ry||0,(a.rz||0)+p.rz,a.ord||'XYZ');_q.setFromEuler(_e);_p.set(p.x+(a.dx||0),p.y+(a.dy||0),p.z+(a.dz||0));
+ if(a.pv||a.ph){_v.set((a.ph||0)*p.k,(a.pv||0)*p.k,0);_v2.set(_v.x*(a.s??1)*(a.sx??1),_v.y*(a.s??1)*(a.sy??1),0).applyQuaternion(_q);_p.add(_v).sub(_v2)}
+ _s.set(s*(a.sx??1),s*(a.sy??1),1);_m.compose(_p,_q,_s).premultiply(p.st.matrixWorld);
+ _v.setFromMatrixPosition(_m);const dist=_v.distanceTo(cam.position);_m.premultiply(VP);const e=_m.elements,w=p.w,h=p.h;
+ if(e[15]<60){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ o*=cl((dist-260)/520);if(!(o>0.004)){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ const n=1/e[15];const c0=[e[0],e[1],e[3]],c1=[-e[4],-e[5],-e[7]],c3=[e[12]-e[0]*w/2+e[4]*h/2,e[13]-e[1]*w/2+e[5]*h/2,e[15]-e[3]*w/2+e[7]*h/2];
+ const PX=c=>(c[0]+c[2])*W/2*n,PY=c=>(c[2]-c[1])*H/2*n;
+ el.style.transform=`matrix3d(${PX(c0)},${PY(c0)},0,${c0[2]*n},${PX(c1)},${PY(c1)},0,${c1[2]*n},0,0,1,0,${PX(c3)},${PY(c3)},0,${c3[2]*n})`;
+ el.style.opacity=o>0.996?1:o;el.style.zIndex=Math.max(1,30000-Math.round(dist)+(a.zb||0));
+ const bl=a.blur||0;if(p.bl!==bl){el.style.filter=bl>0.3?`blur(${bl.toFixed(1)}px)`:'none';p.bl=bl}
+ if(p.vis!==1){el.style.visibility='visible';p.vis=1}}
+
+/* layout (blocos centrados entre ~y 330 e 1480) */
+pl('gA',S1,0,0,-1300,{cx:640,cy:1660});
+pl('gB',S2,0,0,-1300,{cx:640,cy:1660});pl('gC',S2,0,0,-1300,{cx:760,cy:1660});pl('gD',S2,0,0,-1300,{cx:780,cy:1660});pl('gE',S2,0,0,-1300,{cx:700,cy:1660});
+pl('aK',S1,88,318,40);pl('a1',S1,88,392,40);pl('a2',S1,88,522,40);pl('es',S1,88,760,0);
+const ESR=i=>760+54+i*86;   // topo da linha i do espelho (tela)
+pl('aq',S1,0,ESR(3)+18,90,{right:998});
+pl('b1',S2,88,390,40);pl('ckw',S2,0,0,0,{cx:540,cy:900});pl('bt',S2,0,0,30,{cx:540,cy:1262});pl('bp',S2,0,0,60,{cx:540,cy:1420});
+pl('b4',S2,88,740,40);pl('b5',S2,88,880,40);pl('b6',S2,88,1060,30);
+pl('c1',S2,88,290,40);pl('c1b',S2,88,418,40);pl('c2',S2,88,566,40);pl('c3',S2,88,300,40);pl('c4',S2,88,428,40);pl('c5',S2,88,300,40);pl('c6',S2,88,428,40);
+// o card nasce com as seções fechadas; ele cresce para baixo a partir do topo
+pl('cd',S2,88,690,0);
+const S2H=(()=>{const e=$('s2');e.style.height='auto';const h=e.offsetHeight;e.style.height='0px';return h})(),S3H=(()=>{const e=$('s3');e.style.height='auto';const h=e.offsetHeight;e.style.height='0px';return h})();
+const CDH=PLN.cd.h;
+pl('f1',S2,88,400,60);pl('f2',S2,88,620,40);pl('f3',S2,88,880,40);pl('f4',S2,88,960,40);pl('f5',S2,0,1150,60,{cx:540});
+burst(T.lit+0.05,S1,scr(88+104+3*203+95,ESR(2)+36,30),18,CY,800,0.6,15);
+burst(T.st3+0.45,S2,scr(330,690+CDH+S2H+S3H-60,60),24,GR,1000,0.8,18);
+burst(T.send,S2,scr(906,712,140),26,GR,1200,0.8,20);
+
+/* ================= CÂMERA: trilhas escalares (órbita, distância, pan) ================= */
+const TR=(ks)=>t=>{let i=0;for(let j=0;j<ks.length;j++)if(ks[j][0]<=t)i=j;if(i>=ks.length-1)return ks[ks.length-1][1];const a=ks[i],b=ks[i+1];const dt=b[0]-a[0];return lerp(a[1],b[1],dt<=0?1:(b[2]||lin)((t-a[0])/dt))};
+const R0=D0,R2=D0;
+const phi=TR([[0,0],[T.o1,0],[T.o2,PHI,eIO3]]);
+const rho=TR([[0,R0+240],[1.0,R0+90,eOut3],[T.o1,R0-10],[T.o2,R2+160,eIO3],[T.bOut,R2-20],[T.bOut+0.3,R2+40,eIO2],[T.rf,R2-10],[T.rf+0.55,R2+30,eIO3],[T.st2,R2-10],[T.cOut,R2-40],[T.cOut+0.4,R2+60,eIO3],[T.end,R2-40]]);
+const panX=TR([[0,-20],[1.0,-10,eOut3],[T.o1,10],[T.o2,-30,eIO3],[T.bOut,20],[T.rf,-10],[T.cOut,10],[T.end,-20]]);
+// pan vertical: acompanha o centro do conteúdo (o card cresce para baixo)
+const panY=TR([[0,-30],[1.0,-20,eOut3],[T.o1,0],[T.o2,30,eIO3],[T.bOut,10],[T.rf,0],[T.rf+0.4,-180,eIO3],[T.st2,-170],[T.st2+0.6,-110,eIO3],[T.st3,-100],[T.st3+0.6,-50,eIO3],[T.cOut,-40],[T.cOut+0.4,-20,eIO3],[T.end,-10]]);
+function camSet(t){const f=phi(t),rr=rho(t),px=panX(t),py=panY(t);
+ const c=Math.cos(f),s=Math.sin(f),d=DB*cl(f/PHI);
+ const hx=Math.sin(t*0.9)*12+Math.sin(t*2.3+1)*4,hy=Math.sin(t*1.25+1)*10;
+ const Ry=(x,y,z)=>[x*c+z*s,y,-x*s+z*c];
+ cam.position.set(...Ry(px+hx,-py+hy,d+rr));cam.up.set(0,1,0);cam.lookAt(...Ry(px,-py,d));
+ cam.updateMatrixWorld();VP.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse)}
+
+/* ================= RENDER ================= */
+const WORD='UNIDADE';
+const hm=m=>{m=((m%1440)+1440)%1440;return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')};
+window.render=function(t){
+ camSet(t);dM.uniforms.uT.value=t;
+ {for(const b of BUR){const k=(t-b.t0)/b.life;for(let j=0;j<b.n;j++){const i=b.i0+j;if(k<=0||k>=1){sA[i]=0;continue}
+   const a=rnd(i*3+1)*6.283,sv=0.35+rnd(i*3+2)*0.65,e=1-Math.pow(1-k,2.6);_v.set(Math.cos(a)*b.spd*sv*e,Math.sin(a)*b.spd*sv*e*0.8-180*k*k,(rnd(i*3+3)-.5)*b.spd*0.5*e).applyQuaternion(b.q).add(b.p);
+   sPos[i*3]=_v.x;sPos[i*3+1]=_v.y;sPos[i*3+2]=_v.z;sCol[i*3]=b.col[0];sCol[i*3+1]=b.col[1];sCol[i*3+2]=b.col[2];sA[i]=Math.pow(1-k,1.4);sS[i]=b.sz*(0.5+rnd(i+7))}}
+  sG.attributes.position.needsUpdate=sG.attributes.color.needsUpdate=sG.attributes.alpha.needsUpdate=sG.attributes.size.needsUpdate=true}
+ amb.forEach((s,i)=>s.material.opacity=.19+.035*Math.sin(t*0.8+i));
+ r.render(scene,cam);
+
+ /* palavras fantasma no chão */
+ put('gA',t<T.o2?P(t,0,0.6)*(1-P(t,T.o1+0.2,0.4,lin)):0,{dx:-40*(t+0.5)});
+ put('gB',t>T.o2-0.2&&t<T.bOut+0.3?P(t,T.o2-0.2,0.5)*(1-P(t,T.bOut,0.3,lin)):0,{dx:-40*(t-T.o2)});
+ put('gC',t>T.bOut&&t<T.rf+0.3?P(t,T.b4,0.5)*(1-P(t,T.rf,0.3,lin)):0,{dx:-40*(t-T.b4)});
+ put('gD',t>T.rf&&t<T.cOut+0.3?P(t,T.c1,0.5)*(1-P(t,T.cOut,0.3,lin)):0,{dx:-40*(t-T.c1)});
+ put('gE',t>T.cOut?P(t,T.f1,0.6):0,{dx:-60*(t-T.f1)});
+
+ /* ---------- A · GANCHO: espelho de vendas ---------- */
+ {const vis=t<T.o2;const ho=P(t,T.o1,0.2,eIn2);
+  up('aKa',t,T.aK);up('a1a',t,T.a1);up('a1b',t,T.a1+0.12);up('a2a',t,T.a2);up('a2b',t,T.a2+0.1);
+  ['aKa','a1a','a1b','a2a','a2b'].forEach(id=>dn(id,ho));
+  put('aK',vis&&t<T.o1+0.2?1:0);put('a1',vis&&t<T.o1+0.2?1:0);put('a2',vis&&t<T.o1+0.2?1:0);
+  // linhas do espelho sobem de baixo para cima, uma por andar
+  for(let i=0;i<7;i++){const a=T.rows+(6-i)*0.12;const v=spSoft((t-a)*1000);const s=$('er'+i).style;s.opacity=cl(v*1.6);s.transform=`translateY(${(1-v)*60}px)`}
+  {const v=spSoft((t-T.rows-0.85)*1000);const s=document.querySelector('#es .eh').style;s.opacity=cl(v*1.6)}
+  const lk=P(t,T.lit,0.35,eOut3);const u=$('u').style;u.background=`rgba(37,99,235,${0.32*lk})`;u.borderColor=`rgba(125,211,252,${0.08+0.92*lk})`;u.color=`rgba(255,255,255,${lk})`;
+  u.boxShadow=`0 0 ${40*lk}px rgba(34,211,238,${0.35*lk})`;u.transform=`scale(${1+0.08*Math.sin(Math.PI*cl((t-T.lit)/0.4))})`;
+  const eo=1-P(t,T.o2-0.32,0.24,lin);put('es',vis?eo:0);
+  const qv=spPop((t-T.aq)*1000),qo=P(t,T.o1,0.18,eIn2);put('aq',vis&&t>T.aq?cl(qv*2.5)*(1-qo):0,{s:(0.7+0.3*qv)*(1-0.15*qo),ph:PLN.aq.w*0.36,pv:-PLN.aq.h/2,dz:qo*-200})}
+
+ /* ---------- B · E ESPERA: relógio do plantão ---------- */
+ {const vis=t>T.b1-0.1&&t<T.bOut+0.4;const out=P(t,T.bOut,0.26,eIn2);
+  up('b1a',t,T.b1);up('b1b',t,T.b1+0.12);dn('b1a',P(t,T.bOut,0.2,eIn2));dn('b1b',P(t,T.bOut+0.03,0.2,eIn2));put('b1',vis?1:0);
+  const cv=spFly((t-T.ck)*1000);put('ckw',vis&&t>T.ck?cl(cv*2.2)*(1-out):0,{s:(0.86+0.14*cv)*(1-0.25*out),dz:(1-cv)*-400-out*500,rx:(1-cl(cv))*0.4});
+  // time-lapse: sex 21:40 -> sáb 09:00 (680 min), curva lenta-rápida-lenta
+  const k=eIO3((t-T.tl)/(T.tlE-T.tl));const mins=21*60+40+Math.round(680*k);
+  $('mh').setAttribute('transform',`rotate(${(mins%60)*6})`);$('hh').setAttribute('transform',`rotate(${((mins/60)%12)*30})`);
+  {const a0=(21*60+40)/60%12*30,a1=(mins/60%12)*30+(mins>=24*60+0?0:0);const sweep=(mins-(21*60+40))/60*30;
+   if(sweep<0.5)$('arc').setAttribute('d','');else{const R=226,A=a0*Math.PI/180,B=(a0+Math.min(sweep,359.5))*Math.PI/180;$('arc').setAttribute('d',`M ${Math.sin(A)*R} ${-Math.cos(A)*R} A ${R} ${R} 0 ${sweep>180?1:0} 1 ${Math.sin(B)*R} ${-Math.cos(B)*R}`)}}
+  $('bth').textContent=hm(mins);$('btd').textContent=mins>=24*60?'sáb':'sex';
+  const tv=spSnap((t-T.ck-0.25)*1000);put('bt',vis&&t>T.ck+0.25?cl(tv*2)*(1-out):0,{dy:(1-tv)*-30-out*60});
+  const pv=spSnap((t-T.bp)*1000);put('bp',vis&&t>T.bp?cl(pv*3)*(1-out):0,{dy:-(1-pv)*26-out*60,s:0.92+0.08*cl(pv)})}
+
+ /* ---------- B2 · tese ---------- */
+ {const vis=t>T.b4-0.1&&t<T.rf+0.4;const rf=P(t,T.rf,0.34,eIn2);
+  up('b4a',t,T.b4);up('b5a',t,T.b5);up('b6a',t,T.b6);
+  const a={dz:-rf*420,blur:rf*26};
+  put('b4',vis?1-rf:0,a);put('b5',vis&&t>T.b5-0.05?1-rf:0,a);put('b6',vis&&t>T.b6-0.05?1-rf:0,a)}
+
+ /* ---------- C · PRÁTICA: card do catálogo ---------- */
+ {const vis=t>T.rf+0.2&&t<T.cOut+0.5;const fi=P(t,T.rf+0.24,0.5,eOut3);   // troca de foco: chega desfocado, da frente
+  const foc={dz:(1-fi)*380,blur:(1-fi)*24};const out=P(t,T.cOut,0.32,eIn2);
+  // títulos: cada passo sai inteiro antes do próximo entrar
+  const o1=P(t,T.st2-0.3,0.2,eIn2),o2=P(t,T.st3-0.3,0.2,eIn2),o3=P(t,T.cOut,0.2,eIn2);
+  up('c1a',t,T.c1);up('c1ba',t,T.c1+0.1);up('c2a',t,T.c2);dn('c1a',o1);dn('c1ba',o1);dn('c2a',o1);
+  put('c1',vis&&t<T.st2?1:0,t<T.c1+0.6?foc:{});put('c1b',vis&&t<T.st2?1:0,t<T.c1+0.6?foc:{});put('c2',vis&&t<T.st2?1:0,t<T.c1+0.6?foc:{});
+  up('c3a',t,T.st2);up('c4a',t,T.st2+0.1);dn('c3a',o2);dn('c4a',o2);put('c3',vis&&t>T.st2-0.05&&t<T.st3?1:0);put('c4',vis&&t>T.st2-0.05&&t<T.st3?1:0);
+  up('c5a',t,T.st3);up('c6a',t,T.st3+0.1);dn('c5a',o3);dn('c6a',o3);put('c5',vis&&t>T.st3-0.05?1:0);put('c6',vis&&t>T.st3-0.05?1:0);
+  const cv=spSoft((t-T.c1-0.1)*1000);
+  put('cd',vis&&t>T.c1+0.1?cl(cv*2)*(1-out):0,{dz:(1-fi)*380-out*700,blur:(1-fi)*24,dy:(1-cv)*-90-out*120,rx:out*0.45,pv:-PLN.cd.h/2,s:1-0.12*out});
+  // planta se desenha
+  document.querySelectorAll('#pln .pp').forEach((p,i)=>{if(!p._L){p._L=p.getTotalLength();p.style.strokeDasharray=p._L}const k=P(t,T.pln+i*0.18,0.7,eIO2);p.style.strokeDashoffset=p._L*(1-k)});
+  {const k=P(t,T.dsp-0.2,0.4);$('plk').setAttribute('fill',`rgba(125,211,252,${0.22*k*(1-0.6*P(t,T.st2,0.4))})`)}
+  {const v=spPop((t-T.dsp)*1000);const s=$('dsp').style;s.opacity=cl(v*3);s.transform=t>T.dsp+0.7?'none':`scale(${0.8+0.2*v})`;s.transformOrigin='0 50%';
+   const nk=P(t,T.st2,0.4,eIO2);s.borderColor=`rgba(${lerp(125,201,nk)},${lerp(211,210,nk)},${lerp(252,224,nk)},${lerp(.7,.35,nk)})`;s.background=`rgba(37,99,235,${0.16*(1-nk)})`;s.color=nk>0.5?'#C9D2E0':'#BAE6FD'}
+  // seções crescem já com o conteúdo
+  {const k2=eIO3((t-T.st2-0.1)/0.5),k3=eIO3((t-T.st3-0.1)/0.5);$('s2').style.height=(S2H*k2)+'px';$('s3').style.height=(S3H*k3)+'px';
+   $('s2t').style.opacity=P(t,T.st2+0.3,0.3,lin);$('s2t').style.transform=`translateX(${(1-P(t,T.st2+0.3,0.4,eOut3))*-30}px)`;
+   const n2=P(t,T.st3,0.4,eIO2);$('s2i').style.borderColor=`rgba(125,211,252,${0.45*(1-n2)+0.15})`;$('s2i').style.color=n2>0.5?'#9AA3B2':'#7DD3FC';$('s2i').style.background=`rgba(37,99,235,${0.2*(1-n2)})`;
+   const pv=spPop((t-T.st3-0.35)*1000);const vs=$('vp').style;vs.opacity=cl(pv*3);vs.transform=t>T.st3+1.05?'none':`scale(${0.8+0.2*pv})`;vs.transformOrigin='0 50%';
+   $('cd').style.borderColor=t>T.st3+0.35?`rgba(52,211,153,${0.3+0.25*P(t,T.st3+0.35,0.4)})`:'rgba(125,211,252,.3)'}}
+
+ /* ---------- D · CTA ---------- */
+ {const fin=(id,a,extra)=>{const v=spFly((t-a)*1000);put(id,t>a?cl(v*2.2):0,Object.assign({rx:(1-v)*0.9,dz:(1-v)*-500,dy:(1-v)*-120},extra||{}))};
+  up('f1a',t,T.f1);put('f1',t>T.f1-0.02?1:0);
+  const fv=spSnap((t-T.f2)*1000);put('f2',t>T.f2?cl(fv*2.5):0,{dy:(1-fv)*-40});
+  const n=Math.max(0,Math.round(cl((t-T.typ)/0.5)*WORD.length));$('typ').textContent=WORD.slice(0,n);$('car').style.opacity=(n<WORD.length?(t>T.f2+0.1?1:0):(Math.floor(t*3.3)%2?1:0));
+  const sv=spPop((t-T.send)*1000);$('send').style.transform=`scale(${t>T.send?0.8+0.2*sv+0.22*Math.max(0,1-Math.abs(sv-1)*5)*(t<T.send+0.3?1:0):1})`;$('send').style.background=t>T.send?'#22C55E':'#2563EB';
+  $('send').style.boxShadow=t>T.send?`0 0 ${50*cl(sv)}px rgba(52,211,153,.75)`:'none';
+  up('f3a',t,T.sub-0.16);up('f3b',t,T.sub);up('f4a',t,T.sub+0.18);put('f3',t>T.sub-0.18?1:0);put('f4',t>T.sub+0.16?1:0);
+  fin('f5',T.logo,{s:1+0.02*Math.sin(t*1.5)});$('f5s').style.transform=`translateX(${lerp(-240,600,P(t,T.sheen,0.5,eIO2))}px)`}
+};
+window.qa=t=>{render(t);const o=[];document.querySelectorAll('.q').forEach(el=>{const p=el.closest('.pl');if(p&&p.style.visibility!=='visible')return;if(+getComputedStyle(p||el).opacity<0.3)return;if(+getComputedStyle(el).opacity<0.3)return;const b=el.getBoundingClientRect();if(b.width<1)return;const fs=parseFloat(getComputedStyle(el).fontSize)*b.height/el.offsetHeight;o.push([el.id||el.textContent.slice(0,14),Math.round(b.left),Math.round(b.top),Math.round(b.right),Math.round(b.bottom),Math.round(fs)])});return o};
+window.ready=(async()=>{render(0);return T.end})();
+</script></body></html>
