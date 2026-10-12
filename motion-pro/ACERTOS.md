@@ -68,3 +68,10 @@ Palavras dele sobre os carrosséis de 07/10 e 08/10: gostou do conteúdo e da pr
 ## Rotina de 10/10 (aprendizados de processo)
 - Motion blur: em grua/pan muito rápido (> ~40px por quadro), 4 subquadros deixam cópias em escada; re-renderize esses blocos com 12 subquadros (ou desacelere o movimento). Confira sempre no MP4, quadro a quadro, nas viradas.
 - Carrossel: margem de 72px vale também em cima; o slide de prática não pode repetir o esqueleto "card Copie e… + bolha verde" do carrossel anterior.
+
+## Rotina de 12/10 (aprendizados de processo)
+- Texto que muda com o tempo (relógio, contador de horário) se calcula do quadro, não do subquadro, senão os 4 subquadros misturam dígitos: use `Math.floor(t*30+0.125)/30` (o `tmix` + `select` do render2.js junta os subquadros 1–3 do quadro f com o 0 do f+1, deslocando o blur ~0,4 quadro; se o motor for corrigido para `select='eq(mod(n,4),3)'`, tire o +0,125).
+- Entrada com translate grande (>300px em ~0,4s), persiana caindo ou ponteiro girando rápido saem em escada com 4 subquadros: prefira escala/opacidade ou re-renderize esses blocos com 12 subquadros.
+- Legenda de reel narrado: não quebre a frase em duas páginas; acumule em 2–3 linhas e mantenha a frase completa ≥0,8s.
+- Só mostre na UI o que está na lista de funcionalidades do BRAND-MOTION. "Origem do anúncio" no atendimento e "painel por empreendimento" não estão lá: confirmar com o Davi antes de usar de novo.
+- `prepara_jpg.py` e as trilhas rodam com `/usr/bin/python3` (o `python3` padrão da sessão não tem PIL/numpy).
