@@ -1,0 +1,330 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<!-- Leadimob R1 13/10/2026 — "Incorporador, o que acontece com o lead do seu lançamento quando o plantão fecha?" (modelo reel-narrado, motor DOM do R1 11/10) -->
+<style>
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+:root{--bg:#0A0E14;--s1:#0F1520;--s2:#141B28;--ln:rgba(255,255,255,.10);--tx:#FFFFFF;--t2:#C9D2E0;--t3:#7C8799;--bl:#2563EB;--cy:#22D3EE;--cy2:#7DD3FC;--gr:#34D399;--am:#F59E0B}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg);color:var(--tx);font-family:IN;font-feature-settings:"tnum" 1}
+.abs{position:absolute}
+.cap{font:600 26px/1 IN;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding:.22em 0 .12em;margin:-.22em 0 -.12em}
+.wd>span{display:inline-block;will-change:transform}
+.big{font-weight:800;letter-spacing:-.045em;word-spacing:.16em}
+#cap .w{display:inline-block;margin-right:.25em;will-change:transform,opacity}
+.card{background:linear-gradient(180deg,rgba(20,27,40,.96),rgba(12,17,26,.96));border:1px solid rgba(125,211,252,.16);border-radius:30px;box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.02) inset}
+.hdr{display:flex;align-items:center;gap:16px;font:600 30px/1 IN;letter-spacing:.12em;text-transform:uppercase;color:var(--cy2);white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:14px 24px;border-radius:999px;font:700 32px/1 IN;white-space:nowrap}
+.bub{border-radius:22px;padding:18px 26px 18px;font:500 40px/1.3 IN;position:relative;width:max-content;max-width:740px}
+.bub.abs{position:absolute}
+.bin{background:#202C33;color:#E9EDEF;border-top-left-radius:6px}
+.bout{background:#005C4B;color:#E9EDEF;border-top-right-radius:6px}
+.av{border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font:800 38px/1 IN;color:#DBEAFE}
+.nt{position:absolute;left:90px;width:900px;height:150px;display:flex;align-items:center;gap:26px;padding:0 34px;border-radius:28px;background:rgba(22,30,44,.94);border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.nt .who{font:700 34px/1 IN;color:var(--t2);display:flex;justify-content:space-between}
+.nt .msg{font:500 40px/1.15 IN;color:#fff;margin-top:12px;white-space:nowrap}
+.row{display:flex;align-items:center;gap:24px;height:112px;border-top:1px solid var(--ln);font:600 40px/1 IN;color:var(--t2)}
+.row .k{width:220px;font:600 32px/1 IN;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.ok{width:46px;height:46px;border-radius:50%;border:2px solid rgba(255,255,255,.22);margin-left:auto;display:flex;align-items:center;justify-content:center;flex:none}
+.col{position:absolute;top:150px;width:276px;height:560px;border-radius:22px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);padding:22px 16px}
+.col .h{font:600 30px/1 IN;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);padding:0 6px 18px}
+.kc{height:96px;border-radius:18px;background:#182131;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:16px;padding:0 18px;margin-bottom:14px;font:700 34px/1 IN;color:#E6ECF4}
+.kc i{width:16px;height:16px;border-radius:50%;background:#5B6573;flex:none}
+.tab{font:700 34px/1 IN;color:#6B7686;padding-bottom:20px;white-space:nowrap}
+</style>
+<script src="node_modules/motion/dist/motion.js"></script>
+</head><body><div id="st">
+<!-- atmosfera (mesma família do modelo) -->
+<div id="floor" class="abs" style="left:-1000px;top:1060px;width:3080px;height:2200px;transform-origin:50% 0;transform:perspective(1000px) rotateX(74deg);background:radial-gradient(circle,rgba(125,211,252,.55) 1.6px,rgba(125,211,252,0) 2.6px) 0 0/58px 58px;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 40%,#000 100%);opacity:.26"></div>
+<div id="glowA" class="abs" style="left:380px;top:-360px;width:1100px;height:1100px;background:radial-gradient(circle,rgba(37,99,235,.30) 0%,rgba(37,99,235,0) 62%)"></div>
+<div id="glowB" class="abs" style="left:-520px;top:1100px;width:1200px;height:1200px;background:radial-gradient(circle,rgba(34,211,238,.09) 0%,rgba(34,211,238,0) 60%)"></div>
+<div id="night" class="abs" style="inset:0;background:#04070B;opacity:0"></div>
+<div class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 55%,rgba(0,0,0,.55) 100%)"></div>
+
+<!-- kicker -->
+<div id="kick" class="abs" style="z-index:40;left:72px;top:226px;display:flex;align-items:center;gap:18px"><span style="width:44px;height:3px;background:#22D3EE;box-shadow:0 0 12px #22D3EE"></span><span id="kickT" class="cap" style="color:var(--cy2);font-size:36px;letter-spacing:.12em"></span></div>
+
+<!-- ============ A · GANCHO: o plantão fecha ============ -->
+<div id="hook" class="abs big" style="z-index:30;left:72px;top:356px;width:960px;font-size:98px;line-height:1.02"></div>
+<div id="pl" class="abs card" style="left:90px;top:1000px;width:900px;height:300px;padding:36px 40px;overflow:hidden">
+ <div style="display:flex;align-items:center;gap:26px">
+  <div style="width:96px;height:96px;border-radius:24px;background:rgba(125,211,252,.08);border:1.5px solid rgba(125,211,252,.3);display:flex;align-items:center;justify-content:center;flex:none"><svg width="52" height="52" viewBox="0 0 32 32"><path d="M5 28 V10 L16 4 L27 10 V28 M2 28 H30 M11 28 V20 H21 V28 M10 13 H13 M19 13 H22" fill="none" stroke="#7DD3FC" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+  <div style="flex:1;min-width:0"><div style="font:800 46px/1 IN;letter-spacing:-.02em">Plantão de vendas</div><div style="font:500 36px/1 IN;color:var(--t3);margin-top:14px">Residencial Aurora</div></div>
+  <div style="position:relative;width:250px;height:64px">
+   <div id="plO" class="abs pill" style="right:0;top:0;font-size:34px;padding:12px 24px;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.2);color:#E6ECF4"><span style="width:12px;height:12px;border-radius:50%;background:#C9D2E0"></span>Aberto</div>
+   <div id="plF" class="abs pill" style="right:0;top:0;font-size:34px;padding:12px 24px;background:rgba(255,255,255,.03);border:1.5px solid rgba(255,255,255,.14);color:#8B95A5;opacity:0"><span style="width:12px;height:12px;border-radius:50%;background:#5B6573"></span>Fechado</div>
+  </div>
+ </div>
+ <!-- régua do horário: 09h → 18h -->
+ <div style="position:absolute;left:40px;right:40px;top:196px;height:70px">
+  <div class="abs" style="left:0;right:0;top:30px;height:4px;border-radius:2px;background:rgba(255,255,255,.10)"></div>
+  <div id="plB" class="abs" style="left:0;top:30px;height:4px;border-radius:2px;background:#22D3EE;width:0"></div>
+  <div class="abs" style="left:0;top:50px;font:600 30px/1 IN;color:var(--t3)">09h</div>
+  <div class="abs" style="right:0;top:50px;font:600 30px/1 IN;color:var(--t3)">18h</div>
+  <div id="plK" class="abs" style="left:0;top:20px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:#0A0E14;border:4px solid #22D3EE"></div>
+ </div>
+ <!-- a porta de enrolar desce -->
+ <div id="plS" class="abs" style="left:0;right:0;top:0;height:0;background:repeating-linear-gradient(180deg,#1A2230 0 22px,#141B27 22px 26px);box-shadow:0 8px 20px rgba(0,0,0,.5)"></div>
+</div>
+<!-- chip residual do plantão (fica no topo, neutro) -->
+<div id="plc" class="abs pill" style="left:72px;top:330px;font-size:32px;padding:12px 22px;background:rgba(255,255,255,.03);border:1.5px solid rgba(255,255,255,.14);color:#8B95A5;opacity:0"><span style="width:12px;height:12px;border-radius:50%;background:#5B6573"></span>Plantão fechado</div>
+<div id="clk" class="abs" style="right:90px;top:322px;font:800 54px/1 IN;letter-spacing:-.02em;color:#C9D2E0;opacity:0"></div>
+
+<!-- ============ B · O ANÚNCIO CONTINUA RODANDO ============ -->
+<div id="bt" class="abs big" style="left:72px;top:500px;width:960px;font-size:96px;line-height:1.02"></div>
+<div id="ad" class="abs card" style="left:150px;top:800px;width:780px;padding:0;overflow:hidden;transform-origin:50% 0">
+ <div style="display:flex;align-items:center;gap:20px;padding:26px 30px">
+  <div class="av" style="width:72px;height:72px;background:linear-gradient(135deg,#1E3A8A,#0B5C73);font-size:30px">RA</div>
+  <div style="flex:1"><div style="font:700 36px/1 IN">Residencial Aurora</div><div style="font:500 30px/1 IN;color:var(--t3);margin-top:10px">Patrocinado</div></div>
+  <div id="adOn" class="pill" style="font-size:30px;padding:10px 20px;background:rgba(34,211,238,.08);border:1.5px solid rgba(34,211,238,.5);color:#A5F3FC"><span id="adDot" style="width:12px;height:12px;border-radius:50%;background:#22D3EE;box-shadow:0 0 10px #22D3EE"></span>Ativo</div>
+ </div>
+ <div style="height:400px;position:relative;overflow:hidden"><img id="adI" src="property.jpg" style="position:absolute;left:-20px;top:-20px;width:820px;height:440px;object-fit:cover"><div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(10,14,20,0) 60%,rgba(10,14,20,.45))"></div></div>
+ <div style="display:flex;align-items:center;justify-content:space-between;padding:24px 30px">
+  <div style="font:700 36px/1.1 IN">Lançamento · 2 e 3 dorm.</div>
+  <div id="adB" class="pill" style="font-size:30px;padding:14px 22px;background:#2563EB;color:#fff;border-radius:16px">Enviar mensagem</div>
+ </div>
+</div>
+
+<!-- ============ C · PERGUNTAS DA NOITE ============ -->
+<div id="nts" class="abs" style="left:0;top:0;width:1080px;height:1920px">
+ <div id="n0" class="nt" style="top:520px"><div class="av" style="width:84px;height:84px;background:linear-gradient(135deg,#1E3A8A,#0B5C73)">A</div><div style="flex:1;min-width:0"><div class="who"><span>Ana · WhatsApp</span><span id="n0t" style="color:#7C8799">19:42</span></div><div class="msg">Ainda tem unidade de 2 dorm.?</div></div></div>
+ <div id="n1" class="nt" style="top:700px"><div class="av" style="width:84px;height:84px;background:linear-gradient(135deg,#334155,#1E293B)">B</div><div style="flex:1;min-width:0"><div class="who"><span>Bruno · WhatsApp</span><span style="color:#7C8799">21:10</span></div><div class="msg">O decorado abre amanhã?</div></div></div>
+ <div id="n2" class="nt" style="top:880px"><div class="av" style="width:84px;height:84px;background:linear-gradient(135deg,#0B5C73,#084255)">C</div><div style="flex:1;min-width:0"><div class="who"><span>Carla · WhatsApp</span><span style="color:#7C8799">22:35</span></div><div class="msg">Qual a previsão de entrega?</div></div></div>
+ <div id="sil" class="abs" style="left:0;width:1080px;top:1076px;display:flex;justify-content:center"><div class="pill" style="font-size:34px;padding:12px 24px;background:rgba(245,158,11,.10);border:1.5px solid rgba(245,158,11,.65);color:#FCD34D"><span style="width:12px;height:12px;border-radius:50%;background:#F59E0B"></span>Sem resposta até amanhã</div></div>
+</div>
+
+<!-- logo (âncora do produto ao CTA) -->
+<div id="lgA" class="abs" style="left:72px;top:196px;width:300px;height:88px;border-radius:22px;background:linear-gradient(180deg,#FFFFFF,#EEF3F9);box-shadow:0 20px 40px rgba(0,0,0,.45);overflow:hidden;transform-origin:0 0;opacity:0"><img src="logo.png" style="position:absolute;left:27px;top:12px;width:246px;height:68px"></div>
+
+<!-- ============ D · LEADIMOB ATENDE (conversa da Ana) ============ -->
+<div id="chat" class="abs card" style="left:90px;top:360px;width:900px;height:880px;overflow:hidden">
+ <div style="position:absolute;left:36px;top:30px;right:36px;display:flex;align-items:center;gap:22px;height:90px">
+  <div class="av" style="width:84px;height:84px;background:linear-gradient(135deg,#1E3A8A,#0B5C73)">A</div>
+  <div style="flex:1"><div style="font:800 44px/1 IN;letter-spacing:-.01em">Ana</div><div style="font:500 34px/1 IN;color:var(--t3);margin-top:10px">WhatsApp</div></div>
+ </div>
+ <div id="org" class="abs pill" style="left:36px;top:150px;font-size:32px;padding:12px 22px;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.16);color:#C9D2E0"><svg width="30" height="30" viewBox="0 0 32 32"><path d="M5 28 V10 L16 4 L27 10 V28 M2 28 H30 M11 28 V20 H21 V28" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg>Origem: anúncio Residencial Aurora</div>
+ <div style="position:absolute;left:36px;right:36px;top:244px;bottom:34px;background:#0B141A;border-radius:22px"></div>
+ <div id="q1" class="bub bin abs" style="left:66px;top:282px">Ainda tem unidade de 2 dorm.?</div>
+ <div id="a1" class="bub bout abs" style="right:66px;top:438px;width:700px"><span id="a1t"></span></div>
+ <div id="ty" class="abs" style="right:66px;top:438px;background:#005C4B;border-radius:18px;padding:22px 26px;display:flex;gap:10px"><span class="dt" style="width:13px;height:13px;border-radius:50%;background:#E9EDEF"></span><span class="dt" style="width:13px;height:13px;border-radius:50%;background:#E9EDEF"></span><span class="dt" style="width:13px;height:13px;border-radius:50%;background:#E9EDEF"></span></div>
+ <div id="q2" class="bub bin abs" style="left:66px;top:1010px">Para morar. Até o ano que vem.</div>
+</div>
+
+<!-- ============ D2 · FICHA: perfil qualificado + visita no plantão ============ -->
+<div id="fi" class="abs card" style="left:90px;top:400px;width:900px;padding:36px 40px 20px">
+ <div style="display:flex;align-items:center;justify-content:space-between">
+  <div class="hdr"><svg viewBox="0 0 80 95" style="width:30px;height:36px"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Perfil · Ana</div>
+  <div style="font:600 32px/1 IN;color:var(--t3)">Residencial Aurora</div>
+ </div>
+ <div style="margin-top:30px">
+  <div class="row" id="r0"><span class="k">Uso</span><span>Morar</span><span class="ok"></span></div>
+  <div class="row" id="r1"><span class="k">Unidade</span><span>2 dormitórios</span><span class="ok"></span></div>
+  <div class="row" id="r2"><span class="k">Prazo</span><span>Até o ano que vem</span><span class="ok"></span></div>
+  <div class="row" id="r3" style="position:relative;border-bottom:1px solid var(--ln)"><div id="r3bg" class="abs" style="left:-18px;right:-18px;top:10px;bottom:10px;border-radius:20px;background:rgba(52,211,153,.10);border:2px solid rgba(52,211,153,.75);opacity:0"></div><span class="k" style="position:relative">Visita</span><span id="r3t" style="position:relative;color:#6B7686">Plantão · sáb. 10h</span><span id="r3p" class="pill" style="position:relative;margin-left:auto;font-size:32px;padding:10px 20px;background:#34D399;color:#05261A;opacity:0">Agendada</span></div>
+ </div>
+</div>
+
+<!-- ============ E · PAINEL POR EMPREENDIMENTO ============ -->
+<div id="pn" class="abs card" style="left:72px;top:380px;width:936px;height:760px;padding:30px 30px">
+ <div style="position:relative;display:flex;gap:44px;border-bottom:1px solid var(--ln);padding:0 8px">
+  <div class="tab" id="tb0">Residencial Aurora</div><div class="tab" id="tb1">Torre Jardim</div><div class="tab" id="tb2">Vila Norte</div>
+  <div id="tbU" class="abs" style="left:8px;bottom:-2px;height:4px;border-radius:2px;background:#22D3EE;width:300px"></div>
+ </div>
+ <div id="pg0" class="abs" style="left:30px;top:0;width:876px;height:760px">
+  <div class="col" style="left:0"><div class="h">Novo</div><div class="kc"><i></i>Bruno</div><div class="kc"><i></i>Carla</div></div>
+  <div class="col" style="left:300px"><div class="h">Qualificado</div><div class="kc"><i></i>Diego</div><div class="kc"><i></i>Elisa</div></div>
+  <div class="col" style="left:600px"><div class="h">Visita</div><div class="kc"><i style="background:#34D399"></i>Fábio</div><div id="kA" class="kc" style="border-color:rgba(52,211,153,.6)"><i style="background:#34D399"></i>Ana</div></div>
+ </div>
+ <div id="pg1" class="abs" style="left:30px;top:0;width:876px;height:760px;opacity:0">
+  <div class="col" style="left:0"><div class="h">Novo</div><div class="kc"><i></i>Gabriel</div></div>
+  <div class="col" style="left:300px"><div class="h">Qualificado</div><div class="kc"><i></i>Helena</div><div class="kc"><i></i>Igor</div><div class="kc"><i></i>Júlia</div></div>
+  <div class="col" style="left:600px"><div class="h">Visita</div><div class="kc"><i style="background:#34D399"></i>Lucas</div></div>
+ </div>
+</div>
+
+<!-- ============ F · CTA ============ -->
+<div id="cta" class="abs" style="inset:0">
+ <div id="ctaK" class="abs big" style="left:90px;top:560px;width:900px;font-size:96px;line-height:1.02">SOLICITE UMA<br><span style="color:#7DD3FC">DEMONSTRAÇÃO.</span></div>
+ <div class="abs" id="ctaL" style="left:90px;top:820px;width:900px;height:2px;background:linear-gradient(90deg,rgba(34,211,238,.6),rgba(34,211,238,0));transform-origin:0 0"></div>
+ <div id="ctaT" class="abs" style="left:90px;top:866px;width:900px;font:700 54px/1.25 IN;color:#fff">O link está na bio.</div>
+ <img id="lid" src="lid.png" class="abs" style="left:820px;top:1080px;width:110px">
+</div>
+<!-- LEGENDAS -->
+<div id="capBg" class="abs" style="z-index:55;left:0;top:1300px;width:1080px;height:620px;background:linear-gradient(180deg,rgba(10,14,20,0) 0%,rgba(10,14,20,.78) 26%,rgba(10,14,20,.9) 100%)"></div>
+<div id="cap" class="abs" style="z-index:60;left:72px;top:1392px;width:936px;font:700 54px/1.22 IN;letter-spacing:-.01em;text-shadow:0 4px 20px rgba(0,0,0,.8)"></div>
+</div>
+
+<script type="module">
+await Promise.all(['400 20px IN','500 20px IN','600 20px IN','700 20px IN','800 20px IN'].map(f=>document.fonts.load(f)));
+const TL=__TIMELINE__;const C={};TL.forEach(c=>C[c.i]=c);
+const END=C[7].end+2.3;window.DURATION=END;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const eOut=x=>1-Math.pow(1-cl(x),4), eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2}, eIn=x=>Math.pow(cl(x),3), lin=x=>cl(x);
+const eIO3=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const P=(t,a,d,e=eOut)=>e((t-a)/d);
+const $=id=>document.getElementById(id);
+const {spring}=window.Motion;
+const mkSp=(k=190,d=17)=>{const s=spring({keyframes:[0,1],stiffness:k,damping:d,mass:1});return ms=>ms<=0?0:s.next(ms).value};
+const sp=mkSp(), spSoft=mkSp(110,16), spSnap=mkSp(320,15), spPop=mkSp(260,11);
+const lerp=(a,b,k)=>a+(b-a)*k;
+const norm=s=>s.toLowerCase().replace(/["“”,.?]/g,'');
+const wt=(ci,pre)=>{const w=C[ci].words.find(w=>norm(w.w).startsWith(pre));return w?w.t:C[ci].start};
+const S=(el,o,tr)=>{el.style.opacity=o;if(tr!==undefined)el.style.transform=tr;el.style.visibility=o>0.002?'visible':'hidden'};
+
+/* ---- âncoras ---- */
+const FE=wt(1,'fecha');               // o plantão fecha
+const TB=C[2].start-0.5;              // plantão vira chip; anúncio entra
+const TC=C[3].start-0.15;             // o anúncio recua; perguntas chegam
+const OUT=wt(3,'procurar');           // os interessados vão embora
+const TD=C[4].start-0.95;             // a noite clareia: conversa da Ana
+const TD2=C[5].start-0.45;            // conversa -> ficha
+const TE=C[6].start-0.45;             // ficha -> painel por empreendimento
+const TF=C[7].start-0.4;              // CTA
+
+/* ---- construtores ---- */
+function kin(el,words,t,br=[]){if(!el._b){el.innerHTML=words.map((w,i)=>`<span class="wd" style="margin-right:.2em"><span id="${el.id}_${i}">${w.w}</span></span>`+(br.includes(i)?'<br>':'')).join('');el._b=1}
+ words.forEach((w,i)=>{const v=sp((t-w.t+0.02)*1000);const q=$(el.id+'_'+i).style;q.transform=`translateY(${(1-v)*145}%)`;q.opacity=v>0.01?1:0})}
+// gancho: frase inteira presente desde o quadro 0 (cinza), cada palavra acende na fala
+const HW=[['INCORPORADOR,',0.285],['O',wt(1,'o')],['QUE',wt(1,'que')],['ACONTECE',wt(1,'acontece')],['COM',wt(1,'com')],['O',2.82],['LEAD',wt(1,'lead')],['QUANDO',wt(1,'quando')],['O',wt(1,'quando')+0.16],['PLANTÃO',wt(1,'plantão')],['FECHA?',FE]];
+const HBR=[0,3,6,8];
+$('hook').innerHTML=HW.map((w,i)=>`<span class="wd" style="margin-right:.2em"><span id="hk_${i}">${w[0]}</span></span>`+(HBR.includes(i)?'<br>':'')).join('');
+$('hk_0').style.fontSize='116px';
+// resposta da Leadimob
+const A1=[['Oi,'],['Ana!'],['Tem'],['sim,'],['no','c'],['Residencial','c'],['Aurora.','c'],['É'],['para'],['morar'],['ou'],['investir?']];
+$('a1t').innerHTML=A1.map((w,i)=>`<span id="aw${i}" style="display:inline-block;margin-right:.24em;padding:0 2px;border-radius:8px">${w[0]}</span>`).join('');
+// legendas
+const KEY=new Set(['resposta','outro','empreendimento.','empreendimento','perfil','agendada.','tudo']);
+const CH={3:[0,6],4:[0,7],5:[0,4],6:[0]};
+let capKey=null;
+function captions(t){const e=$('cap');let cur=null;for(const c of TL){if(t>=c.start-0.12&&t<c.end+0.45)cur=c}
+ if(!cur||!CH[cur.i]){e.style.opacity=0;$('capBg').style.opacity=0;return}
+ const cs=CH[cur.i];let k=0;cs.forEach((s,j)=>{if(t>=cur.words[s].t-0.1)k=j});const a=cs[k],b=cs[k+1]??cur.words.length;
+ const key=cur.i+'_'+k;if(capKey!==key){e.innerHTML=cur.words.slice(a,b).map((w,i)=>`<span class="w" id="cw${i}">${w.w}</span>`).join('');capKey=key}
+ const nx=TL.find(c=>c.i===cur.i+1);const hardEnd=nx&&CH[nx.i]?nx.start-0.14:cur.end+0.4;
+ const endT=k+1<cs.length?cur.words[cs[k+1]].t-0.05:Math.min(cur.end+0.15,hardEnd-0.22);const o=(k+1<cs.length?1:1-P(t,endT,0.22,eIn));
+ e.style.opacity=o*P(t,cur.words[a].t-0.2,0.15);$('capBg').style.opacity=e.style.opacity;
+ cur.words.slice(a,b).forEach((w,i)=>{const v=spSnap((t-w.t+0.03)*1000);const s=$('cw'+i).style;const on=t>=w.t-0.03;s.opacity=on?cl(v*1.5):0;s.transform=`translateY(${(1-v)*16}px)`;
+  s.color=KEY.has(w.w.toLowerCase())?'#7DD3FC':(on&&t<w.t+0.3?'#FFFFFF':'#DCE3EE')})}
+const hhmm=m=>{m=Math.round(m);return String(Math.floor(m/60)%24).padStart(2,'0')+':'+String(m%60).padStart(2,'0')};
+
+/* ---------------- render ---------------- */
+window.render=function(t){
+ $('glowA').style.transform=`translate(${Math.sin(t*0.3)*40}px,${Math.cos(t*0.25)*30}px)`;
+ $('floor').style.backgroundPosition=`${t*-9}px ${t*42}px`;
+ // depois das 18h a sala escurece; clareia quando a Leadimob atende
+ const nightK=P(t,FE-0.05,0.9,eIO)*(1-P(t,TD,0.7,eIO));
+ $('night').style.opacity=0.34*nightK;$('glowA').style.opacity=1-0.45*nightK;
+
+ /* ---------- A · GANCHO ---------- */
+ {const out=P(t,TB-0.1,0.3,eIn);
+  HW.forEach((w,i)=>{const q=$('hk_'+i).style;const e=0.0+i*0.025;const v=sp((t+0.75-e)*1000);q.transform=`translateY(${(1-v)*120}%)`;q.opacity=v>0.01?1:0;
+   const on=P(t,w[1]-0.06,0.18,eOut);q.color=i==0?`rgb(${lerp(92,125,on)},${lerp(104,211,on)},${lerp(120,252,on)})`:`rgb(${lerp(70,255,on)},${lerp(80,255,on)},${lerp(96,255,on)})`});
+  S($('hook'),1-out,`translateY(${-80*out}px)`);
+  // cartão do plantão: a régua anda até 18h; na fala "fecha" a porta desce e o status vira
+  const v=sp((t+0.6)*1000);const k=eIO(P(t,-0.4,FE+0.05,lin));
+  $('plB').style.width=(820*k)+'px';$('plK').style.left=(820*k)+'px';
+  const sh=eIO3(P(t,FE-0.02,0.55,lin));$('plS').style.height=(300*sh*0.62)+'px';
+  $('plO').style.opacity=1-P(t,FE,0.12,lin);$('plF').style.opacity=P(t,FE+0.05,0.15,lin);
+  $('plK').style.borderColor=t>FE?'#5B6573':'#22D3EE';$('plB').style.background=t>FE?'#5B6573':'#22D3EE';
+  // o cartão encolhe e vira o chip "Plantão fechado" no topo
+  const m=eIO3(P(t,TB,0.55,lin));
+  const pv=1-P(t,TB+0.2,0.25,eIn);
+  S($('pl'),cl(v)*pv,`translate(${lerp(0,-18,m)}px,${lerp((1-cl(v))*60,-660,m)}px) scale(${lerp(1,0.4,m)})`);$('pl').style.transformOrigin='0 0';
+  const cv=P(t,TB+0.35,0.3);const co=cv*(1-P(t,TD-0.1,0.3,eIn));
+  S($('plc'),co,`translateY(${(1-cv)*14}px)`);
+  // relógio da noite ao lado do chip
+  S($('clk'),co,`translateY(${(1-cv)*14}px)`);
+  {const tq=Math.floor(t*30)/30;$('clk').textContent=hhmm(lerp(18*60+40,23*60+10,P(tq,TB+0.3,TD-TB-0.5,lin)))}}
+
+ /* ---------- B · O ANÚNCIO CONTINUA RODANDO ---------- */
+ {kin($('bt'),C[2].words.map((w,i)=>({w:w.w.toUpperCase(),t:i<1?Math.min(w.t-0.12,TB+0.3):w.t-0.1})),t,[1]);
+  $('bt_3').style.color='#7DD3FC';
+  const bo=P(t,TC-0.05,0.3,eIn);S($('bt'),t>TB?1-bo:0,`translateY(${-90*bo}px)`);
+  const v=sp((t-TB-0.25)*1000);
+  // o anúncio recua em profundidade e as perguntas saem dele
+  const r=eIO3(P(t,TC,0.7,lin));
+  const ao=t>TB?cl(v*1.4)*(1-P(t,TC,0.32,eIn)):0;
+  S($('ad'),ao,`translateY(${(1-cl(v))*120+lerp(0,-260,r)}px) scale(${lerp(1,0.7,r)})`);
+  $('ad').style.filter=r>0.01?`brightness(${1-0.5*r})`:'none';
+  $('adI').style.transform=`translate(${-10*P(t,TB,3,lin)}px,${-8*P(t,TB,3,lin)}px) scale(${1+0.05*P(t,TB,3,lin)})`;
+  $('adDot').style.opacity=0.5+0.5*Math.abs(Math.sin(t*3.2));
+  const kt=t<TB+0.2?'Lançamento · plantão de vendas':t<TD?'Depois das 18h':t<TE?'':'';$('kickT').textContent=kt;
+  const ko=t<TD?(t<TB?P(t,-0.6,0.4):1)*(1-P(t,TB-0.1,0.2,eIn)*(t<TB+0.25?1:0))*(t>TB+0.2?P(t,TB+0.35,0.3):1)*(1-P(t,TD-0.3,0.25,eIn)):0;
+  S($('kick'),ko,`translateX(${(1-ko)*-24}px)`);
+  // posição do kicker: no gancho acima do texto; na noite abaixo do chip
+  $('kick').style.top=(t<TB+0.2?226:226)+'px';
+  if(t>TB+0.2){$('kick').style.top='420px'}}
+
+ /* ---------- C · PERGUNTAS DA NOITE ---------- */
+ {const on=t>TC-0.05&&t<TD+0.8;$('nts').style.display=on?'block':'none';
+  const T=[wt(3,'pergunta')-0.15,wt(3,'sem')+0.05,wt(3,'é')-0.05];
+  [0,1,2].forEach(k=>{const v=spSnap((t-T[k])*1000);
+   // saem para a direita, uma a uma, em "procurar outro empreendimento"
+   const ox=eIn(P(t,wt(3,'outro')+0.12+k*0.12,0.38,lin));
+   const op=k==0?1-P(t,TD-0.15,0.2,eIn):1;
+   S($('n'+k),cl(v*1.5)*(1-ox)*op,`translate(${ox*700}px,${(1-cl(v))*-50}px) scale(${0.94+0.06*cl(v)})`)});
+  const sv=spPop((t-wt(3,'resposta')-0.2)*1000);const so=cl(sv)*(1-P(t,OUT,0.3,eIn));
+  S($('sil'),so,`scale(${0.85+0.15*cl(sv)})`)}
+
+ /* ---------- D · LEADIMOB ATENDE ---------- */
+ {const v=spSoft((t-TD)*1000);const out=eIO3(P(t,TD2,0.5,lin));
+  const vis=t>TD&&t<TD2+0.55;
+  S($('chat'),vis?cl(v*1.4)*(1-P(t,TD2+0.05,0.3,eIn)):0,`translateY(${(1-cl(v))*220-out*120}px) scale(${lerp(0.94,1,cl(v))})`);
+  // logo entra na fala "Leadimob"
+  const lv=spPop((t-wt(4,'leadimob')+0.12)*1000);
+  const lm=eIO3(P(t,TF,0.6,lin));
+  if(t<TF)S($('lgA'),t>TD?cl(lv):0,`translateY(${(1-cl(lv))*24}px) scale(${0.92+0.08*cl(lv)})`);
+  else{const f=P(t,TF+0.25,0.35,eOut);S($('lgA'),f,`translate(18px,${(1040-196)+(1-f)*24}px) scale(${560/300})`)}
+  // a pergunta da Ana (a mesma da noite) chega na conversa
+  const q1=spSnap((t-TD-0.25)*1000);S($('q1'),cl(q1*1.5),`translateY(${(1-cl(q1))*40}px)`);
+  // digitando… e a resposta com o empreendimento
+  const r0=wt(4,'atende')-0.1,r1=wt(4,'cada')+0.05;S($('ty'),t>r0&&t<r1?1:0);
+  $('ty').querySelectorAll('.dt').forEach((d,i)=>d.style.opacity=0.35+0.65*Math.max(0,Math.sin(t*10-i*0.9)));
+  const av=spSnap((t-r1)*1000);S($('a1'),cl(av*1.5),`translateY(${(1-cl(av))*40}px)`);
+  A1.forEach((w,i)=>{$('aw'+i).style.opacity=t>r1+0.04+i*0.03?1:0});
+  const cx=wt(4,'qual')-0.05;const hv=P(t,cx,0.4,eOut);
+  A1.forEach((w,i)=>{if(w[1]){const e=$('aw'+i);e.style.color=hv>0.02?'#A5F3FC':'#E9EDEF';e.style.background=`rgba(34,211,238,${0.16*hv})`}});
+  const og=$('org');og.style.color=hv>0.02?'#A5F3FC':'#C9D2E0';og.style.borderColor=`rgba(34,211,238,${0.16+0.54*hv})`;og.style.background=`rgba(34,211,238,${0.03+0.08*hv})`;
+  og.style.transform=`scale(${1+0.05*Math.max(0,Math.sin(Math.PI*cl((t-cx)/0.35)))})`;og.style.transformOrigin='0 50%';
+  const q2v=spSnap((t-wt(4,'ele')+0.1)*1000);S($('q2'),cl(q2v*1.5),`translateY(${(1-cl(q2v))*40-300}px)`)}
+
+ /* ---------- D2 · FICHA ---------- */
+ {const v=spSoft((t-TD2-0.2)*1000);const out=P(t,TE,0.3,eIn);
+  S($('fi'),t>TD2+0.15&&t<TE+0.4?cl(v*1.4)*(1-out):0,`translateY(${(1-cl(v))*160-out*60}px) scale(${1-0.08*out})`);
+  const R=[TD2+0.4,wt(5,'perfil')-0.05,wt(5,'perfil')+0.25];
+  [0,1,2].forEach(k=>{const a=R[k];const rv=spSnap((t-a)*1000);const e=$('r'+k);S(e,t>TD2?cl(rv*1.5):0,`translateY(${(1-cl(rv))*24}px)`);
+   const ok=e.querySelector('.ok');const on=t>a+0.25;ok.style.background=on?'rgba(255,255,255,.9)':'transparent';ok.style.borderColor=on?'rgba(255,255,255,.9)':'rgba(255,255,255,.22)';
+   ok.innerHTML=on?'<svg width="26" height="26" viewBox="0 0 30 30"><path d="M7 15.5 L13 21 L23 9" fill="none" stroke="#0A0E14" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>':''});
+  const a3=wt(5,'visita')-0.1;const r3=spSnap((t-a3)*1000);S($('r3'),t>TD2?cl(r3*1.5):0,`translateY(${(1-cl(r3))*24}px)`);
+  const ag=wt(5,'agendada')-0.08;const gv=spPop((t-ag)*1000);$('r3bg').style.opacity=cl(gv);$('r3bg').style.transform=`scale(${0.97+0.03*cl(gv)})`;
+  $('r3t').style.color=t>ag?'#FFFFFF':'#6B7686';S($('r3p'),cl(gv),`translateX(${(1-cl(gv))*20}px)`)}
+
+ /* ---------- E · PAINEL POR EMPREENDIMENTO ---------- */
+ {const v=spSoft((t-TE-0.15)*1000);const out=P(t,TF-0.4,0.25,eIn);
+  S($('pn'),t>TE+0.1?cl(v*1.4)*(1-out):0,`translateY(${(1-cl(v))*160-out*60}px) scale(${lerp(0.96,1,cl(v))-0.06*out})`);
+  const a=spPop((t-TE-0.55)*1000);$('kA').style.transform=`translateY(${(1-cl(a))*-50}px)`;$('kA').style.opacity=cl(a*1.5);
+  $('kA').style.boxShadow=`0 0 0 ${2*cl(a)}px rgba(52,211,153,.35)`;
+  // troca de empreendimento na fala "empreendimento"
+  const sw=eIO3(P(t,wt(6,'empreendimento')-0.1,0.45,lin));
+  const W=[0,0,0];['tb0','tb1','tb2'].forEach((id,i)=>{});
+  const x0=$('tb0').offsetLeft,w0=$('tb0').offsetWidth,x1=$('tb1').offsetLeft,w1=$('tb1').offsetWidth;
+  $('tbU').style.left=lerp(x0,x1,sw)+'px';$('tbU').style.width=lerp(w0,w1,sw)+'px';
+  $('tb0').style.color=sw<0.5?'#FFFFFF':'#6B7686';$('tb1').style.color=sw>=0.5?'#FFFFFF':'#6B7686';
+  $('pg0').style.opacity=1-cl(sw*2);$('pg0').style.transform=`translateX(${-60*sw}px)`;
+  $('pg1').style.opacity=cl(sw*2-1);$('pg1').style.transform=`translateX(${60*(1-sw)}px)`}
+
+ /* ---------- F · CTA ---------- */
+ {const on=t>TF-0.1;S($('cta'),on?1:0);
+  const kv=sp((t-TF+0.05)*1000);S($('ctaK'),cl(kv),`translateY(${(1-kv)*30}px)`);
+  const tv=sp((t-wt(7,'link')+0.1)*1000);S($('ctaT'),cl(tv),`translateY(${(1-tv)*24}px)`);
+  $('ctaL').style.transform=`scaleX(${P(t,TF+0.4,0.7,eIO)})`;
+  const lv=spPop((t-TF-1.4)*1000);S($('lid'),cl(lv)*0.95,`translateY(${(1-lv)*40+Math.sin(t*2)*5}px) rotate(${(1-lv)*10}deg)`)}
+ captions(t);
+};
+window.ready=document.fonts.ready.then(()=>{render(0);return END});
+</script></body></html>
