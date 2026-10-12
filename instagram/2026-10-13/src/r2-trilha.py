@@ -2,17 +2,17 @@
 Arranjo próprio (diferente de 100 Láb, Sib, 96 Ré M, 108 Mi m, 84 Mib M dos R2 anteriores): marimba em FM (síntese de 2 operadores),
 pad suave, sub-baixo, shaker, rimshot e um relógio de verdade (tique-taque) que vira o metrônomo da espera.
 Arco: o espelho se monta (uma nota de marimba subindo por andar) -> a 1204 acende (sino) e a pergunta chega (pop) -> órbita (sopro que
-atravessa da esquerda para a direita) -> "E espera.": a banda sai, fica o pad em Ré menor e o tique-taque; no time-lapse os tiques aceleram
-e somem -> âmbar: duas notas graves abafadas -> "Quem espera, compara.": dois golpes graves -> troca de foco (swell invertido)
+atravessa da esquerda para a direita) -> "A noite toda.": a banda sai, fica o pad em Ré menor e o tique-taque; no time-lapse os tiques aceleram
+e somem, "toda." cai às 09:00 -> âmbar: duas notas graves abafadas -> "Quem espera, compara.": dois golpes graves -> troca de foco (swell invertido)
 -> prática: entra o groove (Fá-Dó-Rém-Sib), cada passo do card é um acorde que sobe; a visita (verde) resolve em Fá com sino
--> CTA: teclas, envio, logo. SFX presos aos tempos do index.html."""
+-> o card vira a resposta enviada na conversa da 1204 (dois pops) -> CTA: teclas, envio, logo. SFX presos aos tempos do index.html."""
 import numpy as np
 from scipy.signal import butter, sosfilt, fftconvolve
 from scipy.io import wavfile
-SR=48000; END=21.6; N=int((END+0.5)*SR); TT=np.arange(N)/SR
+SR=48000; END=21.3; N=int((END+0.5)*SR); TT=np.arange(N)/SR
 rng=np.random.default_rng(1310)
 B=60/90; E16=B/4
-T=dict(rows=-0.3,lit=1.15,aq=1.55,o1=3.0,o2=3.85,b1=3.74,ck=3.84,tl=4.45,tlE=6.05,bp=4.75,bOut=6.95,b4=7.14,b5=7.4,b6=7.75,rf=9.75,c1=10.05,pln=10.4,dsp=11.3,st2=12.95,st3=15.0,cOut=17.05,f1=17.32,f2=17.5,typ=17.8,send=18.45,sub=18.75,logo=19.4,sheen=20.2)
+T=dict(rows=-1.0,lit=0.3,aq=0.45,o1=2.1,o2=2.95,b1=2.74,ck=2.94,tl=3.55,tlE=5.15,b2=5.13,bp=3.85,bOut=6.35,b4=6.47,b5=6.78,b6=7.15,rf=9.55,c1=9.67,pln=10.1,dsp=11.0,st2=12.65,st3=14.7,cOut=16.75,f1=17.3,f2=17.45,typ=17.75,send=18.4,sub=18.7,logo=19.35,sheen=20.15)   # espelho do index.html (rodada 3)
 def lp(x,f): return sosfilt(butter(2,f,'low',fs=SR,output='sos'),x)
 def hp(x,f): return sosfilt(butter(2,f,'high',fs=SR,output='sos'),x)
 def bp(x,a,b): return sosfilt(butter(2,[a,b],'band',fs=SR,output='sos'),x)
@@ -74,16 +74,17 @@ def swell(d,g=1.0):   # "reverso": ruído + acorde que crescem até o corte
 # ---------- harmonia ----------
 CH={'F':(41,[60,65,69,72]),'Am':(45,[60,64,69,72]),'Bb':(46,[62,65,70,74]),'C':(48,[60,64,67,72]),'Dm':(50,[62,65,69,74]),'Gm':(43,[62,67,70,74])}
 # ---------- A · gancho: o espelho se monta ----------
-for a,b,c in [(0,1.33,'F'),(1.33,2.67,'Am'),(2.67,3.9,'Bb')]: st(pad(CH[c][1],b-a+0.6,1,1100),a,.05)
-for i,m in enumerate([60,62,65,67,69,72,74]):   # um andar = uma nota
-    st(marimba(m,0.9,0.8),T['rows']+i*0.12+0.1,.11,(-.3+.1*i))
-for k in range(int(3.0/E16)):
+H1,H2=T['o1']/3,2*T['o1']/3   # o gancho agora dura até a órbita em 2,1 s
+for a,b,c in [(0,H1,'F'),(H1,H2,'Am'),(H2,T['o2']+0.05,'Bb')]: st(pad(CH[c][1],b-a+0.6,1,1100),a,.05)
+for i,m in enumerate([60,62,65,67,69,72,74]):   # um andar = uma nota (o espelho já está montado no quadro 0: arpejo rápido de abertura)
+    st(marimba(m,0.9,0.8),i*0.04,.11,(-.3+.1*i))
+for k in range(int(T['o1']/E16)):
     t=k*E16;pos=k%16
     if pos in (0,10): st(kick(),t,.28)
     if pos%2==0: st(shaker(),t,.012*(1 if pos%4 else .6),.25)
     if pos in (4,12): st(rim(),t,.05,-.15)
-    if pos%4==0: st(sub(CH['F' if t<1.33 else 'Am' if t<2.67 else 'Bb'][0]-12+12,0.5),t,.16)
-    if t>1.4 and pos%4==2: st(marimba([72,76,77,81][(k//4)%4],0.6,0.6),t,.05,.3)
+    if pos%4==0: st(sub(CH['F' if t<H1 else 'Am' if t<H2 else 'Bb'][0]-12+12,0.5),t,.16)
+    if t>T['aq'] and pos%4==2: st(marimba([72,76,77,81][(k//4)%4],0.6,0.6),t,.05,.3)
 st(bell([84,88],1,3),T['lit']+0.02,.06,.3);st(thud(1,80),T['lit'],.08)
 st(pop(1,700),T['aq'],.09,.35);st(pop(1,940),T['aq']+0.07,.05,.35)
 # ---------- órbita ----------
@@ -102,7 +103,7 @@ for j in range(1,600):
     tt=T['tl']+(T['tlE']-T['tl'])*j/600;m=int(eio3((tt-T['tl'])/(T['tlE']-T['tl']))*68)   # um tique a cada 10 min
     if m>prev: ts.append(tt);prev=m
 for j,tq in enumerate(ts): st(clock(1,2600+200*(j%2)),tq,.035,(-.2,.2)[j%2])
-st(thud(1,48),T['tlE']+0.02,.12)
+st(thud(1,48),T['tlE']+0.02,.12);st(marimba(50,1.6,0.9),T['b2'],.08,-.1)   # "TODA." cai quando o relógio chega às 09:00
 t=T['tlE']+0.5;i=0
 while t<T['bOut']: st(clock(1,2600 if i%2==0 else 2100),t,.045,(-.2,.2)[i%2]);t+=0.5;i+=1
 st(marimba(45,1.4,0.7),T['bp']+0.02,.12,-.2);st(marimba(44,1.4,0.7),T['bp']+0.36,.1,-.2)
@@ -141,7 +142,8 @@ st(whoosh(0.3,600,3200,1),T['st2']-0.25,.05);st(thud(1,64),T['st2'],.12);st(bell
 st(whoosh(0.3,600,3200,1),T['st3']-0.25,.05);st(thud(1,68),T['st3'],.12)
 st(bell([77,81,84,89],1,2.4),T['st3']+0.38,.07,.2);st(pop(1,900),T['st3']+0.36,.07,.2)
 # ---------- D · CTA ----------
-st(whoosh(0.45,3500,300,1,False),T['cOut'],.08);st(thud(1,56),T['f1'],.14)
+st(whoosh(0.45,3500,300,1,False),T['cOut'],.08);st(pop(1,700),T['cOut']+0.22,.07,-.3);st(pop(1,940),T['cOut']+0.4,.08,.3);st(pop(1,1180),T['cOut']+0.47,.04,.3)   # pergunta e resposta na conversa
+st(thud(1,56),T['f1'],.14)
 st(pad(CH['F'][1]+[77],END-T['f1']+0.2,1,1700),T['f1'],.09);st(sub(41,2.5,1),T['f1'],.14)
 for k in range(int(np.ceil(T['f1']/E16)),int((END-0.6)/E16)):
     t=k*E16;pos=k%16
