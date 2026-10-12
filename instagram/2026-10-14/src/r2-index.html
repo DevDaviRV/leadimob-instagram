@@ -1,0 +1,280 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<!-- Leadimob · Reel 2 (14/10) · "Pergunta fácil vence mensagem longa." · tipográfico em espaço 3D
+     Motor e sistema visual do modelo aprovado (r2 de 03/10): mundo three.js (poeira, chão de pontos, brilho de ambiente, bokeh)
+     + DOM projetado com matrix3d pela mesma câmera, springs, palavras fantasma em contorno, logo em cartão claro.
+     Estrutura própria: a TIPOGRAFIA é o artefato. Gancho tipográfico (peso: PERGUNTA FÁCIL grande × MENSAGEM LONGA miúda)
+     -> recuo com desfoque -> o parágrafo longo se escreve linha a linha (5 perguntas acendem) -> o parágrafo se apaga palavra a palavra,
+     de fora para dentro, até sobrar "2 ou 3 quartos" -> essas palavras voam e crescem até virar a pergunta -> resposta de uma palavra em verde
+     -> varredura da linha de luz (apaga e escreve) -> tese -> fade com escala -> CTA (Comente FÁCIL) e logo. -->
+<style>
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:900;src:url(node_modules/@fontsource/inter/files/inter-latin-900-normal.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0A0E14}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0A0E14;color:#fff;font-family:IN;font-feature-settings:"tnum" 1}
+#c,#fg{position:absolute;left:0;top:0;width:1080px;height:1920px}#fg{z-index:2}#vg{z-index:3}#ln{z-index:4}
+.abs{position:absolute}
+.pl{position:absolute;left:0;top:0;transform-origin:0 0;white-space:nowrap;visibility:hidden;backface-visibility:visible}
+.m{display:inline-block;overflow:hidden;vertical-align:top;padding:.16em .04em .26em 0;margin:-.16em 0 -.26em}
+.m>span{display:inline-block}
+.gap{margin-right:.22em}
+.cap{word-spacing:.16em}
+.kick{font:600 40px/1 IN;letter-spacing:.14em;color:#8A94A6}
+.pill{display:inline-flex;align-items:center;gap:18px;padding:22px 36px;border-radius:999px;font:700 46px/1 IN;letter-spacing:-.01em;background:rgba(20,27,40,.92);border:2px solid rgba(255,255,255,.14);color:#E6EBF2;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#bP{width:856px;white-space:normal;font:500 44px/1.38 IN;letter-spacing:-.012em;color:#8792A4}
+#bP .w{display:inline-block;will-change:transform}
+.sv{display:inline-block;line-height:1}
+.ghost{font:900 400px/1 IN;-webkit-text-stroke:4px rgba(125,211,252,.14);color:transparent;letter-spacing:.03em}
+</style>
+<script src="node_modules/motion/dist/motion.js"></script>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js"}}</script>
+</head><body><div id="st">
+<canvas id="c" width="1080" height="1920"></canvas>
+<div id="pls" class="abs" style="left:0;top:0;width:1080px;height:1920px;z-index:1;isolation:isolate">
+
+<!-- A · GANCHO: o peso das palavras -->
+<div id="a1" class="pl q" style="font:900 172px/1 IN;letter-spacing:-.05em"><span class="m"><span id="a1a">PERGUNTA</span></span></div>
+<div id="a2" class="pl q" style="font:900 172px/1 IN;letter-spacing:-.05em;color:#7DD3FC;text-shadow:0 0 60px rgba(34,211,238,.38)"><span class="m"><span id="a2a">FÁCIL</span></span></div>
+<div id="a3" class="pl q" style="font:700 92px/1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m"><span id="a3a">vence</span></span></div>
+<div id="a4" class="pl q cap" style="font:800 64px/1 IN;letter-spacing:.02em;color:#7C8799"><span class="m"><span id="a4a">MENSAGEM LONGA.</span></span></div>
+<div id="gA" class="pl ghost">FÁCIL</div>
+
+<!-- B · A MENSAGEM LONGA -->
+<div id="bT" class="pl q" style="font:800 84px/1.1 IN;letter-spacing:-.035em"><span class="m"><span id="bTa">Mensagem longa:</span></span></div>
+<div id="bB" class="pl" style="width:936px;border-radius:38px;border-top-right-radius:10px;background:#141B28;border:2px solid rgba(255,255,255,.11);box-shadow:0 34px 80px rgba(0,0,0,.55)"><div id="bk" style="position:absolute;right:30px;bottom:20px;font:600 30px/1 IN;color:#8696A0;letter-spacing:-.12em">✓✓</div></div>
+<div id="bP" class="pl q"></div>
+<div id="bp" class="pl pill q"><span style="width:20px;height:20px;border-radius:50%;background:#F59E0B;flex:none"></span>5 perguntas de uma vez</div>
+<div id="gB" class="pl ghost">LONGA</div>
+
+<!-- C · A PERGUNTA FÁCIL -->
+<div id="gc" class="abs" style="left:0;top:0;width:1080px;height:1920px;isolation:isolate">
+<div id="cK" class="pl kick q">PERGUNTA FÁCIL</div>
+<div id="c1" class="pl q" style="font:800 128px/1 IN;letter-spacing:-.035em;color:#C9D2E0"><span class="m" style="padding-bottom:.06em;margin-bottom:-.06em"><span id="c1a">Procura</span></span></div>
+<div id="c2" class="pl q" style="font:800 128px/1 IN;letter-spacing:-.035em;color:#fff"><span id="c2s" class="sv">2 ou 3 quartos</span><span id="c2q" style="display:inline-block">?</span></div>
+<div id="cK2" class="pl kick q">RESPOSTA</div>
+<div id="c3" class="pl q" style="font:900 236px/1 IN;letter-spacing:-.05em;color:#34D399"><span class="m"><span id="c3a">Três.</span></span></div>
+<div id="gC" class="pl ghost">FÁCIL</div>
+
+</div>
+<!-- D · TESE -->
+<div id="gd" class="abs" style="left:0;top:0;width:1080px;height:1920px;isolation:isolate">
+<div id="d1" class="pl q" style="font:900 150px/1 IN;letter-spacing:-.05em">Resposta</div>
+<div id="d2" class="pl q" style="font:900 150px/1 IN;letter-spacing:-.05em">curta abre</div>
+<div id="d3" class="pl q" style="font:900 150px/1 IN;letter-spacing:-.05em;color:#7DD3FC;text-shadow:0 0 60px rgba(34,211,238,.38)">conversa.</div>
+<div id="d4" class="pl q" style="font:700 60px/1.25 IN;letter-spacing:-.025em;color:#C9D2E0;white-space:normal;width:900px">Uma pergunta por vez.<br>Fácil de responder.</div>
+
+</div>
+<!-- E · CTA -->
+<div id="f1" class="pl q" style="font:900 190px/1 IN;letter-spacing:-.055em"><span class="m"><span id="f1a">Comente</span></span></div>
+<div id="f2" class="pl q" style="width:916px;height:184px;border-radius:92px;background:linear-gradient(180deg,#18212F,#111823);border:2.5px solid rgba(125,211,252,.5);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 70px rgba(37,99,235,.22);display:flex;align-items:center;padding:0 28px 0 50px;gap:6px;font:900 86px/1 IN;letter-spacing:.005em">
+ <span id="typ"></span><span id="car" style="width:6px;height:90px;background:#7DD3FC;border-radius:3px"></span>
+ <span id="send" style="margin-left:auto;width:128px;height:128px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;flex:none"><svg width="62" height="62" viewBox="0 0 24 24"><path d="M3 12 L21 3 L14 21 L11 13 Z" fill="#fff"/></svg></span>
+</div>
+<div id="f3" class="pl q" style="font:700 66px/1.1 IN;letter-spacing:-.03em;color:#C9D2E0"><span class="m gap"><span id="f3a">e conte a</span></span><span class="m"><span id="f3b">sua</span></span></div>
+<div id="f4" class="pl q" style="font:800 66px/1.1 IN;letter-spacing:-.03em;color:#fff"><span class="m gap"><span id="f4a">primeira</span></span><span class="m"><span id="f4b">mensagem.</span></span></div>
+<div id="f5" class="pl" style="width:560px;height:170px;border-radius:38px;background:linear-gradient(180deg,#fff,#EAF1F8);box-shadow:0 34px 90px rgba(0,0,0,.6),0 0 90px rgba(37,99,235,.28);display:flex;align-items:center;justify-content:center;overflow:hidden"><div id="f5s" style="position:absolute;left:0;top:0;width:220px;height:170px;background:linear-gradient(100deg,rgba(37,99,235,0),rgba(37,99,235,.28),rgba(37,99,235,0))"></div><img src="logo.png" style="width:456px;display:block"></div>
+<div id="gF" class="pl ghost" style="font-size:330px">FÁCIL</div>
+</div>
+
+<canvas id="fg" width="540" height="960"></canvas>
+<div id="vg" class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 50%,rgba(0,0,0,.62) 100%)"></div>
+<!-- linha de luz da varredura (linha da jornada em pé) -->
+<div id="ln" class="abs" style="left:0;top:300px;width:8px;height:1320px;visibility:hidden;border-radius:4px;background:linear-gradient(180deg,rgba(125,211,252,0),#BFE9FF 18%,#BFE9FF 82%,rgba(125,211,252,0));box-shadow:0 0 26px rgba(34,211,238,.85),0 0 70px rgba(37,99,235,.5)"></div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+await Promise.all(['500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)));
+await new Promise(r=>{const i=document.querySelector('#f5 img');if(i.complete)r();else i.onload=i.onerror=r});
+const W=1080,H=1920;
+const T={a:0,a3:0.62,a4:0.86,aOut:2.98,b:3.26,bLines:3.34,qq:4.95,pill:5.35,bOut:7.0,er:7.12,erE:8.15,fly:7.98,land:8.5,cK:8.46,c1:8.54,cq:8.68,cK2:9.5,ans:9.65,wA:11.9,wD:0.56,dOut:15.36,f:15.54,typ:15.9,send:16.7,sub:16.96,logo:17.6,end:20.0};
+window.DURATION=T.end;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const lin=x=>cl(x),eOut=x=>1-Math.pow(1-cl(x),4),eOut3=x=>1-Math.pow(1-cl(x),3),eIn=x=>Math.pow(cl(x),3),eIn2=x=>cl(x)*cl(x),eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2},eIO2=x=>{x=cl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2},eS=x=>{x=cl(x);return x*x*(3-2*x)};
+const P=(t,a,d,e=eOut)=>e((t-a)/d);const $=id=>document.getElementById(id);const lerp=(a,b,k)=>a+(b-a)*k;
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+const {spring}=window.Motion;
+const mkSp=(k=190,d=17)=>{const s=spring({keyframes:[0,1],stiffness:k,damping:d,mass:1});return ms=>ms<=0?0:s.next(ms).value};
+const sp=mkSp(300,20),spSoft=mkSp(130,17),spSnap=mkSp(420,24),spPop=mkSp(300,13),spFly=mkSp(150,17);
+const up=(id,t,a)=>{const v=sp((t-a)*1000);const s=$(id).style;s.transform=`translateY(${(1-v)*150}%)`;s.opacity=v>0.012?1:0};
+const dn=(id,k)=>{const s=$(id).style;s.transform=`translateY(${-k*150}%)`;if(k>0.98)s.opacity=0};
+
+/* ---------- parágrafo: palavras em spans ---------- */
+const PAR='Olá! Aqui é o Rafael, corretor. Vi que você se interessou pelo residencial e separei as informações: temos plantas de §2 ou 3 quartos§, lazer completo, varanda gourmet e vaga coberta. Qual é a sua renda? Vai usar FGTS? Pretende financiar? Qual bairro prefere? Para quando seria a mudança? Fico à disposição!';
+{const el=$('bP');const parts=PAR.split('§');let html='';let qi=-1;
+ const sent=s=>{// marca as frases interrogativas
+  return s.split(/(?<=[.!?:])\s+/).map(f=>{const isQ=/\?$/.test(f.trim())&&!/Olá/.test(f);if(isQ)qi++;return f.split(/\s+/).filter(Boolean).map(w=>`<span class="w${isQ?' qq':''}"${isQ?` data-q="${qi}"`:''}>${w}</span>`).join(' ')}).join(' ')};
+ html=sent(parts[0])+' <span class="w sv" id="sv">'+parts[1]+'</span>'+sent(parts[2]);el.innerHTML=html+'<span id="svf" class="sv" style="position:absolute;left:0;top:0;font-weight:800;letter-spacing:-.035em;color:#fff;transform-origin:0 0;opacity:0">'+parts[1]+'</span>'}
+
+/* ================= MUNDO ================= */
+const r=new THREE.WebGLRenderer({canvas:$('c'),antialias:true,preserveDrawingBuffer:true});
+r.setPixelRatio(1);r.setSize(W,H,false);r.setClearColor(0x0A0E14,1);
+const scene=new THREE.Scene();scene.fog=new THREE.Fog(0x0A0E14,3200,12500);
+const FOV=38,D0=H/2/Math.tan(FOV*Math.PI/360);
+const cam=new THREE.PerspectiveCamera(FOV,W/H,8,60000);
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const station=(x,y,z,ry)=>{const o=new THREE.Object3D();o.position.set(x,y,z);o.rotation.y=ry;scene.add(o);o.updateMatrixWorld(true);return o};
+const SA=station(0,0,0,0);
+const LW=(st,x,y,z)=>st.localToWorld(V(x,y,z));
+const scr=(sx,sy,z=0)=>{const k=(D0-z)/D0;return [(sx-540)*k,(960-sy)*k,z]};
+const softTex=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(.5,'rgba(255,255,255,.3)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(cv)})();
+const mkSprite=(tex,col,sz)=>{const s=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,color:col,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false,fog:false}));s.scale.set(sz,sz,1);scene.add(s);return s};
+// brilho de ambiente (azul ≤ 10% da tela) e um brilho verde só para a resposta
+const amb=[[-160,120,-900],[220,-260,-1100]].map(([x,y,z])=>{const s=mkSprite(softTex,0x2563EB,3000);s.position.copy(LW(SA,x,y,z));s.material.depthTest=true;s.material.opacity=.2;return s});
+const gG=mkSprite(softTex,0x34D399,900);gG.position.copy(LW(SA,...scr(420,1110,-200)));gG.scale.set(1300,620,1);gG.material.opacity=0;
+// poeira com profundidade
+const NP=2600,dPos=new Float32Array(NP*3),dSz=new Float32Array(NP),dPh=new Float32Array(NP);
+for(let i=0;i<NP;i++){const a=rnd(i+50)*6.283,rad=260+Math.pow(rnd(i+90),.7)*2300;const z=lerp(3400,-1600,rnd(i+5));dPos[i*3]=Math.cos(a)*rad;dPos[i*3+1]=Math.sin(a)*rad*1.25;dPos[i*3+2]=z+(rnd(i+130)-.5)*900;dSz[i]=4+rnd(i+170)*9;dPh[i]=rnd(i+210)*6.283}
+const dG=new THREE.BufferGeometry();dG.setAttribute('position',new THREE.BufferAttribute(dPos,3));dG.setAttribute('size',new THREE.BufferAttribute(dSz,1));dG.setAttribute('ph',new THREE.BufferAttribute(dPh,1));
+const dM=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uT:{value:0},uK:{value:D0}},
+ vertexShader:`attribute float size;attribute float ph;uniform float uT;uniform float uK;varying float vA;void main(){vec3 p=position;p.y+=sin(uT*0.6+ph)*26.0;p.x+=cos(uT*0.45+ph*1.7)*22.0;vec4 mv=modelViewMatrix*vec4(p,1.0);float d=-mv.z;float s=size*uK/d;float big=clamp(s/26.0,0.0,1.0);gl_PointSize=min(s,120.0);vA=(0.75-0.6*big)*smoothstep(9500.0,3000.0,d)*smoothstep(40.0,260.0,d)*(0.7+0.3*sin(uT*1.7+ph*3.0));gl_Position=projectionMatrix*mv;}`,
+ fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.25,d);gl_FragColor=vec4(vec3(0.62,0.86,1.0)*a,a*vA);}`});
+const dust=new THREE.Points(dG,dM);dust.frustumCulled=false;scene.add(dust);
+// chão de pontos (horizonte e profundidade na metade de baixo)
+{const fp=[];for(let x=-2860;x<=2860;x+=130)for(let z=-4400;z<=2000;z+=130){const p=LW(SA,x,-820,z);fp.push(p.x,p.y,p.z)}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(fp,3));
+ const m=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uK:{value:D0}},
+  vertexShader:`uniform float uK;varying float vA;void main(){vec4 mv=modelViewMatrix*vec4(position,1.0);float d=-mv.z;gl_PointSize=clamp(10.0*uK/d,2.0,24.0);vA=0.95*smoothstep(7600.0,2600.0,d)*smoothstep(200.0,800.0,d);gl_Position=projectionMatrix*mv;}`,
+  fragmentShader:`varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.35,d);gl_FragColor=vec4(vec3(0.33,0.62,0.98)*a,a*vA);}`});
+ const f=new THREE.Points(g,m);f.frustumCulled=false;scene.add(f)}
+
+/* ================= PLANOS DOM projetados pela câmera ================= */
+const PLN={};const _m=new THREE.Matrix4(),_q=new THREE.Quaternion(),_e=new THREE.Euler(),_p=new THREE.Vector3(),_s=new THREE.Vector3(),_v=new THREE.Vector3(),_v2=new THREE.Vector3(),VP=new THREE.Matrix4();
+function pl(id,st,left,top,z=0,o={}){const el=$(id);const w=el.offsetWidth,h=el.offsetHeight;const k=(D0-z)/D0;if(o.cx!==undefined)left=o.cx-w/2;if(o.right!==undefined)left=o.right-w;if(o.cy!==undefined)top=o.cy-h/2;
+ const p={el,st,w,h,k,x:(left+w/2-540)*k,y:(960-top-h/2)*k,z,rz:o.rz||0,vis:-1,left,top};PLN[id]=p;return p}
+function put(id,o,a){const p=PLN[id],el=p.el;if(!(o>0.004)){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ a=a||{};const s=(a.s??1)*p.k;_e.set(a.rx||0,a.ry||0,(a.rz||0)+p.rz,a.ord||'XYZ');_q.setFromEuler(_e);_p.set(p.x+(a.dx||0),p.y+(a.dy||0),p.z+(a.dz||0));
+ if(a.pv||a.ph){_v.set((a.ph||0)*p.k,(a.pv||0)*p.k,0);_v2.set(_v.x*(a.s??1)*(a.sx??1),_v.y*(a.s??1)*(a.sy??1),0).applyQuaternion(_q);_p.add(_v).sub(_v2)}
+ _s.set(s*(a.sx??1),s*(a.sy??1),1);_m.compose(_p,_q,_s).premultiply(p.st.matrixWorld);
+ _v.setFromMatrixPosition(_m);const dist=_v.distanceTo(cam.position);_m.premultiply(VP);const e=_m.elements,w=p.w,h=p.h;
+ if(e[15]<60){if(p.vis!==0){el.style.visibility='hidden';p.vis=0}return}
+ const n=1/e[15];const c0=[e[0],e[1],e[3]],c1=[-e[4],-e[5],-e[7]],c3=[e[12]-e[0]*w/2+e[4]*h/2,e[13]-e[1]*w/2+e[5]*h/2,e[15]-e[3]*w/2+e[7]*h/2];
+ const PX=c=>(c[0]+c[2])*W/2*n,PY=c=>(c[2]-c[1])*H/2*n;
+ el.style.transform=`matrix3d(${PX(c0)},${PY(c0)},0,${c0[2]*n},${PX(c1)},${PY(c1)},0,${c1[2]*n},0,0,1,0,${PX(c3)},${PY(c3)},0,${c3[2]*n})`;
+ el.style.opacity=o>0.996?1:o;el.style.zIndex=Math.max(1,30000-Math.round(dist));if(p.vis!==1){el.style.visibility='visible';p.vis=1}}
+const blur=(id,b)=>{$(id).style.filter=b>0.05?`blur(${b.toFixed(2)}px)`:'none'};
+
+const L0=88;
+// A (bloco 640–1186)
+pl('a1',SA,L0,640,0);pl('a2',SA,L0,818,0);pl('a3',SA,L0+6,1010,0);pl('a4',SA,L0+4,1122,0);pl('gA',SA,0,0,-1300,{cx:600,cy:1640});
+// B (bloco 486–1360)
+{const h=$('bP').offsetHeight;$('bB').style.height=(h+36+70)+'px'}
+pl('bT',SA,L0,470,0);pl('bB',SA,L0-16,560,-2);pl('bP',SA,L0+24,596,0);pl('gB',SA,0,0,-1300,{cx:560,cy:1660});
+pl('bp',SA,L0,560+PLN.bB.h+40,0);
+// C (bloco 560–1236)
+pl('cK',SA,L0+4,540,0);pl('c1',SA,L0,606,0);pl('c2',SA,L0,756,0);pl('cK2',SA,L0+4,968,0);pl('c3',SA,L0-8,1032,0);pl('gC',SA,0,0,-1300,{cx:640,cy:1660});
+// D (bloco 520–1250)
+pl('d1',SA,L0,540,0);pl('d2',SA,L0,700,0);pl('d3',SA,L0,860,0);pl('d4',SA,L0+4,1078,0);
+// E (bloco 470–1370)
+pl('f1',SA,L0-6,470,0);pl('f2',SA,L0-6,712,0);pl('f3',SA,L0,966,0);pl('f4',SA,L0,1048,0);pl('f5',SA,L0-6,1196,0);pl('gF',SA,0,0,-1300,{cx:820,cy:1650});
+
+/* palavras do parágrafo: linha, posição e ordem de saída (de fora para dentro, até o sobrevivente) */
+const WD=[...$('bP').querySelectorAll('.w')].map(el=>({el,x:el.offsetLeft+el.offsetWidth/2,y:el.offsetTop+el.offsetHeight/2,top:el.offsetTop,q:el.dataset.q!==undefined?+el.dataset.q:-1,sv:el.id==='sv'}));
+{const tops=[...new Set(WD.map(w=>w.top))].sort((a,b)=>a-b);WD.forEach(w=>w.line=tops.indexOf(w.top));
+ const lineN={};WD.forEach(w=>{w.col=(lineN[w.line]=(lineN[w.line]||0)+1)-1});
+ const S=WD.find(w=>w.sv);const others=WD.filter(w=>!w.sv);others.forEach(w=>w.d=Math.hypot((w.x-S.x)*0.7,(w.y-S.y)*1.6)+rnd(w.x+w.y)*90);
+ const sorted=[...others].sort((a,b)=>b.d-a.d);sorted.forEach((w,i)=>w.er=T.er+(T.erE-T.er-0.16)*Math.pow(i/(sorted.length-1),0.85))}
+const SV=WD.find(w=>w.sv);
+// alvo do voo: o mesmo texto na pergunta grande (mesmo plano z=0, coordenadas locais 1:1)
+const SC=128/44;
+{const f=$('svf');f.style.left=SV.el.offsetLeft+'px';f.style.top=SV.el.offsetTop+'px'}
+const FLY={dx:(PLN.c2.left+$('c2s').offsetLeft)-(PLN.bP.left+SV.el.offsetLeft),dy:(PLN.c2.top+$('c2s').offsetTop)-(PLN.bP.top+SV.el.offsetTop)};
+
+/* ================= CÂMERA ================= */
+const K=[];const key=(t,p,l=[0,0,0],e=lin)=>K.push({t,p:LW(SA,...p),l:LW(SA,...l),e});
+key(0,[150,-70,D0+340]);
+key(0.62,[60,-24,D0+160],[0,0,0],eOut3);
+key(T.aOut,[12,-6,D0+70]);
+key(T.b+0.1,[-90,50,D0+430],[0,10,0],eIO2);       // recuo com desfoque
+key(T.bOut,[50,0,D0+250],[0,0,0],eS);             // push lento + deriva (paralaxe)
+key(T.land,[-60,-10,D0+90],[0,0,0],eIO2);          // aproxima enquanto o parágrafo se comprime
+key(T.wA,[40,0,D0-20],[0,0,0],eS);                 // push lento na pergunta (~4%)
+key(T.wA+T.wD,[60,0,D0+40],[0,0,0],eIO2);
+key(T.dOut,[-30,-10,D0-10],[0,0,0],eS);
+key(T.f+0.1,[-60,-40,D0+300],[0,0,0],eIO2);
+key(T.end,[0,0,D0+90],[0,0,0],eS);
+function camAt(t){let i=0;for(let j=0;j<K.length;j++)if(K[j].t<=t)i=j;if(i>=K.length-1)return K[K.length-1];const a=K[i],b=K[i+1];const dt=b.t-a.t;const k=dt<=0?1:b.e((t-a.t)/dt);return {p:a.p.clone().lerp(b.p,k),l:a.l.clone().lerp(b.l,k)}}
+// bokeh de primeiro plano
+const FG=[];for(let j=0;j<9;j++){const i=j*7+3;FG.push({p:LW(SA,(rnd(i+3)-.5)*2200,(rnd(i+33)-.5)*3200,900+rnd(i+63)*1300),r:26+rnd(i+93)*40,a:.05+rnd(i+123)*.06,ph:rnd(i+153)*6.28})}
+const fgc=$('fg').getContext('2d');const fgSpr=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(125,211,252,.8)');gr.addColorStop(.55,'rgba(80,160,245,.55)');gr.addColorStop(1,'rgba(80,160,245,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return cv})();
+
+/* ================= RENDER ================= */
+const WORD='FÁCIL';
+const GREY=[135,146,164],QL=[226,232,240],WH=[255,255,255];const rgb=(a,b,k)=>`rgb(${a.map((v,i)=>Math.round(lerp(v,b[i],k))).join(',')})`;
+window.render=function(t){
+ const cp=camAt(t);cam.position.copy(cp.p);cam.position.x+=Math.sin(t*0.9)*10+Math.sin(t*2.3+1)*3;cam.position.y+=Math.sin(t*1.25+1)*8;
+ cam.up.set(0,1,0);cam.lookAt(cp.l);cam.updateMatrixWorld();VP.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse);
+ dM.uniforms.uT.value=t;
+ amb.forEach((s,i)=>s.material.opacity=.19+.035*Math.sin(t*0.8+i));
+ gG.material.opacity=.26*P(t,T.ans+0.05,0.5)*(1-P(t,T.wA,0.3,eIn2));
+ r.render(scene,cam);
+
+ /* ---------- A · GANCHO ---------- */
+ {const out=P(t,T.aOut,0.3,eIn2),on=t<T.aOut+0.32;const ex={s:1-0.1*out,dz:-out*300};
+  up('a1a',t,-0.36);up('a2a',t,-0.2);up('a3a',t,T.a3);up('a4a',t,T.a4);
+  const pv=spPop((t-0.02)*1000);
+  put('a1',on?1-out:0,ex);put('a2',on?1-out:0,{s:(1-0.1*out)*(1+0.05*(1-cl(pv))),dz:-out*300,pv:-PLN.a2.h/2,ph:-PLN.a2.w/2});
+  put('a3',on&&t>T.a3-0.02?1-out:0,ex);
+  // "MENSAGEM LONGA." se alonga devagar (a forma diz o que a palavra diz)
+  $('a4').style.letterSpacing=(0.02+0.07*P(t,T.a4+0.3,2.0,eIO2))+'em';
+  put('a4',on&&t>T.a4-0.02?(1-out):0,ex);
+  ['a1','a2','a3','a4'].forEach(id=>blur(id,12*out));
+  put('gA',t<T.aOut+0.3?P(t,0.05,0.6)*(1-out):0,{dx:-40*t})}
+
+ /* ---------- B · A MENSAGEM LONGA ---------- */
+ {const on=t>T.b-0.02&&t<T.land;
+  up('bTa',t,T.b);const tOut=P(t,T.bOut,0.2,eIn2);if(tOut>0)dn('bTa',tOut);put('bT',on&&t<T.bOut+0.22?1:0);
+  // palavras: entram por linha, as perguntas acendem, depois saem de fora para dentro
+  if(on){for(const w of WD){const s=w.el.style;const a=T.bLines+w.line*0.012+w.col*0.002;const iv=P(t,a,0.15,eOut3);
+    let op=iv,dy=(1-iv)*8,sc=1,bl=0,dx=0,col=GREY;
+    if(w.q>=0){const lk=P(t,T.qq+w.q*0.1,0.25,eIO2);col=GREY.map((v,i)=>lerp(v,QL[i],lk))}
+    if(w.sv){col=GREY.map((v,i)=>lerp(v,WH[i],P(t,T.er-0.1,0.4,eIO2)))}
+    else if(t>w.er){const k=P(t,w.er,0.17,eIn2);op*=1-k;sc=1-0.35*k;bl=5*k;dx=(SV.x-w.x)*0.12*k;dy+=(SV.y-w.y)*0.12*k}
+    let tr=`translate(${dx.toFixed(1)}px,${dy.toFixed(1)}px) scale(${sc.toFixed(3)})`;
+    if(w.sv&&t>T.fly)op*=1-P(t,T.fly,0.1,lin);
+    s.transform=tr;s.opacity=op<0.004?0:op;s.filter=bl>0.05?`blur(${bl.toFixed(1)}px)`:'none';s.color=rgb(col,col,0)}}
+  {const f=$('svf').style;const k=P(t,T.fly,T.land-T.fly,eIO);f.opacity=t>T.fly&&t<T.land?P(t,T.fly,0.1,lin):0;f.transform=`translate(${(FLY.dx*k).toFixed(1)}px,${(FLY.dy*k).toFixed(1)}px) scale(${lerp(1,SC,k).toFixed(4)})`}
+  {const v=spPop((t-T.b-0.06)*1000),eo=P(t,T.er+0.1,0.8,eIO2);put('bB',on&&t>T.b-0.04?cl(v*2.5)*(1-eo):0,{s:(0.9+0.1*cl(v,0,1.2))*(1-0.05*eo),pv:-PLN.bB.h/2,ph:PLN.bB.w/2,dz:(1-cl(v))*-200})}
+  put('bP',on?1:0);
+  const pv=spSnap((t-T.pill)*1000),po=P(t,T.bOut,0.2,eIn2);put('bp',on&&t>T.pill&&t<T.bOut+0.22?cl(pv*3)*(1-po):0,{dy:-(1-pv)*26+po*40});
+  put('gB',t>T.b&&t<T.land?P(t,T.b,0.6)*(1-P(t,T.erE-0.2,0.4,eIn2)):0,{dx:-40*(t-T.b)})}
+
+ /* ---------- C · A PERGUNTA FÁCIL ---------- */
+ {const on=t>=T.land&&t<T.wA+T.wD;
+  // troca invisível: o sobrevivente (peso 500) passa para a pergunta (peso 800) no mesmo lugar, numa troca curta
+  const sw=t>=T.land?1:0;
+  put('c2',on?sw:0);$('c2q').style.opacity=t>T.cq?1:0;$('c2q').style.transform=`translateY(${(1-spPop((t-T.cq)*1000))*-30}px) scale(${0.6+0.4*cl(spPop((t-T.cq)*1000),0,1.2)})`;
+  const kv=P(t,T.cK,0.3);put('cK',on&&t>T.cK?kv:0,{dx:-(1-kv)*30});
+  up('c1a',t,T.c1);put('c1',on&&t>T.c1-0.02?1:0);
+  const k2=P(t,T.cK2,0.3);put('cK2',on&&t>T.cK2?k2:0,{dx:-(1-k2)*30});
+  up('c3a',t,T.ans);const av=spPop((t-T.ans)*1000);put('c3',on&&t>T.ans-0.02?1:0,{s:1+0.06*(1-cl(av)),pv:-PLN.c3.h/2,ph:-PLN.c3.w/2});
+  put('gC',t>T.land&&t<T.wA+T.wD?P(t,T.land,0.6):0,{dx:-40*(t-T.land)})}
+
+ /* ---------- VARREDURA: uma passada da linha de luz; à esquerda já é D, à direita ainda é C ---------- */
+ {const ln=$('ln').style,gc=$('gc').style,gd=$('gd').style;const k=cl((t-T.wA)/T.wD);const F=130;const x=lerp(-90,1170,lerp(k,eS(k),0.5));
+  if(t>=T.wA&&t<T.wA+T.wD){gc.webkitMaskImage=gc.maskImage=`linear-gradient(90deg,transparent ${x}px,#000 ${x+F}px)`;gc.opacity=1-0.6*eS(k);gd.webkitMaskImage=gd.maskImage=`linear-gradient(90deg,#000 ${x-F}px,transparent ${x}px)`;ln.visibility='visible';ln.left=(x-4)+'px';ln.opacity=Math.min(1,Math.sin(Math.PI*k)*2.5)}
+  else{gc.webkitMaskImage=gc.maskImage=gd.webkitMaskImage=gd.maskImage='none';gc.opacity=1;ln.visibility='hidden'}}
+
+ /* ---------- D · TESE ---------- */
+ {const on=t>=T.wA&&t<T.dOut+0.2;const o=P(t,T.dOut,0.18,eIn2);const ex={s:1-0.06*o,dz:-o*200,dy:-o*170};
+  ['d1','d2','d3','d4'].forEach((id,i)=>{put(id,on?1-o:0,Object.assign({dx:(1-P(t,T.wA+0.1+i*0.08,0.7,eOut3))*-20},ex))})}
+
+ /* ---------- E · CTA ---------- */
+ {const fin=(id,a,extra)=>{const v=spFly((t-a)*1000);put(id,t>a?cl(v*2.2):0,Object.assign({rx:(1-v)*0.9,dz:(1-v)*-500,dy:(1-v)*-120},extra||{}))};
+  up('f1a',t,T.f);put('f1',t>T.f-0.02?1:0);fin('f2',T.f+0.16);
+  const n=Math.round(cl((t-T.typ)/0.55)*WORD.length);$('typ').textContent=WORD.slice(0,n);$('car').style.opacity=t>T.send?0:(n<WORD.length?(t>T.f+0.4?1:0):(Math.floor(t*3.3)%2?1:0));
+  const sv=spPop((t-T.send)*1000);$('send').style.transform=`scale(${t>T.send?0.8+0.2*sv+0.22*Math.max(0,1-Math.abs(sv-1)*5)*(t<T.send+0.3?1:0):1})`;$('send').style.background=t>T.send?'#22C55E':'#2563EB';$('send').style.boxShadow=t>T.send?`0 0 ${50*cl(sv)}px rgba(52,211,153,.75)`:'none';$('f5s').style.transform=`translateX(${lerp(-240,600,P(t,T.logo+0.9,0.6,eIO2))}px)`;
+  up('f3a',t,T.sub);up('f3b',t,T.sub+0.12);up('f4a',t,T.sub+0.26);up('f4b',t,T.sub+0.4);put('f3',t>T.sub-0.02?1:0);put('f4',t>T.sub+0.24?1:0);
+  fin('f5',T.logo,{s:1+0.015*Math.sin(t*1.5)});
+  put('gF',t>T.f+0.2?P(t,T.f+0.2,0.6):0,{dx:-60*(t-T.f)})}
+
+ /* bokeh */
+ {fgc.clearRect(0,0,540,960);for(const b of FG){_v.copy(b.p);_v.y+=Math.sin(t*0.5+b.ph)*40;const d=_v.distanceTo(cam.position);_v.project(cam);if(_v.z>1||_v.z<-1||d<160)continue;const rad=b.r*D0/d*0.5;if(rad>220)continue;const x=(_v.x+1)*270,y=(1-_v.y)*480;if(x<-rad||x>540+rad||y<-rad||y>960+rad)continue;fgc.globalAlpha=b.a*cl((d-160)/400);fgc.drawImage(fgSpr,x-rad,y-rad,rad*2,rad*2)}}
+};
+window.T=T;
+window.qa=t=>{render(t);const o=[];document.querySelectorAll('.q').forEach(el=>{if(el.style.visibility!=='visible'||+el.style.opacity<0.3)return;const b=el.getBoundingClientRect();const fs=parseFloat(getComputedStyle(el).fontSize)*b.height/el.offsetHeight;o.push([el.id,Math.round(b.left),Math.round(b.top),Math.round(b.right),Math.round(b.bottom),Math.round(fs)])});return o};
+window.ready=(async()=>{render(0);return T.end})();
+</script></body></html>
