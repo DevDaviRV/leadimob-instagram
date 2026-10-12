@@ -21,20 +21,20 @@
    "tipo": "conteudo",
    "kicker": "O PROBLEMA",
    "titulo": "Pergunta aberta devolve o trabalho ao cliente.",
-   "sub": "Ele teria que explicar tudo. E deixa para depois."
+   "sub": "Ele teria de explicar tudo. Então deixa para depois."
   },
   {
    "tipo": "conteudo",
-   "kicker": "A REGRA",
+   "kicker": "A FÓRMULA",
    "titulo": "Cite o imóvel. Faça uma pergunta fácil.",
    "sub": "Comece pelo imóvel que ele viu.",
-   "corpo": "Antes: Olá, tudo bem? Como posso ajudar?\nDepois: Oi, Ana! Vi que você se interessou pela casa com quintal no Campo Belo. Quer ver as fotos do quintal?"
+   "corpo": "Oi, Ana! Vi que você se interessou pela casa com quintal no Campo Belo. Quer ver as fotos do quintal?\nImóvel citado: Casa com quintal · Campo Belo"
   },
   {
    "tipo": "conteudo",
    "kicker": "CASO 1 · ANÚNCIO",
    "titulo": "Veio do anúncio? Cite o anúncio.",
-   "sub": "Ele lembra do imóvel, não do seu nome.",
+   "sub": "Ele se lembra do imóvel, não do seu nome.",
    "corpo": "Oi, [nome]! Vi que você chamou pelo anúncio do sobrado da Vila Mariana. Quer ver o vídeo por dentro?"
   },
   {
@@ -49,7 +49,7 @@
    "kicker": "CASO 3 · INDICAÇÃO",
    "titulo": "Veio por indicação? Diga quem indicou.",
    "sub": "Um nome de confiança abre a porta.",
-   "corpo": "Oi, [nome]! O Carlos me passou seu contato. Você procura casa perto do trabalho? Qual bairro é melhor para você?"
+   "corpo": "Oi, [nome]! O Carlos me passou seu contato e contou que você procura casa perto do trabalho. Qual bairro é melhor para você?"
   },
   {
    "tipo": "conteudo",
@@ -73,14 +73,14 @@
   {
    "tipo": "conteudo",
    "kicker": "ONDE A LEADIMOB ENTRA",
-   "titulo": "A Leadimob abre a conversa pelo imóvel.",
-   "sub": "Responde a qualquer hora com o seu catálogo, qualifica o lead e chama você na hora de negociar."
+   "titulo": "A Leadimob responde já citando o imóvel.",
+   "sub": "Responde a qualquer hora com o seu catálogo e chama você na hora de negociar."
   },
   {
    "tipo": "cta",
    "kicker": "SUA VEZ",
-   "titulo": "Qual modelo você testa primeiro?",
-   "sub": "Conte qual no comentário: Comente ABERTURA. Solicite uma demonstração — link na bio."
+   "titulo": "Qual abertura você testa primeiro?",
+   "sub": "Comente ABERTURA + o número do caso (1 a 4). Solicite uma demonstração — link na bio."
   }
  ]
 }
