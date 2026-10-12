@@ -47,8 +47,8 @@ def pn(m,dur=1.6):
     if (m,dur) not in PN: PN[(m,dur)]=piano(m,dur)
     return PN[(m,dur)]
 BPM=88; beat=60/BPM; bar=4*beat
-FE=WF(1,'fecha'); TB=C[2]['start']-0.5; TC=C[3]['start']-0.15; TD=C[4]['start']-0.95
-TD2=C[5]['start']-0.45; TE=C[6]['start']-0.45; TF=C[7]['start']-0.4
+FE=WF(1,'fecha'); TB=C[2]['start']-0.5; TC=C[3]['start']-0.15; TD=C[4]['start']-0.8
+TD2=C[5]['start']-0.3; TE=C[6]['start']-0.45; TF=C[7]['start']-0.4
 T0=TD-np.ceil(TD/bar)*bar       # tempo forte quando a Leadimob atende
 def sec(t):
     if t<FE: return 'hook'
@@ -176,7 +176,7 @@ sweep(TD2-0.1,0.5,900,3200,0.035)
 for k,x in enumerate([TD2+0.4,WF(5,'perfil')-0.05,WF(5,'perfil')+0.25]): pop(x+0.25,0.045,1000+k*140,0.4+0.1*k)
 ag=WF(5,'agendada')-0.08;pop(ag,0.07,1100,0.55);chime(ag+0.02,[69,72,77,81],0.026,1.4)
 # painel
-sweep(TE-0.1,0.5,900,3200,0.035);pop(TE+0.55,0.05,900,0.6)
+whoosh_side(TE-0.3,0.6,0.045,True);pop(TE+0.3,0.06,1000,0.65)
 whoosh_side(WF(6,'empreendimento')-0.1,0.45,0.045,False)
 # CTA
 sweep(TF-0.35,0.6,500,4200,0.045,'rise');impact(TF+0.05,0.18);chime(TF+0.5,[65,72,77,81],0.028,1.5);pop(TF+1.45,0.045,700,0.6)
