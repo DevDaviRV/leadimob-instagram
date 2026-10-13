@@ -14,7 +14,7 @@ from scipy.io import wavfile
 SR=48000; END=20.0; N=int((END+0.5)*SR); TT=np.arange(N)/SR
 rng=np.random.default_rng(1410)
 B=0.5; E16=B/4
-T=dict(a3=0.62,a4=0.86,aOut=2.98,b=3.26,bLines=3.34,qq=4.95,pill=5.35,bOut=7.0,er=7.12,erE=8.15,fly=7.98,land=8.5,cK=8.46,c1=8.54,cq=8.68,cK2=9.5,ans=9.65,wA=11.9,wD=0.56,dOut=15.36,f=15.54,typ=15.9,send=16.7,sub=16.96,logo=17.6)
+T=dict(a3=0.04,a4=0.16,peek=0.3,aOut=2.98,b=2.94,bIn=3.64,bLines=3.38,qq=4.95,pill=5.35,bOut=7.0,er=7.12,erE=8.15,fly=7.98,land=8.78,cK=8.74,c1=8.82,cq=8.96,cK2=9.78,ans=9.93,wA=11.9,wD=0.56,dOut=15.2,f=15.4,typ=15.9,send=16.7,sub=16.96,logo=17.6)
 def lp(x,f): return sosfilt(butter(2,f,'low',fs=SR,output='sos'),x)
 def hp(x,f): return sosfilt(butter(2,f,'high',fs=SR,output='sos'),x)
 def bp(x,a,b): return sosfilt(butter(2,[a,b],'band',fs=SR,output='sos'),x)
@@ -79,7 +79,7 @@ CH={'A':(45,[61,64,69,73]),'E':(40,[59,64,68,71]),'F#m':(42,[61,66,69,73]),'D':(
 
 # ---------- A · gancho (0–3.0): limpo e seguro ----------
 st(kick(),0.0,.34);st(bass(33,1.2,1),0.0,.2);st(ep(69,1.6,1),0.0,.07);st(ep(73,1.6,0.9),0.0,.05,.2)
-st(bell([81,85,88],1,2.4),0.18,.06,.25)                    # "FÁCIL" (ciano)
+st(bell([81,85,88],1,2.4),0.0,.06,.25)                     # "FÁCIL" (ciano)
 st(pad(CH['A'][1],1.6,1,1500),0,.05);st(pad(CH['E'][1],1.6,1,1500),1.5,.05)
 for k in range(int(2.9/E16)):
     t=k*E16;pos=k%16
@@ -89,9 +89,10 @@ for k in range(int(2.9/E16)):
     if pos%4==0: st(bass((45 if t<1.5 else 40)-12,0.45),t,.17)
     if pos%4==2: st(ep([76,73,69,73][(k//4)%4],0.5,0.5),t,.03,(.25,-.25)[(k//4)%2])
 st(thud(1,64),T['a3'],.1);st(ep(57,0.8,0.6),T['a3'],.05)
-st(lp(ep(45,1.2,0.6),500),T['a4'],.12,-.1)                # "MENSAGEM LONGA." pequeno e abafado
+st(lp(ep(45,1.2,0.6),500),T['a4'],.12,-.1)                # "MENSAGEM LONGA." abafado
+st(lp(whoosh(0.35,300,1400,1),1800),T['peek']-0.05,.03,.2);st(thud(1,56),T['peek']+0.12,.05)   # borda da bolha aparece por baixo
 # ---------- recuo com desfoque ----------
-w=whoosh(0.5,3500,300,1,False);st(w,T['aOut']-0.1,.09);st(thud(1,48),T['b'],.18)
+w=whoosh(0.5,3500,300,1,False);st(w,T['aOut']-0.1,.09);st(thud(1,48),T['bIn']-0.1,.18)
 # ---------- B · a mensagem longa: textura que entope ----------
 d=T['bOut']-T['b']+0.3
 st(pad(CH['F#m'][1],d,1,700),T['b'],.06);st(pad([30,42],d,1,300),T['b'],.12)
@@ -102,8 +103,8 @@ while t<T['bOut']:                                           # arpejo de fusas, 
     nt=cl_notes[(k*3+(k//5))%len(cl_notes)]+(12 if k%7==3 else 0)
     st(lp(ep(nt,0.3,0.4),1500+2500*r),t,.012+.02*r,np.sin(k*1.3)*.4)
     t+=B/8;k+=1
-st(pop(1,620),T['b']+0.06,.1,.3);st(whoosh(0.3,800,3600,1),T['b']-0.12,.05,.3);st(thud(1,70),T['b']+0.08,.08)   # a bolha é enviada inteira
-for i in range(3): st(tick(1,2600+300*i),T['b']+0.4+i*0.07,.02,.35)
+st(pop(1,620),T['bIn']-0.08,.1,.3);st(whoosh(T['bIn']-T['b'],800,3600,1),T['b'],.06,.3);st(thud(1,70),T['bIn']-0.06,.08)   # a bolha sobe e chega inteira
+for i in range(3): st(tick(1,2600+300*i),T['bLines']+0.1+i*0.07,.02,.35)
 for i in range(5): st(ep(64+[0,2,4,5,7][i]+12,0.6,0.7),T['qq']+i*0.1,.05,(-.3+.15*i))   # as 5 perguntas acendem
 st(ep(42,1.2,0.8),T['pill']+0.02,.09,-.2);st(ep(41,1.2,0.8),T['pill']+0.3,.08,-.2)        # ponto âmbar
 cl=pad([61,62,64,66,68,69],T['erE']-T['pill']+0.4,1,2400);nn=len(cl);cl*=np.linspace(0.2,1,nn)**2
