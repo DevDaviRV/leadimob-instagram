@@ -1,0 +1,343 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<!-- Leadimob R1 14/10/2026 — "Corretor, a sua primeira mensagem faz o cliente responder?" (modelo reel-narrado, motor DOM do R1 11/10) -->
+<style>
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2)}
+@font-face{font-family:IN;font-weight:500;src:url(node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2)}
+@font-face{font-family:IN;font-weight:600;src:url(node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2)}
+@font-face{font-family:IN;font-weight:700;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2)}
+@font-face{font-family:IN;font-weight:800;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2)}
+@font-face{font-family:IN;font-weight:400;src:url(node_modules/@fontsource/inter/files/inter-latin-ext-400-normal.woff2);unicode-range:U+0100-024F}
+:root{--bg:#0A0E14;--s1:#0F1520;--s2:#141B28;--ln:rgba(255,255,255,.10);--tx:#FFFFFF;--t2:#C9D2E0;--t3:#7C8799;--bl:#2563EB;--cy:#22D3EE;--cy2:#7DD3FC;--gr:#34D399;--am:#F59E0B}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg);color:var(--tx);font-family:IN;font-feature-settings:"tnum" 1}
+.abs{position:absolute}
+.cap{font:600 26px/1 IN;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding:.22em 0 .12em;margin:-.22em 0 -.12em}
+.wd>span{display:inline-block;will-change:transform}
+.big{font-weight:800;letter-spacing:-.045em;word-spacing:.16em}
+.lw{display:inline-block;margin-right:.24em}
+#cap .w{display:inline-block;margin-right:.25em;will-change:transform,opacity}
+.card{background:linear-gradient(180deg,rgba(20,27,40,.95),rgba(12,17,26,.95));border:1px solid rgba(125,211,252,.16);border-radius:30px;box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.02) inset}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:14px 24px;border-radius:999px;font:700 30px/1 IN;white-space:nowrap}
+.bub{border-radius:26px;padding:22px 30px 16px;font:500 40px/1.3 IN;position:relative;width:max-content}
+.bub.abs{position:absolute}
+.bin{background:#202C33;color:#E9EDEF;border-top-left-radius:8px}
+.bout{background:#005C4B;color:#E9EDEF;border-top-right-radius:8px}
+.bt{font:400 26px/1 IN;color:rgba(233,237,239,.62);text-align:right;margin-top:8px;display:flex;justify-content:flex-end;align-items:center;gap:8px}
+.tag{display:inline-flex;align-items:center;gap:14px;padding:14px 22px;border-radius:16px;border:1.5px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);font:600 36px/1 IN;color:var(--t2);white-space:nowrap}
+.fl{display:flex;align-items:center;gap:22px;height:96px;border-bottom:2px dashed rgba(201,210,224,.18);font:500 40px/1 IN;color:#8A94A6}
+.fl b{width:14px;height:14px;border-radius:50%;border:2px solid #5E6878;flex:none}
+.row{position:absolute;left:90px;width:900px;height:232px;padding:26px 30px;display:flex;align-items:center;gap:30px}
+.num{width:64px;height:64px;border-radius:50%;border:2px solid rgba(125,211,252,.5);color:var(--cy2);font:800 34px/60px IN;text-align:center;flex:none}
+.rt{font:800 56px/1.04 IN;letter-spacing:-.03em}
+.rs{font:500 38px/1.2 IN;color:var(--t2);margin-top:10px}
+.ck{position:absolute;left:30px;top:84px;width:64px;height:64px;border-radius:50%;background:#22D3EE;display:flex;align-items:center;justify-content:center}
+.ib{position:absolute;left:0;width:900px;height:196px;display:flex;align-items:center;gap:26px;padding:0 30px;border-top:1px solid var(--ln)}
+.av{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#1E3A8A,#0B5C73);font:800 38px/84px IN;text-align:center;color:#DBEAFE;flex:none}
+.pv{font:500 32px/1.28 IN;color:#AEB8C7;margin-top:10px;max-height:82px;overflow:hidden}
+.th{width:132px;height:132px;border-radius:20px;overflow:hidden;flex:none;position:relative;background:#13233A}
+</style>
+<script src="node_modules/motion/dist/motion.js"></script>
+</head><body><div id="st">
+<!-- atmosfera (mesma família do modelo) -->
+<div id="floor" class="abs" style="left:-1000px;top:1060px;width:3080px;height:2200px;transform-origin:50% 0;transform:perspective(1000px) rotateX(74deg);background:radial-gradient(circle,rgba(125,211,252,.55) 1.6px,rgba(125,211,252,0) 2.6px) 0 0/58px 58px;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 40%,#000 100%);opacity:.26"></div>
+<div id="glowA" class="abs" style="left:380px;top:-360px;width:1100px;height:1100px;background:radial-gradient(circle,rgba(37,99,235,.30) 0%,rgba(37,99,235,0) 62%)"></div>
+<div id="glowB" class="abs" style="left:-520px;top:1100px;width:1200px;height:1200px;background:radial-gradient(circle,rgba(34,211,238,.09) 0%,rgba(34,211,238,0) 60%)"></div>
+<div class="abs" style="inset:0;background:radial-gradient(ellipse at 50% 46%,transparent 55%,rgba(0,0,0,.55) 100%)"></div>
+
+<!-- kicker -->
+<div id="kick" class="abs" style="z-index:40;left:72px;top:226px;display:flex;align-items:center;gap:18px"><span style="width:44px;height:3px;background:#22D3EE;box-shadow:0 0 12px #22D3EE"></span><span id="kickT" class="cap" style="color:var(--cy2);font-size:36px;letter-spacing:.12em"></span></div>
+
+<!-- ============ A · GANCHO: a pergunta inteira acende com a voz ============ -->
+<div id="hook" class="abs big" style="z-index:30;left:72px;top:400px;width:960px;font-size:106px;line-height:1.02;transform-origin:0 50%"></div>
+
+<!-- ============ B · A MENSAGEM GENÉRICA (frente) / O TRABALHO DO CLIENTE (verso) ============ -->
+<div id="flip" class="abs" style="left:0;top:0;width:1080px;height:1920px;perspective:2200px;perspective-origin:540px 860px">
+ <div id="fr" class="abs" style="left:0;top:0;width:1080px;height:1920px;transform-origin:540px 860px">
+  <div id="gb" class="bub bout abs" style="right:90px;top:640px;font-size:66px;line-height:1.18;padding:34px 42px 22px;transform-origin:100% 100%">Olá, tudo bem?<br>Como posso ajudar?<div class="bt" style="font-size:32px">09:12<svg width="46" height="26" viewBox="0 0 34 20"><path id="gbTk" d="M2 11 L7 16 L17 4 M14 14 L16 16 L26 4" fill="none" stroke="#8696A0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  <div id="tg" class="abs" style="left:90px;top:1030px;width:900px;display:flex;justify-content:flex-end;gap:18px">
+   <span class="tag" id="tg0"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M6 6 L20 20 M20 6 L6 20" stroke="#7C8799" stroke-width="3.4" stroke-linecap="round"/></svg>Não cita o imóvel</span>
+   <span class="tag" id="tg1"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M6 6 L20 20 M20 6 L6 20" stroke="#7C8799" stroke-width="3.4" stroke-linecap="round"/></svg>Pergunta vaga</span>
+  </div>
+ </div>
+ <div id="bk" class="abs card" style="left:90px;top:500px;width:900px;height:720px;padding:40px 46px;transform-origin:450px 360px">
+  <div style="display:flex;align-items:center;gap:22px">
+   <div class="av">C</div>
+   <div><div style="font:800 46px/1 IN;letter-spacing:-.01em">O cliente</div><div style="font:500 36px/1 IN;color:var(--t3);margin-top:10px">teria de escrever:</div></div>
+  </div>
+  <div style="margin-top:34px">
+   <div class="fl" id="bf0"><b></b>Qual imóvel viu</div>
+   <div class="fl" id="bf1"><b></b>Para morar ou investir</div>
+   <div class="fl" id="bf2"><b></b>Quanto quer pagar</div>
+   <div class="fl" id="bf3"><b></b>Quando quer mudar</div>
+  </div>
+  <div id="amb" class="pill" style="margin-top:40px;font-size:36px;padding:12px 24px;background:rgba(245,158,11,.10);border:1.5px solid rgba(245,158,11,.65);color:#FCD34D"><span style="width:12px;height:12px;border-radius:50%;background:#F59E0B"></span>O trabalho é todo dele</div>
+ </div>
+</div>
+
+<!-- ============ C · OS DOIS INGREDIENTES ============ -->
+<div id="an" class="abs" style="left:0;top:0;width:1080px;height:1920px">
+ <div id="anT" class="abs big" style="left:72px;top:390px;width:960px;font-size:92px;line-height:1.02"></div>
+ <div id="r1" class="row card" style="top:700px">
+  <div class="num">1</div>
+  <div style="flex:1"><div class="rt">Cita o imóvel</div><div class="rs">que ele viu no anúncio</div></div>
+  <div style="width:150px"></div>
+  <div id="ck1" class="ck"><svg width="32" height="32" viewBox="0 0 30 30"><path d="M7 15.5 L13 21 L23 9" fill="none" stroke="#0A0E14" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ <div id="r2" class="row card" style="top:960px">
+  <div class="num">2</div>
+  <div style="flex:1"><div class="rt">Faz uma pergunta</div><div class="rs">fácil de responder</div></div>
+  <div id="ck2" class="ck"><svg width="32" height="32" viewBox="0 0 30 30"><path d="M7 15.5 L13 21 L23 9" fill="none" stroke="#0A0E14" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+</div>
+
+<!-- miniatura do imóvel: do ingrediente 1 para o cabeçalho da mensagem de exemplo -->
+<div id="thm" class="abs" style="z-index:12;left:780px;top:736px;width:160px;height:160px;border-radius:22px;overflow:hidden;transform-origin:0 0;box-shadow:0 14px 30px rgba(0,0,0,.45)">
+ <svg width="160" height="160" viewBox="0 0 160 160">
+  <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B3A63"/><stop offset="1" stop-color="#0F1F36"/></linearGradient></defs>
+  <rect width="160" height="160" fill="url(#sky)"/>
+  <rect x="18" y="70" width="38" height="90" fill="#16304F"/>
+  <rect x="52" y="26" width="64" height="134" fill="#21426B" stroke="rgba(125,211,252,.45)" stroke-width="1.5"/>
+  <rect x="112" y="58" width="34" height="102" fill="#183556"/>
+  <g fill="#7DD3FC" opacity=".85">
+   <rect x="60" y="36" width="12" height="9"/><rect x="78" y="36" width="12" height="9" opacity=".35"/><rect x="96" y="36" width="12" height="9"/>
+   <rect x="60" y="54" width="12" height="9" opacity=".35"/><rect x="78" y="54" width="12" height="9"/><rect x="96" y="54" width="12" height="9"/>
+   <rect x="60" y="72" width="12" height="9"/><rect x="78" y="72" width="12" height="9"/><rect x="96" y="72" width="12" height="9" opacity=".35"/>
+   <rect x="60" y="90" width="12" height="9" opacity=".35"/><rect x="78" y="90" width="12" height="9"/><rect x="96" y="90" width="12" height="9"/>
+   <rect x="60" y="108" width="12" height="9"/><rect x="78" y="108" width="12" height="9" opacity=".35"/><rect x="96" y="108" width="12" height="9"/>
+   <rect x="60" y="126" width="12" height="9"/><rect x="78" y="126" width="12" height="9"/><rect x="96" y="126" width="12" height="9" opacity=".35"/>
+  </g>
+  <g fill="#7DD3FC" opacity=".3"><rect x="25" y="82" width="9" height="7"/><rect x="40" y="82" width="9" height="7"/><rect x="25" y="100" width="9" height="7"/><rect x="40" y="118" width="9" height="7"/><rect x="119" y="72" width="9" height="7"/><rect x="132" y="90" width="9" height="7"/><rect x="119" y="108" width="9" height="7"/></g>
+  <rect x="0" y="148" width="160" height="12" fill="#0B1626"/>
+ </svg>
+</div>
+
+<!-- ============ D · O EXEMPLO ============ -->
+<div id="ex" class="abs" style="left:0;top:0;width:1080px;height:1920px;transform-origin:300px 1240px">
+ <div id="eb" class="bub bout abs" style="right:90px;top:480px;width:860px;padding:22px 26px 16px;font-size:46px;line-height:1.26">
+  <div id="eq" style="height:196px;border-radius:18px;background:rgba(0,0,0,.22);border-left:6px solid #7DD3FC;display:flex;align-items:center;gap:26px;padding:0 22px 0 196px">
+   <div><div style="font:700 36px/1.1 IN;color:#A5F3FC">Apartamento · 2 dorm.</div><div style="font:500 32px/1.2 IN;color:rgba(233,237,239,.72);margin-top:10px">Jardim América</div></div>
+  </div>
+  <div id="et" style="margin-top:22px;padding:0 6px"></div>
+  <div class="bt" style="font-size:30px">09:12<svg width="40" height="24" viewBox="0 0 34 20"><path id="ebTk" d="M2 11 L7 16 L17 4 M14 14 L16 16 L26 4" fill="none" stroke="#8696A0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ <div id="ty" class="abs" style="left:90px;top:1180px;background:#202C33;border-radius:20px;padding:24px 28px;display:flex;gap:10px"><span class="dt" style="width:14px;height:14px;border-radius:50%;background:#E9EDEF"></span><span class="dt" style="width:14px;height:14px;border-radius:50%;background:#E9EDEF"></span><span class="dt" style="width:14px;height:14px;border-radius:50%;background:#E9EDEF"></span></div>
+ <div id="er" class="bub bin abs" style="left:90px;top:1180px;font-size:52px;transform-origin:0 0">Para morar.<div class="bt" style="font-size:30px">09:13</div></div>
+</div>
+
+<!-- ============ E · A TESE: a mensagem genérica dá lugar à pergunta específica, no mesmo lugar ============ -->
+<div id="th6" class="abs big" style="left:72px;top:540px;width:960px;font-size:120px;line-height:1.04;transform-origin:50% 50%">
+ <div class="tl" style="overflow:hidden;height:1.04em;position:relative;margin-bottom:.08em"><span id="xa0" class="abs" style="left:0;top:0;white-space:nowrap"></span><span id="xb0" class="abs" style="left:0;top:0;white-space:nowrap"></span></div>
+ <div class="tl" style="overflow:hidden;height:1.04em;position:relative;margin-bottom:.08em"><span id="xa1" class="abs" style="left:0;top:0;white-space:nowrap"></span><span id="xb1" class="abs" style="left:0;top:0;white-space:nowrap"></span></div>
+ <div class="tl" style="overflow:hidden;height:1.04em;position:relative;margin-bottom:.08em"><span id="xa2" class="abs" style="left:0;top:0;white-space:nowrap"></span><span id="xb2" class="abs" style="left:0;top:0;white-space:nowrap"></span></div>
+</div>
+
+<!-- logo: âncora do produto ao CTA -->
+<div id="lgA" class="abs" style="z-index:20;left:72px;top:250px;width:300px;height:88px;border-radius:22px;background:linear-gradient(180deg,#FFFFFF,#EEF3F9);box-shadow:0 20px 40px rgba(0,0,0,.45);overflow:hidden;transform-origin:0 0"><img src="logo.png" style="position:absolute;left:27px;top:12px;width:246px;height:68px"></div>
+
+<!-- ============ F · LEADIMOB: toda conversa abre assim ============ -->
+<div id="ibx" class="abs card" style="left:90px;top:400px;width:900px;height:704px;overflow:hidden">
+ <div id="ibin" class="abs" style="inset:0">
+  <div style="position:absolute;left:30px;top:0;height:112px;display:flex;align-items:center;gap:16px;font:600 32px/1 IN;letter-spacing:.12em;text-transform:uppercase;color:var(--cy2)"><svg viewBox="0 0 80 95" style="width:28px;height:34px"><rect width="20" height="95" fill="#2563EB"/><polygon points="0,95 40,95 40,50" fill="#7DD3FC"/><polygon points="40,50 40,95 80,95" fill="#2563EB"/></svg>Primeiras mensagens</div>
+  <div id="i0" class="ib" style="top:112px"><div class="av">A</div><div style="flex:1;min-width:0"><div style="font:800 40px/1 IN">Ana</div><div class="pv">Vi que você se interessou pela <span class="hi">casa com quintal</span>. É para morar ou…</div></div><div class="th" id="t0"><img src="property.jpg" style="position:absolute;left:-46px;top:0;width:198px;height:132px;object-fit:cover"></div></div>
+  <div id="i1" class="ib" style="top:308px"><div class="av">B</div><div style="flex:1;min-width:0"><div style="font:800 40px/1 IN;display:flex;align-items:center;gap:16px">Bruno<span id="rp" class="pill" style="font-size:28px;padding:8px 16px;background:#0F2A22;border:1.5px solid #34D399;color:#A7F3D0">respondeu</span></div><div class="pv">Vi que você se interessou pelo <span class="hi">apê do Jardim América</span>. Para…</div></div><div class="th" id="t1"></div></div>
+  <div id="i2" class="ib" style="top:504px"><div class="av">C</div><div style="flex:1;min-width:0"><div style="font:800 40px/1 IN">Carla</div><div class="pv">Vi que você pediu o <span class="hi">sobrado da Vila Mariana</span>. Prefere visitar…</div></div><div class="th" id="t2"><img src="property.jpg" style="position:absolute;left:-120px;top:-4px;width:220px;height:146px;object-fit:cover;filter:hue-rotate(-12deg) saturate(.8)"></div></div>
+ </div>
+ <!-- o painel vira o comentário -->
+ <div id="cm" class="abs" style="inset:0;display:flex;align-items:center;gap:28px;padding:0 40px;opacity:0">
+  <div style="width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#1E3A8A,#0B5C73);flex:none"></div>
+  <div style="flex:1;min-width:0"><div style="font:600 36px/1 IN;color:var(--t3)">você comentou</div>
+   <div style="font:800 68px/1 IN;letter-spacing:-.02em;color:#7DD3FC;white-space:nowrap;margin-top:14px"><span id="typed"></span><span id="caret2" style="display:inline-block;width:4px;height:62px;background:#7DD3FC;vertical-align:-8px;margin-left:4px"></span></div></div>
+ </div>
+</div>
+
+<!-- ============ G · CTA ============ -->
+<div id="cta" class="abs" style="inset:0">
+ <div id="ctaK" class="abs big" style="left:90px;top:590px;width:900px;font-size:76px;line-height:1">COMENTE</div>
+ <div id="ctaT" class="abs" style="left:90px;top:1010px;width:900px;font:700 46px/1.3 IN;color:var(--t2)">e receba o checklist completo.</div>
+ <div class="abs" id="ctaL" style="left:90px;top:1120px;width:900px;height:2px;background:linear-gradient(90deg,rgba(34,211,238,.6),rgba(34,211,238,0));transform-origin:0 0"></div>
+ <img id="lid" src="lid.png" class="abs" style="left:870px;top:1170px;width:110px">
+ <div id="ctaD" class="abs" style="left:90px;top:1170px;width:900px;font:700 52px/1.25 IN;color:#fff">Solicite uma demonstração<div style="font:600 42px/1.3 IN;color:var(--cy2);margin-top:6px">link na bio</div></div>
+</div>
+<!-- LEGENDAS -->
+<div id="capBg" class="abs" style="z-index:55;left:0;top:1226px;width:1080px;height:620px;background:linear-gradient(180deg,rgba(10,14,20,0) 0%,rgba(10,14,20,.78) 26%,rgba(10,14,20,.9) 100%)"></div>
+<div id="cap" class="abs" style="z-index:60;left:72px;top:1316px;width:936px;font:700 54px/1.22 IN;letter-spacing:-.01em;text-shadow:0 4px 20px rgba(0,0,0,.8)"></div>
+</div>
+
+<script type="module">
+await Promise.all(['400 20px IN','500 20px IN','600 20px IN','700 20px IN','800 20px IN'].map(f=>document.fonts.load(f)));
+const TL=__TIMELINE__;const C={};TL.forEach(c=>C[c.i]=c);
+const END=C[8].end+1.9;window.DURATION=END;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const eOut=x=>1-Math.pow(1-cl(x),4), eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2}, eIn=x=>Math.pow(cl(x),3), lin=x=>cl(x);
+const eIO3=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const P=(t,a,d,e=eOut)=>e((t-a)/d);
+const $=id=>document.getElementById(id);
+const {spring}=window.Motion;
+const mkSp=(k=190,d=17)=>{const s=spring({keyframes:[0,1],stiffness:k,damping:d,mass:1});return ms=>ms<=0?0:s.next(ms).value};
+const sp=mkSp(), spSoft=mkSp(110,16), spSnap=mkSp(320,15), spPop=mkSp(260,11), spCalm=mkSp(240,22);
+const lerp=(a,b,k)=>a+(b-a)*k;
+const norm=s=>s.toLowerCase().replace(/["“”]/g,'');
+const wt=(ci,pre)=>{const w=C[ci].words.find(w=>norm(w.w).startsWith(pre));return w?w.t:C[ci].start};
+const S=(el,o,tr)=>{el.style.opacity=o;if(tr!==undefined)el.style.transform=tr;el.style.visibility=o>0.002?'visible':'hidden'};
+const tq=t=>Math.floor(t*30+0.125)/30;   // texto que muda no tempo: calculado do quadro, não do subquadro
+
+/* ---- âncoras ---- */
+const TA=C[2].start-0.3;            // gancho sai; a bolha genérica (já enviada, sem resposta) cresce e vira a heroína
+const TB=C[3].start-0.4;           // giro: a mensagem vira o trabalho do cliente
+const TC=C[4].start-0.42;           // passagem em profundidade para os dois ingredientes
+const TD=C[5].start-0.36;           // os ingredientes se juntam na mensagem de exemplo
+const RE=wt(5,'investir')+0.05;     // o cliente responde
+const TE=C[6].start-0.1;           // zoom pela resposta: a tese
+const TL7=wt(7,'leadimob')-0.3;     // o logo entra (ainda sobre a tese)
+const TF=wt(7,'abre')-0.15;         // produto
+const TG=C[8].start-0.42;           // o painel vira o comentário
+
+/* ---- construtores ---- */
+// palavras inteiras na tela desde o início, acendendo com a voz (gancho e tese falam a mesma língua)
+function lit(el,words,br){if(!el._b){el.innerHTML=words.map((w,i)=>`<span class="lw" id="${el.id}_${i}">${w.w}</span>`+(br.includes(i)?'<br>':'')).join('');el._b=1}
+ words.forEach((w,i)=>{const k=P(t0,w.t-0.04,0.22,eOut);const q=$(el.id+'_'+i).style;const base=w.c||'#FFFFFF';q.color=k>0.5?base:'#2B3546';q.opacity=1;
+  q.transform=`translateY(${(1-k)*8}px)`;if(k>0&&k<1)q.color=mix('#2B3546',base,k)})}
+let t0=0;
+const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const mix=(a,b,k)=>{const A=hex(a),B=hex(b);return `rgb(${A.map((v,i)=>Math.round(v+(B[i]-v)*k)).join(',')})`};
+function kin(el,words,t,br=[]){if(!el._b){el.innerHTML=words.map((w,i)=>`<span class="wd" style="margin-right:.2em"><span id="${el.id}_${i}">${w.w}</span></span>`+(br.includes(i)?'<br>':'')).join('');el._b=1}
+ words.forEach((w,i)=>{const v=sp((t-w.t+0.02)*1000);const q=$(el.id+'_'+i).style;q.transform=`translateY(${(1-v)*120}%)`;q.opacity=v>0.01?1:0})}
+
+// gancho
+const HW=['CORRETOR,','A','SUA','PRIMEIRA','MENSAGEM','FAZ','O','CLIENTE','RESPONDER?'].map((w,i)=>({w,t:C[1].words[i].t,c:i==0?'#7DD3FC':'#FFFFFF'}));
+// tese
+const XA=[['TROQUE A',[0,1]],['MENSAGEM',[2]],['GENÉRICA',[3]]], XB=[['POR UMA',[4,5]],['PERGUNTA',[6]],['ESPECÍFICA.',[7]]];
+XA.forEach((l,i)=>$('xa'+i).textContent=l[0]);XB.forEach((l,i)=>$('xb'+i).textContent=l[0]);
+// exemplo: palavra a palavra com a voz
+const EW=C[5].words.slice(2).map(w=>({w:w.w.replace(/[“”]/g,''),t:w.t}));
+$('et').innerHTML=EW.map((w,i)=>`<span id="ew${i}" style="display:inline-block;margin-right:.24em">${w.w}</span>`+(w.w.endsWith('apartamento.')?'<br>':'')).join('');
+const QI=EW.findIndex(w=>w.w==='É');
+// a miniatura do prédio vai para o cabeçalho da mensagem e para a caixa de entrada
+$('t1').appendChild($('thm').querySelector('svg').cloneNode(true));$('t1').querySelector('svg').setAttribute('width',132);$('t1').querySelector('svg').setAttribute('height',132);
+
+// legendas: a frase inteira acumula em até 3 linhas e fica parada até a próxima
+const KEY=new Set(['trabalho','imóvel','fácil','toda','conversa']);
+const CAPS=new Set([3,4,7]);
+let capKey=null;
+function captions(t){const e=$('cap');let cur=null;for(const c of TL){if(CAPS.has(c.i)&&t>=c.start-0.12&&t<c.end+0.55)cur=c}
+ if(!cur){e.style.opacity=0;$('capBg').style.opacity=0;return}
+ if(capKey!==cur.i){e.innerHTML=cur.words.map((w,i)=>`<span class="w" id="cw${i}">${w.w}</span>`).join('');capKey=cur.i}
+ const hardEnd={3:TC+0.05,4:TD+0.02,7:TG+0.02}[cur.i];
+ const o=P(t,cur.start-0.12,0.15)*(1-P(t,Math.min(cur.end+0.35,hardEnd-0.2),0.2,eIn));
+ e.style.opacity=o;$('capBg').style.opacity=o;
+ cur.words.forEach((w,i)=>{const v=spCalm((t-w.t+0.03)*1000);const s=$('cw'+i).style;const on=t>=w.t-0.03;s.opacity=on?cl(v*1.6):0;s.transform=`translateY(${(1-cl(v))*10}px)`;
+  const k=w.w.toLowerCase().replace(/[.,]/g,'');s.color=KEY.has(k)?'#7DD3FC':'#FFFFFF'})}
+
+/* ---------------- render ---------------- */
+window.render=function(t){
+ t0=t;
+ $('glowA').style.transform=`translate(${Math.sin(t*0.3)*40}px,${Math.cos(t*0.25)*30}px)`;
+ $('floor').style.backgroundPosition=`${t*-9}px ${t*42}px`;
+ const tf=tq(t);
+
+ /* ---------- kicker ---------- */
+ {const K=[[0,TA,'WhatsApp · primeira mensagem'],[TA+0.25,TC,'A mensagem genérica'],[TC+0.3,TD,'A boa primeira mensagem'],[TD+0.3,TE,'Por exemplo'],[TE+0.3,wt(6,'por')-0.1,'A troca'],[wt(6,'por')+0.2,TL7-0.02,'Em vez da mensagem genérica']];
+  let o=0,txt='';for(const [a,b,s] of K){if(t>=a&&t<b){txt=s;o=P(t,a,0.3)*(1-P(t,b-0.25,0.2,eIn))}}
+  if(t<0.3)o=1;
+  $('kickT').textContent=txt;S($('kick'),o,`translateX(${(1-o)*-20}px)`)}
+
+ /* ---------- A · GANCHO ---------- */
+ {const out=P(t,TA,0.4,eIn);
+  lit($('hook'),HW,[0,3,5,7]);
+  S($('hook'),1-out,`translateY(${-40*out}px) scale(${1+0.035*P(t,0,TA,lin)})`)}
+
+ /* ---------- B · MENSAGEM GENÉRICA (já enviada, sem resposta) → giro → o trabalho do cliente ---------- */
+ {const g=eIO(P(t,TB,1.0,lin));                      // giro de 180° (blocos com 12 subquadros)
+  const ang=g*180;
+  const fOn=ang<90, bOn=ang>=90;
+  S($('fr'),fOn?1:0,`rotateY(${ang}deg)`);
+  // no gancho a bolha está pequena embaixo; cresce para o centro quando a voz a cita
+  const gr=eIO3(P(t,TA,0.9,lin));const fl=Math.sin(t*1.3)*4*(1-gr);
+  $('gb').style.transform=`translateY(${lerp(330,0,gr)+fl}px) scale(${lerp(0.6,1,gr)})`;$('gb').style.opacity=1;
+  $('gbTk').setAttribute('stroke',t>TA+0.6?'#53BDEB':'#8696A0');
+  [0,1].forEach(i=>{const a=wt(2,'dificilmente')+0.05+i*0.5;const q=spPop((t-a)*1000);S($('tg'+i),cl(q*1.4),`scale(${0.86+0.14*cl(q)})`)});
+  // verso: cartão do cliente
+  const out=P(t,TC,0.45,eIO3);
+  S($('bk'),bOn&&t<TC+0.45?1-out:0,`rotateY(${ang-180}deg) scale(${1+0.12*out})`);
+  [0,1,2,3].forEach(i=>{const a=Math.max(wt(3,'devolve')+i*0.16,TB+0.75+i*0.1);const q=spCalm((t-a)*1000);S($('bf'+i),cl(q*1.5),`translateX(${(1-cl(q))*-24}px)`)});
+  const am=spPop((t-wt(3,'cliente')-0.05)*1000);S($('amb'),cl(am),`scale(${0.86+0.14*cl(am)})`)}
+
+ /* ---------- C · OS DOIS INGREDIENTES ---------- */
+ {const on=t>TC+0.12&&t<TD+0.1;$('an').style.display=on?'block':'none';
+  const inn=P(t,TC+0.12,0.45,eOut);const out=P(t,TD-0.3,0.25,eIn);
+  kin($('anT'),C[4].words.slice(0,4).map((w,i)=>({w:w.w.toUpperCase()+(i==3?':':''),t:Math.max(w.t-0.12,TC+0.2+i*0.07)})),t,[2]);
+  S($('anT'),1-out,`scale(${lerp(0.96,1,inn)})`);
+  [['r1',wt(4,'cita')-0.12,wt(4,'imóvel')+0.1,'ck1'],['r2',wt(4,'faz')-0.12,wt(4,'fácil')+0.05,'ck2']].forEach(([id,a,c,ck],j)=>{
+   const q=spCalm((t-a)*1000);S($(id),cl(q*1.5)*(1-out),`scale(${lerp(0.94,1,cl(q))-0.04*out})`);
+   const cv=spPop((t-c)*1000);S($(ck),cl(cv),`scale(${0.6+0.4*cl(cv)})`);
+   $(id).style.borderColor=t>c?'rgba(34,211,238,.55)':'rgba(125,211,252,.16)'})}
+
+ /* ---------- miniatura do prédio: ingrediente 1 → cabeçalho do exemplo ---------- */
+ {const a=wt(4,'cita')-0.12;const q=spCalm((t-a)*1000);
+  const m=eIO3(P(t,TD-0.1,0.8,lin));
+  // posição no ingrediente 1 (dentro do card) e no cabeçalho da bolha (eq)
+  const x0=780,y0=736,x1=1080-90-860+26+22,y1=480+22+18;const s1=160/160;
+  const x=lerp(x0,x1,m),y=lerp(y0,y1,m);
+  const lv=1-P(t,TE-0.12,0.16,eIO);
+  const on=t>a&&t<TE+0.35;
+  S($('thm'),on?cl(q*1.5)*lv:0,`translate(${x-x0}px,${y-y0}px) scale(${lerp(0.94,1,cl(q))*s1})`);
+  $('thm').style.boxShadow=`0 14px 30px rgba(0,0,0,${0.45*(1-m)})`}
+
+ /* ---------- D · O EXEMPLO ---------- */
+ {const on=t>TD-0.1&&t<TE+0.5;$('ex').style.display=on?'block':'none';
+  const v=spCalm((t-TD+0.05)*1000);$('eq').firstElementChild.style.opacity=P(t,TD+0.55,0.2,lin);
+  // zoom-through pela resposta do cliente para a tese
+  const z=eIO3(P(t,TE,0.5,lin));
+  $('ex').style.transform=`scale(${1+0.2*z})`;$('ex').style.opacity=1-P(t,TE-0.12,0.16,eIO);
+  S($('eb'),cl(v*1.5),`scale(${lerp(0.94,1,cl(v))})`);$('eb').style.transformOrigin='100% 0';
+  EW.forEach((w,i)=>{const e=$('ew'+i);const a=w.t-0.06;const on2=t>a;e.style.opacity=on2?cl((t-a)/0.12):0;
+   e.style.color=i>=QI?(on2?'#A5F3FC':'#E9EDEF'):'#E9EDEF';e.style.fontWeight=i>=QI?700:500});
+  $('ebTk').setAttribute('stroke',t>RE-0.5?'#53BDEB':'#8696A0');
+  const typing=t>RE-0.7&&t<RE;S($('ty'),typing?1:0);$('ty').querySelectorAll('.dt').forEach((d,i)=>d.style.opacity=0.35+0.65*Math.max(0,Math.sin(tf*10-i*0.9)));
+  const rv=spPop((t-RE)*1000);S($('er'),cl(rv*1.5),`scale(${0.8+0.2*cl(rv)})`)}
+
+ /* ---------- E · A TESE: troca no lugar ---------- */
+ {const on=t>TE+0.04&&t<TF+0.4;$('th6').style.display=on?'block':'none';
+  const inn=P(t,TE+0.04,0.42,eOut);const out=P(t,TF-0.1,0.32,eIn);
+  S($('th6'),inn*(1-out),`scale(${lerp(0.94,1,inn)*(1-0.04*out)})`);
+  const RB=wt(6,'por')-0.1;
+  XA.forEach((l,i)=>{const a=C[6].words[l[1][0]].t;const k=P(t,a-0.04,0.22,eOut);const e=$('xa'+i);
+   e.style.color=mix('#2B3546',i==2?'#C9D2E0':'#FFFFFF',k);
+   const r=P(t,RB+i*0.06,0.2,eIn);e.style.transform=`translateY(${-28*r}%)`;e.style.opacity=1-r});
+  XB.forEach((l,i)=>{const r=P(t,RB+0.21+i*0.06,0.3,eOut);const e=$('xb'+i);e.style.transform=`translateY(${28*(1-r)}%)`;e.style.opacity=r;
+   const a=C[6].words[l[1][0]].t;const k=P(t,a-0.04,0.25,eOut);e.style.color=mix('#C9D2E0',i==2?'#7DD3FC':'#FFFFFF',k)})}
+
+ /* ---------- F · LEADIMOB: a caixa de primeiras mensagens ---------- */
+ {const on=t>TF;
+  const lv=spPop((t-TL7)*1000);
+  S($('lgA'),t>TL7?cl(lv):0,`translate(0px,${(1-cl(lv))*20}px) scale(${0.92+0.08*cl(lv)})`);
+  const pv=spCalm((t-TF-0.12)*1000);
+  S($('ibx'),on?cl(pv*1.5):0,`scale(${lerp(0.95,1,cl(pv))})`);
+  [['i0','abre'],['i1','toda'],['i2','conversa']].forEach(([id,w],j)=>{const a=wt(7,w)-0.15;const q=spCalm((t-a)*1000);S($(id),cl(q*1.5),`translateY(${(1-cl(q))*20}px)`)});
+  // "o imóvel do anúncio": as miniaturas e os imóveis citados acendem
+  const im=wt(7,'imóvel')-0.08;
+  [0,1,2].forEach(k=>{const h=P(t,im+k*0.12,0.35,eOut);const e=$('t'+k);e.style.boxShadow=`0 0 0 ${3*h}px rgba(34,211,238,${0.9*h})`;
+   e.style.transform=`scale(${1+0.05*Math.max(0,Math.sin(Math.PI*cl((t-im-k*0.12)/0.35)))})`;
+   $('i'+k).querySelector('.hi').style.color=h>0.05?mix('#AEB8C7','#A5F3FC',h):'#AEB8C7'});
+  const rp=spPop((t-wt(7,'mãos')-0.1)*1000);S($('rp'),cl(rp),`scale(${0.8+0.2*cl(rp)})`);
+  // o painel vira o campo de comentário
+  const mo=eIO3(P(t,TG-0.1,0.6,lin));
+  $('ibx').style.top=lerp(400,710,mo)+'px';$('ibx').style.height=lerp(704,250,mo)+'px';
+  if(mo>0)$('ibx').style.borderColor=`rgba(125,211,252,${0.16+0.4*mo})`;
+  $('ibin').style.opacity=1-P(t,TG-0.02,0.2,eIn);
+  $('cm').style.opacity=P(t,TG+0.18,0.18,eOut)}
+
+ /* ---------- G · CTA ---------- */
+ {const a=TG+0.1;const on=t>a-0.05;S($('cta'),on?1:0);
+  const kv=sp((t-TG-0.12)*1000);S($('ctaK'),cl(kv),`translateY(${(1-kv)*30}px)`);
+  const w0=wt(8,'diagn'),ty=P(tf,w0-0.05,0.6,lin);const txt='DIAGNÓSTICO';$('typed').textContent=txt.slice(0,Math.round(ty*txt.length));$('caret2').style.opacity=(ty<1&&t>a)||(Math.floor(tf*3)%2&&t>a)?1:0;
+  const tv=sp((t-wt(8,'diagn')-0.5)*1000);S($('ctaT'),cl(tv),`translateY(${(1-tv)*24}px)`);
+  $('ctaL').style.transform=`scaleX(${P(t,wt(8,'receba'),0.6,eIO)})`;
+  const lv=spPop((t-TG-1.4)*1000);S($('lid'),cl(lv)*0.95,`translateY(${(1-lv)*30+Math.sin(t*2)*5}px)`);
+  const dv=sp((t-wt(8,'receba')-0.4)*1000);S($('ctaD'),cl(dv),`translateY(${(1-dv)*24}px)`)}
+ captions(t);
+};
+window.ready=document.fonts.ready.then(()=>{render(0);return END});
+</script></body></html>
