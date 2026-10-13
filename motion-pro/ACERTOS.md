@@ -75,3 +75,11 @@ Palavras dele sobre os carrosséis de 07/10 e 08/10: gostou do conteúdo e da pr
 - Legenda de reel narrado: não quebre a frase em duas páginas; acumule em 2–3 linhas e mantenha a frase completa ≥0,8s.
 - Só mostre na UI o que está na lista de funcionalidades do BRAND-MOTION. "Origem do anúncio" no atendimento e "painel por empreendimento" não estão lá: confirmar com o Davi antes de usar de novo.
 - `prepara_jpg.py` e as trilhas rodam com `/usr/bin/python3` (o `python3` padrão da sessão não tem PIL/numpy).
+
+## Rotina de 13/10 (aprendizados de processo)
+- Brilho (text-shadow) dentro de máscara com `overflow:hidden` é cortado num retângulo visível: use `filter: drop-shadow` no elemento de fora da máscara.
+- Não mostre forma vazia esperando conteúdo (bolha "espiando" sem texto, cartão sem texto): lê como placeholder. A forma entra já com o texto ou só entra quando o texto vier.
+- Bloco de texto aceso não viaja longe: deslocamento de no máximo ~120px + opacidade/escala; viagem longa só sem texto ou com 12 subquadros.
+- Troca de palavra no mesmo lugar (máscara por linha): a linha velha sai inteira (0,2s) antes de a nova entrar (0,3s) e há um vão de ~0,08em entre as máscaras; rolar as duas juntas vira amontoado.
+- `render_r1.sh` (em `instagram/2026-10-14/src/r1-render.sh`): render retomável por trechos com subquadros por trecho (12 nas viradas rápidas, 4 no resto). Mais barato que 12 em blocos inteiros.
+- A narração gravada de 14/10 diz "imóvel do anúncio": antes de usar origem do anúncio de novo, confirmar com o Davi (ver 12/10).
