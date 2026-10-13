@@ -280,7 +280,7 @@ window.render=function(t){
   // posição no ingrediente 1 (dentro do card) e no cabeçalho da bolha (eq)
   const x0=780,y0=736,x1=1080-90-860+26+22,y1=480+22+18;const s1=160/160;
   const x=lerp(x0,x1,m),y=lerp(y0,y1,m);
-  const lv=1-P(t,TE-0.12,0.16,eIO);
+  const lv=1-P(t,TE-0.16,0.2,eIO);
   const on=t>a&&t<TE+0.35;
   S($('thm'),on?cl(q*1.5)*lv:0,`translate(${x-x0}px,${y-y0}px) scale(${lerp(0.94,1,cl(q))*s1})`);
   $('thm').style.boxShadow=`0 14px 30px rgba(0,0,0,${0.45*(1-m)})`}
@@ -290,7 +290,7 @@ window.render=function(t){
   const v=spCalm((t-TD+0.05)*1000);$('eq').firstElementChild.style.opacity=P(t,TD+0.55,0.2,lin);
   // zoom-through pela resposta do cliente para a tese
   const z=eIO3(P(t,TE,0.5,lin));
-  $('ex').style.transform=`scale(${1+0.2*z})`;$('ex').style.opacity=1-P(t,TE-0.12,0.16,eIO);
+  $('ex').style.transform=`scale(${1+0.2*z})`;$('ex').style.opacity=1-P(t,TE-0.16,0.2,eIO);
   S($('eb'),cl(v*1.5),`scale(${lerp(0.94,1,cl(v))})`);$('eb').style.transformOrigin='100% 0';
   EW.forEach((w,i)=>{const e=$('ew'+i);const a=w.t-0.06;const on2=t>a;e.style.opacity=on2?cl((t-a)/0.12):0;
    e.style.color=i>=QI?(on2?'#A5F3FC':'#E9EDEF'):'#E9EDEF';e.style.fontWeight=i>=QI?700:500});
@@ -299,8 +299,8 @@ window.render=function(t){
   const rv=spPop((t-RE)*1000);S($('er'),cl(rv*1.5),`scale(${0.8+0.2*cl(rv)})`)}
 
  /* ---------- E · A TESE: troca no lugar ---------- */
- {const on=t>TE+0.04&&t<TF+0.4;$('th6').style.display=on?'block':'none';
-  const inn=P(t,TE+0.04,0.42,eOut);const out=P(t,TF-0.1,0.32,eIn);
+ {const on=t>TE-0.1&&t<TF+0.4;$('th6').style.display=on?'block':'none';
+  const inn=P(t,TE-0.1,0.4,eOut);const out=P(t,TF-0.1,0.32,eIn);
   S($('th6'),inn*(1-out),`scale(${lerp(0.94,1,inn)*(1-0.04*out)})`);
   const RB=wt(6,'por')-0.1;
   XA.forEach((l,i)=>{const a=C[6].words[l[1][0]].t;const k=P(t,a-0.04,0.22,eOut);const e=$('xa'+i);
