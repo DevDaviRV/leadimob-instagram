@@ -89,7 +89,7 @@ import * as THREE from 'three';
 await Promise.all(['500 20px IN','600 20px IN','700 20px IN','800 20px IN','900 20px IN'].map(f=>document.fonts.load(f)));
 await new Promise(r=>{const i=document.querySelector('#f5 img');if(i.complete)r();else i.onload=i.onerror=r});
 const W=1080,H=1920;
-const T={a:0,a3:0.04,a4:0.16,peek:0.3,aOut:2.98,b:2.94,bIn:3.64,bLines:3.38,qq:4.95,pill:5.35,bOut:7.0,er:7.12,erE:8.15,fly:7.98,land:8.78,cK:8.74,c1:8.82,cq:8.96,cK2:9.78,ans:9.93,wA:11.9,wD:0.56,dOut:15.2,f:15.4,typ:15.9,send:16.7,sub:16.96,logo:17.6,end:20.0};
+const T={a:0,a3:0.04,a4:0.16,peek:0.3,aOut:2.98,b:2.94,bIn:3.64,bLines:3.0,qq:4.95,pill:5.35,bOut:7.0,er:7.12,erE:8.15,fly:7.98,land:8.78,cK:8.74,c1:8.82,cq:8.96,cK2:9.78,ans:9.93,wA:11.9,wD:0.56,dOut:15.1,f:15.4,typ:15.9,send:16.7,sub:16.96,logo:17.6,end:20.0};
 window.DURATION=T.end;
 const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 const lin=x=>cl(x),eOut=x=>1-Math.pow(1-cl(x),4),eOut3=x=>1-Math.pow(1-cl(x),3),eIn=x=>Math.pow(cl(x),3),eIn2=x=>cl(x)*cl(x),eIO=x=>{x=cl(x);return x<.5?8*x*x*x*x:1-Math.pow(-2*x+2,4)/2},eIO2=x=>{x=cl(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2},eS=x=>{x=cl(x);return x*x*(3-2*x)},eSin=x=>0.5-0.5*Math.cos(Math.PI*cl(x));
@@ -201,7 +201,7 @@ const FG=[];for(let j=0;j<9;j++){const i=j*7+3;FG.push({p:LW(SA,(rnd(i+3)-.5)*22
 const fgc=$('fg').getContext('2d');const fgSpr=(()=>{const cv=document.createElement('canvas');cv.width=cv.height=128;const g=cv.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(125,211,252,.8)');gr.addColorStop(.55,'rgba(80,160,245,.55)');gr.addColorStop(1,'rgba(80,160,245,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return cv})();
 
 /* bolha: borda aparece por baixo no gancho e sobe até o lugar na virada (cruza com a saída do gancho) */
-const B_OFF=960;const bDy=t=>-((B_OFF+45*P(t,0.4,2.5,eS))*(1-P(t,T.b,T.bIn-T.b,eIO2)))-(1-cl(spSoft((t-T.peek)*1000)))*220;
+const B_OFF=960;const bDy=t=>-((B_OFF+45*P(t,0.4,2.5,eS))*(1-P(t,T.b,T.bIn-T.b,eIO2)));
 /* ================= RENDER ================= */
 const WORD='FÁCIL';
 const GREY=[135,146,164],QL=[226,232,240],WH=[255,255,255];const rgb=(a,b,k)=>`rgb(${a.map((v,i)=>Math.round(lerp(v,b[i],k))).join(',')})`;
@@ -235,7 +235,7 @@ window.render=function(t){
     if(w.sv&&t>T.fly)op*=1-P(t,T.fly,0.1,lin);
     s.transform=tr;s.opacity=op<0.004?0:op;s.filter=bl>0.05?`blur(${bl.toFixed(1)}px)`:'none';s.color=rgb(col,col,0)}}
   {const f=$('svf').style;const k=P(t,T.fly,T.land-T.fly,eSin);f.opacity=t>T.fly&&t<T.land?P(t,T.fly,0.1,lin):0;f.transform=`translate(${(FLY.dx*k).toFixed(1)}px,${(FLY.dy*k).toFixed(1)}px) scale(${lerp(1,SC,k).toFixed(4)})`}
-  {const v=spSoft((t-T.peek)*1000),eo=P(t,T.er+0.1,0.8,eIO2);put('bB',t>T.peek&&t<T.land?cl(v*2.2)*(1-eo):0,{s:1-0.05*eo,pv:-PLN.bB.h/2,ph:PLN.bB.w/2,dy:bDy(t)})}
+  {const v=spSoft((t-T.b)*1000),eo=P(t,T.er+0.1,0.8,eIO2);put('bB',t>T.b&&t<T.land?cl(v*2.2)*(1-eo):0,{s:1-0.05*eo,pv:-PLN.bB.h/2,ph:PLN.bB.w/2,dy:bDy(t)})}
   put('bP',on?1:0,{dy:bDy(t)});
   const pv=spSnap((t-T.pill)*1000),po=P(t,T.bOut,0.2,eIn2);put('bp',on&&t>T.pill&&t<T.bOut+0.22?cl(pv*3)*(1-po):0,{dy:-(1-pv)*26+po*40});
   put('gB',t>T.b&&t<T.land?P(t,T.b,0.6)*(1-P(t,T.erE-0.2,0.4,eIn2)):0,{dx:-40*(t-T.b)})}

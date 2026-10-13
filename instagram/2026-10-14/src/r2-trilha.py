@@ -14,7 +14,7 @@ from scipy.io import wavfile
 SR=48000; END=20.0; N=int((END+0.5)*SR); TT=np.arange(N)/SR
 rng=np.random.default_rng(1410)
 B=0.5; E16=B/4
-T=dict(a3=0.04,a4=0.16,peek=0.3,aOut=2.98,b=2.94,bIn=3.64,bLines=3.38,qq=4.95,pill=5.35,bOut=7.0,er=7.12,erE=8.15,fly=7.98,land=8.78,cK=8.74,c1=8.82,cq=8.96,cK2=9.78,ans=9.93,wA=11.9,wD=0.56,dOut=15.2,f=15.4,typ=15.9,send=16.7,sub=16.96,logo=17.6)
+T=dict(a3=0.04,a4=0.16,peek=0.3,aOut=2.98,b=2.94,bIn=3.64,bLines=3.0,qq=4.95,pill=5.35,bOut=7.0,er=7.12,erE=8.15,fly=7.98,land=8.78,cK=8.74,c1=8.82,cq=8.96,cK2=9.78,ans=9.93,wA=11.9,wD=0.56,dOut=15.1,f=15.4,typ=15.9,send=16.7,sub=16.96,logo=17.6)
 def lp(x,f): return sosfilt(butter(2,f,'low',fs=SR,output='sos'),x)
 def hp(x,f): return sosfilt(butter(2,f,'high',fs=SR,output='sos'),x)
 def bp(x,a,b): return sosfilt(butter(2,[a,b],'band',fs=SR,output='sos'),x)
@@ -90,7 +90,6 @@ for k in range(int(2.9/E16)):
     if pos%4==2: st(ep([76,73,69,73][(k//4)%4],0.5,0.5),t,.03,(.25,-.25)[(k//4)%2])
 st(thud(1,64),T['a3'],.1);st(ep(57,0.8,0.6),T['a3'],.05)
 st(lp(ep(45,1.2,0.6),500),T['a4'],.12,-.1)                # "MENSAGEM LONGA." abafado
-st(lp(whoosh(0.35,300,1400,1),1800),T['peek']-0.05,.03,.2);st(thud(1,56),T['peek']+0.12,.05)   # borda da bolha aparece por baixo
 # ---------- recuo com desfoque ----------
 w=whoosh(0.5,3500,300,1,False);st(w,T['aOut']-0.1,.09);st(thud(1,48),T['bIn']-0.1,.18)
 # ---------- B · a mensagem longa: textura que entope ----------
